@@ -13,13 +13,13 @@ First add our repository to /etc/apt/sources.list. If you run PHP 7.0 (Debian 9)
 
 .. code:: bash
 
-   deb http://repos.groupoffice.eu/ 63-php-70 main
+   deb http://repo.group-office.com/ 63-php-70 main
 
 If you run PHP 7.1 or greater (Ubuntu 18.04+) add:
 
 .. code:: bash
 
-   deb http://repos.groupoffice.eu/ 63-php-71 main
+   deb http://repo.group-office.com/ 63-php-71 main
 
 
 Add our public key:
