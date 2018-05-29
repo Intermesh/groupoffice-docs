@@ -3,21 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Group-Office's documentation!
-========================================
+Welcome to Group-Office's installation manual
+=============================================
+
+Group-Office is an open-source groupware and CRM application. Visit https://www.group-office.com for more information.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    install
-	 
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   upgrade
+   backup
+   mailserver
