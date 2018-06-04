@@ -38,6 +38,7 @@ From older versions than 6.3
       deb http://repos.groupoffice.eu/ sixtwo main
 
 4. Now do a fresh install of the Debian package. But note:
+
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose "Keep the local version currently installed".
 
