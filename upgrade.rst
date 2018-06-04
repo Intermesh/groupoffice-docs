@@ -25,46 +25,21 @@ From older versions than 6.3
 ````````````````````````````
 
 1. Make sure you're on the latest 6.2 version.
-
-2. Create a dump of the "groupofficecom" database (Lookup password in /etc/groupoffice/config.php):
-
-   .. code:: bash
-   
-      mysqldump -u groupoffice-com -p groupofficecom > ~/groupoffice-com.sql
-
-3. Then uninstall the old "groupoffice-com" package:
+2. Uninstall the old "groupoffice-com" package:
 
    .. code:: bash
    
       apt-get remove groupoffice-com
 
-4. Edit /etc/apt/sources.list and remove:
+3. Edit /etc/apt/sources.list and remove:
 
    .. code:: bash
    
       deb http://repos.groupoffice.eu/ sixtwo main
 
-5. Now do a fresh install of the Debian package. But don't run the web installer. See :ref:`install-debian`.
-
-6. Now import your database (Lookup new password in /etc/groupoffice/config.ini)
-
-   .. code:: bash
-   
-      mysql -u groupoffice -p groupoffice < ~/groupoffice-com.sql
-
-7. Remove fresh data folder:
-
-   .. code:: bash
-   
-      rmdir /var/lib/groupoffice 
-
-8.  move Group-Office data folder to the new location:
-
-   .. code:: bash
-
-      mv /home/groupoffice /var/lib/groupoffice
-
-9. Upgrade the database by visiting http://yourdomain/install/upgrade.php
+4. Now do a fresh install of the Debian package. But note:
+   - When the installer asks to install a database choose "NO".
+   - When the installer asks to replace /etc/groupoffice/config.php, choose "Keep the local version currently installed".
 
 You're all done!
 
