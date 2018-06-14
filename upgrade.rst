@@ -45,7 +45,7 @@ From older versions than 6.3
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
      "Keep the local version currently installed".
 
-You're all done!
+Continue at :ref:`install-debian`.
 
 
 Upgrading the Docker images
