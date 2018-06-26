@@ -5,9 +5,16 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: General:
 
    install
    upgrade
    backup
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced:
+
    mailserver
+   authentication
+   
