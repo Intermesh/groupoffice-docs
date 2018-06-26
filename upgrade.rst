@@ -27,7 +27,7 @@ From older versions than 6.3
 1. Make sure you're on the latest 6.2 version.
 2. Make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
-3. Uninstall the old "groupoffice-com" package:
+3. Uninstall the old "groupoffice-com" package but do **NOT** deconfigure the database:
 
    .. code:: bash
    
