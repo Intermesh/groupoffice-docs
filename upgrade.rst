@@ -12,6 +12,9 @@ to do it in steps:
 
 Needless to say, but always make a **backup** before upgrading.
 
+After the upgrade you should consider replacing the "gota" module with the new
+"assistant" module for better file editing on the desktop.
+
 Upgrading on Debian / Ubuntu
 ----------------------------
 
