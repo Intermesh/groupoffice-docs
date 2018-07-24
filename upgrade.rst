@@ -27,6 +27,8 @@ When running 6.3.x or higher simply do:
 From older versions than 6.3
 ````````````````````````````
 
+*Note:* 6.3 offers quite a lot of changes. It's strongly recommended to upgrade in a test environment first.
+
 1. Make sure you're on the latest 6.2 version.
 2. Make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
