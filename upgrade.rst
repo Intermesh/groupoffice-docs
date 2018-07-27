@@ -86,4 +86,4 @@ tarball. But if you really want use it then follow these steps:
 
       .. code:: bash
 
-      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php > /dev/null
+      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php

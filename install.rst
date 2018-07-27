@@ -141,4 +141,4 @@ Required PHP Extensions
 
    .. code:: bash
 
-      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php > /dev/null
+      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
