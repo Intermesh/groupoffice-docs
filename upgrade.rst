@@ -81,4 +81,9 @@ tarball. But if you really want use it then follow these steps:
 6. If exists copy your old config.php or config.ini and license file to the new 
    files. It is good practice to keep these files one directory higher then the 
    Group-Office source so you have a complete clean code base.
-7. Visit http://yourdomain/install/upgrade.php to perform the database upgrade.
+7. Visit http://yourdomain/install/ and follow instructions.
+8. Check if you have the right cron job in place:
+
+      .. code:: bash
+
+      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php > /dev/null

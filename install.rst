@@ -141,4 +141,4 @@ Required PHP Extensions
 
    .. code:: bash
 
-      * * * * * www-data php <YOURDOCUMENTROOT>/groupofficecli.php -c=/path/to/config.php -r=core/cron/run -q > /dev/null
+      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php > /dev/null
