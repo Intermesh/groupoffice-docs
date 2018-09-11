@@ -13,7 +13,7 @@ Our preferred way of installing is using our Debian packages:
 
 1. On Debian login as the root server and on Ubuntu become root by running::
 
-   sudo -s
+      sudo -s
 
 2. First add our repository to the package management system. 
 
