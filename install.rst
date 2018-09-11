@@ -9,50 +9,42 @@ install all dependencies automatically and will be the easiest for you.
 Install on Debian / Ubuntu
 ----------------------------
 
-Our preferred way of installing is using our debian packages:
- 
-1. First add our repository to /etc/apt/sources.list. 
+Our preferred way of installing is using our Debian packages:
 
-   If you run PHP 7.0 (Debian 9) add:
+1. On Debian login as the root server and on Ubuntu become root by running::
 
-   .. code:: bash
+   sudo -s
 
-      deb http://repo.group-office.com/ 63-php-70 main
+2. First add our repository to the package management system. 
 
-   If you run PHP 7.1 or greater (Ubuntu 18.04+) add:
+   If you run PHP 7.0 (Debian 9) run::
+   
+      echo  "deb http://repo.group-office.com/ 63-php-70 main" | tee -a /etc/apt/sources.list
 
-   .. code:: bash
+   If you run PHP 7.1 or greater (Ubuntu 18.04+) add::
 
-      deb http://repo.group-office.com/ 63-php-71 main
+      echo  "deb http://repo.group-office.com/ 63-php-71 main" | tee -a /etc/apt/sources.list
 
+3. Add our public key::
 
-2. Add our public key:
+      apt-key adv --recv-keys --keyserver pool.sks-keyservers.net 0758838B
 
-   .. code:: bash
-
-      gpg --keyserver pool.sks-keyservers.net --recv-keys 0758838B
-      gpg --export --armor 0758838B | sudo apt-key add -
-
-3. Update APT:
-
-   .. code:: bash
+4. Update APT::
 
       apt-get update
 
-4. Then install Group-Office by running:
-
-   .. code:: bash
+5. Then install Group-Office by running::
 
       apt-get install groupoffice
 
-5. Then visit http://yourserver/groupoffice and the installer should appear:
+6. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: _static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer
 
-6. Follow the instructions on screen and enjoy Group-Office!
+7. Follow the instructions on screen and enjoy Group-Office!
 
 Install with Docker
 -------------------
