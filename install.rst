@@ -137,7 +137,7 @@ Required PHP Extensions
    files in "/usr/share/groupoffice/". For example 
    "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
-5. Then visit http://yourserver/groupoffice and the installer should appear:
+5. Then visit http://yourserver/ and the installer should appear:
 
    .. figure:: _static/installer.png
       :alt: The Group-Office installer
