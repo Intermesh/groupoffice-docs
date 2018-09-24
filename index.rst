@@ -20,6 +20,7 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
    :maxdepth: 2
    :caption: Advanced:
 
+   translations
    mailserver
    authentication
    multi-instance
