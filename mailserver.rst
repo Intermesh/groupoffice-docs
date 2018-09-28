@@ -95,11 +95,9 @@ To install take these steps:
 
 2. Update APT::
 
-     apt-get update
+      apt-get update
   
 3. Install groupoffice-mailserver-antispam::
-      
-   .. code:: bash
 
       apt-get install groupoffice-mailserver-antispam
 
