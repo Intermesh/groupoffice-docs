@@ -24,32 +24,37 @@ Our preferred way of installing is using our Debian packages:
    If you run PHP 7.1 or greater (Ubuntu 18.04+) add::
 
       echo  "deb http://repo.group-office.com/ 63-php-71 main" | tee -a /etc/apt/sources.list
+      
+3. Make sure "dirmngr" is installed for adding the public key::
 
-3. Add our public key::
+      apt-get install dirmngr
+
+4. Add our public key::
 
       apt-key adv --recv-keys --keyserver pool.sks-keyservers.net 0758838B
+      
 
-4. Update APT::
+5. Update APT::
 
       apt-get update
 
-5. Then install Group-Office by running::
+6. Then install Group-Office by running::
 
       apt-get install groupoffice
 
-6. If you purchased Group-Office Professional licenses then make sure the 
+7. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
    files in "/usr/share/groupoffice/". For example 
    "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
-7. Then visit http://yourserver/groupoffice and the installer should appear:
+8. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: _static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-8. Follow the instructions on screen and enjoy Group-Office!
+9. Follow the instructions on screen and enjoy Group-Office!
 
 Install with Docker
 -------------------
