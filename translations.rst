@@ -45,6 +45,8 @@ include it in the next release.
 
 You can find the download spreadsheet button next to the language selection in System Settings -> General. 
 
+.. _customize-language:
+
 Customize
 ---------
 
