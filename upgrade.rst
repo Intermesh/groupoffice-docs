@@ -12,8 +12,13 @@ to do it in steps:
 
 Needless to say, but always make a **backup** before upgrading.
 
-After the upgrade you should consider replacing the "gota" module with the new
+Important notes
+```````````````
+- After the upgrade you should consider replacing the "gota" module with the new
 "assistant" module for better file editing on the desktop.
+- Typically the Custom CSS module was used to replace the logo. To take advanage of the new System Settings -> Appearance
+features you should remove this CSS code.
+- If you customized language then you should convert this to the new :ref:`customize-language` system.
 
 Upgrading on Debian / Ubuntu
 ----------------------------
