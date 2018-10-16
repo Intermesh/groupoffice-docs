@@ -156,3 +156,12 @@ Required PHP Extensions
    .. code:: bash
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
+      
+      
+Authentication with CGI or FastCGI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When using PHP through CGI the "Authorization" header might not be passed by default. You can enable this header by adding these "mod_rewrite" rules to your VirtualHost section or .htacess file::
+
+      RewriteEngine On
+      RewriteCond %{HTTP:Authorization} ^(.*)
+      RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
