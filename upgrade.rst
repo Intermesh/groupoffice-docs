@@ -43,14 +43,18 @@ Steps
    .. code:: bash
    
       apt-get remove groupoffice-com
+      
+4. If you made manual changes inside /usr/share/groupoffice (Like installing z-push for example). The the package manager will leave these folders intact. To avoid problems move /usr/share/groupoffice away before installing::
+   
+   mv /usr/share/groupoffice /root/groupofficebak
 
-4. Edit /etc/apt/sources.list and remove:
+5. Edit /etc/apt/sources.list and remove:
 
    .. code:: bash
    
       deb http://repos.groupoffice.eu/ sixtwo main
 
-5. Now do a fresh install of the Debian package. But note:
+6. Now do a fresh install of the Debian package. But note:
 
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
