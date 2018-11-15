@@ -46,7 +46,7 @@ Steps
       
 4. If you made manual changes inside /usr/share/groupoffice (Like installing z-push for example). The the package manager will leave these folders intact. To avoid problems move /usr/share/groupoffice away before installing::
    
-   mv /usr/share/groupoffice /root/groupofficebak
+      mv /usr/share/groupoffice /root/groupofficebak
 
 5. Edit /etc/apt/sources.list and remove:
 
