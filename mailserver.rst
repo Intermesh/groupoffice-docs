@@ -56,7 +56,7 @@ Upgrading from 6.2
 ``````````````````
 
 1. To upgrade from 6.2 you must start with a clean system by removing all previous
-software and configuration. **Make a backup!**::
+   software and configuration. **Make a backup!**::
 
       apt-get purge groupoffice-mailserver dovecot* postfix* clamav* spamassassin amavisd-new
 
