@@ -17,7 +17,7 @@ Our preferred way of installing is using our Debian packages:
       
 2. Only on Ubuntu make sure the "universe" repository is enabled::
 
-   sudo add-apt-repository universe
+      sudo add-apt-repository universe
 
 3. First add our repository to the package management system. 
 
