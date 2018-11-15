@@ -14,8 +14,12 @@ Our preferred way of installing is using our Debian packages:
 1. On Debian login as the root server and on Ubuntu become root by running::
 
       sudo -s
+      
+2. Only on Ubuntu make sure the "universe" repository is enabled::
 
-2. First add our repository to the package management system. 
+   sudo add-apt-repository universe
+
+3. First add our repository to the package management system. 
 
    If you run PHP 7.0 (Debian 9) run::
    
@@ -25,36 +29,35 @@ Our preferred way of installing is using our Debian packages:
 
       echo "deb http://repo.group-office.com/ 63-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
       
-3. Make sure "dirmngr" is installed for adding the public key::
+4. Make sure "dirmngr" is installed for adding the public key::
 
       apt-get install dirmngr
 
-4. Add our public key::
+5. Add our public key::
 
       apt-key adv --recv-keys --keyserver pool.sks-keyservers.net 0758838B
       
-
-5. Update APT::
+6. Update APT::
 
       apt-get update
 
-6. Then install Group-Office by running::
+7. Then install Group-Office by running::
 
       apt-get install groupoffice
 
-7. If you purchased Group-Office Professional licenses then make sure the 
+8. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
    files in "/usr/share/groupoffice/". For example 
    "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
-8. Then visit http://yourserver/groupoffice and the installer should appear:
+9. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: _static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-9. Follow the instructions on screen and enjoy Group-Office!
+10. Follow the instructions on screen and enjoy Group-Office!
 
 Install with Docker
 -------------------
