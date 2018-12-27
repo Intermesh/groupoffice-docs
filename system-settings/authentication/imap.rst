@@ -15,13 +15,13 @@ Configure
 Go to System Settings -> Authentication. There's a new IMAP Autentication section
 there.
 
-.. image:: _static/imap/1-imap-authentication.png
+.. image:: ../../_static/imap/1-imap-authentication.png
    :width: 500px
    :alt: IMAP Authentication
 
 Click on the add button to add a new IMAP server profile:
 
-.. image:: _static/imap/2-imap-server-profile.png
+.. image:: ../../_static/imap/2-imap-server-profile.png
    :width: 500px
    :alt: IMAP Server profile
 

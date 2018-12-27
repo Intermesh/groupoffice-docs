@@ -1,5 +1,5 @@
-Welcome to Group-Office's installation manual
-=============================================
+Group-Office manual
+===================
 
 Group-Office is an open-source groupware and CRM application. Visit https://www.group-office.com for more information.
 
@@ -10,17 +10,17 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
 
 .. toctree::
    :maxdepth: 2
-   :caption: General:
+   :caption: Administration
 
-   install
-   upgrade
+   install/install
+   upgrade/upgrade
    backup
+   system-settings/index
 
 .. toctree::
    :maxdepth: 2
-   :caption: Advanced:
+   :caption: Using Group-Office
 
-   mailserver
-   authentication
-   multi-instance
+   connect-a-device/connect-a-device
+   
    

@@ -15,7 +15,7 @@ Configure
 
 Go to System Settings -> Authentication
 
-.. image:: _static/ldap/4-ldap-authentication.png
+.. image:: ../../_static/ldap/4-ldap-authentication.png
    :width: 500px
    :alt: LDAP server profile
 
@@ -24,20 +24,20 @@ a profile. Enter the LDAP server details and domains.
 The domains are important because users need to login with <LDAPUSER>@<DOMAIN> 
 to trigger the LDAP authenticator.
 
-.. image:: _static/ldap/1-ldap-server-profile.png
+.. image:: ../../_static/ldap/1-ldap-server-profile.png
    :width: 500px
    :alt: LDAP server profile
 
 Now check if you can login with the LDAP domain:
 
-.. image:: _static/ldap/2-ldap-login.png
+.. image:: ../../_static/ldap/2-ldap-login.png
    :width: 500px
    :alt: LDAP login
 
 It should autocreate the LDAP user. In the user settings it won't be possible
 to change the password as that's not supported yet:
 
-.. image:: _static/ldap/3-ldap-settings.png
+.. image:: ../../_static/ldap/3-ldap-settings.png
    :width: 500px
    :alt: LDAP User settings
 

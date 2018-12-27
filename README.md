@@ -1,5 +1,5 @@
-# Installation manual for Group-Office
+# Manual for Group-Office
 
-This is the source repository for the installation manual:
+This is the source repository for the manual:
 
 https://groupoffice.readthedocs.io/
