@@ -22,5 +22,3 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
    :caption: Using Group-Office
 
    connect-a-device/connect-a-device
-   
-   

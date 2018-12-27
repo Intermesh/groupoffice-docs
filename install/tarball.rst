@@ -65,12 +65,33 @@ Required PHP Extensions
    
    	 #DAV Service discovery. At least required for iOS7 support
    	 Redirect 301 /.well-known/carddav /carddav
-     Redirect 301 /.well-known/caldav /caldav
+       Redirect 301 /.well-known/caldav /caldav
 
-4. Open it in the web browser. Then follow the installer's instructions.
+4. If you purchased Group-Office Professional licenses then make sure the 
+   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
+   files in "/usr/share/groupoffice/". For example 
+   "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
-5. Create a cron job:
+5. Then visit http://yourserver/ and the installer should appear:
+
+   .. figure:: _static/installer.png
+      :alt: The Group-Office installer
+
+      The Group-Office installer     
+
+6. Follow the instructions on screen.
+
+7. Finally, create a cron job for the scheduled tasks:
 
    .. code:: bash
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
+      
+      
+Authentication with CGI or FastCGI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When using PHP through CGI the "Authorization" header might not be passed by default. You can enable this header by adding these "mod_rewrite" rules to your VirtualHost section or .htacess file::
+
+      RewriteEngine On
+      RewriteCond %{HTTP:Authorization} ^(.*)
+      RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]

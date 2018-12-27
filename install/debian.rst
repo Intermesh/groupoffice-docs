@@ -3,53 +3,58 @@
 Installation on Debian or Ubuntu
 ================================
 
-Our preferred way of installing is using our Debian packages.
-
 Core system
 -----------
- 
-1. First add our repository to /etc/apt/sources.list. 
 
-   If you run PHP 7.0 (Debian 9) add:
+Our preferred way of installing is using our Debian packages:
 
-   .. code:: bash
+1. On Debian login as the root server and on Ubuntu become root by running::
 
-      deb http://repo.group-office.com/ 63-php-70 main
+      sudo -s
+      
+2. Only on Ubuntu make sure the "universe" repository is enabled::
 
-   If you run PHP 7.1 or greater (Ubuntu 18.04+) add:
+      sudo add-apt-repository universe
 
-   .. code:: bash
+3. First add our repository to the package management system. 
 
-      deb http://repo.group-office.com/ 63-php-71 main
+   If you run PHP 7.0 (Debian 9) run::
+   
+      echo "deb http://repo.group-office.com/ 63-php-70 main" > /etc/apt/sources.list.d/groupoffice.list
 
+   If you run PHP 7.1 or greater (Ubuntu 18.04+) add::
 
-2. Add our public key:
+      echo "deb http://repo.group-office.com/ 63-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
+      
+4. Make sure "dirmngr" is installed for adding the public key::
 
-   .. code:: bash
+      apt-get install dirmngr
 
-      gpg --keyserver pool.sks-keyservers.net --recv-keys 0758838B
-      gpg --export --armor 0758838B | sudo apt-key add -
+5. Add our public key::
 
-3. Update APT:
-
-   .. code:: bash
+      apt-key adv --recv-keys --keyserver pool.sks-keyservers.net 0758838B
+      
+6. Update APT::
 
       apt-get update
 
-4. Then install Group-Office by running:
-
-   .. code:: bash
+7. Then install Group-Office by running::
 
       apt-get install groupoffice
 
-5. Then visit http://yourserver/groupoffice and the installer should appear:
+8. If you purchased Group-Office Professional licenses then make sure the 
+   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
+   files in "/usr/share/groupoffice/". For example 
+   "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
-   .. figure:: ../_static/installer.png
+9. Then visit http://yourserver/groupoffice and the installer should appear:
+
+   .. figure:: _static/installer.png
       :alt: The Group-Office installer
 
-      The Group-Office installer
+      The Group-Office installer     
 
-6. Follow the instructions on screen and enjoy Group-Office!
+10. Follow the instructions on screen and enjoy Group-Office!
 
 
 Mailserver
@@ -60,6 +65,8 @@ You can also use Group-Office as a complete e-mail platform. It's based on:
 1. `Postfix <http://www.postfix.org>`_
 2. `Dovecot <https://www.dovecot.org>`_
 3. Group-Office module to manage mailboxes in the database
+
+At the moment this is only possible with the Debian / Ubuntu packages.
 
 When Group-Office is already installed you can run::
 
@@ -124,11 +131,9 @@ To install take these steps:
 
 2. Update APT::
 
-     apt-get update
+      apt-get update
   
 3. Install groupoffice-mailserver-antispam::
-      
-   .. code:: bash
 
       apt-get install groupoffice-mailserver-antispam
 
