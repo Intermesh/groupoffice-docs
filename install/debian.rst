@@ -49,7 +49,7 @@ Our preferred way of installing is using our Debian packages:
 
 9. Then visit http://yourserver/groupoffice and the installer should appear:
 
-   .. figure:: _static/installer.png
+   .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
@@ -76,7 +76,7 @@ When this command is finished login to Group-Office as admin and install the
 "E-mail domains" module. In this module you can manage the domains, mailboxes
 and aliases.
 
-.. figure:: ../_static/email-domains.png
+.. figure:: /_static/email-domains.png
    :alt: Manage e-mail domains in Group-Office
 
    Manage e-mail domains in Group-Office

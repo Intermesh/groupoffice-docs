@@ -13,7 +13,16 @@ When running 6.3.x or higher simply do:
 From older versions than 6.3
 ````````````````````````````
 
-*Note:* 6.3 offers quite a lot of changes. It's strongly recommended to upgrade in a test environment first.
+- `First checkout the blog post about this release <http://groupoffice.blogspot.com/2018/07/group-office-63-released.html>`_
+- 6.3 offers quite a lot of changes. It's strongly recommended to upgrade in a test environment first.
+- After the upgrade you should consider replacing the "gota" module with the new
+  "assistant" module for better file editing on the desktop.
+- Typically the Custom CSS module was used to replace the logo. To take advanage of 
+  the new System Settings -> Appearance features you should remove this CSS code.
+- If you customized language then you should convert this to the new language :ref:`customize-language` system.
+
+Steps
+^^^^^
 
 1. Make sure you're on the latest 6.2 version.
 2. Make sure you've installed the "customfields" and "search" modules as they 
@@ -23,14 +32,18 @@ From older versions than 6.3
    .. code:: bash
    
       apt-get remove groupoffice-com
+      
+4. If you made manual changes inside /usr/share/groupoffice (Like installing z-push for example). The the package manager will leave these folders intact. To avoid problems move /usr/share/groupoffice away before installing::
+   
+      mv /usr/share/groupoffice /root/groupofficebak
 
-4. Edit /etc/apt/sources.list and remove:
+5. Edit /etc/apt/sources.list and remove:
 
    .. code:: bash
    
       deb http://repos.groupoffice.eu/ sixtwo main
 
-5. Now do a fresh install of the Debian package. But note:
+6. Now do a fresh install of the Debian package. But note:
 
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 

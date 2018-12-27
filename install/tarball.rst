@@ -74,7 +74,7 @@ Required PHP Extensions
 
 5. Then visit http://yourserver/ and the installer should appear:
 
-   .. figure:: _static/installer.png
+   .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
