@@ -22,7 +22,7 @@ Our preferred way of installing is using our Debian packages:
    
       echo "deb http://repo.group-office.com/ 63-php-70 main" > /etc/apt/sources.list.d/groupoffice.list
 
-   If you run PHP 7.1 or greater (Ubuntu 18.04+) add::
+   If you run PHP 7.1 or higher (Ubuntu 18.04+) add::
 
       echo "deb http://repo.group-office.com/ 63-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
       
