@@ -1,3 +1,5 @@
+.. _google-authenticator:
+
 Google Authenticator
 ====================
 

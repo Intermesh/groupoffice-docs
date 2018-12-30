@@ -1,5 +1,5 @@
-Backup Group-Office
-===================
+Backup
+======
 
 You need to backup the following items:
 
