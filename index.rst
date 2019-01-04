@@ -24,6 +24,7 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
 
    using/my-account
    using/connect-a-device/connect-a-device
+   using/links
    
 .. toctree::
    :maxdepth: 2

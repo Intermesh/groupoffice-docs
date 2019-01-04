@@ -23,4 +23,7 @@ Group-Office.
    modules
    authentication   
    users
+   custom-fields
+
+
 
