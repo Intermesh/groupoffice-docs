@@ -3,7 +3,8 @@ Links
 =====
 
 Group-Office has a very powerful link function. Each item can be linked to 
-another. You can for example link:
+another. The link function gives you the ability to organize your data easily.
+You can for example link:
 
 - E-mail messages
 - Tasks

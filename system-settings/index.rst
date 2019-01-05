@@ -24,6 +24,8 @@ Group-Office.
    authentication   
    users
    custom-fields
+   document-templates
+   email
 
 
 
