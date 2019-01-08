@@ -24,7 +24,7 @@ the advanced search.
 
 
 Indexing delay
--------------
+--------------
 
 File uploads are not indexed straight away. A schedule task is defined that will 
 run every night at 1:00 am. If you want to run it more often you can adjust 

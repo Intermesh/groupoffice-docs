@@ -7,7 +7,7 @@ among users via the web interface, :ref:`your mobile or desktop computer <connec
 .. figure:: /_static/using/calendar/calendar.png
    :width: 100%
 
-	 Calendar module
+   Calendar module
 
 Sharing
 -------

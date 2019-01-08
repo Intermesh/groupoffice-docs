@@ -92,6 +92,7 @@ Other locations such as projects and address book folders are owned by the
 "admin" user.
 
 .. figure:: /_static/system-settings/my-account.png
+   :width: 100%
    :alt: Edit user
 
-	 Edit user
+   Edit user

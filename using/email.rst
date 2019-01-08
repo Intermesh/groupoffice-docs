@@ -140,7 +140,7 @@ You can use custom fields like this:
 - {project:databaseName}
 - {contact:databaseName}
 - {company:databaseName}
-etc.
+- etc.
 
 
 Common fields
