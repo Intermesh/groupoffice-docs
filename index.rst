@@ -29,9 +29,11 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
    using/sharing
    using/email
    using/calendar
+   using/address-book
    using/tickets
    using/projects
    using/holidays
+   using/billing
    
 .. toctree::
    :maxdepth: 2

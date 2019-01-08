@@ -1,7 +1,7 @@
 Comments
 ========
 
-.. warning:: This page needs work. Document new 6.4 comments feature
+.. warning:: This page needs work. Document new 6.4 comments feature.
 
 Any user can write comments on items that support it:
 
