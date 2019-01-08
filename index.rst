@@ -1,7 +1,8 @@
 Group-Office manual
 ===================
 
-Group-Office is an open-source groupware and CRM application. Visit https://www.group-office.com for more information.
+Group-Office is an open-source groupware and CRM application. 
+Visit https://www.group-office.com for more information.
 
 .. figure:: _static/groupoffice-start-page.png
    :alt: The Group Office start page
