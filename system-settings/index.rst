@@ -25,7 +25,6 @@ Group-Office.
    users
    custom-fields
    document-templates
-   email
 
 
 

@@ -125,6 +125,8 @@ config.php. The administrator can change the default font:
 
 $config['$html_editor_font']="font-size:13px; font-family:Arial, Helvetica, sans-serif;";
 
+.. _template-variables:
+
 Template variables
 ------------------
 
