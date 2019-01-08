@@ -366,33 +366,25 @@ by overriding the "filter" method:
 
 .. code:: php
 
-   /**
-    * Filter entities See JMAP spec for details on the $filter array.
-    * 
-    * @link https://jmap.io/spec-core.html#/query
-    * @param Query $query
-    * @param array $filter key value array eg. ["q" => "foo"]
-    * @return Query
-    */
-   public static function filter(\go\core\db\Query $query, array $filter) {
-     
-     //Handle quick search filter parameter
-     if(isset($filter['q'])) {
-       $query->where('name','LIKE', $filter['q'] .'%');
-     }
-     
-     //An array of Genre ID's can be passed
-    if(!empty($filter['genres'])) {
-      //filter artists on their album genres
-      $query->join('music_album', 'a', 'a.artistId = t.id')
-          ->groupBy(['t.id']) // group the results by id to filter out duplicates because of the join
-          ->where(['a.genreId' => $filter['genres']]);      
-    }
-     
-     //Always return parent filter function because it may implement core filters.
-     return parent::filter($query, $filter);
-   }
-
+	/**
+	 * Defines JMAP filters
+	 * 
+	 * Adds the 'genres' filter which can be an array of genre id's.
+	 * 
+	 * @link https://jmap.io/spec-core.html#/query
+	 * 
+	 * @return Filters
+	 */
+	protected static function defineFilters() {
+		return parent::defineFilters()
+						->add('genres', function (Query $query, $value, array $filter) {
+							if(!empty($value)) {
+								$query->join('music_album', 'album', 'album.artistId = artist.id')
+									->groupBy(['artist.id']) // group the results by id to filter out duplicates because of the join
+									->where(['album.genreId' => $value]);	
+							}
+						});
+	}
 
 
 JMAP API protocol
