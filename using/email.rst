@@ -42,6 +42,11 @@ user by selecting it here. At last fill in the other values you got from your
 e-mail service provider. If you get a 'certificate-failure' error then tick 
 the 'Don't validate certificate' option.
 
+Synchronize e-mail
+------------------
+You can synchronize your mail to your desktop or mobile device. Read more about 
+:ref:`connecting your device here <connect-a-device>`.
+
 Sharing e-mail accounts
 -----------------------
 

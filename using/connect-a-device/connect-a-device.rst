@@ -1,3 +1,5 @@
+.. _connect-a-device:
+
 Connect a device
 ================
 
