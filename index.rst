@@ -30,6 +30,7 @@ Group-Office is an open-source groupware and CRM application. Visit https://www.
    using/email
    using/calendar
    using/tickets
+   using/projects
    
 .. toctree::
    :maxdepth: 2

@@ -1,9 +1,9 @@
 System settings
 ===============
 
-When you click on the avatar icon on the top right you can open the 
-"System settings" page. This is the place to configure everything for 
-Group-Office. 
+System settings are only available to administrators. When you click on the 
+avatar icon on the top right you can open the "System settings" page. This is 
+the place to configure everything for Group-Office. 
 
 .. note:: When setting up Group-Office we recommend to review each tab and make 
    adjustments where necessary before you start creating users and start 
