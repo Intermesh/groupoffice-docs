@@ -163,7 +163,7 @@ On the status properties you have the following options:
 +---------------------------+--------------------------------------------------+
 
 Permissions
-+++++++++++
+```````````
 
 If you don't want to allow anyone to set this status. You can configure that here.
 
