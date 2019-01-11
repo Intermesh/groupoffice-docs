@@ -23,8 +23,8 @@ the advanced search.
    File search module
 
 
-Indexing delay
---------------
+Indexing
+--------
 
 File uploads are not indexed straight away. A schedule task is defined that will 
 run every night at 1:00 am. If you want to run it more often you can adjust 
@@ -36,3 +36,7 @@ If you want to index directly after upload. You can put this in config.php::
 
 .. warning:: This may cause great delays on uploads. We don't recommend using 
    this setting.
+
+
+.. note:: If indexing is not working you might need to install some 
+   additional tools. See :ref:`the installation instructions <install-documents>`.
