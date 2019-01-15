@@ -11,3 +11,5 @@ Server API
    server/blob.rst
    server/custom-fields.rst
    server/router.rst
+   server/account-settings.rst
+   server/system-settings.rst

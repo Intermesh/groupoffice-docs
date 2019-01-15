@@ -8,4 +8,5 @@ Webclient API
    webclient/structure.rst
    webclient/icons.rst
    webclient/custom-fields.rst
-   webclient/settings-panels.rst
+   webclient/account-settings.rst
+   webclient/system-settings.rst

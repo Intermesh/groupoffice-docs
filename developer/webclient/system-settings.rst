@@ -1,4 +1,4 @@
-System and user settings
+System settings
 ========================
 
 TODO
