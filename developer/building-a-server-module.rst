@@ -8,7 +8,7 @@ we're going to build a Music module.
 .. figure:: /_static/developer/building-a-webclient-module/artist-detail-desktop.png
    :width: 100%
 
-Group Office is a JMAP server API and a webclient. We'll start with implementing
+Group Office is a `JMAP-based <https://jmap.io>`_ server API and a webclient. We'll start with implementing
 the JMAP server API.
 
 If you haven't got your development environment set up than please do this first
@@ -33,7 +33,7 @@ When writing code we following standards:
 1. Use tabs to indent code
 2. Use braces with all structures
 3. Don't use ?> close tag at the end of class files
-4. One file per class.
+4. One class per file
 5. YAGNI
 
 Naming conventions
@@ -47,6 +47,9 @@ Naming conventions
 | Constants             | UPPER_UNDERSCORED                              |
 +-----------------------+------------------------------------------------+
 | Database tables       | lower_underscored (For windows compatibility)  |
+|                       | and singlular eg. "contact" and not "contacts" |
++-----------------------+------------------------------------------------+
+| Database fields       | lowerCamelCase                                 |
 +-----------------------+------------------------------------------------+
 | Namespaces            | lower_underscored                              |
 +-----------------------+------------------------------------------------+
@@ -64,14 +67,15 @@ The server modules are created in the following path::
 The package is a group of modules that belong to each other. It is used
 to group modules per type or per customer.
 
-So our address book module will be created in::
+So our music module will be created in::
 
    "go/modules/community/music"
 
 Database
 ````````
+
 Start with creating the database tables. The tables would be prefixed with the
-module name. For example "music_artist".
+module name. For example "**music**\_artist".
 
 Create the tables by importing this SQL into your database:
 
@@ -141,14 +145,13 @@ Create the tables by importing this SQL into your database:
 
 Database rules
 ``````````````
-1. Group Office uses singular names for the table. So it must be "music_artist" and not "music_artists
-2. Table names are always lowercase with underscores (Windows compatible).
-3. column names are lowerCamelCase.
-4. Date's use column type "DATE".
-5. Date and time columns use type "DATETIME".
-6. Foreign key's must be defined for relationships. Think about cascading delete set to null or restrict.
-7. We often choose a varchar to be 190 characters so it can be indexed on all database versions.
-8. Columns modifiedBy (int), createdBy (int), createdAt (DATETIME), modifiedAt (DATETIME) are automatically set by Group Office.
+
+1. Also see `naming conventions`_.
+2. Date's use column type "DATE".
+3. Date and time columns use type "DATETIME".
+4. Foreign key's must be defined for relationships. Think about cascading delete set to null or restrict.
+5. We often choose a varchar to be 190 characters so it can be indexed on all database versions.
+6. Columns modifiedBy (int), createdBy (int), createdAt (DATETIME), modifiedAt (DATETIME) are automatically set by Group Office.
 
 
 Code generator
@@ -254,12 +257,15 @@ And then change the mapping:
 Connecting to the API with POSTMan
 -----------------------------------
 
-Using the API with POSTman is strictly necessary but it's nice to get a feel on how the backend API works.
+Using the API with POSTman is not strictly necessary but it's nice to get a feel 
+on how the backend API works.
 
 Now we've got our basic API in place. We should first install this module at
 Start Menu -> Modules.
 
-Install POSTman or another tool to make API requests.
+Install POSTman or another tool to make API requests. Download it from here:
+
+https://www.getpostman.com
 
 Authenticate
 ````````````
