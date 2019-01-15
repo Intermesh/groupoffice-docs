@@ -174,3 +174,17 @@ to enable it:
 4. Login as administrator into the main Group Office instance that will manage the
    other instances and install the "Multi Instance" module from the "Community" package.
 
+.. _install-documents:
+
+Documents
+---------
+
+If you purchased the documents package you probably want to install some additional tools required for indexing file contents::
+
+   apt-get install catdoc unzip tar imagemagick tesseract-ocr tesseract-ocr-eng poppler-utils exiv2
+
+These tools provide support for:
+
+- Microsoft Office
+- Images
+- PDF documents
