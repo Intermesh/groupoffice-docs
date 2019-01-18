@@ -181,9 +181,31 @@ Only approved hours will be billed to the billing module when you use this funct
 Billing
 -------
 
-It's possible to generate invoices from your time tracking. To do so you have to create a project and set the type to "Post calculation". 
-When time is recorded now the fees will be stored too. To generate an invoice go to Projects -> Financial -> Post calculation.
+It's possible to generate invoices from your time tracking. To do so you have to 
+create a project and set the type to "Post calculation". When time is recorded 
+now the fees will be stored too. 
 
+The default fees can be set at Administration -> Employees. When you create new
+projects these values are copied to the project employees when you add them.
+
+In the detail view of the project you see a summary of hours:
+
+1. Booked: All the entries. 
+2. Billable: Billable hours are the ones that have a fee. You can have no fee when 
+   the project is not set to "Post calculation". You can also set "Not billable" 
+   at activity types in administration. It's also not billable when you set zero 
+   fee for the employee in the project.
+3. Billed: An income was generated for these time entries.
+
+.. figure:: /_static/using/projects/time-entry-summary.png
+   :width: 50%
+
+   Time entries summary in project detail view
+
+Generate invoices
+`````````````````
+
+To generate an invoice go to Projects -> Financial -> Post calculation.
 Select a time period and projects you want to invoice and click "Continue". An invoice will be stored in the project. 
 
 If you have the billing module installed a popup will appear to also generate an invoice in the billing module.
