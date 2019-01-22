@@ -8,6 +8,7 @@ Server API
    server/dal.rst
    server/orm.rst
    server/events.rst
+   server/filters.rst
    server/blob.rst
    server/custom-fields.rst
    server/router.rst
