@@ -81,6 +81,56 @@ and aliases.
 
    Manage e-mail domains in Group-Office
 
+
+Serverclient module
+```````````````````
+The server client allows you to:
+
+1. Create mailboxes when you create a new user
+2. Synchronize mailbox passwords when you set a new Group-Office password.
+
+Install the module at Start menu -> modules
+
+Then edit /etc/groupoffice/globalconfig.inc.php or create it if it doesn't exist:
+
+.. code:: php
+
+	<?php
+	$config = [
+		// GO will connect to this installation to add a mailbox. It is the full url to the Group-Office installation with the postfixadmin module installed.   
+		'serverclient_server_url' => 'http://localhost/groupoffice/',
+		// A token to authenticate. The token has to be identical on the web and mail server. By default they are the same server so you can just set anything here.
+
+		'serverclient_token' => 'someSecureTokenOfyourChoice',
+
+		// Comma separated list of mailbox domains
+		'serverclient_domains' => 'intermeshdev.nl',
+
+		// The email account properties that will be added for the user
+		'serverclient_mbroot' => '',
+		'serverclient_use_ssl' => false,
+		'serverclient_use_tls' => false,
+		'serverclient_novalidate_cert' => '0',
+		'serverclient_host' => 'localhost',
+		'serverclient_port' => 143,
+		'serverclient_smtp_host' => 'localhost',
+		'serverclient_smtp_port' => 25,
+		'serverclient_smtp_encryption' =>'',
+		'serverclient_smtp_username' => '',
+		'serverclient_smtp_password' => ''
+	];
+
+Now when you create a new user you have the option to create::
+
+   <username>@intermeshdev.nl
+
+And when you set your password this account will be updated too.
+
+   .. figure:: /_static/install/create-user-serverclient.png
+      :width: 50%
+
+      Option to create mailbox when creating new users
+
 TLS / SSL
 `````````
 
