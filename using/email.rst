@@ -256,10 +256,47 @@ Best regards,
 
 {user:displayName}
 
-Spam filter
------------
 
-Most e-mail servers are setup with a spam filter. We use spamassassin on our 
+Filtering and out of office
+---------------------------
+
+With sieve support
+``````````````````
+
+To use advanced filter e-mails, your IMAP server must support ManageSieve and the 
+Sieve e-mail filtering module must be installed and enabled for your account. Also 
+check if the correct sieve port is set at the incoming mail advanced settings. 
+The port is usually 4190 or 2000.
+
+To edit or add e-mail filters go to:
+
+E-mail -> administration -> Accounts -> Double click account row -> Filters
+
+By default there are already a spam filter rule present.
+
+.. figure:: /_static/using/email/filters-with-sieve.png
+   :width: 100%
+
+   Filters window with sieve support
+
+
+
+Edit a filter
+~~~~~~~~~~~~~
+
+Double click on a filter set (A new window opens)
+
+In this window you can add criteria and desired actions for the filter.
+
+.. figure:: /_static/using/email/edit-sieve-rule.png
+   :width: 100%
+
+   Edit filter rule
+
+Spam filter
+~~~~~~~~~~~
+
+Most e-mail servers are setup with a spam filter. We use Spamassassin on our 
 hosted services. Spam filters flag messages as spam but you need a mail 
 filtering rule to do something with it. Group-Office creates one by default 
 but if for some reason it isn't there you can create it at:
@@ -267,4 +304,50 @@ but if for some reason it isn't there you can create it at:
 E-mail -> Administration -> Account -> Filters.
 
 Click on "Add" and match the settings like in this screenshot:
+
+.. figure:: /_static/using/email/spam-filter-rule.png
+   :width: 100%
+
+   Spam filter
+
+Whitelist
+~~~~~~~~~~~
+
+It's also possible to create a white list. Make sure this rule is sorted above
+the spam filter rule klike in the screenshot above.
+
+Click on "Add" and match the settings like in this screenshot:
+
+.. figure:: /_static/using/email/edit-sieve-rule.png
+   :width: 100%
+
+   Whilelist filter rule
+
+Out of office
+~~~~~~~~~~~~~
+
+Group-Office allows you to configure an out of office message easily. Go to:
+
+E-mail -> Administration -> Accounts -> Double click your account -> Out office.
+
+Select a period and configure a message and activate the filter.
+
+.. figure:: /_static/using/email/out-of-office.png
+   :width: 100%
+
+   Out of office
+
+Without sieve support
+`````````````````````
+
+When sieve is not supported. Group-Office will fallback on a simpler filtering 
+system. It can only move incoming e-mails to specified folders based on the 
+from, to or subject text.
+
+
+.. figure:: /_static/using/email/filters-without-sieve.png
+   :width: 100%
+
+   Filters window without sieve support
+
 
