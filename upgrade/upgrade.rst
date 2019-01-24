@@ -13,9 +13,6 @@ Needless to say, but always make a **backup** before upgrading.
 After the upgrade you should consider replacing the "gota" module with the new
 "assistant" module for better file editing on the desktop.
 
-Change log
-----------
-
 You can find the change log here:
 
 https://github.com/Intermesh/groupoffice/blob/master/CHANGELOG.md
