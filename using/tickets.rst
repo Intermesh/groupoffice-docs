@@ -233,8 +233,9 @@ The default sender name for e-mail messages
 The default sender address for e-mail messages
 
 **Subject**
+A template for the e-mail subject so the ticket number is included. Defaults to the ticket subject.
 
-A template for the e-mail subject so the ticket number is included. Leave this at [ts #{TICKET#}] {SUBJECT} or the IMAP import will fail to recognize replies to tickets.
+.. note:: The subject is always prefixed with [ts #{ticket_number}] because the e-mail importer relies on this format for detecting replies.
 
 **Language**
 
