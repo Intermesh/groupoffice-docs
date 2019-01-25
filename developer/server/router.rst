@@ -26,15 +26,7 @@ All parameters are passed in the $params argument.
 CLI Router
 ----------
 
-You can run a CLI controller method like this::
-
-   php cli.php package/modulename/controller/method --arg1=foo
-   
-Or with Docker Compose::
-
-   docker-compose exec --user www-data groupoffice php cli.php package/modulename/controller/method --arg1=foo
-   
-A controller with the public method must extend the go\core\cli\Controller class.
+There's also a command line interface router. :ref:`Read more about that here <cli>`
 
 Download router
 ---------------

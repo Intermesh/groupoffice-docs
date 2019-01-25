@@ -24,7 +24,7 @@ Group Office also has a Command Line Interface. To implement this do the followi
 
 2. Run::
 
-      docker-compose exec --user www-data groupoffice php /usr/local/share/groupoffice/cli.php community/music/clidemo/hello --name=Merijn
+      docker-compose exec --user www-data groupoffice php /usr/local/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn
 
 
 3. This should output::
@@ -33,3 +33,12 @@ Group Office also has a Command Line Interface. To implement this do the followi
 
 
 .. note:: Command line methods always run as the administrator user.
+				
+				
+Specify config file
+-------------------
+				
+If you have a multi instance environment you can specify the config file location
+with the 'c' argument::
+				
+   docker-compose exec --user www-data groupoffice php /usr/local/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn -c=/etc/groupoffice/multi_instance/domain.com/config.php
