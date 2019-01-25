@@ -25,9 +25,10 @@ Group Office also has a Command Line Interface. To implement this do the followi
 2. Run (Notice the path is case sensitive!):
 	
    With docker-compose::
-
-      docker-compose exec --user www-data groupoffice php /usr/local/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn
 				
+      docker-compose exec --user www-data groupoffice php /usr/local/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn
+			
+   
 	Or native::
 	
 	   sudo -u www-data php /usr/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn
