@@ -43,9 +43,20 @@ After downloading take the following steps to install:
 
 6. Select the "Your desktop application (WebDAV) option to use the assistant.
 
-
    .. figure:: /_static/macos-assistant/4-select-application.png
       :width: 400px
+
+
+WebDAV client issues
+````````````````````
+
+Unfortunately there are some known issues with the native MacOS WebDAV implementation:
+
+1. It's very slow due to a lot of redundant requests.
+2. When there are UTF-8 characters in the folder name you can't browse that folder.
+
+Both of these issues can be resolved by using the `Mountain Duck WebDAV client <https://mountainduck.io>`_
+
 
 Calendar & Contacts
 -------------------

@@ -72,14 +72,14 @@ After installing it you can use it as follows:
 
 
 WebDAV client issues
---------------------
+````````````````````
 
-Unfortunately there are some known issues with the native Windows webdav implementation:
+Unfortunately there are some known issues with the native Windows WebDAV implementation:
 
 1. When opening office files you have to re-authenticate: https://support.microsoft.com/en-us/help/2019105/authentication-requests-when-you-open-office-documents
 2. There's a path length limit in both windows and office. So long paths will fail. The URL of your Group-Office counts as path too.
 
-Both of these issues can be resolved by using the `Mountain Duck WebDAV client <https://mountainduck.io>`_
+Both of these issues can be resolved by using the `Mountain Duck WebDAV client <https://mountainduck.io>`_.
 
 
 
