@@ -54,6 +54,12 @@ Naming conventions
 | Namespaces            | lower_underscored                              |
 +-----------------------+------------------------------------------------+
 
+
+.. note:: We're currently refactoring the whole code base. So you will encounter
+   the namespaces "go" and "GO". The "GO" namespace with capitals is old and you
+   should not use it in new code. Legacy modules are found in "modules" folder 
+   and new modules are in "go/modules/<package>/<name>".
+
 Server module
 -------------
 
