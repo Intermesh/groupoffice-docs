@@ -50,12 +50,8 @@ After downloading take the following steps to install:
 WebDAV client issues
 ````````````````````
 
-Unfortunately there are some known issues with the native MacOS WebDAV implementation:
-
-1. It's very slow due to a lot of redundant requests.
-2. When there are UTF-8 characters in the folder name you can't browse that folder.
-
-Both of these issues can be resolved by using the `Mountain Duck WebDAV client <https://mountainduck.io>`_
+Unfortunately the MacOS webdav implementation can be rather slow due to a lot of redundant requests.
+We found that the `Mountain Duck WebDAV client <https://mountainduck.io>`_ is much faster.
 
 
 Calendar & Contacts
