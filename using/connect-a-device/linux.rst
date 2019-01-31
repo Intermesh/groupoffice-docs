@@ -26,9 +26,9 @@ and launch the default application on your computer.
 
 On Debian based distributions you can install the Group Office Assistant.
 
-1. First add our repository to /etc/apt/sources.list::
+1. First add our APT repository::
 
-      deb http://repo.group-office.com/ one main
+      echo "deb http://repo.group-office.com/ one main" | sudo tee /etc/apt/sources.list.d/groupoffice-assistant.list
 
 2. Add our public key::
 
