@@ -48,8 +48,8 @@ On Debian based distributions you can install the Group Office Assistant.
    
 
 
-.. note: Due to a bug in Ubuntu you'll get this ignorable error:
+.. note:: Due to a bug in Ubuntu you'll get this ignorable error::
 
-   Error in file "/usr/share/applications/org.gnome.font-viewer.desktop": "font/ttf" is an invalid MIME type ("font" is an unregistered media type)
+      Error in file "/usr/share/applications/org.gnome.font-viewer.desktop": "font/ttf" is an invalid MIME type ("font" is an unregistered media type)
 
 
