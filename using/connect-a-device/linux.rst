@@ -45,9 +45,11 @@ On Debian based distributions you can install the Group Office Assistant.
 
 5. Now double click a file in Group Office and it can be edited on your desktop 
    instantly.
+   
 
-.. note: Due to a bug in Ubuntu you'll get this ignorable error::
 
-      Error in file "/usr/share/applications/org.gnome.font-viewer.desktop": "font/ttf" is an invalid MIME type ("font" is an unregistered media type)
+.. note: Due to a bug in Ubuntu you'll get this ignorable error:
+
+   Error in file "/usr/share/applications/org.gnome.font-viewer.desktop": "font/ttf" is an invalid MIME type ("font" is an unregistered media type)
 
 
