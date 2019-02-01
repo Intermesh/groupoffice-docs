@@ -158,6 +158,14 @@ properly. So obtain an SSL certificate and take these steps:
 
       invoke-rc.d postfix restart
 
+.. note:: **Checking certificates for mailserver**
+
+   You can check the validity of the SSL certificates on the mailserver with the following commands:
+         printf 'quit\n' | openssl s_client -connect imap.group-office.com:143 -starttls imap | openssl x509 -dates -noout
+   And
+         printf 'quit\n' | openssl s_client -connect smtp.group-office.com:25 -starttls smtp | openssl x509 -dates -noout      
+
+
 Anti spam / virus
 `````````````````
 
