@@ -28,3 +28,5 @@ It works by monitoring the apache access log for invalid logins.
 For more information about Fail2ban and the configuration of it visit https://www.fail2ban.org
 
 .. note:: This works from 6.3.62 and up.
+
+.. note:: If you use the Group-Office mailserver then also enable the sasl, dovecot and postfix filters.
