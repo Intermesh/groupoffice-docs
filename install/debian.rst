@@ -147,24 +147,25 @@ properly. So obtain an SSL certificate and take these steps:
 2. Restart dovecot::
 
       invoke-rc.d dovecot restart
+      
+3. You can verify the SSL certificate with this command::
 
-3. Configure Postfix SMTP with these commands::
+      printf 'quit\n' | openssl s_client -connect imap.group-office.com:143 -starttls imap | openssl x509 -dates -noout
+
+4. Configure Postfix SMTP with these commands::
 
       postconf -e 'smtpd_tls_cert_file = /etc/ssl/group-office.com/certificate.crt'
       postconf -e 'smtpd_tls_key_file = /etc/ssl/group-office.com/certificate.key'
       postconf -e 'smtpd_tls_CAfile = /etc/ssl/group-office.com/cabundle.crt'
 
-4. Restart postfix::
+5. Restart postfix::
 
       invoke-rc.d postfix restart
+      
+6. You can verify the SSL certificate with this command::
 
-.. note:: **Checking certificates for mailserver**
-
-   You can check the validity of the SSL certificates on the mailserver with the following commands:
-         printf 'quit\n' | openssl s_client -connect imap.group-office.com:143 -starttls imap | openssl x509 -dates -noout
-   And
-         printf 'quit\n' | openssl s_client -connect smtp.group-office.com:25 -starttls smtp | openssl x509 -dates -noout      
-
+       printf 'quit\n' | openssl s_client -connect smtp.group-office.com:25 -starttls smtp | openssl x509 -dates -noout
+       
 
 Anti spam / virus
 `````````````````
