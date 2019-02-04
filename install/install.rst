@@ -15,3 +15,4 @@ Debian packages on the latest stable Debian Linux OS.
    Debian / Ubuntu <debian>
    Docker <docker>
    Tarball <tarball>
+   extras
