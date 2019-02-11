@@ -20,6 +20,7 @@ From older versions than 6.3
 - Typically the Custom CSS module was used to replace the logo. To take advanage of 
   the new System Settings -> Appearance features you should remove this CSS code.
 - If you customized language then you should convert this to the new language :ref:`customize-language` system.
+- If your system is older than 6.2 your system probably depends on mcrypt. If you migrate to a new server and you run into email password problemns you might need to install https://pecl.php.net/package/mcrypt to decrypt email passwords. Also change "default_pass_scheme" to "PLAIN-MD5" in /etc/dovecot/dovecot-groupoffice-sql.conf.
 
 Steps
 ^^^^^
