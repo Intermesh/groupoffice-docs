@@ -6,5 +6,4 @@ We are in transation from an old to a new API. Old code use captial letters "GO.
 The new API can be found in the following folders:
 
 - go/modules/<package>/<module>/views/extjs3/*
-- go/core/*
-- views/Extjs3/javascript/go
+- go/core/views/extjs3/*
