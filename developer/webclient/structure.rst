@@ -13,7 +13,7 @@ The new API can be found in the following folders:
 
 
 Extending
-=========
+---------
 
 When extending components with Ext.extend() always override initComponent and not the constructor::
 
