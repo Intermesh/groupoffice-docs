@@ -21,14 +21,49 @@ For example the "go\\modules\\community\\music\\model\\Artist" model defines:
 
   protected static function defineMapping() {
     return parent::defineMapping()
-            ->addTable("music_artist")
-            ->addRelation('albums', Album::class, ['id' => 'artistId']);
+            ->addTable("music_artist", "a")
+            ->addRelation('albums', Album::class, ['id' => 'artistId'])
+						->addProperty('sumOfTableBIds', "SUM(b.id)", (new Query())->join('test_b', 'bc', 'bc.id=a.id')->groupBy(['a.id']))
   }
 
 You can see that it maps a table "music_artist" and add's a property 'albums'.
 
 A property must be defined for all database columns the model should use.
 There should also be a public $albums property.
+
+.. note:: Mappings are cached for performance. When making changes you need to 
+   run /install/upgrade.php to rebuild the cache.
+
+	 You can also disable cache in the config.php file::
+
+		$config['core'] = [
+			'general' => [
+					'cache' => 'go\\core\\cache\\None'
+				]
+		];
+
+addTable() method
+`````````````````
+With the addTable() method you map table database columns to object properties.
+All protected and public properties of the object that match a database column 
+name will be loaded from and saved to that table. You can add multiple tables
+to one entity. The primary keys must match or a key mapping can be passed to the
+method. See the code documentation for more details.
+
+addRelation() method
+````````````````````
+With add addRelation() you can map "Property" models with a has one or has many
+relation. These properties will be loaded and saved automatically.
+
+.. note:: You can't add relations to other entities. Only "Property" models can
+   be mapped. Fetch other entities in the client by key. If you would implement a
+   getOtherEntity() method, it would be very hard to synchronize the entities to
+   clients. Because each entity keeps it's own sync state. If the "OtherEntity" 
+   changes it would mean that this entity would change too.
+
+   If you need to create a method to retrieve another entity on the server side
+   only then it's recommended to name it "findOtherEntity()" so it won't become
+   a public API property.
 
 
 Getters and Setters
@@ -129,3 +164,17 @@ Or you can use "setValues" this is what the JMAP API uses when it POSTS values i
     {
       echo "Artist saved!\n";
     }
+
+
+
+Cascading delete
+----------------
+
+It's recommended to take advantage of the database foreign keys to cascade delete
+relations. This is much faster then deleting relations in code.
+It does however cause a problem in the JMAP sync protocol. Because these deletes
+are not automatically registered as a change. You can use Entity::getType()->change()
+and Entity::getType()->changes() for an example. See the address books's 
+`Group <https://github.com/Intermesh/groupoffice/blob/master/www/go/modules/community/addressbook/model/Group.php>`_ 
+entity for an example.
+

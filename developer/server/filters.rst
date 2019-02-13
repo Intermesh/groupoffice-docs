@@ -4,7 +4,7 @@ Filters
 Entities can be filtered according to the `JMAP filter specification <https://jmap.io/spec-core.html#/query>`_.
 
 You can implement filters by overriding the "defineFilters" method in your
-Entity. Here's an example of a "genres" filter:
+Entity. Here's an advanced example of the Contact filters:
 
 .. code:: php
 
@@ -18,22 +18,80 @@ Entity. Here's an example of a "genres" filter:
 	 * @return Filters
 	 */
 	protected static function defineFilters() {
+
 		return parent::defineFilters()
-						->add('genres', function (Query $query, $value, array $filter) {
-							if(!empty($value)) {
-								$query->join('music_album', 'album', 'album.artistId = artist.id')
-									->groupBy(['artist.id']) // group the results by id to filter out duplicates because of the join
-									->where(['album.genreId' => $value]);	
-							}
-						});
+										->add("addressBookId", function(Criteria $criteria, $value) {
+											$criteria->andWhere('addressBookId', '=', $value);
+										})
+										->add("groupId", function(Criteria $criteria, $value, Query $query) {
+											$query->join('addressbook_contact_group', 'g', 'g.contactId = c.id');
+											
+											$criteria->andWhere('g.groupId', '=', $value);
+										})
+										->add("isOrganization", function(Criteria $criteria, $value) {
+											$criteria->andWhere('isOrganization', '=', $value);
+										})
+										->add("hasEmailAddresses", function(Criteria $criteria, $value, Query $query) {
+											$query->join('addressbook_email_address', 'e', 'e.contactId = c.id', "LEFT")
+											->groupBy(['c.id'])
+											->having('count(e.id) '.($value ? '>' : '=').' 0');
+										})
+										->addText("email", function(Criteria $criteria, $comparator, $value, Query $query) {
+											$query->join('addressbook_email_address', 'e', 'e.contactId = c.id', "INNER");
+											
+											$criteria->where('e.email', $comparator, $value);
+										})
+										->addText("name", function(Criteria $criteria, $comparator, $value) {											
+											$criteria->where('name', $comparator, $value);
+										})
+										->addText("country", function(Criteria $criteria, $comparator, $value, Query $query) {
+											if(!$query->isJoined('addressbook_address')) {
+												$query->join('addressbook_address', 'adr', 'adr.contactId = c.id', "INNER");
+											}
+											
+											$criteria->where('adr.country', $comparator, $value);
+										})
+										->addText("city", function(Criteria $criteria, $comparator, $value, Query $query) {
+											if(!$query->isJoined('addressbook_address')) {
+												$query->join('addressbook_address', 'adr', 'adr.contactId = c.id', "INNER");
+											}
+											
+											$criteria->where('adr.city', $comparator, $value);
+										})
+										->addNumber("age", function(Criteria $criteria, $comparator, $value, Query $query) {
+											
+											if(!$query->isJoined('addressbook_date')) {
+												$query->join('addressbook_date', 'date', 'date.contactId = c.id', "INNER");
+											}
+											
+											$criteria->where('date.type', '=', Date::TYPE_BIRTHDAY);					
+											$tag = ':age'.uniqid();
+											$criteria->andWhere('TIMESTAMPDIFF(YEAR,date.date, CURDATE()) ' . $comparator . $tag)->bind($tag, $value);
+											
+										})
+										->addDate("birthday", function(Criteria $criteria, $comparator, $value, Query $query) {
+											if(!$query->isJoined('addressbook_date')) {
+												$query->join('addressbook_date', 'date', 'date.contactId = c.id', "INNER");
+											}
+											
+											$tag = ':bday'.uniqid();
+											$criteria->where('date.type', '=', Date::TYPE_BIRTHDAY)
+																->andWhere('DATE_ADD(date.date, 
+																		INTERVAL YEAR(CURDATE())-YEAR(date.date)
+																						 + IF(DAYOFYEAR(CURDATE()) > DAYOFYEAR(date.date),1,0)
+																		YEAR)  
+																' . $comparator . $tag)->bind($tag, $value->format(Column::DATE_FORMAT));
+										});
+										
 	}
+
 
 
 When this has been implemented you can do use it in a Foo/query call like this:
 
 .. code:: json
 
-   {"filter": {"genres" : [1, 2]}}
+   {"filter": {"addressBookId" : [1, 2]}}
 
 
 Quick search
@@ -88,7 +146,7 @@ For example:
 	 * @param Filters $filters
 	 */
 	public static function onUserFilter(Filters $filters) {		
-		$filters->add('isIntermediair', function(Query $query, $value, array $filter) {
+		$filters->add('isIntermediair', function(Criteria $criteria, $value, Query $query) {
 			if($value) {
 				$query	->join('applications_application', 'a', 'a.createdBy = u.id')
 								->groupBy(['u.id']);
