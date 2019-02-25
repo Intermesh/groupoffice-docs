@@ -81,11 +81,14 @@ Required PHP Extensions
 
 6. Follow the instructions on screen.
 
-7. Finally, create a cron job for the scheduled tasks:
-
-   .. code:: bash
+7. Finally, create a cron job for the scheduled tasks::
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
+      
+   Optionally you can add the config file location::
+   
+      * * * * * www-data php <YOURDOCUMENTROOT>/cron.php /etc/groupoffice/myoffice/config.php
+   
       
       
 Authentication with CGI or FastCGI
