@@ -11,8 +11,13 @@ we're going to build a Music module.
 Group Office is a `JMAP-based <https://jmap.io>`_ server API and a webclient. We'll start with implementing
 the JMAP server API.
 
-If you haven't got your development environment set up than please do this first
-by following this tutorial:
+Development environment
+-----------------------
+
+If you haven't got your development environment set up than please do this first.
+
+You can install Group-Office like described in this manual and get started or use 
+our Docker compose project that installs our images for development:
 
 https://github.com/Intermesh/docker-groupoffice-development
 
