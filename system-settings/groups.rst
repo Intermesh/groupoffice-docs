@@ -35,6 +35,7 @@ A few special groups are created by default:
 
    System settings - Groups
 
+.. _user-groups-defaults:
 
 Group defaults
 --------------
