@@ -743,7 +743,8 @@ When you reload Group Office now it should look like this:
 Delete button
 -------------
 
-You can add a delete button to the grid's toolbar in MainPanel.js to delete selected aritsts:
+You can add a delete button to the grid's toolbar in MainPanel.js to delete 
+selected arists:
 
 .. code:: javascript
 
@@ -762,20 +763,21 @@ You can add a delete button to the grid's toolbar in MainPanel.js to delete sele
 		]
 	}
 
+.. note:: You can also delete items by pressing the "delete" key.
 
 Detail view
 -----------
 
-Finally we're going to add a details view for artists.
+Finally we're going to add a detail panel for artists.
 
 Create the file "ArtistDetail.js":
 
 .. code:: javascript
 
-	go.modules.tutorial.music.ArtistDetail = Ext.extend(go.panels.DetailView, {
+	go.modules.tutorial.music.ArtistDetail = Ext.extend(go.detail.Panel, {
 
 		// The entity store is connected. The detail view is automatically updated.
-		entityStore: go.Stores.get("Artist"),
+		entityStore: "Artist",
 
 		//set to true to enable state saving
 		stateful: false,
@@ -793,22 +795,22 @@ Create the file "ArtistDetail.js":
 						cls: 'content',
 						xtype: 'box',
 						tpl: '<h3>{name}</h3>'
-					}, 
+					},
 
 					//Render the avatar
 					{
 						xtype: "box",
 						cls: "content",
 						tpl: new Ext.XTemplate('<div class="go-detail-view-avatar">\
-	<div class="avatar" style="{[this.getStyle(values.photo)]}"></div></div>', 
-						{
-							getCls: function (isOrganization) {
-								return isOrganization ? "organization" : "";
-							},
-							getStyle: function (photoBlobId) {
-								return photoBlobId ? 'background-image: url(' + go.Jmap.downloadUrl(photoBlobId) + ')"' : "";
-							}
-						})
+	<div class="avatar" style="{[this.getStyle(values.photo)]}"></div></div>',
+										{
+											getCls: function (isOrganization) {
+												return isOrganization ? "organization" : "";
+											},
+											getStyle: function (photoBlobId) {
+												return photoBlobId ? 'background-image: url(' + go.Jmap.downloadUrl(photoBlobId) + ')"' : "";
+											}
+										})
 					},
 
 					// Albums component
@@ -818,27 +820,27 @@ Create the file "ArtistDetail.js":
 						xtype: "panel",
 
 						//onLoad is called on each item. The DetailView is passed as argument
-						onLoad : function(dv) {
+						onLoad: function (dv) {
 							this.setVisible(dv.data.albums.length);
-							if(!dv.data.albums.length) {							
+							if (!dv.data.albums.length) {
 								return;
 							}
 
-							if(!this.template) {
+							if (!this.template) {
 								this.template = new Ext.XTemplate('<div class="icons">\
-						<tpl for=".">\
-							<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
-								<span>{name}</span>\
-								<label>{[GO.util.dateFormat(values.releaseDate)]} - {[go.Stores.get("Genre").get([values.genreId])[0].name]}</label>\
-							</p>\
-						</tpl>\
-						</div>').compile();
+									<tpl for=".">\
+													<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
+																	<span>{name}</span>\
+																	<label>{[go.util.Format.date(values.releaseDate)]} - {[go.Stores.get("Genre").data[values.genreId].name]}</label>\
+													</p>\
+									</tpl>\
+									</div>').compile();
 							}
 
 							//make sure genres are loaded before rendering the album template
 							var ids = dv.data.albums.column('genreId');
 
-							go.Stores.get("Genre").get(ids, function(genres) {
+							go.Stores.get("Genre").get(ids, function (genres) {
 								this.update(this.template.apply(dv.data.albums));
 							}, this);
 						}
@@ -889,7 +891,7 @@ Create the file "ArtistDetail.js":
 								this.body.print({title: this.data.name});
 							},
 							scope: this
-						}, 
+						},
 						'-',
 						this.deleteItem = new Ext.menu.TextItem({
 							itemId: "delete",
@@ -917,6 +919,7 @@ Create the file "ArtistDetail.js":
 			return new Ext.Toolbar(tbarCfg);
 		}
 	});
+
 
 Study the code and add it to "scripts.txt". Now we're going to update the 
 MainPanel.js file:
