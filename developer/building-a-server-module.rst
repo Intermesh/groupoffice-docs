@@ -23,8 +23,7 @@ To follow this tutorial you need the following software installed:
 
 1. `git <https://git-scm.com/>`_. For version management.
 2. An editor. We like to use `Netbeans <https://www.netbeans.org>`_ The 8.2 version with PHP support. 
-3. `Docker <https://www.docker.com/>`_. For the easiest setup of the development environment.
-4. `Postman <https://www.getpostman.com/>`_. For testing the backend API without the User Interface.
+3. `Postman <https://www.getpostman.com/>`_. For testing the backend API without the User Interface.
 
 Code standards
 --------------
@@ -63,8 +62,7 @@ Naming conventions
 Server module
 -------------
 
-The code for the module is already present in Group Office. So I suggest you move
-that away for reference and recreate it by following this tutorial.
+The code for the module can be found at https://github.com/Intermesh/groupoffice-tutorial
 
 The server modules are created in the following path::
 
@@ -75,7 +73,7 @@ to group modules per type or per customer.
 
 So our music module will be created in::
 
-   "go/modules/community/music"
+   "go/modules/tutorial/music"
 
 Database
 ````````
@@ -171,7 +169,12 @@ First login to Group Office as administrator and install the "Development tools"
 Then you can run it at any time from within the project directory to add new model properties, models
 or controllers::
    
-   docker-compose exec groupoffice php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=community --name=music
+   php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=tutorial --name=music
+
+.. note:: When using docker-compose prefix this 
+   command with::
+
+      docker-compose exec groupoffice
 
 the command should output::
 
@@ -195,11 +198,12 @@ This will generate:
 
    So you need to change the ownership to your own user by running::
 
-      sudo chown -R $USER:$USER src/groupoffice/www/go/modules/community/music
+      sudo chown -R $USER:$USER src/master/www/go/modules/tutorial/music
 
 Property and Entity models
 --------------------------
 
+You can read more about entities and properties :ref:`here <orm>`.
 By default, the tool generates only "Property" models. It doesn't know which models
 should be "Entities". An entity can be modified by the API directly and a property
 is only modifiable through an entity. For example an email address of a contact 
@@ -260,14 +264,35 @@ And then change the mapping:
 .. note:: When making changes to the database, model properties or mappings, you
    must run "install/upgrade.php" to rebuild the cache.
 
+Translations
+------------
+
+To define a nice name for the module create language/en.php::
+
+	<?php
+	return [
+			'name' => 'Music',
+			'description' => 'Simple module for the Group-Office tutorial'
+	];
+
+If you're interested you can read more about translating :ref:`here <translations>`.
+
+Install the module
+------------------
+
+Now we've got our basic server API in place. Now it's time to install the module at:
+
+System Settings -> Modules. There should be a Tutorial package with the "music" module.
+
+Check the box to install it.
+
+.. note:: If it doesn't show up it might be due to cache. Run /install/upgrade.php to clear it.
+
 Connecting to the API with POSTMan
 -----------------------------------
 
 Using the API with POSTman is not strictly necessary but it's nice to get a feel 
 on how the backend API works.
-
-Now we've got our basic API in place. We should first install this module at
-Start Menu -> Modules.
 
 Install POSTman or another tool to make API requests. Download it from here:
 
@@ -278,11 +303,11 @@ Authenticate
 
 Send a POST request to::
 
-   http://localhost/auth.php
+   http://localhost/api/auth.php
    
 use content type::
 
-   application/json" 
+   application/json
    
 And the following request body:
 
@@ -299,7 +324,7 @@ When successfully logged on you should get a response with status::
 
 Find the "accessToken" property and save it. From now on you can do API requests to::
 
-   http://localhost/auth.php
+   http://localhost/api/jmap.php
    
 You must set the access token as a header on each request::
 
@@ -373,30 +398,36 @@ example:
    {"filter": {"q" : "Foo"}}
 
 We generally use the "q" filter for a quick search query.  We also want to filter
-aritsts by their album genres. We can implement this in our "Artist" entity in 
+artists by their album genres. We can implement this in our "Artist" entity in 
 by overriding the "filter" method:
 
 .. code:: php
 
 	/**
 	 * Defines JMAP filters
-	 * 
+	 *
 	 * Adds the 'genres' filter which can be an array of genre id's.
-	 * 
+	 *
 	 * @link https://jmap.io/spec-core.html#/query
-	 * 
+	 *
 	 * @return Filters
 	 */
 	protected static function defineFilters() {
 		return parent::defineFilters()
-						->add('genres', function (Query $query, $value, array $filter) {
-							if(!empty($value)) {
-								$query->join('music_album', 'album', 'album.artistId = artist.id')
-									->groupBy(['artist.id']) // group the results by id to filter out duplicates because of the join
-									->where(['album.genreId' => $value]);	
-							}
-						});
+			->add('genres', function (\go\core\db\Criteria $criteria, $value, \go\core\orm\Query $query, array $filter) {
+				if (!empty($value)) {
+					$query->join('music_album', 'album', 'album.artistId = artist.id')
+					->groupBy(['artist.id']) // group the results by id to filter out duplicates because of the join
+					->where(['album.genreId' => $value]);
+				}
+			});
 	}
+
+After defining this you can filter on genre by posting:
+
+.. code:: json
+
+   {"filter": {"genres" : [1,2,3]}}
 
 
 JMAP API protocol
@@ -409,12 +440,22 @@ protocol.
 Module installation
 -------------------
 
-When you're done with the module you should export your finished database into 
-"go/modules/community/music/install/install.sql"
+When you're done with the module you should export your finished database into::
+ 
+   go/modules/tutorial/music/install/install.sql
 
-Put all 'DROP TABLE x' commands in "go/modules/community/music/install/uninstall.sql"
+Put all 'DROP TABLE x' commands in::
 
-When the database changes later on you can put upgrade queries and php functions in install/updates.php:
+   go/modules/tutorial/music/install/uninstall.sql
+
+Module upgrades
+---------------
+
+When the database changes later on you can put upgrade queries and php functions in::
+
+   go/modules/tutorial/music/install/updates.php
+
+For example:
 
 .. code:: php
 
