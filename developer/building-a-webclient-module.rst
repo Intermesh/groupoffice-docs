@@ -15,7 +15,7 @@ https://docs.sencha.com/extjs/3.4.0/
 
 We've enhanced ExtJS with our own components and created a theme for Group Office.
 
-The webclient code is located in the go/modules/community/music/views/extjs3" folder.
+The webclient code is located in the go/modules/tutorial/music/views/extjs3" folder.
 The code generator already created these files:
 
 1. Module.js: Required for each module. It registers the module, entities, system and user setting panels.
@@ -32,8 +32,8 @@ First add all entities to the module in Module.js:
 
 .. code:: javascript
 
-   go.Modules.register("community", "music", {
-   	mainPanel: "go.modules.community.music.MainPanel",
+   go.Modules.register("tutorial", "music", {
+   	mainPanel: "go.modules.tutorial.music.MainPanel",
    	
    	//The title is shown in the menu and tab bar
    	title: t("Music"),
@@ -41,7 +41,8 @@ First add all entities to the module in Module.js:
    	//All module entities must be defined here. Stores will be created for them.
    	entities: ["Genre", "Artist"],
    	
-   	//Put code to initialize the module here.
+   	//Put code to initialize the module here after the user is authenticated 
+    //and has access to the module.
    	initModule: function () {}
    });
 
@@ -52,6 +53,8 @@ a form dialog makes a Foo/set request the store will receive the dispatched acti
 and fire an "updated" event. All view stores connected to grids and detail views
 for example can observe this store and render the view on this event.
 
+Read more about entities :ref:`here <entities>`.
+
 Genre filter
 ------------
 
@@ -59,7 +62,7 @@ Create a new file GenreFilter.js:
 
 .. code:: javascript
 
-	go.modules.community.music.GenreFilter = Ext.extend(go.grid.GridPanel, {
+	go.modules.tutorial.music.GenreFilter = Ext.extend(go.grid.GridPanel, {
 		viewConfig: {
 			forceFit: true,
 			autoFill: true
@@ -68,10 +71,7 @@ Create a new file GenreFilter.js:
 		//This component is going to be the side navigation
 		cls: 'go-sidenav', 
 
-		constructor: function (config) {
-
-			// Good practice to initialize config if not given
-			config = config || {};
+		initComponent: function () {
 
 			// Row actions is a special grid column with an actions menu in it.
 			var actions = this.initRowActions();
@@ -84,7 +84,7 @@ Create a new file GenreFilter.js:
 				xtype: "container",
 				items:[
 					{
-						items: config.tbar || [], 
+						items: this.tbar || [], 
 						xtype: 'toolbar'
 					},
 					new Ext.Toolbar({
@@ -93,14 +93,14 @@ Create a new file GenreFilter.js:
 				]
 			};
 
-			Ext.apply(config, {
+			Ext.apply(this, {
 
 				tbar: tbar,
 
-				// We use a "go.data.Store" that connects with an Entity store. This store updates automaticaly when entities change.
+				// We use a "go.data.Store" that connects with an Entity store. This store updates automatically when entities change.
 				store: new go.data.Store({
 					fields: ['id', 'name', 'aclId', "permissionLevel"],
-					entityStore: go.Stores.get("Genre")
+					entityStore: "Genre"
 				}),
 				selModel: selModel,
 				plugins: [actions],
@@ -125,7 +125,7 @@ Create a new file GenreFilter.js:
 				stateId: 'music-genre-filter'
 			});
 
-			go.modules.community.music.GenreFilter.superclass.constructor.call(this, config);
+			go.modules.tutorial.music.GenreFilter.superclass.initComponent.call(this);
 		},
 
 		initRowActions: function () {
@@ -167,7 +167,7 @@ Create a new file GenreFilter.js:
 							iconCls: 'ic-edit',
 							text: t("Edit"),
 							handler: function() {
-								var dlg = new go.modules.community.music.GenreForm();
+								var dlg = new go.modules.tutorial.music.GenreForm();
 								dlg.load(this.moreMenu.record.id).show();
 							},
 							scope: this						
@@ -209,7 +209,7 @@ following code:
 
 .. code:: javascript
 
-	go.modules.community.music.MainPanel = Ext.extend(go.panels.ModulePanel, {
+	go.modules.tutorial.music.MainPanel = Ext.extend(go.modules.ModulePanel, {
 
 		// Will make a single item fit in this panel. We'll change this later.
 		layout : "fit",
@@ -217,7 +217,7 @@ following code:
 		initComponent : function() {
 
 			//create the genre filter component
-			this.genreFilter = new go.modules.community.music.GenreFilter({
+			this.genreFilter = new go.modules.tutorial.music.GenreFilter({
 				tbar : [{
 					xtype: "tbtitle",
 					text: t("Genres")
@@ -227,7 +227,7 @@ following code:
 			//add it to the main panel's items.
 			this.items = [this.genreFilter];
 
-			go.modules.community.music.MainPanel.superclass.initComponent.call(this);
+			go.modules.tutorial.music.MainPanel.superclass.initComponent.call(this);
 
 			this.on("afterrender", function() {
 
@@ -255,7 +255,7 @@ Create the file ArtistGrid.js:
 
 .. code:: javascript
 
-	go.modules.community.music.ArtistGrid = Ext.extend(go.grid.GridPanel, {
+	go.modules.tutorial.music.ArtistGrid = Ext.extend(go.grid.GridPanel, {
 		initComponent: function () {
 
 			// Use a Group Office store that is connected with an go.data.EntityStore for automatic updates.
@@ -268,19 +268,19 @@ Create the file ArtistGrid.js:
 					{name: 'createdAt', type: 'date'},
 					{name: 'modifiedAt', type: 'date'},
 
-					// You can use any entity as a store data type. This will autmatically 
+					// You can use any entity as a store data type. This will autmatically
 					// fetch the related entity by key.
-					{name: 'creator', type: go.data.types.User, key: 'createdBy'},
-					{name: 'modifier', type: go.data.types.User, key: 'modifiedBy'},
+					{name: 'creator', type: "User", key: 'createdBy'},
+					{name: 'modifier', type: "User", key: 'modifiedBy'},
 
-					// Every entity has permission levels. GO.permissionLevels.read, write, 
+					// Every entity has permission levels. GO.permissionLevels.read, write,
 					// writeAndDelete and manage
 					'permissionLevel'
 				],
 
-				// The connected entity store. When Artists are changed the store will 
+				// The connected entity store. When Artists are changed the store will
 				// update automatically
-				entityStore: go.Stores.get("Artist")
+				entityStore: "Artist"
 			});
 
 			Ext.apply(this, {
@@ -306,9 +306,9 @@ Create the file ArtistGrid.js:
 							var style = record.data.photo ? 'background-image: url(' + go.Jmap.downloadUrl(record.data.photo) + ')"' : '';
 
 							return '<div class="user">\
-												<div class="avatar" style="' + style + '"></div>\
-												<div class="wrap single">' + record.get('name') + '</div>\
-											</div>';
+											<div class="avatar" style="' + style + '"></div>\
+											<div class="wrap single">' + record.get('name') + '</div>\
+							</div>';
 						}
 					},
 					{
@@ -362,9 +362,10 @@ Create the file ArtistGrid.js:
 				stateId: 'music-artist-grid'
 			});
 
-			go.modules.community.music.ArtistGrid.superclass.initComponent.call(this);
+			go.modules.tutorial.music.ArtistGrid.superclass.initComponent.call(this);
 		}
 	});
+
 
 
 And add the file "ArtistGrid.js" to the bottom of "scripts.txt". 
@@ -374,7 +375,7 @@ Now change MainPanel.js to use the grid:
 
 .. code:: javascript
 
-	go.modules.community.music.MainPanel = Ext.extend(go.panels.ModulePanel, {
+	go.modules.tutorial.music.MainPanel = Ext.extend(go.modules.ModulePanel, {
 
 		// Use a responsive layout
 		layout : "responsive",
@@ -382,7 +383,7 @@ Now change MainPanel.js to use the grid:
 		initComponent : function() {
 
 			//create the genre filter component
-			this.genreFilter = new go.modules.community.music.GenreFilter({
+			this.genreFilter = new go.modules.tutorial.music.GenreFilter({
 				region: "west",
 				width: dp(300),
 
@@ -396,7 +397,7 @@ Now change MainPanel.js to use the grid:
 			});
 
 			//Create the artist grid
-			this.artistGrid = new go.modules.community.music.ArtistGrid({
+			this.artistGrid = new go.modules.tutorial.music.ArtistGrid({
 				region: "center",
 
 				//toolbar with just a search component for now
@@ -412,7 +413,7 @@ Now change MainPanel.js to use the grid:
 			this.items = [this.genreFilter, this.artistGrid];
 
 			// Call the parent class' initComponent
-			go.modules.community.music.MainPanel.superclass.initComponent.call(this);
+			go.modules.tutorial.music.MainPanel.superclass.initComponent.call(this);
 
 			//Attach lister to changes of the filter selection.
 			//add buffer because it clears selection first and this would cause it to fire twice
@@ -459,7 +460,8 @@ When you reload Group Office now it should look like this:
    :width: 100%
 
 .. note:: Feel free to add some more artist with postman so your filter results
-   are more interesting :)
+   are more interesting :) You might also notice that when you change things with
+   postman the web interface updates automatically.
 
 
 Genre combo box
@@ -470,7 +472,7 @@ the album genre. Create the file GenreCombo.js:
 
 .. code:: javascript
 
-	go.modules.community.music.GenreCombo = Ext.extend(go.form.ComboBox, {
+	go.modules.tutorial.music.GenreCombo = Ext.extend(go.form.ComboBox, {
 		fieldLabel: t("Genre"),
 		hiddenName: 'genreId',
 		anchor: '100%',
@@ -483,22 +485,15 @@ the album genre. Create the file GenreCombo.js:
 		selectOnFocus: true,
 		forceSelection: true,
 		allowBlank: false,
-		initComponent: function () {
-
-			//Add the store on init so that the entity store is loaded
-			Ext.applyIf(this, {
-				store: new go.data.Store({
-					fields: ['id', 'name'],
-					entityStore: go.Stores.get("Genre")					
-				})
-			});
-
-			go.modules.community.music.GenreCombo.superclass.initComponent.call(this);
+		store: {
+			xtype: "gostore",
+			fields: ['id', 'name'],
+			entityStore: "Genre"
 		}
 	});
 
 	// Register an xtype so we can use the component easily.
-	Ext.reg("genrecombo", go.modules.community.music.GenreCombo);
+	Ext.reg("genrecombo", go.modules.tutorial.music.GenreCombo);
 
 Study the component and add it to the scripts.txt file.
 
@@ -511,7 +506,7 @@ Create a file called "ArtistDialog.js":
 
 .. code:: javascript
 
-	go.modules.community.music.ArtistDialog = Ext.extend(go.form.Dialog, {
+	go.modules.tutorial.music.ArtistDialog = Ext.extend(go.form.Dialog, {
 		// Change to true to remember state
 		stateful: false,
 		stateId: 'music-aritst-dialog',
@@ -519,7 +514,7 @@ Create a file called "ArtistDialog.js":
 
 		//The dialog set's entities in an go.data.EntityStore. This store notifies all 
 		//connected go.data.Store view stores to update.
-		entityStore: go.Stores.get("Artist"),
+		entityStore: "Artist",
 		autoHeight: true,
 
 		// return an array of form items here.
@@ -611,7 +606,7 @@ Then update MainPanel.js:
 
 .. code:: javascript
 
-	go.modules.community.music.MainPanel = Ext.extend(go.panels.ModulePanel, {
+	go.modules.tutorial.music.MainPanel = Ext.extend(go.modules.ModulePanel, {
 
 		// Use a responsive layout
 		layout : "responsive",
@@ -619,7 +614,7 @@ Then update MainPanel.js:
 		initComponent : function() {
 
 			//create the genre filter component
-			this.genreFilter = new go.modules.community.music.GenreFilter({
+			this.genreFilter = new go.modules.tutorial.music.GenreFilter({
 				region: "west",
 				width: dp(300),
 
@@ -633,7 +628,7 @@ Then update MainPanel.js:
 			});
 
 			//Create the artist grid
-			this.artistGrid = new go.modules.community.music.ArtistGrid({
+			this.artistGrid = new go.modules.tutorial.music.ArtistGrid({
 				region: "center",
 
 				//toolbar with just a search component for now
@@ -648,7 +643,7 @@ Then update MainPanel.js:
 						iconCls: 'ic-add',
 						tooltip: t('Add'),
 						handler: function (btn) {
-							var dlg = new go.modules.community.music.ArtistDialog({
+							var dlg = new go.modules.tutorial.music.ArtistDialog({
 								formValues: {
 									// you can pass form values like this 
 								}
@@ -661,6 +656,7 @@ Then update MainPanel.js:
 
 				listeners: {				
 					rowdblclick: this.onGridDblClick,
+					keypress: this.onGridKeyPress
 					scope: this
 				}
 			});
@@ -669,7 +665,7 @@ Then update MainPanel.js:
 			this.items = [this.genreFilter, this.artistGrid];
 
 			// Call the parent class' initComponent
-			go.modules.community.music.MainPanel.superclass.initComponent.call(this);
+			go.modules.tutorial.music.MainPanel.superclass.initComponent.call(this);
 
 			//Attach lister to changes of the filter selection.
 			//add buffer because it clears selection first and this would cause it to fire twice
@@ -707,9 +703,29 @@ Then update MainPanel.js:
 			}
 
 			// Show dialog
-			var dlg = new go.modules.community.music.ArtistDialog();
+			var dlg = new go.modules.tutorial.music.ArtistDialog();
 			dlg.load(record.id).show();
-		}
+		},
+
+		// Fires when enter is pressed and a grid row is focussed
+		onGridKeyPress : function(e) {
+		 if(e.keyCode != e.ENTER) {
+			 return;
+		 }
+		 var record = this.artistGrid.getSelectionModel().getSelected();
+		 if(!record) {
+			 return;
+		 }
+
+		 if (record.get('permissionLevel') < GO.permissionLevels.write) {
+			 return;
+		 }
+
+		 var dlg = new go.modules.tutorial.music.ArtistDialog();
+		 dlg.load(record.id).show();
+
+	 }
+
 	});
 
 
@@ -756,7 +772,7 @@ Create the file "ArtistDetail.js":
 
 .. code:: javascript
 
-	go.modules.community.music.ArtistDetail = Ext.extend(go.panels.DetailView, {
+	go.modules.tutorial.music.ArtistDetail = Ext.extend(go.panels.DetailView, {
 
 		// The entity store is connected. The detail view is automatically updated.
 		entityStore: go.Stores.get("Artist"),
@@ -831,7 +847,7 @@ Create the file "ArtistDetail.js":
 			});
 
 
-			go.modules.community.music.ArtistDetail.superclass.initComponent.call(this);
+			go.modules.tutorial.music.ArtistDetail.superclass.initComponent.call(this);
 
 		},
 
@@ -841,7 +857,7 @@ Create the file "ArtistDetail.js":
 			this.getTopToolbar().getComponent("edit").setDisabled(this.data.permissionLevel < GO.permissionLevels.write);
 			this.deleteItem.setDisabled(this.data.permissionLevel < GO.permissionLevels.writeAndDelete);
 
-			go.modules.community.music.ArtistDetail.superclass.onLoad.call(this);
+			go.modules.tutorial.music.ArtistDetail.superclass.onLoad.call(this);
 		},
 
 		initToolbar: function () {
@@ -855,7 +871,7 @@ Create the file "ArtistDetail.js":
 					iconCls: 'ic-edit',
 					tooltip: t("Edit"),
 					handler: function (btn, e) {
-						var dlg = new go.modules.community.music.ArtistDialog();
+						var dlg = new go.modules.tutorial.music.ArtistDialog();
 						dlg.show();
 						dlg.load(this.data.id);
 					},
@@ -907,7 +923,7 @@ MainPanel.js file:
 
 .. code:: javascript
 
-	go.modules.community.music.MainPanel = Ext.extend(go.panels.ModulePanel, {
+	go.modules.tutorial.music.MainPanel = Ext.extend(go.panels.ModulePanel, {
 
 		// Use a responsive layout
 		layout: "responsive",
@@ -920,7 +936,7 @@ MainPanel.js file:
 		initComponent: function () {
 
 			//create the genre filter component
-			this.genreFilter = new go.modules.community.music.GenreFilter({
+			this.genreFilter = new go.modules.tutorial.music.GenreFilter({
 				region: "west",
 				width: dp(300),
 
@@ -948,7 +964,7 @@ MainPanel.js file:
 			});
 
 			//Create the artist grid
-			this.artistGrid = new go.modules.community.music.ArtistGrid({
+			this.artistGrid = new go.modules.tutorial.music.ArtistGrid({
 				region: "center",
 
 				tbar: [
@@ -972,7 +988,7 @@ MainPanel.js file:
 						iconCls: 'ic-add',
 						tooltip: t('Add'),
 						handler: function (btn) {
-							var dlg = new go.modules.community.music.ArtistDialog({
+							var dlg = new go.modules.tutorial.music.ArtistDialog({
 								formValues: {
 									// you can pass form values like this 
 								}
@@ -1009,7 +1025,7 @@ MainPanel.js file:
 			}, this);
 
 			// Create artist detail component
-			this.artistDetail = new go.modules.community.music.ArtistDetail({
+			this.artistDetail = new go.modules.tutorial.music.ArtistDetail({
 				region: "center",
 				tbar: [
 					//add a back button for small screens
@@ -1045,7 +1061,7 @@ MainPanel.js file:
 			];
 
 			// Call the parent class' initComponent
-			go.modules.community.music.MainPanel.superclass.initComponent.call(this);
+			go.modules.tutorial.music.MainPanel.superclass.initComponent.call(this);
 
 			//Attach lister to changes of the filter selection.
 			//add buffer because it clears selection first and this would cause it to fire twice
@@ -1082,7 +1098,7 @@ MainPanel.js file:
 			}
 
 			// Show dialog
-			var dlg = new go.modules.community.music.ArtistDialog();
+			var dlg = new go.modules.tutorial.music.ArtistDialog();
 			dlg.load(record.id).show();
 		}
 	});
