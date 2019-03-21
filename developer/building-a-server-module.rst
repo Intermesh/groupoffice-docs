@@ -169,7 +169,7 @@ Code generator
 We've written a command line tool to make it easy to start with a new module.
 When you've created your database tables then you can run it to generate the
 models and controllers. 
-First login to Group Office as administrator and install the "Development tools" module.
+First login to Group Office as administrator and install the "Development tools" module that is part of the "Community" package.
 
 Then you can run it at any time from within the project directory to add new model properties, models
 or controllers::
