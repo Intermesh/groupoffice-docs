@@ -45,9 +45,7 @@ Required PHP Extensions
 
 2. Put the unpacked source in apache's document root.
 
-3. Make sure to make some aliases in the Apache configuration:
-
-   .. code:: bash
+3. Make sure to make some aliases in the Apache configuration::
    
    	 Alias /public <YOURDOCUMENTROOT>/public.php
    
@@ -66,6 +64,21 @@ Required PHP Extensions
    	 #DAV Service discovery. At least required for iOS7 support
    	 Redirect 301 /.well-known/carddav /carddav
        Redirect 301 /.well-known/caldav /caldav
+       
+   Or if you're not able to add these aliases you could create a .htaccess file and use mod_rewrite rules. Replace <YOURDIR> with the relative URL of where Group-Office is installed::
+   
+      RewriteEngine On
+      
+      # The followng two lines are only necessary when using PHP in CGI mode and not an apache module
+      RewriteCond %{HTTP:Authorization} ^(.*)
+      RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+      
+      # Configure /webdav, /caldav etc. on your domain
+      RewriteRule ^webdav(.*)$ /<YOURDIR>/modules/dav/files.php
+      RewriteRule ^caldav(.*)$ /<YOURDIR>/modules/caldav/calendar.php
+      RewriteRule ^carddav(.*)$ /<YOURDIR>/modules/carddav/addressbook.php
+      RewriteRule ^Microsoft-Server-ActiveSync(.*)$ /<YOURDIR>/modules/z-push/index.php
+  
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
