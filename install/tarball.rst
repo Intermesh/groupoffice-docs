@@ -47,23 +47,23 @@ Required PHP Extensions
 
 3. Make sure to make some aliases in the Apache configuration::
    
-   	 Alias /public <YOURDOCUMENTROOT>/public.php
-   
-   	 Alias /Microsoft-Server-ActiveSync <YOURDOCUMENTROOT>/modules/z-push/index.php
-   
-   	 #For CalDAV support
-   	 Alias /caldav <YOURDOCUMENTROOT>/modules/caldav/calendar.php
-   
-   	 #For CardDAV support
-   	 Alias /carddav <YOURDOCUMENTROOT>/modules/carddav/addressbook.php
-   
-   	 #For WebDAV support
-   	 Alias /webdav <YOURDOCUMENTROOT>/modules/dav/files.php
-   
-   
-   	 #DAV Service discovery. At least required for iOS7 support
-   	 Redirect 301 /.well-known/carddav /carddav
-       Redirect 301 /.well-known/caldav /caldav
+      Alias /public <YOURDOCUMENTROOT>/public.php
+
+      Alias /Microsoft-Server-ActiveSync <YOURDOCUMENTROOT>/modules/z-push/index.php
+
+      #For CalDAV support
+      Alias /caldav <YOURDOCUMENTROOT>/modules/caldav/calendar.php
+
+      #For CardDAV support
+      Alias /carddav <YOURDOCUMENTROOT>/modules/carddav/addressbook.php
+
+      #For WebDAV support
+      Alias /webdav <YOURDOCUMENTROOT>/modules/dav/files.php
+
+
+      #DAV Service discovery. At least required for iOS7 support
+      Redirect 301 /.well-known/carddav /carddav
+      Redirect 301 /.well-known/caldav /caldav
        
    Or if you're not able to add these aliases you could create a .htaccess file and use mod_rewrite rules. Replace <YOURDIR> with the relative URL of where Group-Office is installed::
    
@@ -78,7 +78,6 @@ Required PHP Extensions
       RewriteRule ^caldav(.*)$ /<YOURDIR>/modules/caldav/calendar.php
       RewriteRule ^carddav(.*)$ /<YOURDIR>/modules/carddav/addressbook.php
       RewriteRule ^Microsoft-Server-ActiveSync(.*)$ /<YOURDIR>/modules/z-push/index.php
-  
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
