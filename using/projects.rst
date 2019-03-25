@@ -110,6 +110,8 @@ Activity Types
 Activity types will be available in a drop down when making time entries. It 
 also has a preset for the description and duration.
 
+It's also possible to exclude hours from billing or to setup different fees per activity type.
+
 Employees
 `````````
 

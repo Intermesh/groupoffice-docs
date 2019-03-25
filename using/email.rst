@@ -132,6 +132,8 @@ Template variables
 
 You can use the following values in the document:
 
+.. note:: Variables are typically wrapped in {..} signs but you may also use %..%. This is necessary when using variables inside HTML templates. For example <a href="mailto:%user:email%"> only works with % signs.
+
 Custom fields
 `````````````
 
