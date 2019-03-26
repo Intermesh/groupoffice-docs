@@ -12,6 +12,7 @@ other systems.
    building-a-webclient-module.rst
    server
    webclient
+   jmap
 
 
 
