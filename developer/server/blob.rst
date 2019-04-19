@@ -23,3 +23,22 @@ Download / Upload URL's
 
 You can get the download and upload URL's by doing a GET request to the auth.php 
 endpoint. 
+
+Also read: https://jmap.io/spec-core.html#binary-data
+
+Using
+-----
+
+In the webclient you can use for uploading:
+
+- go.form.FileField(config) : https://github.com/Intermesh/groupoffice/blob/master/www/go/core/views/extjs3/form/FileField.js
+- go.util.openFileDialog(config) : https://github.com/Intermesh/groupoffice/blob/master/www/go/core/views/extjs3/util.js
+
+And for downloading:
+
+- go.Jmap.downloadUrl(blobId) : https://github.com/Intermesh/groupoffice/blob/master/www/go/core/views/extjs3/Jmap.js
+
+
+.. note: The address book module is a good example of storing a blob as a photo in the Contact entity. 
+
+

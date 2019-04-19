@@ -174,12 +174,13 @@ First login to Group Office as administrator and install the "Development tools"
 Then you can run it at any time from within the project directory to add new model properties, models
 or controllers::
    
-   php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=tutorial --name=music
+   php {PATH_TO_GROUPOFFICE}/cli.php community/dev/Module/init --package=tutorial --name=music
 
-.. note:: When using docker-compose prefix this 
+.. note:: When using docker-compose use:
    command with::
 
-      docker-compose exec groupoffice
+      docker-compose exec groupoffice php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=tutorial --name=music
+
 
 the command should output::
 

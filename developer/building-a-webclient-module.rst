@@ -885,7 +885,7 @@ Create the file "ArtistDetail.js":
 					iconCls: 'ic-more-vert',
 					menu: [
 						{
-							iconCls: "btn-print",
+							iconCls: "ic-print",
 							text: t("Print"),
 							handler: function () {
 								this.body.print({title: this.data.name});
@@ -893,7 +893,7 @@ Create the file "ArtistDetail.js":
 							scope: this
 						},
 						'-',
-						this.deleteItem = new Ext.menu.TextItem({
+						this.deleteItem = new Ext.menu.Item({
 							itemId: "delete",
 							iconCls: 'ic-delete',
 							text: t("Delete"),
@@ -926,7 +926,7 @@ MainPanel.js file:
 
 .. code:: javascript
 
-	go.modules.tutorial.music.MainPanel = Ext.extend(go.panels.ModulePanel, {
+	go.modules.tutorial.music.MainPanel = Ext.extend(go.modules.ModulePanel, {
 
 		// Use a responsive layout
 		layout: "responsive",
