@@ -109,14 +109,34 @@ For example:
 				'excerpt', 
 				{name: 'createdAt', type: 'date'}, 
 				{name: 'modifiedAt', type: 'date'}, 
-				{name: 'creator', type: 'User', key: 'createdBy'},
-				{name: 'modifier', type: 'User', key: 'modifiedBy'},
+				{name: 'creator', type: 'relation'},
+				{name: 'modifier', type: 'relation'},
+				{name: 'hasManyRelation', type: 'relation', limit: 5}
 				'permissionLevel'
 			],
 			entityStore: "Note"
 		});
 
 
-We've created a new data field type. Notice the type = 'User'. You can use any 
-entity in a go.data.Store. This field will fetch the User from the entity store
+Relations
+`````````
+We've created a new data field type. Notice the type = 'relation'.
+This field will fetch the relation defined in the entity.
 so you can use this object in your grid renderer for example.
+
+For example:
+
+.. code:: javascript
+
+   {
+		name: "Artist",
+		relations: {
+				creator: {store: "User", fk: "createdBy"},
+				modifier: {store: "User", fk: "createdBy"},
+
+				// 'albums' is a property of artist and has a nested relation.
+				albums: {
+							genre:  {store: "Genre", fk: "genreId"}
+				}
+		}
+	}
