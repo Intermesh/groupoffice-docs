@@ -159,6 +159,8 @@ Database rules
 2. Date's use column type "DATE".
 3. Date and time columns use type "DATETIME".
 4. Foreign key's must be defined for relationships. Think about cascading delete set to null or restrict.
+   In general. Properties should always be cascaded and entities should be restricted. They should be 
+   cascasded by overriding the internalSave() function so all the aapplication logic will be executed liek cleaning up links, logging etc.
 5. We often choose a varchar to be 190 characters so it can be indexed on all database versions.
 6. Columns modifiedBy (int), createdBy (int), createdAt (DATETIME), modifiedAt (DATETIME) are automatically set by Group Office.
 
