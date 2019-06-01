@@ -41,6 +41,25 @@ to change the password as that's not supported yet:
    :width: 500px
    :alt: LDAP User settings
 
+
+Synchronization
+---------------
+
+It's also possible to synchronize users and groups from the LDAP server. Simply enable
+the checkboxes and optionally adjust the queries to fetch the correct users and groups.
+
+When you enable the sync, it will schedule the sync to run the next minute. After that 
+it will sync daily at midnight.
+
+.. image:: ../../_static/ldap/5-ldap-synchronization.png
+   :width: 500px
+   :alt: LDAP server profile
+
+Advanced
+````````
+When a user or group is synchronized. It fires an event. So it's possible
+to build a module that can customize the LDAP synchronization.
+
 Test environment
 ----------------
 For testing I've used this docker image: https://hub.docker.com/r/rroemhild/test-openldap/
