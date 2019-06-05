@@ -11,6 +11,7 @@ The address book is a very powerful tool to manage contacts and organizations. I
 
 The address book module supports:
 
+- :ref:`filters`
 - :ref:`links`
 - :ref:`custom-fields`
 - :ref:`comments`
@@ -34,7 +35,6 @@ These functions are accessible via the more menu in the toolbar above the grid:
    :width: 100%
 
    Import and export menu options
-
 
 Groups
 ------

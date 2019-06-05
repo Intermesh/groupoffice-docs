@@ -29,6 +29,7 @@ Visit https://www.group-office.com for more information.
    using/search
    using/comments
    using/sharing
+   using/filters
 
 .. toctree::
    :maxdepth: 2
