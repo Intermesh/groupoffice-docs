@@ -58,9 +58,18 @@ Or::
 
 Will show all contacts with an age between 30 and 40.
 
+
+Or::
+
+   birthday:  < 1 months
+
+Will show all contacts with a birthday coming up within one month.
+
 You can use these fields:
 
 - name
+- email
+- phone
 - created (date)
 - modified (date)
 - age (number)
