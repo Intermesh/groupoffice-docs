@@ -25,6 +25,7 @@ the place to configure everything for Group-Office.
    users
    custom-fields
    document-templates
+   default-permissions
 
 
 
