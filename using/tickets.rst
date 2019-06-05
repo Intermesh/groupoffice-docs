@@ -17,6 +17,14 @@ The ticket system will be used by:
 A user only needs write permission for ticket types. A user will become an agent 
 when the user is granted manage permissions at Administration -> Types -> Type -> Permissions.
 
+The tickets module supports:
+
+- :ref:`links`
+- :ref:`custom-fields`
+- :ref:`comments`
+- :ref:`sharing`
+- :ref:`files`
+
 .. note:: **Anonymous tickets**
 
    A customer does not necessarily need to be a user. Read the external ticket page section for more information.

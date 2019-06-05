@@ -7,6 +7,14 @@ can also enter your expenses. With the report tool you can easily see your incom
 and expenses. You can create as many books as you want and you can call them 
 whatever you like.
 
+The billing module supports:
+
+- :ref:`links`
+- :ref:`custom-fields`
+- :ref:`comments`
+- :ref:`sharing`
+- :ref:`files`
+
 .. figure:: /_static/using/billing/billing-module.png
    :width: 100%
 

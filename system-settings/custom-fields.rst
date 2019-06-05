@@ -1,3 +1,5 @@
+.. _custom-fields:
+
 Custom fields
 =============
 

@@ -29,6 +29,12 @@ Visit https://www.group-office.com for more information.
    using/search
    using/comments
    using/sharing
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Modules
+
+   using/files
    using/email
    using/calendar
    using/address-book

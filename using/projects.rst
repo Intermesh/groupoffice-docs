@@ -10,6 +10,14 @@ The managers also have reports about progress and budgeting.
 
    Projects module
 
+The projects module supports:
+
+- :ref:`links`
+- :ref:`custom-fields`
+- :ref:`comments`
+- :ref:`sharing`
+- :ref:`files`
+
 
 .. note:: Having trouble with making time entries? 
 

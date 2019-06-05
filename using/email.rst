@@ -10,6 +10,11 @@ topics that we'll describe here.
 
    E-mail module
 
+The e-mail module supports:
+
+- :ref:`links`
+- :ref:`sharing`
+
 Creating accounts
 -----------------
 

@@ -9,6 +9,13 @@ among users via the web interface, :ref:`your mobile or desktop computer <connec
 
    Calendar module
 
+The calendar module supports:
+
+- :ref:`links`
+- :ref:`custom-fields`
+- :ref:`sharing`
+- :ref:`files`
+
 Sharing
 -------
 
