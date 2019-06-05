@@ -1,9 +1,14 @@
 Comments
 ========
 
-.. warning:: This page needs work. Document new 6.4 comments feature.
+Any user can write comments on items that support it.
 
-Any user can write comments on items that support it:
+.. figure:: /_static/using/comments.png
+   :width: 50%
+
+   Comments
+
+Items that support it are among other things:
 
 - Contacts
 - Events
@@ -13,4 +18,3 @@ Any user can write comments on items that support it:
 - Files
 - Folders
 - Notes
-
