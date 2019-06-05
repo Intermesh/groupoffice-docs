@@ -35,6 +35,48 @@ A few special groups are created by default:
 
    System settings - Groups
 
+
+Edit group
+----------
+
+The group edit dialog has 3 tabs:
+
+Members
+```````
+Here you can add group members. The selected members are on top. You can search for 
+new members to add. Add them by ticking the checkbox.
+
+.. figure:: /_static/system-settings/group-members.png
+   :alt: System Settings - Group members
+   :width: 100%
+
+   System settings - Group members
+
+
+Permissions
+````````````
+Here you can manage who can use (for sharing) / edit this group. By default only the 
+group members can use the group for sharing.
+
+.. figure:: /_static/system-settings/group-permissions.png
+   :alt: System Settings - Group permissions
+   :width: 100%
+
+   System settings - Group permissions
+
+.. _user-group-modules:
+
+Modules
+```````
+Here you can manage which modules are available to group members.
+Alternatively you can also manage this at the :ref:`modules page <user-group-modules>`.
+
+.. figure:: /_static/system-settings/group-modules.png
+   :alt: System Settings - Group modules
+   :width: 100%
+
+   System settings - Group modules
+
 .. _user-groups-defaults:
 
 Group defaults
