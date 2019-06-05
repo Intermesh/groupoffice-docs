@@ -26,6 +26,7 @@ Visit https://www.group-office.com for more information.
    using/my-account
    using/connect-a-device/connect-a-device
    using/links
+   using/search
    using/comments
    using/sharing
    using/email
