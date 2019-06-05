@@ -9,6 +9,7 @@ your account settings.
 
 .. figure:: /_static/system-settings/my-account.png
    :alt: My Account
+   :width: 100%
 
    My Account
 
@@ -22,6 +23,18 @@ On this tab you can change your:
 - Password
 
 You can also setup two factor authentication with :ref:`google-authenticator`.
+
+Profile
+```````
+When the address book module is installed. You can set your profile here.
+A contact is created in the users address book when you enter your profile.
+The users address book is configurable at System settings -> Users -> Settings.
+
+.. figure:: /_static/using/account/profile.png
+   :alt: Profile
+   :width: 100%
+
+   Profile
 
 Look and Feel
 `````````````

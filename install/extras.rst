@@ -38,7 +38,7 @@ IMAP proxy
 
 Webmail systems make lots of imap connections. It's wise to use `imapproxy <http://imapproxy.org>`_ to cache connections to the IMAP server.
 
-Install imapproxy on the webserver and configure it to proxy the imapserver. Accounts will be configures with "localhost" as the hostname and imapproxy will route this to the real IMAP server.
+Install imapproxy on the webserver and configure it to proxy the imapserver. Accounts can be configured with "localhost" as the hostname and imapproxy will route this to the real IMAP server.
 
 run::
 

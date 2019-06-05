@@ -18,8 +18,8 @@ menu in the record you can:
 
    User list
 
-User defaults and custom fields
--------------------------------
+User defaults
+-------------
 
 Before adding any user. Check the 'User settings' to avoid unnecessary changes to 
 user settings after creating them. 
