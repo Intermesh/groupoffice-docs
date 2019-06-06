@@ -35,10 +35,12 @@ Visit https://www.group-office.com for more information.
    :maxdepth: 2
    :caption: Modules
 
-   using/files
    using/email
    using/calendar
    using/address-book
+   using/newsletters
+   using/files
+   using/notes
    using/tickets
    using/projects
    using/holidays
