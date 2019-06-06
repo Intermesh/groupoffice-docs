@@ -36,6 +36,28 @@ These functions are accessible via the more menu in the toolbar above the grid:
 
    Import and export menu options
 
+CSV format
+----------
+Any format can be imported as long as the required columns are available.
+After selecting the file a dialog will be opened where you can match the fields:
+
+.. figure:: /_static/using/address-book/import-csv.png
+   :alt: Import CSV dialog
+   :width: 50%
+
+   Import CSV dialog
+
+When the column names match the name of the Group-Office field name or label it will 
+be mapped automatically.
+
+Some fields like e-mail addresses or phone numbers can have multiple values. They must be in a single CSV column but separeted by 3 colons (:::).
+
+For example::
+
+   name,email,emailType
+   John,work@domain.com ::: home@domain.com, work ::: home
+
+
 Groups
 ------
 
