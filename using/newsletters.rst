@@ -10,7 +10,7 @@ Newsletters
 The newsletters module is an easy tool to manage address lists and send out newsletters. Using powerful templates you can personalize your messages.
 
 Create lists
-============
+------------
 
 Create a list by clicking the add button in the "Lists" toolbar.
 Then click the add button from the "Contents" toolbar in the middle to add
@@ -20,7 +20,8 @@ You can add contacts one by one but you can also add entire search results using
 filters.
 
 Compose
-=======
+-------
+
 To send a newsletter click the add button from the "Sent items" panel.
 
 .. figure:: /_static/using/newsletters/compose.png
@@ -30,7 +31,7 @@ To send a newsletter click the add button from the "Sent items" panel.
    Compose
 
 Templates
-=========
+---------
 
 From the composer you can also manage templates. Via the menu shown in the screenshot above.
 You can use the following variables in these templates:
