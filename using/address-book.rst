@@ -45,6 +45,13 @@ Advanced search syntax
 ----------------------
 
 Next to :ref:`filters` you can also use an advanced search syntax in the address book search bar.
+
+.. figure:: /_static/using/address-book/advanced-query-syntax.png
+   :alt: Advanced query syntax
+   :width: 50%
+
+   Advanced query syntax
+
 If you enter a string of text it will search through the name and debtor number fields by default.
 But you can also search on other fields. For example::
 
