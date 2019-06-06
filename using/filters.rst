@@ -1,6 +1,6 @@
 .. _filters:
 
-Custom Filters
+Custom filters
 ==============
 
 Some modules support custom filters. You can create a reusable filter in which you create
