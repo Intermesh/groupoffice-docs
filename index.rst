@@ -1,7 +1,10 @@
 Group-Office manual
 ===================
 
-Group-Office is an open-source groupware and CRM application. 
+Group-Office is an open-source groupware and CRM application. It's our mission to simplify your daily office tasks.
+Easy to use modules such as the Calendar, Address Book, Projects and time tracking come by default. But it's also 
+possible to customize Group-Office with your own custom modules.
+
 Visit https://www.group-office.com for more information.
 
 .. figure:: _static/groupoffice-start-page.png
