@@ -81,8 +81,7 @@ Required PHP Extensions
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
-   files in "/usr/share/groupoffice/". For example 
-   "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
+   files in the root folder of Group-Office. For example "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
 5. Then visit http://yourserver/ and the installer should appear:
 
