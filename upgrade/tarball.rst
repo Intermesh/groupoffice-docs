@@ -5,8 +5,8 @@ We strongly recommend that you use our Debian packages or Docker instead of the
 tarball. But if you really want use it then follow these steps:
 
 1. Make sure your system meets the :ref:`system-requirements`.
-2. Make sure you're on the latest 6.2 version.
-3. Make sure you've installed the "customfields" and "search" modules as they 
+2. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
+3. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
 4. Move away your old source files. Important! Do not copy the new files over 
    the existing.
