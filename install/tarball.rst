@@ -41,7 +41,7 @@ Required PHP Extensions
 
 1. Grab the source from:
 
-   https://sourceforge.net/projects/group-office/files/6.3/
+   https://sourceforge.net/projects/group-office/files/6.4/
 
 2. Put the unpacked source in apache's document root.
 

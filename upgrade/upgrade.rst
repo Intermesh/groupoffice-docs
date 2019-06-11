@@ -7,6 +7,7 @@ to do it in steps:
 - 2.18 can upgrade to 3.7.55
 - 3.7.55 can upgrade to 6.2
 - 6.2 can upgrade to 6.3
+- Every major release needs to be upgraded to the next from 6.2 and higher.
 
 Needless to say, but always make a **backup** before upgrading.
 

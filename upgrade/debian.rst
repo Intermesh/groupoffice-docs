@@ -4,11 +4,32 @@ Upgrading on Debian / Ubuntu
 Core system
 -----------
 
-When running 6.3.x or higher simply do:
+Running 6.3 or higher
+`````````````````````
+
+To upgrade minor releases run:
 
 .. code:: bash
 
    apt-get install groupoffice
+
+
+When upgrading to the next major release follow these steps:
+
+1. Run the above command first to upgrade to the latest 6.3.
+2. Then open your browser to update the database.
+3. Then you need to adjust the repository in::
+
+      /etc/apt/sources.list.d/groupoffice.list
+
+   For 6.4 and you're running PHP 7.0 change it to:
+
+      deb http://repo.group-office.com/ 64-php-70 main
+
+   Or when running PHP 7.1 or higher::
+
+      deb http://repo.group-office.com/ 64-php-71 main
+
 
 From older versions than 6.3
 ````````````````````````````
@@ -49,7 +70,7 @@ Steps
    
       deb http://repos.groupoffice.eu/ sixtwo main
 
-6. Now do a fresh install of the Debian package. But note:
+6. Now do a fresh install of the **6.3** Debian package. But note:
 
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
