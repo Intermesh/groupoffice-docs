@@ -36,24 +36,41 @@ Templates
 From the composer you can also manage templates. Via the menu shown in the screenshot above.
 You can use the following variables in these templates:
 
-- name
-- prefix
-- firstName
-- middleName
-- lastName
-- suffix
-- jobTitle
-- gender
-- organizations: Array(same properties as contact)
-- dates: Array (type, date)
-- emailAddresses: Array(type, email)
-- phoneNumbers: Array(type, number)
-- addresses: Array(type, street, street2, zipCode, city, state, country, countryCode)
-- urls: Array(type, url)
-- debtorNumber
-- IBAN
-- vatNo
-- :ref:`custom-fields`
+Contact
+```````
+Fields of the recipient
+
+- contact.name
+- contact.prefix
+- contact.firstName
+- contact.middleName
+- contact.lastName
+- contact.suffix
+- contact.jobTitle
+- contact.gender
+- contact.organizations: Array(same properties as contact)
+- contact.dates: Array (type, date)
+- contact.emailAddresses: Array(type, email)
+- contact.phoneNumbers: Array(type, number)
+- contact.addresses: Array(type, street, street2, zipCode, city, state, country, countryCode)
+- contact.urls: Array(type, url)
+- contact.debtorNumber
+- contact.IBAN
+- contact.vatNo
+- :ref:`custom-fields` (The database name prefixed with "contact.")
+
+Other
+`````
+- unsubscribeUrl
+- now (Date) The time the message is sent
+
+Creator
+```````
+Fields of the user who created the newsletter
+
+- creator.displayName
+- creator.email
+- creator.username
 
 
 Syntax
@@ -87,3 +104,14 @@ And filter arrays by property and only write first match using "eachIndex"::
 An advanced example for printing the salutation::
 
    Dear [if {{contact.prefixes}}]{{contact.prefixes}}[else][if !{{contact.gender}}]Ms./Mr.[else][if {{contact.gender}}=="M"]Mr.[else]Ms.[/if][/if][/if] {{contact.lastName}}
+
+
+An simple example template::
+
+   Hi {{contact.firstName}},
+
+
+   Best regards,
+
+   {{user.displayName}}
+   {{user.profile.organizations[0].name}}
