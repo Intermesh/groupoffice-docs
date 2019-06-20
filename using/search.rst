@@ -29,8 +29,8 @@ If you want to search for a phrase then you can use quotes::
 
 You can also use:
 
-- * for a wildcard.
-- -word to omit results with this word.
+- "*" for a wildcard.
+- Prefix words with "-" to omit results with this word.
 
 For example::
 
