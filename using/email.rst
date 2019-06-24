@@ -99,7 +99,7 @@ with data from the logged in user or recipient.
 To edit or create templates, 
 go to:
 
-System settings -> E-mail Templates.
+My Account -> E-mail -> Templates.
 
 Double click on a template or create a new one to edit it. If you drafted an 
 HTML document in another program, make sure this HTML only contains inline style. 
