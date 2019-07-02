@@ -8,7 +8,7 @@ tarball. But if you really want use it then follow these steps:
 2. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
 3. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
-4. Move away your old source files. Important! 
+4. Move away your old source files to a backup location.
    
    .. warning:: Do not copy the new files over the existing. This will result in a broken system.
       
