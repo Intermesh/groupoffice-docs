@@ -22,7 +22,7 @@ When upgrading to the next major release follow these steps:
 
       /etc/apt/sources.list.d/groupoffice.list
 
-   For 6.4 and you're running PHP 7.0 change it to:
+   For 6.4 and you're running PHP 7.0 change it to::
 
       deb http://repo.group-office.com/ 64-php-70 main
 
