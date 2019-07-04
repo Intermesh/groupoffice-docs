@@ -190,6 +190,9 @@ Order data
 - {order_id}		 The textual order ID
 - {po_id}			 The purchase order ID
 - {btime}			 The date of the order
+- {due_date}		Due date for payment
+- {due_days}		Days left for payment
+- {dtime)		Delivery date
 - {reference}		 The order reference
 - {total}			 The gross amount of the order 
 - {subtotal}		 The nett amount of the order
