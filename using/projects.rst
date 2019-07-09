@@ -53,6 +53,7 @@ Project templates are very powerful. You can control what information the end us
 4. Default project tasks
 5. Default permission type and status
 6. The icon displayed in the project tree and grid
+7. Enable / disable the jobs panel
 
 .. figure:: /_static/using/projects/template.png
    :width: 50%
@@ -179,6 +180,12 @@ Users don't need access to the projects module to use time tracking.
 
 When a user accidentally closed a week the manager can reopen it at Administration -> Employees. Double click an employee and set the close date back in time.
 
+Jobs
+----
+
+In the jobs panel you can define smaller parts of the project. You can also select these in the time entry dialog to keep track of how much time these jobs took.
+
+Before you can use jobs you must setup employees for the project. Otherwise the jobs panel will stay disabled.
 
 Hours approval
 --------------
