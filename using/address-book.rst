@@ -94,6 +94,12 @@ Or::
 
 Will show all contacts with a birthday coming up within one month.
 
+Or::
+
+   org:  intermesh,group-office
+   
+Will show all employees of the organizations Intermesh and Group-Office
+
 You can use these fields:
 
 - name
