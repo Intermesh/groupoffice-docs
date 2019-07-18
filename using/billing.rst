@@ -285,3 +285,11 @@ Purchase order books
 Purchase order book makes it behave a different. It enables a "Stock" button where you can purchase new items for products in your catalog. It queries the products that are lower in stock than the minimum stock value of the product. When you order these items it will generate purchase orders for the product suppliers.
 
 It will also enable deliveries in the purchase orders so you can keep track of how many items have been delivered to you.
+
+
+Custom fields
+-------------
+
+You can use custom fields for orders. There's one special thing to note. When you select a customer from the address book all fields with matching database names will be copied to the invoice.
+
+.. note:: The match used to be made on the field label. Since 6.4 the match is made by database name.
