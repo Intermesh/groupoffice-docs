@@ -20,3 +20,5 @@ tarball. But if you really want use it then follow these steps:
 8. Check if you have the right cron job in place::
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
+
+.. warning:: If you're upgrading from 6.2 to 6.3 or higher and you are running the CGI version of PHP then you need to add a reqrite rule to add the "Authorization" header. Read more at :ref:`cgi-authorization`.
