@@ -101,7 +101,8 @@ Required PHP Extensions
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php /etc/groupoffice/myoffice/config.php
    
       
-      
+.. _cgi-authorization:
+
 Authentication with CGI or FastCGI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 When using PHP through CGI the "Authorization" header might not be passed by default. You can enable this header by adding these "mod_rewrite" rules to your VirtualHost section or .htacess file::
