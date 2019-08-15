@@ -35,7 +35,7 @@ Group Office also has a Command Line Interface. To implement this do the followi
 
       Hello Merijn!
 
-.. note:: Command line methods always run as the administrator user.
+.. note:: Command line methods always run as the administrator user so you should probably need to sudo into the web user (www-data)
 				
 				
 Specify config file

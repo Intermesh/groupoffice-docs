@@ -99,7 +99,7 @@ with data from the logged in user or recipient.
 To edit or create templates, 
 go to:
 
-System settings -> E-mail Templates.
+My Account -> E-mail -> Templates.
 
 Double click on a template or create a new one to edit it. If you drafted an 
 HTML document in another program, make sure this HTML only contains inline style. 
@@ -161,6 +161,8 @@ Fields of the logged in user
 - {user:displayName}
 - {user:email}
 - {user:username}
+- {user:*} Any contact field listed below can be used if this user has a profile (6.4+).
+- {usercompany:*} Any company field listed below can be used if this user has a profile (6.4+).
 
 Fields of the contact
 `````````````````````

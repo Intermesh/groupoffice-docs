@@ -15,25 +15,15 @@ You can find it at the top bar:
 Query syntax
 ------------
 
-When you enter words it will find results that match any of those words.
+When you enter words it will find results that match all of those words.
 
 For example when searching for::
 
    John Doe
 
-It will find anything with John or Doe.
+It will find anything with John AND Doe.
 
 If you want to search for a phrase then you can use quotes::
 
    "John Doe"
-
-You can also use:
-
-- * for a wildcard.
-- -word to omit results with this word.
-
-For example::
-
-   John* -Doe
-
-Will find anything with a word starting with "John" but not with the word "Doe" in it.
+   

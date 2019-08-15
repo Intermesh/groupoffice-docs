@@ -22,7 +22,7 @@ When upgrading to the next major release follow these steps:
 
       /etc/apt/sources.list.d/groupoffice.list
 
-   For 6.4 and you're running PHP 7.0 change it to:
+   For 6.4 and you're running PHP 7.0 change it to::
 
       deb http://repo.group-office.com/ 64-php-70 main
 
@@ -75,6 +75,7 @@ Steps
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
      "Keep the local version currently installed".
+   - Use **63-php-71** or **63-php-71** for the repositiory instead of the 6.4 one.
 
 Continue at :ref:`install-debian`.
 

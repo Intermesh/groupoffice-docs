@@ -94,13 +94,23 @@ Or::
 
 Will show all contacts with a birthday coming up within one month.
 
+Or::
+
+   org:  intermesh,group-office
+   
+Will show all employees of the organizations Intermesh and Group-Office
+
 You can use these fields:
 
 - name
 - email
 - phone
-- created (date)
-- modified (date)
+- org (Organization name)
+- createdat (date)
+- createdby (User's display name)
+- modifiedat (date)
+- modifiedby (User's display name)
+- commentedat (date)
 - age (number)
 - gender (M, F or null)
 - birthday (date)
