@@ -16,7 +16,7 @@ Group Office also has a Command Line Interface. To implement this do the followi
 
       <?php
 
-      namespace go\modules\tutorial\music\controller;
+      namespace go\modules\tutorial\music\cli\controller;
 
       use go\core\Controller;
 
@@ -25,7 +25,8 @@ Group Office also has a Command Line Interface. To implement this do the followi
           echo "Hello $name!\n";
         }
       }
-
+      
+   .. note: The controller must be in the "cli\controller" namespace so these methods can't be invoked via JMAP.
 
 2. Run (Notice the path is case sensitive!):
 	
