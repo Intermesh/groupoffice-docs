@@ -27,7 +27,7 @@ Required software
 To follow this tutorial you need the following software installed:
 
 1. `git <https://git-scm.com/>`_. For version management.
-2. An editor. We like to use `Netbeans <https://www.netbeans.org>`_ The 8.2 version with PHP support. 
+2. An editor to edit PHP and Javascript files.
 3. `Postman <https://www.getpostman.com/>`_. For testing the backend API without the User Interface.
 
 Code standards
@@ -181,7 +181,7 @@ or controllers::
 .. note:: When using docker-compose use:
    command with::
 
-      docker-compose exec groupoffice php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=tutorial --name=music
+      docker-compose exec groupoffice-master php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=tutorial --name=music
 
 
 the command should output::
@@ -206,7 +206,7 @@ This will generate:
 
    So you need to change the ownership to your own user by running::
 
-      sudo chown -R $USER:$USER src/master/www/go/modules/tutorial/music
+      sudo chown -R $USER:$USER src/master/www/go/modules/tutorial
 
 Property and Entity models
 --------------------------
@@ -265,8 +265,8 @@ And then change the mapping:
 
    protected static function defineMapping() {
        return parent::defineMapping()
-               ->addTable("music_artist")
-               ->addRelation('albums', Album::class, ['id' => 'artistId']);
+               ->addTable("music_artist", "artist")
+               ->addArray('albums', Album::class, ['id' => 'artistId']);
    }
 
 .. note:: When making changes to the database, model properties or mappings, you
@@ -403,13 +403,20 @@ example:
 
 .. code:: json
 
-   {"filter": {"q" : "Foo"}}
+   {"filter": {"text" : "Foo"}}
 
-We generally use the "q" filter for a quick search query.  We also want to filter
+We generally use the "text" filter for a quick search query.  We also want to filter
 artists by their album genres. We can implement this in our "Artist" entity in 
 by overriding the "filter" method:
 
 .. code:: php
+
+  /**
+   * This function returns the columns to search when using the "text" filter.
+   */
+  public static function textFilterColumns() {
+    return ['name'];
+  }
 
 	/**
 	 * Defines JMAP filters
