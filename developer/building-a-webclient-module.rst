@@ -245,6 +245,67 @@ Reload Group Office and the Music panel should now look like this:
    :width: 100%
 
 
+Relations
+---------
+
+To present data from related entities. For example. The user who created an Artist you can use relations.
+For each entity you can define relations to other entities. Change the string "Artist" in the entities propertie in Module.js to the following:
+
+
+.. code:: javascript
+
+	{
+					name: "Artist",
+					relations: {
+							creator: {store: "User", fk: "createdBy"},
+							modifier: {store: "User", fk: "createdBy"},
+
+							// 'albums' is a property of artist and has a nested relation.
+							albums: {
+										genre:  {store: "Genre", fk: "genreId"}
+							}
+					}
+		}
+
+
+We've defined two "has one" relations for the creator and modifier and a "has many" relation for the albums.
+
+The complete module.js looks like this now:
+
+.. code:: javascript
+
+	go.Modules.register("tutorial", "music", {
+			mainPanel: "go.modules.tutorial.music.MainPanel",
+
+			//The title is shown in the menu and tab bar
+			title: t("Music"),
+
+			//All module entities must be defined here. Stores will be created for them.
+			entities: [
+						"Genre", 
+						{
+								name: "Artist",
+								relations: {
+											creator: {store: "User", fk: "createdBy"},
+											modifier: {store: "User", fk: "createdBy"},
+
+											// 'albums' is a property of artist and has a nested relation.
+											albums: {
+													genre:  {store: "Genre", fk: "genreId"}
+											}
+								}
+						}
+			],
+
+			//Put code to initialize the module here after the user is authenticated 
+			//and has access to the module.
+			initModule: function () {}
+});
+
+
+We can use these relations in the artist grid in the next chapter.
+
+
 Artist grid
 -----------
 
@@ -268,12 +329,12 @@ Create the file ArtistGrid.js:
 					{name: 'createdAt', type: 'date'},
 					{name: 'modifiedAt', type: 'date'},
 
-					// You can use any entity as a store data type. This will autmatically
-					// fetch the related entity by key.
-					{name: 'creator', type: "User", key: 'createdBy'},
-					{name: 'modifier', type: "User", key: 'modifiedBy'},
+					// You can use "relation" as a store data type. This will autmatically
+					// fetch the related entity by the definition in Module.js.
+					{name: 'creator', type: "relation"},
+					{name: 'modifier', type: "relation"},
 
-					// Every entity has permission levels. GO.permissionLevels.read, write,
+					// Every entity has permission levels. go.permissionLevels.read, write,
 					// writeAndDelete and manage
 					'permissionLevel'
 				],
