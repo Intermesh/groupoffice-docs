@@ -584,27 +584,10 @@ Create a file called "ArtistDialog.js":
 					// it's recommended to wrap all fields in field sets for consistent style.
 					xtype: 'fieldset',
 					title: t("Artist information"),
-					items: [{
-							// The go.form.FileField component can handle "blob" fields.
-							xtype: "filefield",
-							hideLabel: true,
-							buttonOnly: true,
-							name: 'photo',
-							height: dp(120),
-							cls: "avatar",
-							autoUpload: true,
-							buttonCfg: {
-								text: '',
-								width: dp(120)
-							},
-							setValue: function (val) {
-								if (this.rendered && !Ext.isEmpty(val)) {
-									this.wrap.setStyle('background-image', 'url(' + go.Jmap.downloadUrl(val) + ')');
-								}
-								go.form.FileField.prototype.setValue.call(this, val);
-							},
-							accept: 'image/*'
-						},
+					items: [
+						this.avatarComp = new go.form.ImageField({			
+							name: 'photo'										
+						}),
 
 						{
 							xtype: 'textfield',
@@ -717,7 +700,7 @@ Then update MainPanel.js:
 
 				listeners: {				
 					rowdblclick: this.onGridDblClick,
-					keypress: this.onGridKeyPress
+					keypress: this.onGridKeyPress,
 					scope: this
 				}
 			});
@@ -844,6 +827,9 @@ Create the file "ArtistDetail.js":
 		stateful: false,
 		stateId: 'music-contact-detail',
 
+		// Fetch these relations for this view
+		relations: ["albums.genre"],
+
 		initComponent: function () {
 			this.tbar = this.initToolbar();
 
@@ -864,14 +850,14 @@ Create the file "ArtistDetail.js":
 						cls: "content",
 						tpl: new Ext.XTemplate('<div class="go-detail-view-avatar">\
 	<div class="avatar" style="{[this.getStyle(values.photo)]}"></div></div>',
-										{
-											getCls: function (isOrganization) {
-												return isOrganization ? "organization" : "";
-											},
-											getStyle: function (photoBlobId) {
-												return photoBlobId ? 'background-image: url(' + go.Jmap.downloadUrl(photoBlobId) + ')"' : "";
-											}
-										})
+							{
+								getCls: function (isOrganization) {
+									return isOrganization ? "organization" : "";
+								},
+								getStyle: function (photoBlobId) {
+									return photoBlobId ? 'background-image: url(' + go.Jmap.downloadUrl(photoBlobId) + ')"' : "";
+								}
+							})
 					},
 
 					// Albums component
@@ -879,36 +865,17 @@ Create the file "ArtistDetail.js":
 						collapsible: true,
 						title: t("Albums"),
 						xtype: "panel",
-
-						//onLoad is called on each item. The DetailView is passed as argument
-						onLoad: function (dv) {
-							this.setVisible(dv.data.albums.length);
-							if (!dv.data.albums.length) {
-								return;
-							}
-
-							if (!this.template) {
-								this.template = new Ext.XTemplate('<div class="icons">\
-									<tpl for=".">\
-													<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
-																	<span>{name}</span>\
-																	<label>{[go.util.Format.date(values.releaseDate)]} - {[go.Stores.get("Genre").data[values.genreId].name]}</label>\
-													</p>\
-									</tpl>\
-									</div>').compile();
-							}
-
-							//make sure genres are loaded before rendering the album template
-							var ids = dv.data.albums.column('genreId');
-
-							go.Stores.get("Genre").get(ids, function (genres) {
-								this.update(this.template.apply(dv.data.albums));
-							}, this);
-						}
+						tpl: '<div class="icons">\
+							<tpl for="albums">\
+										<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
+														<span>{name}</span>\
+														<label>{[go.util.Format.date(values.releaseDate)]} - <tpl for="genre">{name}</tpl></label>\
+										</p>\
+						</tpl>\
+						</div>'
 					}
 				]
 			});
-
 
 			go.modules.tutorial.music.ArtistDetail.superclass.initComponent.call(this);
 
@@ -917,8 +884,8 @@ Create the file "ArtistDetail.js":
 		onLoad: function () {
 
 			// Enable edit button according to permission level.
-			this.getTopToolbar().getComponent("edit").setDisabled(this.data.permissionLevel < GO.permissionLevels.write);
-			this.deleteItem.setDisabled(this.data.permissionLevel < GO.permissionLevels.writeAndDelete);
+			this.getTopToolbar().getComponent("edit").setDisabled(this.data.permissionLevel < go.permissionLevels.write);
+			this.deleteItem.setDisabled(this.data.permissionLevel < go.permissionLevels.writeAndDelete);
 
 			go.modules.tutorial.music.ArtistDetail.superclass.onLoad.call(this);
 		},
@@ -949,7 +916,7 @@ Create the file "ArtistDetail.js":
 							iconCls: "ic-print",
 							text: t("Print"),
 							handler: function () {
-								this.body.print({title: this.data.name});
+								this.body.print({ title: this.data.name });
 							},
 							scope: this
 						},
@@ -963,7 +930,7 @@ Create the file "ArtistDetail.js":
 									if (btn != "yes") {
 										return;
 									}
-									this.entityStore.set({destroy: [this.currentId]});
+									this.entityStore.set({ destroy: [this.currentId] });
 								}, this);
 							},
 							scope: this
