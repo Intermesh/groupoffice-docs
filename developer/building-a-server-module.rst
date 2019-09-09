@@ -270,7 +270,7 @@ And then change the mapping:
    }
 
 .. note:: When making changes to the database, model properties or mappings, you
-   must run "install/upgrade.php" to rebuild the cache.
+   must run "http://localhost/install/upgrade.php" in your browser to rebuild the cache.
 
 Translations
 ------------
