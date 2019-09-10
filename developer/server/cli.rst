@@ -5,11 +5,6 @@ Command Line Interface
 
 Group Office also has a Command Line Interface. To implement this do the following:
 
-.. note:: When using docker-compose prefix
-   the command with::
-	 
-	 docker-compose exec --user www-data groupoffice php /usr/local/share/groupoffice/cli.php
-
 1. Create a controller that extends the abstract controller in your module:
 
    .. code:: php
@@ -28,9 +23,13 @@ Group Office also has a Command Line Interface. To implement this do the followi
       
    .. note: The controller must be in the "cli\controller" namespace so these methods can't be invoked via JMAP.
 
-2. Run (Notice the path is case sensitive!):
+2. Run (Notice the path is case sensitive!)::
 	
-     sudo -u www-data php /usr/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn
+      sudo -u www-data php /usr/share/groupoffice/cli.php tutorial/music/CliDemo/hello --name=Merijn
+
+   or with docker-compose::
+
+      docker-compose exec --user www-data groupoffice-master php /usr/local/share/groupoffice/cli.php
 
 3. This should output::
 
@@ -45,4 +44,4 @@ Specify config file
 If you have a multi instance environment you can specify the config file location
 with the 'c' argument::
 				
-   php /usr/share/groupoffice/cli.php community/music/CliDemo/hello --name=Merijn -c=/etc/groupoffice/multi_instance/domain.com/config.php
+   php /usr/share/groupoffice/cli.php tutorial/music/CliDemo/hello --name=Merijn -c=/etc/groupoffice/multi_instance/domain.com/config.php
