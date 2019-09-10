@@ -788,12 +788,13 @@ Delete button
 -------------
 
 You can add a delete button to the grid's toolbar in MainPanel.js to delete 
-selected arists:
+selected arists. Note that this code will add a "More options" menu button with 3 dots that has the delete button in the menu:
 
 .. code:: javascript
 
 	{
 		iconCls: 'ic-more-vert',
+		tooltipe: t("More options"),
 		menu: [
 			{
 				itemId: "delete",
