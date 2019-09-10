@@ -5,7 +5,7 @@ Command Line Interface
 
 Group Office also has a Command Line Interface. To implement this do the following:
 
-1. Create a controller that extends the abstract controller in your module:
+1. Create a controller that extends the abstract controller in folder 'go/modules/tutorial/music/cli/controller':
 
    .. code:: php
 
@@ -29,7 +29,7 @@ Group Office also has a Command Line Interface. To implement this do the followi
 
    or with docker-compose::
 
-      docker-compose exec --user www-data groupoffice-master php /usr/local/share/groupoffice/cli.php
+      docker-compose exec --user www-data groupoffice-master php /usr/local/share/groupoffice/cli.php tutorial/music/CliDemo/hello --name=Merijn
 
 3. This should output::
 
