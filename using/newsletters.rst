@@ -113,5 +113,5 @@ An simple example template::
 
    Best regards,
 
-   {{user.displayName}}
-   {{user.profile.organizations[0].name}}
+   {{creator.displayName}}
+   {{creator.profile.organizations[0].name}}
