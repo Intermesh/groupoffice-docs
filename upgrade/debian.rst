@@ -75,7 +75,7 @@ Steps
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
      "Keep the local version currently installed".
-   - Use **63-php-71** or **63-php-71** for the repositiory instead of the 6.4 one.
+   - Use **63-php-70** or **63-php-71** for the repositiory instead of the 6.4 one.
 
 Continue at :ref:`install-debian`.
 
