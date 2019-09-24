@@ -13,4 +13,4 @@ Libre Office / Open Office
 - Open Document Text (odt)
 - Open Document Spreadsheet (ods)
 
-In these templates you can use template variables.
+In these templates you can use :ref:`template-variables`.
