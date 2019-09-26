@@ -115,4 +115,4 @@ You can use these fields:
 - gender (M, F or null)
 - birthday (date)
 - isuser (0 or 1)
-- :ref:`custom-fields`
+- :ref:`custom-fields` By using <databaseName>: query. Lookup the database name in system settings.
