@@ -21,9 +21,9 @@ For example when searching for::
 
    John Doe
 
-It will find anything with John* AND Doe*. And also "Jonathan" for example becuase of the automatic wildcard.
+It will find anything with John* AND Doe*. Because of the automatic wildcards (*) also "Jonathan" will match for example.
 
-If you want to search for a phrase then you can use quotes::
+If you want to search for a phrase or without wildcards then you can use quotes::
 
    "John Doe"
    
