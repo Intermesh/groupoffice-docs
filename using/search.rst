@@ -21,7 +21,7 @@ For example when searching for::
 
    John Doe
 
-It will find anything with John* AND Doe*. So also "Jonathan" for example becuase of the automatic wildcard.
+It will find anything with John* AND Doe*. And also "Jonathan" for example becuase of the automatic wildcard.
 
 If you want to search for a phrase then you can use quotes::
 
