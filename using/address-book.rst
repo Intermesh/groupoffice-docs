@@ -116,3 +116,17 @@ You can use these fields:
 - birthday (date)
 - isuser (0 or 1)
 - :ref:`custom-fields` By using <databaseName>: query. Lookup the database name in system settings.
+
+
+String search explained
+```````````````````````
+
+For example when searching for::
+
+   name: John Jacks
+
+It will find anything with "John Jacks*". Because of the automatic wildcards (*) also "John Jackson" will match for example.
+
+If you want to search for a phrase or without wildcards then you can use quotes::
+
+   name: "John Jacks"
