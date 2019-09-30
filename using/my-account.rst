@@ -52,7 +52,13 @@ periods. It's also used in the time tracking module.
 
 Synchronization
 ```````````````
-Configure what will be synchronized to other devices.
+Configure what will be synchronized to other devices with CalDAV, CardDAV and ActiveSync.
+
+.. figure:: /_static/using/account/sync.png
+   :alt: Synchronization
+   :width: 100%
+
+   Synchronization
 
 Modules
 ```````
