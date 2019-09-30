@@ -19,7 +19,7 @@ You need a Linux server with:
    ====================  ===========
    Operating System      Linux / Docker
    Webserver             Apache 2+
-   Database              MySQL 5.3+
+   Database              MySQL 5.7+ / MariaDB 10.0.5
    Programming language	 PHP 7.0+
    ====================  ===========
 
