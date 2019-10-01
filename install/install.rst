@@ -16,3 +16,4 @@ Debian packages on the latest stable Debian Linux OS.
    Docker <docker>
    Tarball <tarball>
    extras
+   config
