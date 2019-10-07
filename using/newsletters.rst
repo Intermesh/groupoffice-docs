@@ -57,7 +57,7 @@ Fields of the recipient
 - contact.debtorNumber
 - contact.IBAN
 - contact.vatNo
-- :ref:`custom-fields` (The database name prefixed with "contact.")
+- :ref:`custom-fields` (The database name prefixed with "contact.customFields.")
 
 Other
 `````
@@ -79,6 +79,10 @@ Syntax
 A variable is written like this::
 
    {{contact.name}}
+   
+Or a custom field:
+
+   {{contact.customFields.<DATABASE_NAME_OF_CUSTOMFIELD>>}}
 
 Arrays can be written like this::
 
