@@ -82,7 +82,7 @@ A variable is written like this::
    
 Or a custom field::
 
-   {{contact.customFields.<DATABASE_NAME_OF_CUSTOMFIELD>>}}
+   {{contact.customFields.<DATABASE_NAME_OF_CUSTOMFIELD>}}
 
 Arrays can be written like this::
 
