@@ -60,6 +60,12 @@ Advanced
 When a user or group is synchronized. It fires an event. So it's possible
 to build a module that can customize the LDAP synchronization.
 
+If you want to test the sync on the terminal lookup the ID from your configuration in table 'ldapauth_server' and run::
+
+   php cli.php community/ldapauthenticator/Sync/users --id=<ID FROM DATABASE> --dryRun=1 --delete=1 --maxDeletePercentage=50
+
+
+
 Test environment
 ----------------
 For testing I've used this docker image: https://hub.docker.com/r/rroemhild/test-openldap/
