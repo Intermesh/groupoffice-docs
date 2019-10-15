@@ -80,7 +80,7 @@ A variable is written like this::
 
    {{contact.name}}
    
-Or a custom field:
+Or a custom field::
 
    {{contact.customFields.<DATABASE_NAME_OF_CUSTOMFIELD>>}}
 
@@ -119,3 +119,21 @@ An simple example template::
 
    {{creator.displayName}}
    {{creator.profile.organizations[0].name}}
+   
+
+Filters
+~~~~~~~
+
+You can use filters to format data. They can be used with a "|" char followed by the filter name. Optionally the filter can take arguments separeted by a ":".
+
+For example a date::
+
+  {{contact.dates[0].date|date:d-m-Y}}
+  
+
+A number formatted in Dutch style with 2 decimals::
+
+   {{contact.customFields.number|number:2:,:.}}
+   
+
+   
