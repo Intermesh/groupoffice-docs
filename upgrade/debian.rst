@@ -15,7 +15,10 @@ To upgrade minor releases run:
    apt-get install groupoffice
 
 
-When upgrading to the next major release follow these steps:
+Major release upgrade
+~~~~~~~~~~~~~~~~~~~~~
+When the second digit increases in the version number we call this a major release. For example when upgrading to 6.4 from 6.3.
+When upgrading to the next major release follow these steps prior to the above:
 
 1. Run the above command first to upgrade to the latest 6.3.
 2. Then open your browser to update the database.
