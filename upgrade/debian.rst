@@ -11,6 +11,7 @@ To upgrade minor releases run:
 
 .. code:: bash
 
+   apt-get update
    apt-get install groupoffice
 
 
