@@ -140,9 +140,8 @@ properly. So obtain an SSL certificate and take these steps:
 1. Configure Dovecot IMAP in file */etc/dovecot/conf.d/10-ssl.conf*::
 
       ssl = yes
-      ssl_cert = </etc/ssl/group-office.com/certificate.crt
-      ssl_key = </etc/ssl/group-office.com/certificate.key
-      ssl_ca = </etc/ssl/group-office.com/cabundle.crt
+      ssl_cert = </etc/letsencrypt/live/YOURHOSTNAME/fullchain.pem
+      ssl_key = </etc/letsencrypt/live/YOURHOSTNAME/privkey.pem
 
 2. Restart dovecot::
 
@@ -150,13 +149,12 @@ properly. So obtain an SSL certificate and take these steps:
       
 3. You can verify the SSL certificate with this command::
 
-      printf 'quit\n' | openssl s_client -connect imap.group-office.com:143 -starttls imap | openssl x509 -dates -noout
+      printf 'quit\n' | openssl s_client -connect YOURHOSTNAME:143 -starttls imap | openssl x509 -dates -noout
 
 4. Configure Postfix SMTP with these commands::
 
-      postconf -e 'smtpd_tls_cert_file = /etc/ssl/group-office.com/certificate.crt'
-      postconf -e 'smtpd_tls_key_file = /etc/ssl/group-office.com/certificate.key'
-      postconf -e 'smtpd_tls_CAfile = /etc/ssl/group-office.com/cabundle.crt'
+      postconf -e 'smtpd_tls_cert_file =/etc/letsencrypt/live/YOURHOSTNAME/fullchain.pem'
+      postconf -e 'smtpd_tls_key_file = /etc/letsencrypt/live/YOURHOSTNAME/privkey.pem'
 
 5. Restart postfix::
 
@@ -164,8 +162,19 @@ properly. So obtain an SSL certificate and take these steps:
       
 6. You can verify the SSL certificate with this command::
 
-       printf 'quit\n' | openssl s_client -connect smtp.group-office.com:25 -starttls smtp | openssl x509 -dates -noout
-       
+       printf 'quit\n' | openssl s_client -connect YOURHOSTNAME:25 -starttls smtp | openssl x509 -dates -noout
+
+External IMAP access
+````````````````````
+By default only local connections are allowed. This means only Group-Office can connect. This is very secure but in some cases you want to allow IMAP access from the outside.
+You'll have to configure your firewall or router to allow connections to the server on the necessary ports:
+
+- IMAP: 143
+- IMAPS: 993
+
+You'll also need to uncomment following line in /etc/dovecot/conf.d/99-groupoffice.conf::
+
+   listen = *
 
 Anti spam / virus
 `````````````````
