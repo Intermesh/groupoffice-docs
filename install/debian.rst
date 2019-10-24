@@ -175,6 +175,26 @@ You'll have to configure your firewall or router to allow connections to the ser
 You'll also need to uncomment following line in /etc/dovecot/conf.d/99-groupoffice.conf::
 
    listen = *
+   
+Now connect with:
+
+IMAP host: YOURHOSTNAME
+TLS encrypttion enabled (Make sure you've setup SSL)
+Username: full email address
+
+External SMTP access
+````````````````````
+
+.. note:: We recommend to install fail2ban too because spammers will try to abuse your server when you enable SMTP!
+
+1. Configure Postfix SMTP with these commands::
+
+      postconf -e 'smtpd_sasl_auth_enable = yes'
+   
+2. Restart postfix::
+
+      invoke-rc.d postfix restart
+
 
 Anti spam / virus
 `````````````````
