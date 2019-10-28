@@ -30,4 +30,5 @@ Here's a list of config options:
    debug                 bool    Enable debugging for developers. Can also be temporarilty enabled with CTRL + F7 or Cmd + F7 in the browser.
    debugLog              bool    Disable debug log when debug = true.
    servermanager         bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
+   zpush2_loglevel       int     Set to 32 to generate debugging info in log/z-push.log
    ====================  ======  ===========
