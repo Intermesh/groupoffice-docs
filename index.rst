@@ -20,6 +20,7 @@ Visit https://www.group-office.com for more information.
    upgrade/upgrade
    backup
    migrate
+   logging
    system-settings/index
 
 .. toctree::
