@@ -17,3 +17,4 @@ Debian packages on the latest stable Debian Linux OS.
    Tarball <tarball>
    extras
    config
+   logging
