@@ -16,6 +16,6 @@ When $config['debug'] = true; is set in config.php. Then debug info will be logg
 
    <file_storage_path>/log/debug.log
    
-When $config['zpush2_loglevel'] = 32; is set in config.php. Then additional ActiveSync information will be logged into:
+When $config['zpush2_loglevel'] = 32; is set in config.php. Then additional ActiveSync information will be logged into::
 
    <file_storage_path>/log/z-push.log
