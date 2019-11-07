@@ -40,6 +40,7 @@ Contact
 ```````
 Fields of the recipient
 
+- contact.salutation
 - contact.name
 - contact.prefix
 - contact.firstName
