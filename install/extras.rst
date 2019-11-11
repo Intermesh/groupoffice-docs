@@ -9,7 +9,7 @@ It works by monitoring the apache access log for invalid logins.
 
 1. Make sure fail2ban is installed and enabled on your server.
 
-2. Add the filter definition to /etc/fail2ban/jail.d/groupoffice.conf::
+2. Add the filter definition to /etc/fail2ban/filter.d/groupoffice.conf::
 
       [Definition]
       failregex = <HOST> - - .*auth.php.* 401\s 
