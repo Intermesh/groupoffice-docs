@@ -197,6 +197,8 @@ Order data
 - {total}			 The gross amount of the order 
 - {subtotal}		 The nett amount of the order
 - {vat}
+- {total_paid}          Amount paid
+- {total_outstanding}   Amount outstanding (Since 6.4.75)
 
 Custom fields
 +++++++++++++
