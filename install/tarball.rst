@@ -43,6 +43,9 @@ Recommended:
 
 - acpu (for better caching performance)
 
+Instructions
+^^^^^^^^^^^^
+
 1. Grab the source from:
 
    https://sourceforge.net/projects/group-office/files/6.4/
