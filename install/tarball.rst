@@ -42,6 +42,7 @@ Required PHP Extensions
 Recommended:
 
 - acpu (for better caching performance)
+- ioncube (For professional version with Intermesh support)
 
 Instructions
 ^^^^^^^^^^^^
