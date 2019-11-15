@@ -39,6 +39,10 @@ Required PHP Extensions
 - pdo_mysql
 - calendar
 
+Recommended:
+
+- acpu (for better caching performance)
+
 1. Grab the source from:
 
    https://sourceforge.net/projects/group-office/files/6.4/
