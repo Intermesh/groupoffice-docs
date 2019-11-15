@@ -41,20 +41,25 @@ Our preferred way of installing is using our Debian packages:
 7. Then install Group-Office by running::
 
       apt-get install groupoffice
+      
+      
+8. Optionally you can install php-acpu for better performance of the cache::
 
-8. If you purchased Group-Office Professional licenses then make sure the 
+      apt-get install php-apcu
+
+9. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
    files in "/usr/share/groupoffice/". For example 
    "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
 
-9. Then visit http://yourserver/groupoffice and the installer should appear:
+10. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-10. Follow the instructions on screen and enjoy Group-Office!
+11. Follow the instructions on screen and enjoy Group-Office!
 
 
 Mailserver
