@@ -36,7 +36,8 @@ Required PHP Extensions
 - soap
 - gd
 - pdo
-- pdo_mysql
+- pdo_mysql (With mysqlnd, nd_pdo_mysql)
+- mysqlnd
 - calendar
 
 Recommended:
