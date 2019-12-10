@@ -18,13 +18,13 @@ Our preferred way of installing is using our Debian packages:
 
 3. First add our repository to the package management system. 
 
+   If you run PHP 7.1 or higher (Debian 10+, Ubuntu 18.04+) add::
+
+      echo "deb http://repo.group-office.com/ 64-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
+      
    If you run PHP 7.0 (Debian 9) run::
    
       echo "deb http://repo.group-office.com/ 64-php-70 main" > /etc/apt/sources.list.d/groupoffice.list
-
-   If you run PHP 7.1 or higher (Ubuntu 18.04+) add::
-
-      echo "deb http://repo.group-office.com/ 64-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
       
 4. Make sure "dirmngr" is installed for adding the public key::
 
