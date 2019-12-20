@@ -5,6 +5,7 @@ On the authentication page you can manage:
 
 1. The minimum password length of user passwords
 2. Two factor authentication
+3. Restrict access based on IP addresses
 3. LDAP Authentication
 4. IMAP Authentication
 
@@ -16,6 +17,7 @@ On the authentication page you can manage:
    :maxdepth: 2
    :caption: Authentication:
 
+   authentication/auth-allow-groups
    authentication/ldap
    authentication/imap
    authentication/google-authenticator

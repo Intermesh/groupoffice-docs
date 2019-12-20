@@ -1,7 +1,7 @@
 .. auth-allow-groups:
 
-Allowed groups
-==============
+Restrict access
+===============
 
 To enhance security you can limit the locations (IP Addresses) where users can login to the system.
 You can set this per group:
