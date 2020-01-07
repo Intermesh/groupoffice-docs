@@ -54,9 +54,7 @@ To setup an ActiveSync account take the following steps:
 Files
 -----
 
-Additionally you can map Group-Office as network drive using WebDAV. 
-With Group-Office Assistant you'll connect automatically when you click a file
-in Group-Office.
+With Group-Office Assistant you can edit files directy on your Windows PC:
 
 `Click here to download Group-Office Assistant for Windows 
 <https://repo.group-office.com/downloads/group-office-assistant-windows.exe>`_.
@@ -65,21 +63,28 @@ After installing it you can use it as follows:
 
 1. In Group-Office right click on a file and choose "Open with".
 
-2. Select the "Your desktop application (WebDAV) option to use the assistant.
+2. Select the "Your desktop application" option to use the assistant.
 
    .. figure:: /_static/macos-assistant/4-select-application.png
       :width: 400px
+      
+ 
+.. note:: If the Assistant doesn't start you might need to install the Microsoft Visual Studio Runtime library:
+   https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
 
+
+WebDAV
+------
+Additionally you can map Group-Office as network drive using WebDAV. The assistant makes this easy for you after editing a file. Then you can right click the icon and choose "Connect network drive".
 
 WebDAV client issues
 ````````````````````
-
 Unfortunately there are some known issues with the native Windows WebDAV implementation:
 
 1. When opening office files you have to re-authenticate: https://support.microsoft.com/en-us/help/2019105/authentication-requests-when-you-open-office-documents
 2. There's a path length limit in both windows and office. So long paths will fail. The URL of your Group-Office counts as path too.
 
-Both of these issues can be resolved by using the `Mountain Duck WebDAV client <https://mountainduck.io>`_.
+We recommend to use the assistant as it doesn't suffer from these issues and generally works faster.
 
 
 
