@@ -14,12 +14,14 @@ calendars with IMAP, CardDAV and CalDAV.
 
 Walkthrough guide coming soon...
 
+.. _assistant-for-linux:
+
 Files
 -----
 
-With the Group Office assistant you can edit files directly in Group Office. When 
-you launch a file by double clicking it will automatically mount the webdav drive
-and launch the default application on your computer.
+The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from Group-Office and monitor
+it for changes. When the file is saved it automatically uploads it back to Group-Office.
 
    .. figure:: /_static/linux-assistant/1-groupoffice-assistant.png
 
@@ -45,7 +47,6 @@ On Debian based distributions you can install the Group Office Assistant.
 
 5. Now double click a file in Group Office and it can be edited on your desktop 
    instantly.
-   
 
 
 .. note:: Due to a bug in Ubuntu you'll get this ignorable error::

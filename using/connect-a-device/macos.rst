@@ -8,12 +8,14 @@ On Mac OS you can synchronize:
 - Contacts
 - E-mail
 
+.. _assistant-for-macos:
+
 Files
 -----
 
-You can map Group-Office as network drive using WebDAV. 
-With Group-Office Assistant you'll connect automatically when you click a file
-in Group-Office.
+The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from Group-Office and monitor
+it for changes. When the file is saved it automatically uploads it back to Group-Office.
 
 `Click here to download Group-Office Assistant for MacOS <https://repo.group-office.com/downloads/group-office-assistant-macos.dmg>`_.
 

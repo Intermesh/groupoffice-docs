@@ -51,10 +51,14 @@ To setup an ActiveSync account take the following steps:
 7. Now you must give it some time to sync everything. Then check your contacts, 
    e-mail and calendar for your Group-Office data!
 
+.. _assistant-for-windows:
+
 Files
 -----
 
-With Group-Office Assistant you can edit files directy on your Windows PC:
+The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from Group-Office and monitor
+it for changes. When the file is saved it automatically uploads it back to Group-Office.
 
 `Click here to download Group-Office Assistant for Windows 
 <https://repo.group-office.com/downloads/group-office-assistant-windows.exe>`_.
