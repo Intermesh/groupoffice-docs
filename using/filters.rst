@@ -9,6 +9,12 @@ your own conditions. They also work great together with :ref:`custom-fields`.
 For example you've defined a custom field "Education" and you want to show all 
 "Software engineers" you can easily do this with a custom filter.
 
+Other useful examples:
+
+- Find all upcoming birthdays
+- Find all contacts with invoices with the "Has links to.." and then select invoice.
+- Find contacts with recent comments
+
 Here's a screenshot of the address book:
 
 .. figure:: /_static/using/filters/filters.png
@@ -31,3 +37,4 @@ If you want to share this filter with other users you can add groups in the perm
    :width: 100%
 
    Filter
+
