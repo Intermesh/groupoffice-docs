@@ -16,6 +16,13 @@ When $config['debug'] = true; is set in config.php. Then debug info will be logg
 
    <file_storage_path>/log/debug.log
    
+Z-Push
+``````
+   
 When $config['zpush2_loglevel'] = 32; is set in config.php. Then additional ActiveSync information will be logged into::
 
    <file_storage_path>/log/z-push.log
+
+If you want to debug specific users you can set::
+
+   $config['zpush2_special_log_users'] = ['username1', 'username2'];
