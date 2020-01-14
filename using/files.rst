@@ -13,7 +13,7 @@ The files module supports:
 
 
 Assistant
-=========
+---------
 
 The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
 Linux computer. It will automatically download files opened from Group-Office and monitor
@@ -28,7 +28,7 @@ Download it for:
 - :ref:`Linux <assistant-for-linux>`
 
 Collabora Online
-================
+----------------
 
 .. figure:: /_static/using/files/collabora-online.png
    :alt: Collabora Online
@@ -37,12 +37,12 @@ With Collabora Online you can edit office documents in your browser. You need a 
 Collabora Online server. More info on https://www.collaboraoffice.com/code/
 
 Configuration
--------------
+`````````````
 
 For Collabora to work you need to setup SSL and allow your Group-Office URL to use it.
 
 SSL
-```
+~~~
 
 We've used the Debian packages and setup SSL with Letsencrypt. Then we've added this SSL
 configuration to /etc/loolwsd/loolwsd.xml:
@@ -65,7 +65,8 @@ configuration to /etc/loolwsd/loolwsd.xml:
     </ssl>
 
 Network
-```````
+~~~~~~~
+
 Change network settings to allow posting from your Group-Office URL.
 We've used *intermesh.group-office.com* for example::
 
@@ -86,7 +87,8 @@ We've used *intermesh.group-office.com* for example::
     </net>
 
 Storage
-```````
+~~~~~~~
+
 Change the backend storage to allow your Group-Office URL::
 
     <storage desc="Backend storage">
@@ -123,7 +125,7 @@ If anything is wrong view the logs:
 
 
 Group-Office
-````````````
+~~~~~~~~~~~~
 
 When Collabora is running you can setup Group-Office to use it. Install the Office Online module from the Business package.
 
