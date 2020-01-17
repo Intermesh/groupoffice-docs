@@ -38,3 +38,15 @@ If you want to share this filter with other users you can add groups in the perm
 
    Filter
 
+
+Wildcards
+`````````
+
+You can use % to match 0 or more characters. or _ to match a single character.
+
+There are already some wildcards applied automatically. When filtering on strings you can choose:
+
+- Contains, will put a %..% before and after your phrase.
+- Equals, will put use no wildcards
+- Starts with, will put a ..% after your phrase.
+- Ends with, will put a %.. before your phrase.
