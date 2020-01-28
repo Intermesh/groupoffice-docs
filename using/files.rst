@@ -12,6 +12,8 @@ The files module supports:
 - :ref:`files`
 
 
+.. _assistant:
+
 Assistant
 ---------
 

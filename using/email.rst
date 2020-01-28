@@ -360,3 +360,39 @@ from, to or subject text.
    Filters window without sieve support
 
 
+Default mail client on your computer
+------------------------------------
+
+You can setup Group-Office as your default mail client on your macOS, Windows or Linux computer. So when clicking an
+e-mail address in other applications Group-Office will open with the e-mail compose window.
+To do this you need to install the :ref:`assistant`. When it's installed you can select it in your OS:
+
+Windows
+```````
+Go to Settings -> Apps -> "Default apps" and select "Group-Office" for mail:
+
+.. figure:: /_static/using/email/windows-10-default-apps.png
+   :width: 100%
+
+   Windows 10 default apps
+
+macOS
+`````
+
+Go to Mail -> Preferences -> General and select "Group-Office Assistant" as default e-mail reader:
+
+.. figure:: /_static/using/email/macos-default-mail-reader.png
+   :width: 100%
+
+   macOS default e-mail reader
+
+
+Ubuntu or (other Gnome based Linux OS)
+``````````````````````````````````````
+
+Go to Settings -> Details -> "Default applications" and select "Group-Office Assistant" for mail:
+
+.. figure:: /_static/using/email/ubuntu-default-apps.png
+   :width: 100%
+
+   Ubuntu default apps
