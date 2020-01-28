@@ -161,8 +161,8 @@ Fields of the logged in user
 - {user:displayName}
 - {user:email}
 - {user:username}
-- {user:*} Any contact field listed below can be used if this user has a profile (6.4+).
-- {usercompany:*} Any company field listed below can be used if this user has a profile (6.4+).
+- {user:\*} Any contact field listed below can be used if this user has a profile (6.4+).
+- {usercompany:\*} Any company field listed below can be used if this user has a profile (6.4+).
 
 Fields of the contact
 `````````````````````

@@ -300,8 +300,7 @@ The complete module.js looks like this now:
 			//Put code to initialize the module here after the user is authenticated 
 			//and has access to the module.
 			initModule: function () {}
-});
-
+    });
 
 We can use these relations in the artist grid in the next chapter.
 

@@ -43,6 +43,7 @@ Visit https://www.group-office.com for more information.
    using/calendar
    using/address-book
    using/newsletters
+   using/document-templates
    using/files
    using/notes
    using/tickets
@@ -57,3 +58,4 @@ Visit https://www.group-office.com for more information.
 
    translations
    developer/index
+

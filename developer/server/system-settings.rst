@@ -26,6 +26,5 @@ To create new settings you must implement a settings module:
 
 This would create a new module with a single setting called "defaultTimezone".
 
-You also need a controller to handle API calls::
-
+You also need a controller to handle API calls.
 

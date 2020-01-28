@@ -30,7 +30,7 @@ When upgrading to the next major release follow these steps prior to the above:
 
       deb http://repo.group-office.com/ 64-php-71 main
 
-   Or when running PHP 7.0 :
+   Or when running PHP 7.0::
 
       deb http://repo.group-office.com/ 64-php-70 main
 
@@ -53,7 +53,7 @@ From older versions than 6.3
      update `pa_mailboxes` set `password` = concat("{PLAIN-MD5}", `password`);
 
 Steps
-^^^^^
+~~~~~
 
 1. Make sure you're on the latest 6.2 version.
 2. Make sure you've installed the "customfields" and "search" modules as they 

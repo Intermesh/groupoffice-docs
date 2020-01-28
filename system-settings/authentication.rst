@@ -6,8 +6,8 @@ On the authentication page you can manage:
 1. The minimum password length of user passwords
 2. Two factor authentication
 3. Restrict access based on IP addresses
-3. LDAP Authentication
-4. IMAP Authentication
+4. LDAP Authentication
+5. IMAP Authentication
 
 .. note:: 
 

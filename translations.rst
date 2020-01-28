@@ -47,9 +47,11 @@ include it in the next release.
 
 You can find the download spreadsheet button next to the language selection in System Settings -> General. 
 
-.. note:: If you want to import the language CSV file your self you can run::
+.. note:: If you want to import the language CSV file your self you can run:
 
-      cli.php community/dev/Language/import --path=lang.csv
+    .. code::
+
+        cli.php community/dev/Language/import --path=lang.csv
 
 .. _customize-language:
 
