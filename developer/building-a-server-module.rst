@@ -28,7 +28,7 @@ To follow this tutorial you need the following software installed:
 
 1. `git <https://git-scm.com/>`_. For version management.
 2. An editor to edit PHP and Javascript files.
-3. `Postman <https://www.getpostman.com/>`_. For testing the backend API without the User Interface.
+3. A HTTP client like `Postman <https://www.getpostman.com/>`_ for testing the backend API without the User Interface.
 
 Code standards
 --------------
@@ -160,7 +160,7 @@ Database rules
 3. Date and time columns use type "DATETIME".
 4. Foreign key's must be defined for relationships. Think about cascading delete set to null or restrict.
    In general. Properties should always be cascaded and entities should be restricted. They should be 
-   cascasded by overriding the internalSave() function so all the aapplication logic will be executed liek cleaning up links, logging etc.
+   cascaded by overriding the internalSave() function so all the application logic will be executed like cleaning up links, logging etc.
 5. We often choose a varchar to be 190 characters so it can be indexed on all database versions.
 6. Columns modifiedBy (int), createdBy (int), createdAt (DATETIME), modifiedAt (DATETIME) are automatically set by Group Office.
 
@@ -196,11 +196,11 @@ the command should output::
 
 This will generate:
 
-1. Module.php, required for every module. Contains Author info and controls the installation.
-2. views/extjs3, The webclient code. We'll get to that later.
-3. language/en.php, translation file.
-4. install/install.sql, uninstall.sql and updates.php, these files handle installation and upgrading.
-5. model, this folder contains all models.
+1. ``Module.php``, required for every module. Contains Author info and controls the installation.
+2. ``views/extjs3``, The webclient code. We'll get to that later.
+3. ``language/en.php``, translation file.
+4. ``install/install.sql``, uninstall.sql and updates.php, these files handle installation and upgrading.
+5. ``model``, this folder contains all models.
 
 .. note:: Docker runs as root and will write these files as root. 
 
@@ -220,7 +220,7 @@ is a property of the entity contact.
 So the first step is to change some properties into JMAP entities. In this example
 Artist and Genre are entities.
 
-So in model/Artist.php change:
+So in ``model/Artist.php`` change:
 
 .. code:: php
    
@@ -275,7 +275,7 @@ And then change the mapping:
 Translations
 ------------
 
-To define a nice name for the module create language/en.php::
+To define a nice name for the module create ``language/en.php``::
 
 	<?php
 	return [
@@ -294,12 +294,12 @@ System Settings -> Modules. There should be a Tutorial package with the "music" 
 
 Check the box to install it.
 
-.. note:: If it doesn't show up it might be due to cache. Run /install/upgrade.php to clear it.
+.. note:: If it doesn't show up it might be due to cache. Run ``/install/upgrade.php`` to clear it.
 
 Connecting to the API with POSTMan
 -----------------------------------
 
-Using the API with POSTman is not strictly necessary but it's nice to get a feel 
+Using the API with Postman is not strictly necessary but it's nice to get a feel
 on how the backend API works.
 
 Install POSTman or another tool to make API requests. Download it from here:
@@ -346,7 +346,7 @@ You must set the access token as a header on each request::
 Create an artist
 ````````````````
 
-To create an artst POST this JSON body:
+To create an artist, POST this JSON body:
 
 .. code:: json
 
@@ -374,8 +374,10 @@ To create an artst POST this JSON body:
 
 Query artists
 `````````````
-The Artist/query method is used to retreive an ordered / filtered list of id's for displaying a list of artists. We'll do a
-direct followup call to "Artist/get" to retreive the full artist data as well. We can Use the special "#" parameter to use a previous query result as parameter. Read more on this at the `JMAP website <https://jmap.io/spec-core.html#/query>`_.
+The Artist/query method is used to retrieve an ordered / filtered list of id's for displaying a list of artists. We'll
+do a direct followup call to "Artist/get" to retrieve the full artist data as well. We can Use the special "#" parameter
+to use a previous query result as parameter. Read more on this at the
+`JMAP website <https://jmap.io/spec-core.html#/query>`_.
 
 POST the following to make the request:
 
@@ -442,20 +444,21 @@ After defining this you can filter on genre by posting:
 
 .. code:: json
 
-   {"filter": {"genres" : [1,2,3]}}
-
+   [
+   ["Artist/query", {"filter":{"genres":[1,2,3]}}, "call1"],
+       (...)
+   ]
 
 JMAP API protocol
 `````````````````
 
-This are some basic request examples. Read more on https://jmap.io about the 
-protocol.
+These are some basic request examples. Read more on https://jmap.io about the protocol.
 
 
 Module installation
 -------------------
 
-When you're done with the module you should export your finished database into::
+When you're done with the module, you should export your finished database into::
  
    go/modules/tutorial/music/install/install.sql
 

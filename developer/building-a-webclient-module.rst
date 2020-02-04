@@ -15,20 +15,20 @@ https://docs.sencha.com/extjs/3.4.0/
 
 We've enhanced ExtJS with our own components and created a theme for Group Office.
 
-The webclient code is located in the go/modules/tutorial/music/views/extjs3" folder.
+The webclient code is located in the ``go/modules/tutorial/music/views/extjs3`` folder.
 The code generator already created these files:
 
-1. Module.js: Required for each module. It registers the module, entities, system and user setting panels.
-2. MainPanel.js: The main panel of the module shown in the Group Office UI
-3. scripts.txt: All js files must be listed in the correct order here.
-4. themes/default/style.css. Module specific style can be placed here. You can use out _base.scss file to use functions and variables from the main style.
+1. ``Module.js``: Required for each module. It registers the module, entities, system and user setting panels.
+2. ``MainPanel.js``: The main panel of the module shown in the Group Office UI
+3. ``scripts.txt``: All js files must be listed in the correct order here.
+4. ``themes/default/style.css``. Module specific style can be placed here. You can use out _base.scss file to use functions and variables from the main style.
 
 When opening Group-Office you should see "Music" in the start menu. When opening it shows "Hello world".
 
 Entities
 --------
 
-First add all entities to the module in Module.js:
+First add all entities to the module in ``Module.js``:
 
 .. code:: javascript
 
@@ -48,8 +48,8 @@ First add all entities to the module in Module.js:
 
 
 This will create a "go.data.EntityStore" for each entity. This store will
-sync all entity data. This store is kept up to date using Flux. When for example
-a form dialog makes a Foo/set request the store will receive the dispatched action
+sync all entity data. This store is kept up to date automatically. When for example
+a form dialog makes a Foo/set request, the store will receive the dispatched action
 and fire an "updated" event. All view stores connected to grids and detail views
 for example can observe this store and render the view on this event.
 
@@ -58,7 +58,7 @@ Read more about entities :ref:`here <entities>`.
 Genre filter
 ------------
 
-Create a new file GenreFilter.js:
+Create a new file ``GenreFilter.js``:
 
 .. code:: javascript
 
@@ -198,13 +198,13 @@ Create a new file GenreFilter.js:
 		}
 	});
 
-Every Javascript file must be added to the "scripts.txt" file so add 
-"GenreFilter.js" to the bottom of this file.
+Every Javascript file must be added to the ``scripts.txt`` file so add
+``GenreFilter.js`` to the bottom of this file.
 
 Study the component and take a look at all the comments. This component is a 
 grid with check boxes showing all Genres.
 
-Now add this component to the main panel by changing MainPanel.js with the 
+Now add this component to the main panel by changing ``MainPanel.js`` with the
 following code:
 
 .. code:: javascript
@@ -249,57 +249,58 @@ Relations
 ---------
 
 To present data from related entities. For example. The user who created an Artist you can use relations.
-For each entity you can define relations to other entities. Change the string "Artist" in the entities propertie in Module.js to the following:
+For each entity you can define relations to other entities. Change the string "Artist" in the entities property in
+``Module.js`` to the following:
 
 
 .. code:: javascript
 
 	{
-					name: "Artist",
-					relations: {
-							creator: {store: "User", fk: "createdBy"},
-							modifier: {store: "User", fk: "createdBy"},
+        name: "Artist",
+		relations: {
+		    creator: {store: "User", fk: "createdBy"},
+			modifier: {store: "User", fk: "createdBy"},
 
-							// 'albums' is a property of artist and has a nested relation.
-							albums: {
-										genre:  {store: "Genre", fk: "genreId"}
-							}
-					}
-		}
+			// 'albums' is a property of artist and has a nested relation.
+			albums: {
+			    genre:  {store: "Genre", fk: "genreId"}
+            }
+        }
+    }
 
 
 We've defined two "has one" relations for the creator and modifier and a "has many" relation for the albums.
 
-The complete module.js looks like this now:
+The complete ``Module.js`` looks like this now:
 
 .. code:: javascript
 
 	go.Modules.register("tutorial", "music", {
-			mainPanel: "go.modules.tutorial.music.MainPanel",
+       mainPanel: "go.modules.tutorial.music.MainPanel",
 
-			//The title is shown in the menu and tab bar
-			title: t("Music"),
+        //The title is shown in the menu and tab bar
+        title: t("Music"),
 
-			//All module entities must be defined here. Stores will be created for them.
-			entities: [
-						"Genre", 
-						{
-								name: "Artist",
-								relations: {
-											creator: {store: "User", fk: "createdBy"},
-											modifier: {store: "User", fk: "createdBy"},
+        //All module entities must be defined here. Stores will be created for them.
+        entities: [
+            "Genre",
+            {
+                name: "Artist",
+                relations: {
+                    creator: {store: "User", fk: "createdBy"},
+                    modifier: {store: "User", fk: "createdBy"},
 
-											// 'albums' is a property of artist and has a nested relation.
-											albums: {
-													genre:  {store: "Genre", fk: "genreId"}
-											}
-								}
-						}
-			],
+                    // 'albums' is a property of artist and has a nested relation.
+                    albums: {
+                        genre:  {store: "Genre", fk: "genreId"}
+                    }
+                }
+            }
+        ],
 
-			//Put code to initialize the module here after the user is authenticated 
-			//and has access to the module.
-			initModule: function () {}
+        //Put code to initialize the module here after the user is authenticated
+        //and has access to the module.
+        initModule: function () {}
     });
 
 We can use these relations in the artist grid in the next chapter.
@@ -311,7 +312,7 @@ Artist grid
 Now that we've got our Genre filter in place it's time to create the artist 
 grid.
 
-Create the file ArtistGrid.js:
+Create the file ``ArtistGrid.js``:
 
 .. code:: javascript
 
@@ -428,10 +429,10 @@ Create the file ArtistGrid.js:
 
 
 
-And add the file "ArtistGrid.js" to the bottom of "scripts.txt". 
+And add the file ``ArtistGrid.js`` to the bottom of ``scripts.txt``.
 Study the code and comments of this file.
 
-Now change MainPanel.js to use the grid:
+Now change ``MainPanel.js`` to use the grid:
 
 .. code:: javascript
 
@@ -489,7 +490,7 @@ Now change MainPanel.js to use the grid:
 			var selectedRecords = sm.getSelections(),
 						ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
 
-			this.artistGrid.store.baseParams.filter.genres = ids;
+			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
 		},
 
@@ -528,12 +529,12 @@ Genre combo box
 ---------------
 
 Before we can create an Artist dialog we'll need a Genre combo box for selecting
-the album genre. Create the file GenreCombo.js:
+the album genre. Create the file ``GenreCombo.js``:
 
 .. code:: javascript
 
-	go.modules.tutorial.music.GenreCombo = Ext.extend(go.form.ComboBox, {
-		fieldLabel: t("Genre"),
+    go.modules.tutorial.music.GenreCombo = Ext.extend(go.form.ComboBox, {
+	    fieldLabel: t("Genre"),
 		hiddenName: 'genreId',
 		anchor: '100%',
 		emptyText: t("Please select..."),
@@ -562,7 +563,7 @@ Artist dialog
 
 Now we need an Artist dialog for creating and editing Artists.
 
-Create a file called "ArtistDialog.js":
+Create a file called ``ArtistDialog.js``:
 
 .. code:: javascript
 
@@ -643,9 +644,9 @@ Create a file called "ArtistDialog.js":
 		}
 	});
 
-Add this file to the "scripts.txt" file again.
+Add this file to the ``scripts.txt`` file again.
 
-Then update MainPanel.js:
+Then update ``MainPanel.js``:
 
 .. code:: javascript
 
@@ -724,7 +725,7 @@ Then update MainPanel.js:
 			var selectedRecords = sm.getSelections(),
 						ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
 
-			this.artistGrid.store.baseParams.filter.genres = ids;
+			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
 		},
 
@@ -786,14 +787,14 @@ When you reload Group Office now it should look like this:
 Delete button
 -------------
 
-You can add a delete button to the grid's toolbar in MainPanel.js to delete 
-selected arists. Note that this code will add a "More options" menu button with 3 dots that has the delete button in the menu:
+You can add a delete button to the grid's toolbar in ``MainPanel.js`` to delete
+selected artists. Note that this code will add a "More options" menu button with 3 dots that has the delete button in the menu:
 
 .. code:: javascript
 
 	{
 		iconCls: 'ic-more-vert',
-		tooltipe: t("More options"),
+		tooltip: t("More options"),
 		menu: [
 			{
 				itemId: "delete",
@@ -814,7 +815,7 @@ Detail view
 
 Finally we're going to add a detail panel for artists.
 
-Create the file "ArtistDetail.js":
+Create the file ``ArtistDetail.js``:
 
 .. code:: javascript
 
@@ -849,7 +850,7 @@ Create the file "ArtistDetail.js":
 						xtype: "box",
 						cls: "content",
 						tpl: new Ext.XTemplate('<div class="go-detail-view-avatar">\
-	<div class="avatar" style="{[this.getStyle(values.photo)]}"></div></div>',
+	                        <div class="avatar" style="width:120px;height:120px;{[this.getStyle(values.photo)]}"></div></div>',
 							{
 								getCls: function (isOrganization) {
 									return isOrganization ? "organization" : "";
@@ -866,13 +867,13 @@ Create the file "ArtistDetail.js":
 						title: t("Albums"),
 						xtype: "panel",
 						tpl: '<div class="icons">\
-							<tpl for="albums">\
-										<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
-														<span>{name}</span>\
-														<label>{[go.util.Format.date(values.releaseDate)]} - <tpl for="genre">{name}</tpl></label>\
-										</p>\
-						</tpl>\
-						</div>'
+                                <tpl for="albums">\
+								<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
+								<span>{name}</span>\
+								<label>{[go.util.Format.date(values.releaseDate)]} - <tpl for="genre">{name}</tpl></label>\
+								</p>\
+						        </tpl>\
+						        </div>'
 					}
 				]
 			});
@@ -949,8 +950,8 @@ Create the file "ArtistDetail.js":
 	});
 
 
-Study the code and add it to "scripts.txt". Now we're going to update the 
-MainPanel.js file:
+Study the code and add it to ``scripts.txt``. Now we're going to update the
+``MainPanel.js`` file:
 
 .. code:: javascript
 
@@ -1108,7 +1109,7 @@ MainPanel.js file:
 			var selectedRecords = sm.getSelections(),
 							ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
 
-			this.artistGrid.store.baseParams.filter.genres = ids;
+			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
 		},
 
@@ -1142,7 +1143,7 @@ The changes:
    switching for phones.
 3. Added buttons for navigating on smaller screens. See the new buttons with the 
    "go-narrow" class on them.
-4. We've added a row select listener to naviate to the artist page using the router.
+4. We've added a row select listener to navigate to the artist page using the router.
 
 When you reload Group Office it should look like this:
 

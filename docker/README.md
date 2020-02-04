@@ -9,7 +9,7 @@ Pull it::
 
     docker pull keimlink/sphinx-doc
 
-Build out autobuild image::
+Build our autobuild image::
 
     docker build -t sphinx-autobuild sphinx-autobuild
 
