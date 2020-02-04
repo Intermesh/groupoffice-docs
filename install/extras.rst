@@ -24,6 +24,8 @@ It works by monitoring the apache access log for invalid logins.
       filter = groupoffice
       logpath = /var/log/apache2/access.log
       maxretry = 3
+      
+   .. note:: Make sure the "logpath" value is set to the access log of the webserver.
 
 For more information about Fail2ban and the configuration of it visit https://www.fail2ban.org
 
