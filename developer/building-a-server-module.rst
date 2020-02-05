@@ -477,14 +477,62 @@ For example:
 
 .. code:: php
 
-  $updates["201808161606"[] = "ALTER TABLE ...";
-  $updates["201808161606"[] = function() {
+  $updates["201808161606"][] = "ALTER TABLE ...";
+  $updates["201808161606"][] = function() {
     //some migration code here
   }
 
 The timestamp is important. Use YYYYMMDDHHII. All the module upgrades will be
 mixed together and put into chronological order so dependant modules won't break.
 
+Custom Fields
+-------------
+
+Custom development is a fact of life, even for your simple tutorial module. In this example, we will add a few :ref:`custom
+fields <custom-fields>` to different entities.
+
+First, we need to update the database. For an entity to be customized, we need to add a table that follows the convention below::
+
+  <Module>_<Entity>_custom_fields
+
+We will have to write a database migration. Open ``go/modules/tutorial/music/updates.php`` and add the following code:
+
+.. code:: php
+
+  $updates['202002041445'][] = <<<'EOT'
+  CREATE TABLE IF NOT EXISTS `music_artist_custom_fields`
+      ( id INT(11) NOT NULL PRIMARY KEY,
+      CONSTRAINT `music_artist_custom_fields_ibfk_1` FOREIGN KEY(id) REFERENCES music_artist (id)
+      ON DELETE CASCADE ON UPDATE RESTRICT ) ENGINE = INNODB;
+  EOT;
+
+The next step is to add the ``CustomizableTrait`` trait to the Artist model.
+
+.. code:: php
+
+  <?php
+  namespace go\modules\tutorial\music\model;
+
+  use go\core\jmap\Entity;
+  use go\core\orm\CustomFieldsTrait;
+
+  /**
+   * Artist model
+   *
+   * @copyright (c) 2020, Intermesh BV http://www.intermesh.nl
+   * @author Merijn Schering <mschering@intermesh.nl>
+   * @license http://www.gnu.org/licenses/agpl-3.0.html AGPLv3
+   */
+  class Artist extends Entity {
+      use CustomFieldsTrait;
+
+      // Et cetera...
+
+
+After rerunning the install script, the Custom fields screen in System settings should look somewhat like this:
+
+.. figure:: /_static/developer/building-a-module/custom-fields-artist.png
+   :width: 100%
 
 
 The end
@@ -497,11 +545,9 @@ build the web client!
 
 
 .. TODO:
-  albumcount property
-
+  - albumcount property
   - ACL
-  - Custom fields
-  - User specific entity data in separate entity 
+  - User specific entity data in separate entity
   - entity data type in store fields
   - dates
 
