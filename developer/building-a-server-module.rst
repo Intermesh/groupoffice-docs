@@ -5,7 +5,7 @@ Building a server module
 In this tutorial we'll show you how to build a Group Office module. As an example
 we're going to build a Music module.
 
-.. figure:: /_static/developer/building-a-webclient-module/artist-detail-desktop.png
+.. figure:: /_static/developer/building-a-webclient-module/mainpanel-with-filter-panel.png
    :width: 100%
 
 Group Office is a `JMAP-based <https://jmap.io>`_ server API and a webclient. We'll start with implementing

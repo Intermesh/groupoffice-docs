@@ -1441,6 +1441,8 @@ Again: study the code. The following changes were made:
 3. A new function `createFilterPanel()` has been added, which renders a filter panel
 4. The Genre Filter and Filter Panel were merged into the left panel
 
+.. note:: When defining a new ``Ext.Panel`` element, make sure to set ``autoHeight`` to true. Otherwise, your panels may look squashed.
+
 Save and reload your module. The main screen should look somewhat like this:
 
 .. figure:: /_static/developer/building-a-webclient-module/mainpanel-with-filter-panel.png
