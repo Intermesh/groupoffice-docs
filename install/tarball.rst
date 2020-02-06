@@ -54,6 +54,8 @@ Instructions
 
 2. Put the unpacked source in apache's document root.
 
+.. _webserver-aliases:
+
 3. Make sure to make some aliases in the Apache configuration::
    
       Alias /public <YOURDOCUMENTROOT>/public.php

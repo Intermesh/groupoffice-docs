@@ -116,11 +116,11 @@ After making these changes restart loolwsd::
 
     sudo systemctl restart loolwsd
 
-Check the status:
+Check the status::
 
     sudo systemctl status loolwsd
 
-If anything is wrong view the logs:
+If anything is wrong view the logs::
 
     sudo journalctl -u loolwsd
 
@@ -147,5 +147,10 @@ Now every user can go to the files module and use it. Just right click a file an
 .. figure:: /_static/using/files/open-with-collabora-online.png
    :alt: Use Collabora Code Service
    :width: 400px
+
+
+.. note:: If you get a 404 error when editing because /wopi is not found then you probably are missing the alias in your
+   webserver configuration. The Debian package automatically do this but with the tarball package you have to do this manually.
+   :ref:`Example configuration can be found here. <webserver-aliases>`
 
 
