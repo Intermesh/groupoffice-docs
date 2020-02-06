@@ -3,7 +3,7 @@ services:
   sphinx-autobuild:
     container_name: sphinx-autobuild
     build:
-      context: ./sphinx-autobuild
+      context: docker-sphinx-autobuild
     restart: always
     ports:
       - "8000:8000"
