@@ -14,7 +14,7 @@ the JMAP server API.
 Development environment
 -----------------------
 
-If you haven't got your development environment set up than please do this first.
+If you haven't got your development environment set up, then please do this first.
 
 You can install Group-Office like described in this manual and get started or use 
 our Docker compose project that installs our images for development:
@@ -51,7 +51,7 @@ Naming conventions
 | Constants             | UPPER_UNDERSCORED                              |
 +-----------------------+------------------------------------------------+
 | Database tables       | lower_underscored (For windows compatibility)  |
-|                       | and singlular eg. "contact" and not "contacts" |
+|                       | and singular eg. "contact" and not "contacts"  |
 +-----------------------+------------------------------------------------+
 | Database fields       | lowerCamelCase                                 |
 +-----------------------+------------------------------------------------+
@@ -255,7 +255,7 @@ Now we must define relations in the models. Add the "albums" relation to the art
    /**
     * The albums created by the artist
     * 
-    * @var Album[]
+    * @var array
     */
     public $albums;
 
@@ -270,7 +270,53 @@ And then change the mapping:
    }
 
 .. note:: When making changes to the database, model properties or mappings, you
-   must run "http://localhost/install/upgrade.php" in your browser to rebuild the cache.
+   must run ``http://localhost/install/upgrade.php`` in your browser to rebuild the cache.
+
+Custom properties
+`````````````````
+For the sake of learning, we will add a property to our model, that does not directly stem from its own table. In this
+example, we want to display the number of albums for a certain artist in the artist grid.
+
+The first step is to declare the property in the model and to implement a getter:
+
+.. code:: php
+
+  /** @var int */
+  protected $albumcount;
+
+  // (...)
+
+  public function getAlbumcount() :int
+  {
+    return $this->albumcount;
+  }
+
+The next step is to update the ``defineMapping`` method, to actually count the albums:
+
+.. code:: php
+
+  protected static function defineMapping() {
+		return parent::defineMapping()
+						->addTable("music_artist", "artist")
+						->addArray('albums', Album::class, ['id' => 'artistId']);
+						->setQuery((new Query())->select('COUNT(alb.id) AS albumcount')
+							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
+	}
+
+The ``albumcount`` property is simply retrieved by counting the albums that are related to the current artist.
+
+.. note:: Please note that in this example, we do not define a setter method. It should not be possible to manually set
+  an album counter, since it is a counter of related properties.
+
+There is actually a better way of getting an album count. In order to keep things simple, one can remove the extra query
+and redefine the ``getAlbumcount()`` function as follows:
+
+.. code:: php
+
+  public function getAlbumcount() :int
+	{
+		return count($this->albums);
+	}
 
 Translations
 ------------
@@ -302,7 +348,7 @@ Connecting to the API with POSTMan
 Using the API with Postman is not strictly necessary but it's nice to get a feel
 on how the backend API works.
 
-Install POSTman or another tool to make API requests. Download it from here:
+Install Postman or another tool to make API requests. Download it from here:
 
 https://www.getpostman.com
 
@@ -506,7 +552,7 @@ We will have to write a database migration. Open ``go/modules/tutorial/music/upd
       ON DELETE CASCADE ON UPDATE RESTRICT ) ENGINE = INNODB;
   EOT;
 
-The next step is to add the ``CustomizableTrait`` trait to the Artist model.
+The next step is to add the ``CustomFieldsTrait`` trait to the Artist model.
 
 .. code:: php
 
@@ -545,11 +591,9 @@ build the web client!
 
 
 .. TODO:
-  - albumcount property
   - ACL
   - User specific entity data in separate entity
   - entity data type in store fields
   - dates
-
-  API tutorial
-  ORM tutorial
+  - API tutorial
+  - ORM tutorial

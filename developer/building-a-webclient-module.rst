@@ -21,7 +21,7 @@ The code generator already created these files:
 1. ``Module.js``: Required for each module. It registers the module, entities, system and user setting panels.
 2. ``MainPanel.js``: The main panel of the module shown in the Group Office UI
 3. ``scripts.txt``: All js files must be listed in the correct order here.
-4. ``themes/default/style.css``. Module specific style can be placed here. You can use out _base.scss file to use functions and variables from the main style.
+4. ``themes/default/style.css``. Module specific style can be placed here. You can use our _base.scss file to use functions and variables from the main style.
 
 When opening Group-Office you should see "Music" in the start menu. When opening it shows "Hello world".
 
@@ -372,6 +372,13 @@ Create the file ``ArtistGrid.js``:
 							</div>';
 						}
 					},
+                    {
+                        id: 'albumcount',
+                        sortable: false,
+                        header: t('album_count','music','tutorial'),
+                        dataIndex: 'albumcount',
+                        width: dp(80)
+                    },
 					{
 						xtype: "datecolumn",
 						id: 'createdAt',
@@ -520,7 +527,7 @@ When you reload Group Office now it should look like this:
 .. figure:: /_static/developer/building-a-webclient-module/artist-grid.png
    :width: 100%
 
-.. note:: Feel free to add some more artist with Postman so your filter results
+.. note:: Feel free to add some more artists with Postman so your filter results
    are more interesting :) You might also notice that when you change things with
    postman the web interface updates automatically.
 
@@ -1162,6 +1169,49 @@ And on phones:
 
 .. figure:: /_static/developer/building-a-webclient-module/artist-grid-phone.png
    :width: 400px
+
+Override CSS
+------------
+
+It is pretty easy to add your own CSS classes. When initially generating your module boilerplate, an empty ``style.css``
+file is automatically generated. You can either edit it directly or use the SASS docker image from the development
+environment to generate your own CSS overrides.
+
+SASS
+````
+
+In your module directory, create a new SASS file::
+
+    views/extjs3/themes/default/src/style.scss
+
+
+.. note:: You can override a certain theme file, by subsituting `default` by the theme name if necessary.
+
+By default, an avatar is displayed at 35 by 35 pixels and they are aligned to the left. Let's make the avatar image somewhat
+larger, e.g. 120 px and let's center in. We will have to define a CSS class that centers its content and make sure that
+the nested ``avatar`` CSS class renders at 120px by 120px. Update your ``style.scss`` file to look like this:
+
+.. code:: scss
+
+    .go-detail-view-avatar {
+      text-align:center;
+      & > .avatar {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+Assuming that you use the Intermesh development docker environment, you have a running SASS container that monitors any
+scss files for changes. You can check the output of sass  by opening up a console and entering the following command::
+
+    docker-compose logs --follow sass
+
+In case that your module SCSS code is not automatically compiled, you can restart the sass docker container::
+
+    docker-compose restart sass
+
+When you're done, you'll have to run the database install script again. This will make sure that your custom CSS is
+included.
 
 Custom fields
 -------------

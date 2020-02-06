@@ -14,35 +14,46 @@ There are two main types of models:
 Mapping
 -------
 
-Each model must implement the "defineMapping" method. This mapping maps database
+Each model must implement the ``defineMapping`` method. This mapping maps database
 tables to the object and defines other models as properties.
 
-For example the "go\\modules\\community\\music\\model\\Artist" model defines:
+For example the ``go/modules/community/music/model/Artist`` model defines:
 
 .. code:: php
 
   protected static function defineMapping() {
     return parent::defineMapping()
             ->addTable("music_artist", "a")
-            ->addRelation('albums', Album::class, ['id' => 'artistId'])
-						->addProperty('sumOfTableBIds', "SUM(b.id)", (new Query())->join('test_b', 'bc', 'bc.id=a.id')->groupBy(['a.id']))
+            ->addArray('albums', Album::class, ['id' => 'artistId']);
   }
 
-You can see that it maps a table "music_artist" and add's a property 'albums'.
+You can see that it maps a table ``music_artist`` and adds a property 'albums' as an array. If you'd like to retrieve
+relations between entity models, use the ``addScalar`` method instead of the ``addArray`` method.
+
+Furthermore, one can define custom properties from database queries by using the ``setQuery`` method. For example, one
+could define an `albumcount` property for an artist like this:
+
+.. code:: php
+
+  protected static function defineMapping() {
+    return parent::defineMapping()
+        ->addTable("music_artist", "artist")
+            ->setQuery((new Query())->select('COUNT(alb.id) AS albumcount')
+            ->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
+    }
 
 A property must be defined for all database columns the model should use.
 There should also be a public $albums property.
 
 .. note:: Mappings are cached for performance. When making changes you need to 
-   run /install/upgrade.php to rebuild the cache.
+   run ``/install/upgrade.php`` to rebuild the cache. You can also disable cache in the config.php file::
 
-	 You can also disable cache in the config.php file::
+        $config['core'] = [
+            'general' => [
+                'cache' => 'go\\core\\cache\\None'
+            ]
+        ];
 
-		$config['core'] = [
-			'general' => [
-					'cache' => 'go\\core\\cache\\None'
-				]
-		];
 
 addTable() method
 `````````````````
