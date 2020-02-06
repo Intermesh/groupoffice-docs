@@ -68,7 +68,9 @@ Instructions
 
       #For WebDAV support
       Alias /webdav <YOURDOCUMENTROOT>/modules/dav/files.php
-
+      
+      #For WOPI support (Collabora Online and Office Online)
+      Alias /wopi <YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php
 
       #DAV Service discovery. At least required for iOS7 support
       Redirect 301 /.well-known/carddav /carddav
@@ -86,6 +88,7 @@ Instructions
       RewriteRule ^webdav(.*)$ /<YOURDIR>/modules/dav/files.php
       RewriteRule ^caldav(.*)$ /<YOURDIR>/modules/caldav/calendar.php
       RewriteRule ^carddav(.*)$ /<YOURDIR>/modules/carddav/addressbook.php
+      RewriteRule ^wopi(.*)$ /<YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php
       RewriteRule ^Microsoft-Server-ActiveSync(.*)$ /<YOURDIR>/modules/z-push/index.php
 
 4. If you purchased Group-Office Professional licenses then make sure the 
