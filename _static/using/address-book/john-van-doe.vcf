@@ -1,0 +1,22 @@
+BEGIN:VCARD
+VERSION:3.0
+UID:398@localhost:6480
+LANGUAGE:nl
+PRODID:-//Intermesh//NONSGML Group-Office 6.4.114//EN
+N:Doe;John;van;Dr.;Msc.
+FN:John van Doe
+REV:1581689287
+TITLE:CEO
+EMAIL;TYPE=work:john@work.example
+EMAIL;TYPE=home:john@home.example
+EMAIL;TYPE=billing:john@billing.example
+TEL;TYPE=work:073-1234567
+TEL;TYPE=mobile:06-12345678
+TEL;TYPE=home:073-1234567
+BDAY:2020-02-14
+ANNIVERSARY:2020-02-14
+ADR;TYPE=work:;1;Kerkstraat;Amsterdam;Noord-Holland;1234 AB;Nederland
+ORG:ACME Corporation
+NOTE:This is the contact for an import template.
+X-GO-GENDER:M
+END:VCARD

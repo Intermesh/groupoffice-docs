@@ -36,8 +36,16 @@ These functions are accessible via the more menu in the toolbar above the grid:
 
    Import and export menu options
 
+VCF format
+----------
+
+VCF or vCard format is the easiest to use. You don't need to map any fields because it's already defined in the standard.
+
+:download:`You can download and example VCF file here. </_static/using/address-book/john-van-doe.vcf>`
+
 CSV format
 ----------
+
 Any format can be imported as long as the required columns are available.
 After selecting the file a dialog will be opened where you can match the fields:
 
@@ -48,14 +56,18 @@ After selecting the file a dialog will be opened where you can match the fields:
    Import CSV dialog
 
 When the column names match the name of the Group-Office field name or label it will 
-be mapped automatically.
+be mapped automatically. It also recognized other common names and the Outlook format.
 
-Some fields like e-mail addresses or phone numbers can have multiple values. They must be in a single CSV column but separeted by 3 colons (:::).
+The best approach for importing would be:
 
-For example::
+1. Setup your custom fields
+2. Create a dummy contact in Group-Office with everything filled in.
+3. Export this contact to CSV so you have an example template.
+4. Fill this CSV with data
+5. Import it.
 
-   name,email,emailType
-   John,work@domain.com ::: home@domain.com, work ::: home
+:download:`You can download and example CSV file here. </_static/using/address-book/john-van-doe.csv>`
+
 
 
 Groups
@@ -130,3 +142,4 @@ It will find anything with "John Jacks*". Because of the automatic wildcards (*)
 If you want to search for a phrase or without wildcards then you can use quotes::
 
    name: "John Jacks"
+
