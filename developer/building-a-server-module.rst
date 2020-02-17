@@ -88,7 +88,7 @@ module name. For example "**music**\_artist".
 
 Create the tables by importing this SQL into your database:
 
-.. code:: sql
+.. code-block:: sql
 
   CREATE TABLE `music_album` (
     `id` int(11) NOT NULL,
@@ -311,12 +311,12 @@ The ``albumcount`` property is simply retrieved by counting the albums that are 
 There is actually a better way of getting an album count. In order to keep things simple, one can remove the extra query
 and redefine the ``getAlbumcount()`` function as follows:
 
-.. code:: php
+.. code-block:: php
 
   public function getAlbumcount() :int
-	{
-		return count($this->albums);
-	}
+  {
+    return count($this->albums);
+  }
 
 Translations
 ------------
@@ -580,12 +580,116 @@ After rerunning the install script, the Custom fields screen in System settings 
 .. figure:: /_static/developer/building-a-module/custom-fields-artist.png
    :width: 100%
 
+ACL Entities
+------------
+
+In certain cases, you want to either have some private entities or entities that are shared with certain groups
+of other users. This section deals with developing entities that have some form of access control.
+
+In our tutorial module, we will add a ACL entity named 'review', which will allow you to add reviews to albums and
+control with whom you want to share your guilty pleasures. After all, nobody must know about your K-pop addiction. :-)
+
+The first step is to create the ``music_review`` table. Open ``install/updates.php`` and add the code below:
+
+.. code:: php
+
+  $updates['202002071045'][] = <<<'EOT'
+  CREATE TABLE IF NOT EXISTS `music_review`
+      ( `id` INT(11) NOT NULL PRIMARY KEY,
+      `albumId` INT(11) NOT NULL,
+      `aclId` INT(11) NOT NULL,
+      `createdBy` int(11) NOT NULL,
+      `modifiedBy` int(11) NOT NULL,
+      `rating` SMALLINT(5) UNSIGNED NOT NULL,
+      `title` VARCHAR(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+      `body` TEXT collate utf8mb4_unicode_ci NOT NULL
+
+       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  EOT;
+  $updates['202002071045'][] = <<<'EOT'
+  ALTER TABLE `music_review`
+      ADD KEY `aclId` (`aclId`),
+      ADD KEY `albumId` (`albumId`);
+  EOT;
+  $updates['202002071045'][] = <<<'EOT'
+  ALTER TABLE `music_review`
+      ADD CONSTRAINT `music_review_fk1` FOREIGN KEY (`albumId`) REFERENCES `music_album` (`id`) ON DELETE CASCADE,
+      ADD CONSTRAINT `music_review_fk2` FOREIGN KEY (`aclId`) REFERENCES `core_acl` (`id`);
+  EOT;
+
+Run the database install script again and you should see the newly created table in the database.
+
+The next step is to create a model, which we extend from the AclOwnerEntity class:
+
+.. code:: php
+
+  <?php
+
+
+  namespace go\modules\tutorial\music\model;
+
+  use go\core\acl\model\AclOwnerEntity;
+  use go\core\orm\Query;
+
+  class Review extends AclOwnerEntity
+  {
+      /** @var int */
+      public $id;
+      /** @var int */
+      public $createdBy;
+      /** @var int */
+      public $albumId;
+      /** @var int */
+      public $modifiedBy;
+      /** @var int */
+      public $rating;
+      /** @var string */
+      public $title;
+      /** @var string */
+      public $body;
+
+      protected static function defineMapping() {
+          return parent::defineMapping()
+              ->addTable('music_review');
+      }
+  }
+
+Since we are going to review entire albums, we add the reviews to the ``Album`` class as well:
+
+.. code:: php
+
+  <?php
+  namespace go\modules\tutorial\music\model;
+  class Album extends Property {
+      /*
+       * (...) lots of properties
+       */
+      /** @var array */
+      public $reviews;
+
+      /** @var int */
+      public $reviewcount;
+
+      protected static function defineMapping() {
+          return parent::defineMapping()
+              ->addTable("music_album", "album");
+              ->addScalar('reviews', 'music_review', ['albumId' => 'id']);
+
+      /**
+       * Count reviews for current album
+       *
+       * @return int
+       */
+      public function getReviewcount() :int
+      {
+          return count($this->reviews);
+      }
+
 
 The end
 -------
 
-Now you're done with the server code of the module. Now it's time to move on and
-build the web client!
+Now you're done with the server code of the module. Now it's time to move on and build the web client!
 
 
 

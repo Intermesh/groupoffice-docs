@@ -1523,4 +1523,4 @@ Toggling the custom filter will filter your artist list by the 'active' status.
 The end
 -------
 
-You're done! You've now learned how to build a simple Group Office module!
+You have finished part one! Now head to part two, in which we learn to add ACL to the client side part of the module.

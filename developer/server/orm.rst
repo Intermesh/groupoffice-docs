@@ -57,15 +57,68 @@ There should also be a public $albums property.
 
 addTable() method
 `````````````````
-With the addTable() method you map table database columns to object properties.
+With the ``addTable()`` method you map table database columns to object properties.
 All protected and public properties of the object that match a database column 
 name will be loaded from and saved to that table. You can add multiple tables
 to one entity. The primary keys must match or a key mapping can be passed to the
 method. See the code documentation for more details.
 
+addArray() method
+`````````````````
+If you wish to retrieve the full set of um.. properties of a property for an entity,
+you can use the ``addArray()`` method. For instance, if you want to retrieve entire
+albums for an artist as per the tutorial, your ``defineMapping()`` method for the Artist
+model should look like this::
+
+	protected static function defineMapping() {
+		return parent::defineMapping()
+						->addTable('music_artist', 'artist')
+						->addArray('albums', Album::class, ['id' => 'artistId']);
+	}
+
+The ``addArray()`` method yields a flat array of properties, i.e. an array that does not use a
+key-value pair.
+
+addMap() method
+```````````````
+
+If you prefer to retrieve relationships as key-value pairs, for instance of relation management,
+use the ``addMap()`` method::
+
+
+	protected static function defineMapping() {
+		return parent::defineMapping()
+			->addTable('music_artist', 'artist')
+	        ->addMap('albums', Album::class, ['id' => 'artistId']);
+	}
+
+This method returns an object, in which the ``id`` of a relation entity serves as a key. Its
+values are nested inside the object.
+
+addScalar() method
+``````````````````
+The ``addScalar()`` method retrieves an array of ``id`` fields for related items. If there are
+no known relations, an empty array is returned.
+
+.. note:: This is a way to relate entities to properties. However, it it more common practice
+   to define such relatable items as entities.
+
+addHasOne() method
+``````````````````
+A special relation is the ``addHasOne()`` method. It is commonly used with a ``UserSettings`` model,
+which gives a default entity of a certain type to each user.
+
+For instance, the address book module has the following lines in its ``module.php`` file::
+
+    public static function onMap(Mapping $mapping) {
+		$mapping->addHasOne('addressBookSettings', UserSettings::class, ['id' => 'userId'], true);
+	}
+
+This will create a new default address book for each new user and will assign it as default address book.
+
 addRelation() method
 ````````````````````
-With add addRelation() you can map "Property" models with a has one or has many
+With add ``addRelation()`` you can map "Property" models with a has one or has many
 relation. These properties will be loaded and saved automatically.
 
 .. note:: You can't add relations to other entities. Only "Property" models can
