@@ -282,13 +282,13 @@ The first step is to declare the property in the model and to implement a getter
 .. code:: php
 
   /** @var int */
-  protected $albumcount;
+  protected $albumCount;
 
   // (...)
 
-  public function getAlbumcount() :int
+  public function getAlbumCount() :int
   {
-    return $this->albumcount;
+    return $this->albumCount;
   }
 
 The next step is to update the ``defineMapping`` method, to actually count the albums:
@@ -298,22 +298,22 @@ The next step is to update the ``defineMapping`` method, to actually count the a
   protected static function defineMapping() {
 		return parent::defineMapping()
 						->addTable("music_artist", "artist")
-						->addArray('albums', Album::class, ['id' => 'artistId']);
-						->setQuery((new Query())->select('COUNT(alb.id) AS albumcount')
+						->addMap('albums', Album::class, ['id' => 'artistId']);
+						->setQuery((new Query())->select('COUNT(alb.id) AS albumCount')
 							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
 	}
 
-The ``albumcount`` property is simply retrieved by counting the albums that are related to the current artist.
+The ``albumCount`` property is simply retrieved by counting the albums that are related to the current artist.
 
 .. note:: Please note that in this example, we do not define a setter method. It should not be possible to manually set
   an album counter, since it is a counter of related properties.
 
 There is actually a better way of getting an album count. In order to keep things simple, one can remove the extra query
-and redefine the ``getAlbumcount()`` function as follows:
+and redefine the ``getAlbumCount()`` function as follows:
 
 .. code-block:: php
 
-  public function getAlbumcount() :int
+  public function getAlbumCount() :int
   {
     return count($this->albums);
   }
@@ -580,6 +580,8 @@ After rerunning the install script, the Custom fields screen in System settings 
 .. figure:: /_static/developer/building-a-module/custom-fields-artist.png
    :width: 100%
 
+For now, we are done. In the next chapter, we will see how custom fields are made available in the web client.
+
 ACL Entities
 ------------
 
@@ -587,7 +589,7 @@ In certain cases, you want to either have some private entities or entities that
 of other users. This section deals with developing entities that have some form of access control.
 
 In our tutorial module, we will add a ACL entity named 'review', which will allow you to add reviews to albums and
-control with whom you want to share your guilty pleasures. After all, nobody must know about your K-pop addiction. :-)
+control with whom you want to share your guilty pleasures.
 
 The first step is to create the ``music_review`` table. Open ``install/updates.php`` and add the code below:
 
@@ -619,15 +621,15 @@ The first step is to create the ``music_review`` table. Open ``install/updates.p
 
 Run the database install script again and you should see the newly created table in the database.
 
-The next step is to create a model, which we extend from the AclOwnerEntity class:
+The next step is to create a model, which we extend from the ``AclOwnerEntity`` class:
 
-.. code:: php
+.. code-block:: php
 
   <?php
 
-
   namespace go\modules\tutorial\music\model;
 
+  use Exception;
   use go\core\acl\model\AclOwnerEntity;
   use go\core\orm\Query;
 
@@ -635,6 +637,8 @@ The next step is to create a model, which we extend from the AclOwnerEntity clas
   {
       /** @var int */
       public $id;
+      /** @var int */
+      public $aclId;
       /** @var int */
       public $createdBy;
       /** @var int */
@@ -647,55 +651,86 @@ The next step is to create a model, which we extend from the AclOwnerEntity clas
       public $title;
       /** @var string */
       public $body;
+      /** @var string */
+      public $albumtitle;
 
-      protected static function defineMapping() {
+      protected static function defineMapping()
+      {
           return parent::defineMapping()
-              ->addTable('music_review');
+              ->addTable('music_review')
+              ->setQuery((new Query())->select('a.name AS albumtitle')
+                  ->join('music_album', 'a', 'a.id=music_review.albumId'));
       }
-  }
 
-Since we are going to review entire albums, we add the reviews to the ``Album`` class as well:
+      protected function internalSave()
+      {
+          if($this->isNew()) {
+              $this->albumtitle = go()->getDbConnection()
+                  ->selectSingleValue('name')
+                  ->from('music_album')
+                  ->where(['id' => $this->albumId])
+                  ->single();
+          }
 
-.. code:: php
+          $this->changeArtist([$this->albumId]);
 
-  <?php
-  namespace go\modules\tutorial\music\model;
-  class Album extends Property {
-      /*
-       * (...) lots of properties
-       */
-      /** @var array */
-      public $reviews;
+          return parent::internalSave();
+      }
 
-      /** @var int */
-      public $reviewcount;
 
-      protected static function defineMapping() {
-          return parent::defineMapping()
-              ->addTable("music_album", "album");
-              ->addScalar('reviews', 'music_review', ['albumId' => 'id']);
+      protected static function internalDelete(Query $query)
+      {
+          //Create clone to avoid changes to the  original delete query object
+          $deleteQuery = clone $query;
+
+          //Select albums of artists affected by this delete
+          $deleteQuery->selectSingleValue('albumId');
+
+          static::changeArtist($deleteQuery->all());
+
+          return parent::internalDelete($query);
+      }
 
       /**
-       * Count reviews for current album
+       * Our review has effect on Artist entities because they implement getAlbumCount().
        *
-       * @return int
+       * @param array $albumIds
+       * @throws Exception
        */
-      public function getReviewcount() :int
-      {
-          return count($this->reviews);
+      private static function changeArtist(array $albumIds) {
+          Artist::entityType()->changes(
+              go()->getDbConnection()
+                  ->select('art.id, null, 0')
+                  ->from('music_artist', 'art')
+                  ->join('music_album', 'alb', 'alb.artistId = art.id')
+                  ->where('alb.id', 'IN', $albumIds)
+          );
       }
 
+      protected static function defineFilters()
+      {
+          return parent::defineFilters()
+              ->add('albumId', function (\go\core\db\Criteria $criteria, $value, \go\core\orm\Query $query, array $filter) {
+                  if (!empty($value)) {
+                      $query->where(['music_review.albumId' => $value]);
+                  }
+              });
+
+      }
+
+
+  }
+
+Interestingly, we need to make sure that the Artist entity is updated upon adding or deleting a review. We force this by
+overriding the ``internalSave`` and ``internalDelete`` methods.
 
 The end
 -------
 
-Now you're done with the server code of the module. Now it's time to move on and build the web client!
-
-
+Now you're done with the server code of the module. It is time to move on and build the web client!
 
 
 .. TODO:
-  - ACL
   - User specific entity data in separate entity
   - entity data type in store fields
   - dates

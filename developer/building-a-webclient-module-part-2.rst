@@ -3,8 +3,8 @@ Building a webclient module, part 2
 
 In which we build access control into the web client.
 
-In :ref:`the server module tutorial<building-a-server-module>` we built one AclOwnerEntity model, being Review. The web
-client was created in :ref:`the webclient tutorial<building-a-webclient-module>`, without the review part. This part of
+In :ref:`the server module tutorial <building-a-server-module>` we built one ``AclOwnerEntity`` model, being Review. The web
+client was created in :ref:`the webclient tutorial <building-a-webclient-module>`, without the review part. This part of
 the webclient tutorial covers the client-side part of working with access control lists.
 
 For the sake of this tutorial, we made it possible for reviews to be shared with your fellow users, or being
@@ -18,7 +18,7 @@ and display the reviews in a somewhat playful manner.
 Add the Review model to the store
 ---------------------------------
 
-The first step is to make sure that reviews can be retrieved and managed through the store. In ``module.js`` we add
+The first step is to make sure that reviews can be retrieved and managed through the store. In ``Module.js`` we add
 a new entity named `Review`::
 
     entities: [
@@ -155,6 +155,7 @@ The next step is adding a modal, in which to enter a review. Please note that an
 Create a new javascript file, name it ``ReviewDialog.js`` and enter the following code:
 
 .. code-block:: javascript
+
     go.modules.tutorial.music.ReviewDialog = Ext.extend(go.form.Dialog, {
         stateId: 'album-review',
         title: t("Review"),
@@ -246,7 +247,7 @@ In the reviews screen, a number of things need to be checked:
 
 1. A user may enter only one review for a certain album.
 2. It must be possible to read, edit or delete other reviews, depending on the ACL settings entered by the creator.
-3. (Upon adding or deleting a review, the Artist store is to be reloaded).
+3. Upon adding or deleting a review, the Artist store is to be reloaded. Please note that we have already implemented in the Review model.
 
 A new javascript file is to be created and added to the ``scripts.txt`` file. We name it ``ReviewsModal.js``.
 
@@ -278,7 +279,7 @@ A new javascript file is to be created and added to the ``scripts.txt`` file. We
                     'title',
                     'body',
                     'rating',
-                    'albumtitle',
+                    'albumTitle',
                     'createdBy',
                     {name: 'creator', type: "relation"},
                     'albumId', 'aclId', "permissionLevel"
@@ -421,7 +422,7 @@ A new javascript file is to be created and added to the ``scripts.txt`` file. We
             var r = this.store.getAt(0), title = this.title;
             if (typeof (r) !== "undefined") {
                 this.setTitle(t("Reviews")+"&nbsp;" + t('for') + "&nbsp;" +
-                    Ext.util.Format.htmlEncode(r.get('albumtitle')));
+                    Ext.util.Format.htmlEncode(r.get('albumTitle')));
             } else {
                 this.setTitle(t("Reviews"));
             }
@@ -453,13 +454,17 @@ A new javascript file is to be created and added to the ``scripts.txt`` file. We
 
 In this file, a number of things happen:
 
-* The modal is based on the (relatively empty) ``go.Window`` class. A number of sane default settings is preconfigured.
-* In the initComponent function, a new store is defined. Please note that the ``aclId`` and ``permissionLevel`` fields are being retrieved. We will need these later.
-* A context menu is added.
-* Each review is being rendered in a container class. We borrowed the layout from the 'comments' module to make it look nice
-* For each review, the permission level is matched with the user's permissions. If applicable, the user can use the context menu.
+1. The modal is based on the (relatively empty) ``go.Window`` class. A number of sane default settings is preconfigured.
+2. In the initComponent function, a new store is defined. Please note that the ``aclId`` and ``permissionLevel`` fields are being retrieved. We will need these later.
+3. A context menu is added.
+4. Each review is being rendered in a container class. We borrowed the layout from the 'comments' module to make it look nice
+5. For each review, the permission level is matched with the user's permissions. If applicable, the user can use the context menu.
 
 
 .. figure:: /_static/developer/building-a-webclient-module-part-2/reviews.png
    :width: 400px
 
+The End
+-------
+
+This concludes our webclient tutorial. There is one thing left to say: have fun coding your own Group-Office modules!

@@ -1,9 +1,10 @@
 Building a webclient module
 ===========================
 
-When you've finished the server module it's time to build a web client. We're
-going to create a 3 column responsive layout with a Genre filter, artist list
-and artist detail view.
+When you've finished the server module it's time to build a web client. Please note
+that the reviews are being added in the second part of this tutorial and that they
+fall outside the scope of this document. We're going to create a 3 column responsive
+layout with a Genre filter, artist list and artist detail view.
 
 .. figure:: /_static/developer/building-a-webclient-module/artist-detail-desktop.png
    :width: 100%
@@ -617,6 +618,7 @@ Create a file called ``ArtistDialog.js``:
 							xtype: "formgroup",
 							name: "albums",
 							hideLabel: true,
+                            mapKey: 'id',
 
 							// this will add dp(16) padding between rows.
 							pad: true,
@@ -1185,10 +1187,12 @@ In your module directory, create a new SASS file::
     views/extjs3/themes/default/src/style.scss
 
 
-.. note:: You can override a certain theme file, by subsituting `default` by the theme name if necessary.
+Please note that the file name should be ``style.scss`` to make sure that it is automatically compiled.
+
+.. note:: You can override a certain theme file, by substituting `default` by the theme name if necessary.
 
 By default, an avatar is displayed at 35 by 35 pixels and they are aligned to the left. Let's make the avatar image somewhat
-larger, e.g. 120 px and let's center in. We will have to define a CSS class that centers its content and make sure that
+larger, e.g. 120 px and let's center it. We will have to define a CSS class that centers its content and make sure that
 the nested ``avatar`` CSS class renders at 120px by 120px. Update your ``style.scss`` file to look like this:
 
 .. code:: scss
@@ -1210,8 +1214,7 @@ In case that your module SCSS code is not automatically compiled, you can restar
 
     docker-compose restart sass
 
-When you're done, you'll have to run the database install script again. This will make sure that your custom CSS is
-included.
+..and run the database install script again. This will make sure that your custom CSS is included.
 
 Custom fields
 -------------
@@ -1501,7 +1504,7 @@ Save and reload your module. The main screen should look somewhat like this:
 Now we have to define the custom filter:
 
 * Click the 'Add' button, next to the 'Filters' header in the left panel
-* In the new modal, enter
+* In the new modal, enter the following parameters:
 ** Enter a name that makes sense, e.g. 'Active'
 ** Make sure that the option 'Match ALL conditions' is selected
 ** Select the field 'Active'
