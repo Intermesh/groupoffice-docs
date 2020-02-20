@@ -103,9 +103,7 @@ My Account -> E-mail -> Templates.
 
 Double click on a template or create a new one to edit it. If you drafted an 
 HTML document in another program, make sure this HTML only contains inline style. 
-Style sections in the head are not supported. You may need to use a tool 
-to convert the head style to inline style such as 
-this: http://inlinestyler.torchboxapps.com/
+Style sections in the head are not supported.
 
 Images
 ------
