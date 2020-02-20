@@ -22,4 +22,64 @@ tarball. But if you really want use it then follow these steps:
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
 
-.. warning:: If you're upgrading from 6.2 to 6.3 or higher and you are running the CGI version of PHP then you need to add a reqrite rule to add the "Authorization" header. Read more at :ref:`cgi-authorization`.
+.. note:: If you're upgrading from 6.2 to 6.3 or higher and you are running the CGI version of PHP then you need to add a reqrite rule to add the "Authorization" header. Read more at :ref:`cgi-authorization`.
+
+
+Update script
+`````````````
+
+I've written a simple bash script that downloads the latest PHP 7.1+ version of Group-Office and replaces all code in the
+given directory.
+
+You can run it like this::
+
+    ./update-groupoffice.sh <DIR_OF GROUPOFFICE>
+
+
+.. warning:: Please backup before using!
+
+.. code::
+
+    #!/bin/bash
+    set -e
+
+    TARGET=$1
+
+    if [ ! -d "$TARGET" ]; then
+        echo "$TARGET doesn't exist!"
+        exit 1;
+    fi
+
+    if [ ! -f "$TARGET/version.php" ]; then
+
+        echo "$TARGET is not a Group-Office directory!"
+        exit 1
+    fi
+
+    read -r -p "Are you sure you want to update directory '$TARGET'? [y/N]" response;
+    if [[ "$response" != "y"  ]]; then
+        exit 0
+    fi
+
+    mkdir -p goupdate
+    cd goupdate
+    rm download
+    wget https://sourceforge.net/projects/group-office/files/latest/download
+    tar zxf download
+
+    GO=`ls | grep groupoffice`
+    echo $GO
+
+    cd $GO
+
+    for f in *; do
+        rm -rf ../../$TARGET/$f
+        cp -a $f ../../$TARGET
+    done
+
+    cd ../../
+
+
+
+
+
