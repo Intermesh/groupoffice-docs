@@ -19,7 +19,8 @@ The calendar module supports:
 Sharing
 -------
 
-Sharing calendars works similar to the :ref:`default procedure <sharing>`.
+Sharing calendars works similar to the :ref:`default procedure <sharing>`. By default calendars are only visible to
+the calendar owner. You can change that at the :ref:`default-permissions`.
 
 But there is something special to note with inviting participants. When someone 
 invites another Group-Office user, the event will be scheduled in a tentative 

@@ -46,3 +46,10 @@ menu in the address book for example:
    If you want to create a global shared address book it is recommended to add 
    this address book as the "admin" user so it won't be deleted along with a 
    regular user when this employee leaves the company for example.
+
+
+Default permissions
+-------------------
+
+By default items are only shared with the administrator and owner. You can change that at the :ref:`default-permissions`.
+You can also add a group or user to all existing items.
