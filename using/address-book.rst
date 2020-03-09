@@ -27,6 +27,8 @@ Import and export
 -----------------
 
 You can import and export a Comma Separated File (*.csv) or a vcard (*.vcf).
+The export functions will export what's currently selected on screen. So you can first apply searches or filters and then
+choose export.
 
 These functions are accessible via the more menu in the toolbar above the grid:
 
@@ -37,14 +39,14 @@ These functions are accessible via the more menu in the toolbar above the grid:
    Import and export menu options
 
 VCF format
-----------
+``````````
 
 VCF or vCard format is the easiest to use. You don't need to map any fields because it's already defined in the standard.
 
 :download:`You can download and example VCF file here. </_static/using/address-book/john-van-doe.vcf>`
 
 CSV format
-----------
+``````````
 
 Any format can be imported as long as the required columns are available.
 After selecting the file a dialog will be opened where you can match the fields:
@@ -68,7 +70,17 @@ The best approach for importing would be:
 
 :download:`You can download and example CSV file here. </_static/using/address-book/john-van-doe.csv>`
 
+Labels
+``````
+You can easily print labels for envelopes. You can enter the rows, columns and margins and generate a PDF to print labels.
 
+.. figure:: /_static/using/address-book/labels.png
+   :alt: Print labels
+   :width: 100%
+
+   Print labels
+
+In the template you can use the new :ref:`template syntax <templates>` that's also used in the Newsletters module.
 
 Groups
 ------

@@ -30,6 +30,8 @@ To send a newsletter click the add button from the "Sent items" panel.
 
    Compose
 
+.. _templates:
+
 Templates
 ---------
 
@@ -98,22 +100,31 @@ You can also iterator over arrays::
    [/each]
 
 And filter arrays by property and only write first match using "eachIndex"::
-  
-   [each emailAddress in contact.emailAddresses | filter:type:"billing"]
-     [if {{eachIndex}} == 1]
-       {{emailAddress.email}}
-     [/if]
-   [/each]
+
+    [each emailAddress in contact.emailAddresses | filter:type:"billing"]
+        [if {{eachIndex}} == 1]
+            {{emailAddress.email}}
+        [/if]
+    [/each]
+
+But this is probably the best way to handle the case where you prefer a type of address but just use the first if that's
+not found. It uses [assign] to create a new variable. If it's empty it will use the first address::
+
+  [assign address = contact.addresses | filter:type:"postal" | first]
+  [if !{{address}}]
+  [assign address = contact.addresses | first]
+  [/if]
+  {{address.formatted}}
 
 
-An advanced example for printing the salutation::
+An advanced example for printing a custom salutation (Just an example. You can use {{contact.salutation}})::
 
    Dear [if {{contact.prefixes}}]{{contact.prefixes}}[else][if !{{contact.gender}}]Ms./Mr.[else][if {{contact.gender}}=="M"]Mr.[else]Ms.[/if][/if][/if] {{contact.lastName}}
 
 
-An simple example template::
+A simple example template::
 
-   Hi {{contact.firstName}},
+   Hi {{contact.salutation}},
 
 
    Best regards,
