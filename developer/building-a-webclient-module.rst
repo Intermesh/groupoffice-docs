@@ -1,9 +1,10 @@
 Building a webclient module
 ===========================
 
-When you've finished the server module it's time to build a web client. We're
-going to create a 3 column responsive layout with a Genre filter, artist list
-and artist detail view.
+When you've finished the server module it's time to build a web client. Please note
+that the reviews are being added in the second part of this tutorial and that they
+fall outside the scope of this document. We're going to create a 3 column responsive
+layout with a Genre filter, artist list and artist detail view.
 
 .. figure:: /_static/developer/building-a-webclient-module/artist-detail-desktop.png
    :width: 100%
@@ -15,20 +16,20 @@ https://docs.sencha.com/extjs/3.4.0/
 
 We've enhanced ExtJS with our own components and created a theme for Group Office.
 
-The webclient code is located in the go/modules/tutorial/music/views/extjs3" folder.
+The webclient code is located in the ``go/modules/tutorial/music/views/extjs3`` folder.
 The code generator already created these files:
 
-1. Module.js: Required for each module. It registers the module, entities, system and user setting panels.
-2. MainPanel.js: The main panel of the module shown in the Group Office UI
-3. scripts.txt: All js files must be listed in the correct order here.
-4. themes/default/style.css. Module specific style can be placed here. You can use out _base.scss file to use functions and variables from the main style.
+1. ``Module.js``: Required for each module. It registers the module, entities, system and user setting panels.
+2. ``MainPanel.js``: The main panel of the module shown in the Group Office UI
+3. ``scripts.txt``: All js files must be listed in the correct order here.
+4. ``themes/default/style.css``. Module specific style can be placed here. You can use our _base.scss file to use functions and variables from the main style.
 
 When opening Group-Office you should see "Music" in the start menu. When opening it shows "Hello world".
 
 Entities
 --------
 
-First add all entities to the module in Module.js:
+First add all entities to the module in ``Module.js``:
 
 .. code:: javascript
 
@@ -47,9 +48,9 @@ First add all entities to the module in Module.js:
    });
 
 
-This will create a "go.data.EntityStore" for each entity. This store will
-sync all entity data. This store is kept up to date using Flux. When for example
-a form dialog makes a Foo/set request the store will receive the dispatched action
+This will create a ``go.data.EntityStore`` for each entity. This store will
+sync all entity data. This store is kept up to date automatically. When for example
+a form dialog makes a Foo/set request, the store will receive the dispatched action
 and fire an "updated" event. All view stores connected to grids and detail views
 for example can observe this store and render the view on this event.
 
@@ -58,7 +59,7 @@ Read more about entities :ref:`here <entities>`.
 Genre filter
 ------------
 
-Create a new file GenreFilter.js:
+Create a new file ``GenreFilter.js``:
 
 .. code:: javascript
 
@@ -198,13 +199,13 @@ Create a new file GenreFilter.js:
 		}
 	});
 
-Every Javascript file must be added to the "scripts.txt" file so add 
-"GenreFilter.js" to the bottom of this file.
+Every Javascript file must be added to the ``scripts.txt`` file so add
+``GenreFilter.js`` to the bottom of this file.
 
 Study the component and take a look at all the comments. This component is a 
 grid with check boxes showing all Genres.
 
-Now add this component to the main panel by changing MainPanel.js with the 
+Now add this component to the main panel by changing ``MainPanel.js`` with the
 following code:
 
 .. code:: javascript
@@ -249,57 +250,58 @@ Relations
 ---------
 
 To present data from related entities. For example. The user who created an Artist you can use relations.
-For each entity you can define relations to other entities. Change the string "Artist" in the entities propertie in Module.js to the following:
+For each entity you can define relations to other entities. Change the string "Artist" in the entities property in
+``Module.js`` to the following:
 
 
 .. code:: javascript
 
 	{
-					name: "Artist",
-					relations: {
-							creator: {store: "User", fk: "createdBy"},
-							modifier: {store: "User", fk: "createdBy"},
+        name: "Artist",
+		relations: {
+		    creator: {store: "User", fk: "createdBy"},
+			modifier: {store: "User", fk: "createdBy"},
 
-							// 'albums' is a property of artist and has a nested relation.
-							albums: {
-										genre:  {store: "Genre", fk: "genreId"}
-							}
-					}
-		}
+			// 'albums' is a property of artist and has a nested relation.
+			albums: {
+			    genre:  {store: "Genre", fk: "genreId"}
+            }
+        }
+    }
 
 
 We've defined two "has one" relations for the creator and modifier and a "has many" relation for the albums.
 
-The complete module.js looks like this now:
+The complete ``Module.js`` looks like this now:
 
 .. code:: javascript
 
 	go.Modules.register("tutorial", "music", {
-			mainPanel: "go.modules.tutorial.music.MainPanel",
+       mainPanel: "go.modules.tutorial.music.MainPanel",
 
-			//The title is shown in the menu and tab bar
-			title: t("Music"),
+        //The title is shown in the menu and tab bar
+        title: t("Music"),
 
-			//All module entities must be defined here. Stores will be created for them.
-			entities: [
-						"Genre", 
-						{
-								name: "Artist",
-								relations: {
-											creator: {store: "User", fk: "createdBy"},
-											modifier: {store: "User", fk: "createdBy"},
+        //All module entities must be defined here. Stores will be created for them.
+        entities: [
+            "Genre",
+            {
+                name: "Artist",
+                relations: {
+                    creator: {store: "User", fk: "createdBy"},
+                    modifier: {store: "User", fk: "createdBy"},
 
-											// 'albums' is a property of artist and has a nested relation.
-											albums: {
-													genre:  {store: "Genre", fk: "genreId"}
-											}
-								}
-						}
-			],
+                    // 'albums' is a property of artist and has a nested relation.
+                    albums: {
+                        genre:  {store: "Genre", fk: "genreId"}
+                    }
+                }
+            }
+        ],
 
-			//Put code to initialize the module here after the user is authenticated 
-			//and has access to the module.
-			initModule: function () {}
+        //Put code to initialize the module here after the user is authenticated
+        //and has access to the module.
+        initModule: function () {}
     });
 
 We can use these relations in the artist grid in the next chapter.
@@ -311,7 +313,7 @@ Artist grid
 Now that we've got our Genre filter in place it's time to create the artist 
 grid.
 
-Create the file ArtistGrid.js:
+Create the file ``ArtistGrid.js``:
 
 .. code:: javascript
 
@@ -371,6 +373,13 @@ Create the file ArtistGrid.js:
 							</div>';
 						}
 					},
+                    {
+                        id: 'albumcount',
+                        sortable: false,
+                        header: t('album_count','music','tutorial'),
+                        dataIndex: 'albumcount',
+                        width: dp(80)
+                    },
 					{
 						xtype: "datecolumn",
 						id: 'createdAt',
@@ -428,10 +437,10 @@ Create the file ArtistGrid.js:
 
 
 
-And add the file "ArtistGrid.js" to the bottom of "scripts.txt". 
+And add the file ``ArtistGrid.js`` to the bottom of ``scripts.txt``.
 Study the code and comments of this file.
 
-Now change MainPanel.js to use the grid:
+Now change ``MainPanel.js`` to use the grid:
 
 .. code:: javascript
 
@@ -489,7 +498,7 @@ Now change MainPanel.js to use the grid:
 			var selectedRecords = sm.getSelections(),
 						ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
 
-			this.artistGrid.store.baseParams.filter.genres = ids;
+			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
 		},
 
@@ -519,7 +528,7 @@ When you reload Group Office now it should look like this:
 .. figure:: /_static/developer/building-a-webclient-module/artist-grid.png
    :width: 100%
 
-.. note:: Feel free to add some more artist with postman so your filter results
+.. note:: Feel free to add some more artists with Postman so your filter results
    are more interesting :) You might also notice that when you change things with
    postman the web interface updates automatically.
 
@@ -528,12 +537,12 @@ Genre combo box
 ---------------
 
 Before we can create an Artist dialog we'll need a Genre combo box for selecting
-the album genre. Create the file GenreCombo.js:
+the album genre. Create the file ``GenreCombo.js``:
 
 .. code:: javascript
 
-	go.modules.tutorial.music.GenreCombo = Ext.extend(go.form.ComboBox, {
-		fieldLabel: t("Genre"),
+    go.modules.tutorial.music.GenreCombo = Ext.extend(go.form.ComboBox, {
+	    fieldLabel: t("Genre"),
 		hiddenName: 'genreId',
 		anchor: '100%',
 		emptyText: t("Please select..."),
@@ -562,7 +571,7 @@ Artist dialog
 
 Now we need an Artist dialog for creating and editing Artists.
 
-Create a file called "ArtistDialog.js":
+Create a file called ``ArtistDialog.js``:
 
 .. code:: javascript
 
@@ -609,6 +618,7 @@ Create a file called "ArtistDialog.js":
 							xtype: "formgroup",
 							name: "albums",
 							hideLabel: true,
+                            mapKey: 'id',
 
 							// this will add dp(16) padding between rows.
 							pad: true,
@@ -643,9 +653,9 @@ Create a file called "ArtistDialog.js":
 		}
 	});
 
-Add this file to the "scripts.txt" file again.
+Add this file to the ``scripts.txt`` file again.
 
-Then update MainPanel.js:
+Then update ``MainPanel.js``:
 
 .. code:: javascript
 
@@ -724,7 +734,7 @@ Then update MainPanel.js:
 			var selectedRecords = sm.getSelections(),
 						ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
 
-			this.artistGrid.store.baseParams.filter.genres = ids;
+			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
 		},
 
@@ -786,14 +796,14 @@ When you reload Group Office now it should look like this:
 Delete button
 -------------
 
-You can add a delete button to the grid's toolbar in MainPanel.js to delete 
-selected arists. Note that this code will add a "More options" menu button with 3 dots that has the delete button in the menu:
+You can add a delete button to the grid's toolbar in ``MainPanel.js`` to delete
+selected artists. Note that this code will add a "More options" menu button with 3 dots that has the delete button in the menu:
 
 .. code:: javascript
 
 	{
 		iconCls: 'ic-more-vert',
-		tooltipe: t("More options"),
+		tooltip: t("More options"),
 		menu: [
 			{
 				itemId: "delete",
@@ -814,7 +824,7 @@ Detail view
 
 Finally we're going to add a detail panel for artists.
 
-Create the file "ArtistDetail.js":
+Create the file ``ArtistDetail.js``:
 
 .. code:: javascript
 
@@ -849,7 +859,7 @@ Create the file "ArtistDetail.js":
 						xtype: "box",
 						cls: "content",
 						tpl: new Ext.XTemplate('<div class="go-detail-view-avatar">\
-	<div class="avatar" style="{[this.getStyle(values.photo)]}"></div></div>',
+	                        <div class="avatar" style="width:120px;height:120px;{[this.getStyle(values.photo)]}"></div></div>',
 							{
 								getCls: function (isOrganization) {
 									return isOrganization ? "organization" : "";
@@ -866,13 +876,13 @@ Create the file "ArtistDetail.js":
 						title: t("Albums"),
 						xtype: "panel",
 						tpl: '<div class="icons">\
-							<tpl for="albums">\
-										<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
-														<span>{name}</span>\
-														<label>{[go.util.Format.date(values.releaseDate)]} - <tpl for="genre">{name}</tpl></label>\
-										</p>\
-						</tpl>\
-						</div>'
+                                <tpl for="albums">\
+								<p class="s6"><tpl if="xindex == 1"><i class="icon label">album</i></tpl>\
+								<span>{name}</span>\
+								<label>{[go.util.Format.date(values.releaseDate)]} - <tpl for="genre">{name}</tpl></label>\
+								</p>\
+						        </tpl>\
+						        </div>'
 					}
 				]
 			});
@@ -949,8 +959,8 @@ Create the file "ArtistDetail.js":
 	});
 
 
-Study the code and add it to "scripts.txt". Now we're going to update the 
-MainPanel.js file:
+Study the code and add it to ``scripts.txt``. Now we're going to update the
+``MainPanel.js`` file:
 
 .. code:: javascript
 
@@ -1108,7 +1118,7 @@ MainPanel.js file:
 			var selectedRecords = sm.getSelections(),
 							ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
 
-			this.artistGrid.store.baseParams.filter.genres = ids;
+			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
 		},
 
@@ -1142,7 +1152,7 @@ The changes:
    switching for phones.
 3. Added buttons for navigating on smaller screens. See the new buttons with the 
    "go-narrow" class on them.
-4. We've added a row select listener to naviate to the artist page using the router.
+4. We've added a row select listener to navigate to the artist page using the router.
 
 When you reload Group Office it should look like this:
 
@@ -1162,8 +1172,358 @@ And on phones:
 .. figure:: /_static/developer/building-a-webclient-module/artist-grid-phone.png
    :width: 400px
 
+Override CSS
+------------
+
+It is pretty easy to add your own CSS classes. When initially generating your module boilerplate, an empty ``style.css``
+file is automatically generated. You can either edit it directly or use the SASS docker image from the development
+environment to generate your own CSS overrides.
+
+SASS
+````
+
+In your module directory, create a new SASS file::
+
+    views/extjs3/themes/default/src/style.scss
+
+
+Please note that the file name should be ``style.scss`` to make sure that it is automatically compiled.
+
+.. note:: You can override a certain theme file, by substituting `default` by the theme name if necessary.
+
+By default, an avatar is displayed at 35 by 35 pixels and they are aligned to the left. Let's make the avatar image somewhat
+larger, e.g. 120 px and let's center it. We will have to define a CSS class that centers its content and make sure that
+the nested ``avatar`` CSS class renders at 120px by 120px. Update your ``style.scss`` file to look like this:
+
+.. code:: scss
+
+    .go-detail-view-avatar {
+      text-align:center;
+      & > .avatar {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+Assuming that you use the Intermesh development docker environment, you have a running SASS container that monitors any
+scss files for changes. You can check the output of sass  by opening up a console and entering the following command::
+
+    docker-compose logs --follow sass
+
+In case that your module SCSS code is not automatically compiled, you can restart the sass docker container::
+
+    docker-compose restart sass
+
+..and run the database install script again. This will make sure that your custom CSS is included.
+
+Custom fields
+-------------
+
+Remember that you made the Artist model customizable? Now, we are going to add them to the webclient module! Let's add a
+custom checkbox as per :ref:`this guide <custom-fields>`, as well as a biography field. For the sake of simplicity, this
+field will be a text field.
+
+.. figure:: /_static/developer/building-a-webclient-module/system-settings-custom-fields-artist.png
+   :width: 100%
+
+The custom fields will work out of the box in the editing modal, provided that you have the proper rights:
+
+.. figure:: /_static/developer/building-a-webclient-module/edit-artist-custom-fields.png
+   :width: 400px
+
+The next step is making the custom information available in the artist details. Add the following line at the end of the
+``initComponent()`` function in ``ArtistDetail.js``:
+
+.. code:: javascript
+
+    this.addCustomFields();
+
+Reload your screen and you will see your custom fields in the artist detail pane:
+
+The custom fields will work out of the box in the editing modal, provided that you have the proper rights:
+
+.. figure:: /_static/developer/building-a-webclient-module/artist-detail-custom-fields.png
+   :width: 400px
+
+Add a custom Filter
+```````````````````
+We're not done yet. After all, we would like to be able to search by our custom fields. Furthermore, we want to group
+our filters in the side panel. In order to be able to search by our custom field (e.g. the 'Active' checkbox above), we
+have to add a custom filter panel and define a filter based on the custom field.
+
+Once again, we open the ``MainPanel.js`` file. Enter the following code:
+
+.. code:: javascript
+
+    go.modules.tutorial.music.MainPanel = Ext.extend(go.modules.ModulePanel, {
+        // Use a responsive layout
+        layout: "responsive",
+
+        // change responsive mode on 1000 pixels
+        layoutConfig: {
+            triggerWidth: 1000
+        },
+
+        initComponent: function () {
+
+            this.createArtistGrid();
+
+            // Every entity automatically configures a route. Route to the entity when selecting it in the grid.
+            this.artistGrid.on('navigate', function (grid, rowIndex, record) {
+                go.Router.goto("artist/" + record.id);
+            }, this);
+
+            this.sidePanel = new Ext.Panel({
+                layout: 'anchor',
+                defaults: {
+                    anchor: '100%'
+                },
+                width: dp(300),
+                cls: 'go-sidenav',
+                region: "west",
+                split: true,
+                autoScroll: true,
+                items: [
+                    this.createGenreFilter(),
+                    this.createFilterPanel()
+                ]
+            });
+            // Create artist detail component
+            this.artistDetail = new go.modules.tutorial.music.ArtistDetail({
+                region: "center",
+                tbar: [
+                    //add a back button for small screens
+                    {
+                        // this class will hide the button on large screens
+                        cls: 'go-narrow',
+                        iconCls: "ic-arrow-back",
+                        handler: function () {
+                            this.westPanel.show();
+                        },
+                        scope: this
+                    }]
+            });
+
+            //Wrap the grids into another panel with responsive layout for the 3 column responsive layout to work.
+            this.westPanel = new Ext.Panel({
+                region: "west",
+                layout: "responsive",
+                stateId: "go-music-west",
+                split: true,
+                width: dp(800),
+                narrowWidth: dp(500), //this will only work for panels inside another panel with layout=responsive. Not ideal but at the moment the only way I could make it work
+                items: [
+                    this.artistGrid,
+                    this.sidePanel
+                ]
+            });
+
+            //add the components to the main panel's items.
+            this.items = [
+                this.westPanel, //first is default in narrow mode
+                this.artistDetail
+            ];
+
+            // Call the parent class' initComponent
+            go.modules.tutorial.music.MainPanel.superclass.initComponent.call(this);
+
+            //Attach lister to changes of the filter selection.
+            //add buffer because it clears selection first and this would cause it to fire twice
+            this.genreFilter.getSelectionModel().on('selectionchange', this.onGenreFilterChange, this, {buffer: 1});
+
+            // Attach listener for running the module
+            this.on("afterrender", this.runModule, this);
+        },
+
+
+        createArtistGrid: function() {
+            this.artistGrid = new go.modules.tutorial.music.ArtistGrid({
+                region: "center",
+                tbar: [
+                    //add a hamburger button for smaller screens
+                    {
+                        //this class will hide the button on large screens
+                        cls: 'go-narrow',
+                        iconCls: "ic-menu",
+                        handler: function () {
+                            this.genreFilter.show();
+                        },
+                        scope: this
+                    },
+                    '->',
+                    {
+                        xtype: 'tbsearch'
+                    },
+
+                    // add button for creating new artists
+                    this.addButton = new Ext.Button({
+                        iconCls: 'ic-add',
+                        tooltip: t('Add'),
+                        handler: function (btn) {
+                            var dlg = new go.modules.tutorial.music.ArtistDialog({
+                                formValues: {
+                                    // you can pass form values like this
+                                }
+                            });
+                            dlg.show();
+                        },
+                        scope: this
+                    }),
+                    {
+                        iconCls: 'ic-more-vert',
+                        tooltip: t("More options"),
+                        menu: [
+                            {
+                                itemId: "delete",
+                                iconCls: 'ic-delete',
+                                text: t("Delete"),
+                                handler: function () {
+                                    this.artistGrid.deleteSelected();
+                                },
+                                scope: this
+                            }
+                        ]
+                    }
+                ],
+
+                listeners: {
+                    rowdblclick: this.onGridDblClick,
+                    scope: this
+                }
+            });
+            return this.artistGrid;
+        },
+
+        // Fired when the Genre filter selection changes
+        onGenreFilterChange: function (sm) {
+
+            var selectedRecords = sm.getSelections(),
+                ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
+
+            this.artistGrid.store.setFilter('genres', {genres: ids});
+            this.artistGrid.store.load();
+        },
+
+        createGenreFilter: function() {
+            this.genreFilter = new go.modules.tutorial.music.GenreFilter({
+                region: "west",
+                width: dp(300),
+                autoHeight: true,
+
+                //render a split bar for resizing
+                split: true,
+
+                tbar: [{
+                    xtype: "tbtitle",
+                    text: t("Genres")
+                },
+                    '->',
+
+                    //add back button for smaller screens
+                    {
+                        //this class will hide it on larger screens
+                        cls: 'go-narrow',
+                        iconCls: "ic-arrow-forward",
+                        tooltip: t("Artists"),
+                        handler: function () {
+                            this.artistGrid.show();
+                        },
+                        scope: this
+                    }
+                ]
+            });
+            return this.genreFilter;
+        },
+
+        createFilterPanel: function() {
+            return new Ext.Panel({
+                autoHeight: true,
+                tbar: [
+                    {
+                        xtype: 'tbtitle',
+                        text: t("Filters")
+                    },
+                    '->',
+                    {
+                        xtype: "button",
+                        iconCls: "ic-add",
+                        handler: function() {
+                            var dlg = new go.filter.FilterDialog({
+                                entity: "Artist"
+                            });
+                            dlg.show();
+                        },
+                        scope: this
+                    }
+                ],
+                items: [
+                    this.filterGrid = new go.filter.FilterGrid({
+                        filterStore: this.artistGrid.store,
+                        entity: "Artist"
+                    })
+                ]
+            });
+        },
+
+        // Fired when the module panel is rendered.
+        runModule: function () {
+            // when this panel renders, load the genres and artists.
+            this.genreFilter.store.load();
+            this.artistGrid.store.load();
+        },
+
+        // Fires when an artist is double clicked in the grid.
+        onGridDblClick: function (grid, rowIndex, e) {
+
+            //check permissions
+            var record = grid.getStore().getAt(rowIndex);
+            if (record.get('permissionLevel') < GO.permissionLevels.write) {
+                return;
+            }
+
+            // Show dialog
+            var dlg = new go.modules.tutorial.music.ArtistDialog();
+            dlg.load(record.id).show();
+        }
+    });
+
+Again: study the code. The following changes were made:
+
+1. The artist grid has been put in a wrapper function
+2. The Genre Filter has been put in another wrapper function
+3. A new function `createFilterPanel()` has been added, which renders a filter panel
+4. The Genre Filter and Filter Panel were merged into the left panel
+
+.. note:: When defining a new ``Ext.Panel`` element, make sure to set ``autoHeight`` to true. Otherwise, your panels may look squashed.
+
+Save and reload your module. The main screen should look somewhat like this:
+
+.. figure:: /_static/developer/building-a-webclient-module/mainpanel-with-filter-panel.png
+   :width: 100%
+
+Now we have to define the custom filter:
+
+* Click the 'Add' button, next to the 'Filters' header in the left panel
+* In the new modal, enter the following parameters:
+** Enter a name that makes sense, e.g. 'Active'
+** Make sure that the option 'Match ALL conditions' is selected
+** Select the field 'Active'
+** Select the value 'Yes'
+* In the 'Permissions' tab, you can play around with permissions if you wish to
+* Click 'Save'
+
+.. figure:: /_static/developer/building-a-webclient-module/add-custom-filter-modal.png
+    :width: 400px
+
+You will notice that your custom filter has been added:
+
+
+.. figure:: /_static/developer/building-a-webclient-module/custom-filter-active.png
+    :width: 200px
+
+Toggling the custom filter will filter your artist list by the 'active' status.
 
 The end
 -------
 
-You're done! You've now learned how to build a simple Group Office module!
+You have finished part one! Now head to part two, in which we learn to add ACL to the client side part of the module.

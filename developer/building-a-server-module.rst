@@ -5,7 +5,7 @@ Building a server module
 In this tutorial we'll show you how to build a Group Office module. As an example
 we're going to build a Music module.
 
-.. figure:: /_static/developer/building-a-webclient-module/artist-detail-desktop.png
+.. figure:: /_static/developer/building-a-webclient-module/mainpanel-with-filter-panel.png
    :width: 100%
 
 Group Office is a `JMAP-based <https://jmap.io>`_ server API and a webclient. We'll start with implementing
@@ -14,7 +14,7 @@ the JMAP server API.
 Development environment
 -----------------------
 
-If you haven't got your development environment set up than please do this first.
+If you haven't got your development environment set up, then please do this first.
 
 You can install Group-Office like described in this manual and get started or use 
 our Docker compose project that installs our images for development:
@@ -28,7 +28,7 @@ To follow this tutorial you need the following software installed:
 
 1. `git <https://git-scm.com/>`_. For version management.
 2. An editor to edit PHP and Javascript files.
-3. `Postman <https://www.getpostman.com/>`_. For testing the backend API without the User Interface.
+3. A HTTP client like `Postman <https://www.getpostman.com/>`_ for testing the backend API without the User Interface.
 
 Code standards
 --------------
@@ -51,7 +51,7 @@ Naming conventions
 | Constants             | UPPER_UNDERSCORED                              |
 +-----------------------+------------------------------------------------+
 | Database tables       | lower_underscored (For windows compatibility)  |
-|                       | and singlular eg. "contact" and not "contacts" |
+|                       | and singular eg. "contact" and not "contacts"  |
 +-----------------------+------------------------------------------------+
 | Database fields       | lowerCamelCase                                 |
 +-----------------------+------------------------------------------------+
@@ -88,7 +88,7 @@ module name. For example "**music**\_artist".
 
 Create the tables by importing this SQL into your database:
 
-.. code:: sql
+.. code-block:: sql
 
   CREATE TABLE `music_album` (
     `id` int(11) NOT NULL,
@@ -160,7 +160,7 @@ Database rules
 3. Date and time columns use type "DATETIME".
 4. Foreign key's must be defined for relationships. Think about cascading delete set to null or restrict.
    In general. Properties should always be cascaded and entities should be restricted. They should be 
-   cascasded by overriding the internalSave() function so all the aapplication logic will be executed liek cleaning up links, logging etc.
+   cascaded by overriding the internalSave() function so all the application logic will be executed like cleaning up links, logging etc.
 5. We often choose a varchar to be 190 characters so it can be indexed on all database versions.
 6. Columns modifiedBy (int), createdBy (int), createdAt (DATETIME), modifiedAt (DATETIME) are automatically set by Group Office.
 
@@ -196,11 +196,11 @@ the command should output::
 
 This will generate:
 
-1. Module.php, required for every module. Contains Author info and controls the installation.
-2. views/extjs3, The webclient code. We'll get to that later.
-3. language/en.php, translation file.
-4. install/install.sql, uninstall.sql and updates.php, these files handle installation and upgrading.
-5. model, this folder contains all models.
+1. ``Module.php``, required for every module. Contains Author info and controls the installation.
+2. ``views/extjs3``, The webclient code. We'll get to that later.
+3. ``language/en.php``, translation file.
+4. ``install/install.sql``, uninstall.sql and updates.php, these files handle installation and upgrading.
+5. ``model``, this folder contains all models.
 
 .. note:: Docker runs as root and will write these files as root. 
 
@@ -220,7 +220,7 @@ is a property of the entity contact.
 So the first step is to change some properties into JMAP entities. In this example
 Artist and Genre are entities.
 
-So in model/Artist.php change:
+So in ``model/Artist.php`` change:
 
 .. code:: php
    
@@ -255,7 +255,7 @@ Now we must define relations in the models. Add the "albums" relation to the art
    /**
     * The albums created by the artist
     * 
-    * @var Album[]
+    * @var array
     */
     public $albums;
 
@@ -270,12 +270,58 @@ And then change the mapping:
    }
 
 .. note:: When making changes to the database, model properties or mappings, you
-   must run "http://localhost/install/upgrade.php" in your browser to rebuild the cache.
+   must run ``http://localhost/install/upgrade.php`` in your browser to rebuild the cache.
+
+Custom properties
+`````````````````
+For the sake of learning, we will add a property to our model, that does not directly stem from its own table. In this
+example, we want to display the number of albums for a certain artist in the artist grid.
+
+The first step is to declare the property in the model and to implement a getter:
+
+.. code:: php
+
+  /** @var int */
+  protected $albumCount;
+
+  // (...)
+
+  public function getAlbumCount() :int
+  {
+    return $this->albumCount;
+  }
+
+The next step is to update the ``defineMapping`` method, to actually count the albums:
+
+.. code:: php
+
+  protected static function defineMapping() {
+		return parent::defineMapping()
+						->addTable("music_artist", "artist")
+						->addMap('albums', Album::class, ['id' => 'artistId']);
+						->setQuery((new Query())->select('COUNT(alb.id) AS albumCount')
+							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
+	}
+
+The ``albumCount`` property is simply retrieved by counting the albums that are related to the current artist.
+
+.. note:: Please note that in this example, we do not define a setter method. It should not be possible to manually set
+  an album counter, since it is a counter of related properties.
+
+There is actually a better way of getting an album count. In order to keep things simple, one can remove the extra query
+and redefine the ``getAlbumCount()`` function as follows:
+
+.. code-block:: php
+
+  public function getAlbumCount() :int
+  {
+    return count($this->albums);
+  }
 
 Translations
 ------------
 
-To define a nice name for the module create language/en.php::
+To define a nice name for the module create ``language/en.php``::
 
 	<?php
 	return [
@@ -294,15 +340,15 @@ System Settings -> Modules. There should be a Tutorial package with the "music" 
 
 Check the box to install it.
 
-.. note:: If it doesn't show up it might be due to cache. Run /install/upgrade.php to clear it.
+.. note:: If it doesn't show up it might be due to cache. Run ``/install/upgrade.php`` to clear it.
 
 Connecting to the API with POSTMan
 -----------------------------------
 
-Using the API with POSTman is not strictly necessary but it's nice to get a feel 
+Using the API with Postman is not strictly necessary but it's nice to get a feel
 on how the backend API works.
 
-Install POSTman or another tool to make API requests. Download it from here:
+Install Postman or another tool to make API requests. Download it from here:
 
 https://www.getpostman.com
 
@@ -346,7 +392,7 @@ You must set the access token as a header on each request::
 Create an artist
 ````````````````
 
-To create an artst POST this JSON body:
+To create an artist, POST this JSON body:
 
 .. code:: json
 
@@ -374,8 +420,10 @@ To create an artst POST this JSON body:
 
 Query artists
 `````````````
-The Artist/query method is used to retreive an ordered / filtered list of id's for displaying a list of artists. We'll do a
-direct followup call to "Artist/get" to retreive the full artist data as well. We can Use the special "#" parameter to use a previous query result as parameter. Read more on this at the `JMAP website <https://jmap.io/spec-core.html#/query>`_.
+The Artist/query method is used to retrieve an ordered / filtered list of id's for displaying a list of artists. We'll
+do a direct followup call to "Artist/get" to retrieve the full artist data as well. We can Use the special "#" parameter
+to use a previous query result as parameter. Read more on this at the
+`JMAP website <https://jmap.io/spec-core.html#/query>`_.
 
 POST the following to make the request:
 
@@ -442,20 +490,21 @@ After defining this you can filter on genre by posting:
 
 .. code:: json
 
-   {"filter": {"genres" : [1,2,3]}}
-
+   [
+   ["Artist/query", {"filter":{"genres":[1,2,3]}}, "call1"],
+       (...)
+   ]
 
 JMAP API protocol
 `````````````````
 
-This are some basic request examples. Read more on https://jmap.io about the 
-protocol.
+These are some basic request examples. Read more on https://jmap.io about the protocol.
 
 
 Module installation
 -------------------
 
-When you're done with the module you should export your finished database into::
+When you're done with the module, you should export your finished database into::
  
    go/modules/tutorial/music/install/install.sql
 
@@ -474,33 +523,216 @@ For example:
 
 .. code:: php
 
-  $updates["201808161606"[] = "ALTER TABLE ...";
-  $updates["201808161606"[] = function() {
+  $updates["201808161606"][] = "ALTER TABLE ...";
+  $updates["201808161606"][] = function() {
     //some migration code here
   }
 
 The timestamp is important. Use YYYYMMDDHHII. All the module upgrades will be
 mixed together and put into chronological order so dependant modules won't break.
 
+Custom Fields
+-------------
 
+Custom development is a fact of life, even for your simple tutorial module. In this example, we will add a few :ref:`custom
+fields <custom-fields>` to different entities.
+
+First, we need to update the database. For an entity to be customized, we need to add a table that follows the convention below::
+
+  <Module>_<Entity>_custom_fields
+
+We will have to write a database migration. Open ``go/modules/tutorial/music/updates.php`` and add the following code:
+
+.. code:: php
+
+  $updates['202002041445'][] = <<<'EOT'
+  CREATE TABLE IF NOT EXISTS `music_artist_custom_fields`
+      ( id INT(11) NOT NULL PRIMARY KEY,
+      CONSTRAINT `music_artist_custom_fields_ibfk_1` FOREIGN KEY(id) REFERENCES music_artist (id)
+      ON DELETE CASCADE ON UPDATE RESTRICT ) ENGINE = INNODB;
+  EOT;
+
+The next step is to add the ``CustomFieldsTrait`` trait to the Artist model.
+
+.. code:: php
+
+  <?php
+  namespace go\modules\tutorial\music\model;
+
+  use go\core\jmap\Entity;
+  use go\core\orm\CustomFieldsTrait;
+
+  /**
+   * Artist model
+   *
+   * @copyright (c) 2020, Intermesh BV http://www.intermesh.nl
+   * @author Merijn Schering <mschering@intermesh.nl>
+   * @license http://www.gnu.org/licenses/agpl-3.0.html AGPLv3
+   */
+  class Artist extends Entity {
+      use CustomFieldsTrait;
+
+      // Et cetera...
+
+
+After rerunning the install script, the Custom fields screen in System settings should look somewhat like this:
+
+.. figure:: /_static/developer/building-a-module/custom-fields-artist.png
+   :width: 100%
+
+For now, we are done. In the next chapter, we will see how custom fields are made available in the web client.
+
+ACL Entities
+------------
+
+In certain cases, you want to either have some private entities or entities that are shared with certain groups
+of other users. This section deals with developing entities that have some form of access control.
+
+In our tutorial module, we will add a ACL entity named 'review', which will allow you to add reviews to albums and
+control with whom you want to share your guilty pleasures.
+
+The first step is to create the ``music_review`` table. Open ``install/updates.php`` and add the code below:
+
+.. code:: php
+
+  $updates['202002071045'][] = <<<'EOT'
+  CREATE TABLE IF NOT EXISTS `music_review`
+      ( `id` INT(11) NOT NULL PRIMARY KEY,
+      `albumId` INT(11) NOT NULL,
+      `aclId` INT(11) NOT NULL,
+      `createdBy` int(11) NOT NULL,
+      `modifiedBy` int(11) NOT NULL,
+      `rating` SMALLINT(5) UNSIGNED NOT NULL,
+      `title` VARCHAR(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+      `body` TEXT collate utf8mb4_unicode_ci NOT NULL
+
+       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  EOT;
+  $updates['202002071045'][] = <<<'EOT'
+  ALTER TABLE `music_review`
+      ADD KEY `aclId` (`aclId`),
+      ADD KEY `albumId` (`albumId`);
+  EOT;
+  $updates['202002071045'][] = <<<'EOT'
+  ALTER TABLE `music_review`
+      ADD CONSTRAINT `music_review_fk1` FOREIGN KEY (`albumId`) REFERENCES `music_album` (`id`) ON DELETE CASCADE,
+      ADD CONSTRAINT `music_review_fk2` FOREIGN KEY (`aclId`) REFERENCES `core_acl` (`id`);
+  EOT;
+
+Run the database install script again and you should see the newly created table in the database.
+
+The next step is to create a model, which we extend from the ``AclOwnerEntity`` class:
+
+.. code-block:: php
+
+  <?php
+
+  namespace go\modules\tutorial\music\model;
+
+  use Exception;
+  use go\core\acl\model\AclOwnerEntity;
+  use go\core\orm\Query;
+
+  class Review extends AclOwnerEntity
+  {
+      /** @var int */
+      public $id;
+      /** @var int */
+      public $aclId;
+      /** @var int */
+      public $createdBy;
+      /** @var int */
+      public $albumId;
+      /** @var int */
+      public $modifiedBy;
+      /** @var int */
+      public $rating;
+      /** @var string */
+      public $title;
+      /** @var string */
+      public $body;
+      /** @var string */
+      public $albumtitle;
+
+      protected static function defineMapping()
+      {
+          return parent::defineMapping()
+              ->addTable('music_review')
+              ->setQuery((new Query())->select('a.name AS albumtitle')
+                  ->join('music_album', 'a', 'a.id=music_review.albumId'));
+      }
+
+      protected function internalSave()
+      {
+          if($this->isNew()) {
+              $this->albumtitle = go()->getDbConnection()
+                  ->selectSingleValue('name')
+                  ->from('music_album')
+                  ->where(['id' => $this->albumId])
+                  ->single();
+          }
+
+          $this->changeArtist([$this->albumId]);
+
+          return parent::internalSave();
+      }
+
+
+      protected static function internalDelete(Query $query)
+      {
+          //Create clone to avoid changes to the  original delete query object
+          $deleteQuery = clone $query;
+
+          //Select albums of artists affected by this delete
+          $deleteQuery->selectSingleValue('albumId');
+
+          static::changeArtist($deleteQuery->all());
+
+          return parent::internalDelete($query);
+      }
+
+      /**
+       * Our review has effect on Artist entities because they implement getAlbumCount().
+       *
+       * @param array $albumIds
+       * @throws Exception
+       */
+      private static function changeArtist(array $albumIds) {
+          Artist::entityType()->changes(
+              go()->getDbConnection()
+                  ->select('art.id, null, 0')
+                  ->from('music_artist', 'art')
+                  ->join('music_album', 'alb', 'alb.artistId = art.id')
+                  ->where('alb.id', 'IN', $albumIds)
+          );
+      }
+
+      protected static function defineFilters()
+      {
+          return parent::defineFilters()
+              ->add('albumId', function (\go\core\db\Criteria $criteria, $value, \go\core\orm\Query $query, array $filter) {
+                  if (!empty($value)) {
+                      $query->where(['music_review.albumId' => $value]);
+                  }
+              });
+
+      }
+
+
+  }
+
+Interestingly, we need to make sure that the Artist entity is updated upon adding or deleting a review. We force this by
+overriding the ``internalSave`` and ``internalDelete`` methods.
 
 The end
 -------
 
-Now you're done with the server code of the module. Now it's time to move on and
-build the web client!
-
-
+Now you're done with the server code of the module. It is time to move on and build the web client!
 
 
 .. TODO:
-  albumcount property
-
-  - ACL
-  - Custom fields
-  - User specific entity data in separate entity 
+  - User specific entity data in separate entity
   - entity data type in store fields
   - dates
-
-  API tutorial
-  ORM tutorial
+  - API tutorial
+  - ORM tutorial
