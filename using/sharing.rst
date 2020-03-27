@@ -41,11 +41,16 @@ menu in the address book for example:
    Share dialog
 
 
-.. note:: **Global address book**
+.. note:: If you can't find users to share with it's probably due to them being invisible. Read more about that in the
+   :ref:`user-visibility` section.
 
-   If you want to create a global shared address book it is recommended to add 
-   this address book as the "admin" user so it won't be deleted along with a 
-   regular user when this employee leaves the company for example.
+
+Global address book
+-------------------
+
+If you want to create a global shared address book it is recommended to add
+this address book as the "admin" user so it won't be deleted along with a
+regular user when this employee leaves the company for example.
 
 
 Default permissions
