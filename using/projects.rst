@@ -86,12 +86,19 @@ The following properties can be configured:
 Jobs
 ++++
 
-On this tab you can define default project jobs
+On this tab you can define default project:
 
-.. figure:: /_static/using/projects/jobs.png
-   :width: 50%
+- Tasks
+- Sub projects
+- Jobs
 
-   Project jobs
+On the name and description fields you can use template tags like:
+
+- {project:name}
+- {customer:name}
+- {contact:name}
+
+You can use additional :ref:`template-variables`.
 
 Permissions
 +++++++++++
@@ -186,6 +193,11 @@ Jobs
 In the jobs panel you can define smaller parts of the project. You can also select these in the time entry dialog to keep track of how much time these jobs took.
 
 Before you can use jobs you must setup employees for the project. Otherwise the jobs panel will stay disabled.
+
+.. figure:: /_static/using/projects/jobs.png
+   :width: 50%
+
+   Project jobs
 
 Hours approval
 --------------

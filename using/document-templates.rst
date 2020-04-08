@@ -1,7 +1,7 @@
 Document templates
 ==================
 
-In :ref`My Account` -> Document templates you can upload documents to be used as templates. Supported are:
+In :ref:`my-account` -> Document templates, you can upload documents to be used as templates. Supported are:
 
 Micosoft Office
 
