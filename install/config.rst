@@ -32,3 +32,19 @@ Here's a list of config options:
    servermanager         bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
    zpush2_loglevel       int     Set to 32 to generate debugging info in log/z-push.log
    ====================  ======  ===========
+
+Recommended PHP settings
+------------------------
+
+For optimal Group-Office perfomance we recommend these settings. This will allow users to upload files up to 1GB:
+
+.. table:: PHP settings
+   :widths: auto
+
+   ====================  ===========
+   Name                  Value
+   ====================  ===========
+   memory_limit          256M
+   post_max_size         1000M
+   max_upload_size       1000M
+   ====================  ===========
