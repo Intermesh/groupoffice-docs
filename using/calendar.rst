@@ -30,6 +30,10 @@ state even though this user does not have permissions for the calendar.
 
    When the free busy access module is installed, the event won't be scheduled in the user's calendar when the user has not been granted free busy access in their settings.
 
+Views
+-----
+A view is a calendar with multiple calendars visible in it. Either merged in one regular view or each calendar
+underneath each other. You can create views in Calendar -> Administration -> Views.
 
 Resources
 ---------
