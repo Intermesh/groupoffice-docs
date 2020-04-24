@@ -76,6 +76,8 @@ After installing it you can use it as follows:
 .. note:: If the Assistant doesn't start you might need to install the Microsoft Visual Studio Runtime library:
    https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
 
+.. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
+   that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
 WebDAV
 ------

@@ -49,6 +49,9 @@ After downloading take the following steps to install:
       :width: 400px
 
 
+.. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
+   that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
+
 WebDAV client issues
 ````````````````````
 

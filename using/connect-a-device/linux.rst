@@ -47,3 +47,6 @@ On Debian based distributions you can install the Group Office Assistant.
 
 5. Now double click a file in Group Office and it can be edited on your desktop 
    instantly.
+
+.. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
+   that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
