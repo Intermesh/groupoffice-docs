@@ -63,7 +63,7 @@ You can run it like this::
 
     mkdir -p goupdate
     cd goupdate
-    rm download
+    rm -f download
     wget https://sourceforge.net/projects/group-office/files/latest/download
     tar zxf download
 
