@@ -47,5 +47,5 @@ For optimal Group-Office perfomance we recommend these settings. This will allow
    ====================  ===========
    memory_limit          256M
    post_max_size         1000M
-   max_upload_size       1000M
+   upload_max_filesize   1000M
    ====================  ===========
