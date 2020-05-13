@@ -63,3 +63,22 @@ The custom field will show in the:
 .. figure:: /_static/system-settings/custom-fields-grid.png
 
    Grid columns
+
+Conditionally required fields
+-----------------------------
+
+It's possible to make fields required based on a simple condition. You can also hide the field if the condition does not match.
+
+For example you could create a checkbox called "provideDetails" and create a text field "details" with a condition 'provideDetails = true'.
+The result will be that when you check the box the provideDetails field will be shown and made required.
+
+The condition syntax is very simple::
+
+    <fieldName> <operator> <value>
+
+Where:
+
+- fieldName can be any property or custom field
+- operator can be: =, !=, >, >=, <, <=
+- value is a string without quotes. For checkboxes you can use 0,1 or true or false.
+
