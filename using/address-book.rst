@@ -70,6 +70,12 @@ The best approach for importing would be:
 
 :download:`You can download and example CSV file here. </_static/using/address-book/john-van-doe.csv>`
 
+Updating existing contacts
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+It's possible to bulk update your Group-Office contacts with a CSV file. After uploading your CSV you'll get a mapping
+dialog. In the first combo box you can select: "Update existing items by" where you can select "ID" or "E-mail". When
+selecting the "ID" for example it will update all Group-Office contacts with a matching "ID" in the CSV record.
+
 Labels
 ``````
 You can easily print labels for envelopes. You can enter the rows, columns and margins and generate a PDF to print labels.
