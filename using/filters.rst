@@ -50,3 +50,16 @@ There are already some wildcards applied automatically. When filtering on string
 - Equals, will put use no wildcards
 - Starts with, will put a ..% after your phrase.
 - Ends with, will put a %.. before your phrase.
+
+
+Sub groups
+``````````
+To create complex queries, Group-Office supports sub groups. You can use that to create a query for example:
+
+Select all contacts that have job title "CEO" and work in Germany or the Netherlands. You would have to create a sub group
+for the countries as they are using an "OR" operator.
+
+It can also be used for inverting one of the queries. For example select all contacts that have job title "CEO" but do
+NOT work in the Netherlands.
+
+Click the "Add sub group" button to add one.
