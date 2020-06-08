@@ -26,6 +26,7 @@ the place to configure everything for Group-Office.
    custom-fields
    document-templates
    default-permissions
+   rocket-chat
 
 
 

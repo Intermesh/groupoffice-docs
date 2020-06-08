@@ -51,6 +51,7 @@ Visit https://www.group-office.com for more information.
    using/holidays
    using/billing
    using/file-search
+   using/chat
    
 .. toctree::
    :maxdepth: 2
