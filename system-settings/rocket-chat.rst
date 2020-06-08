@@ -13,7 +13,7 @@ different channels, share files and even start a **video conference** from your 
 
 
 Installation
-============
+------------
 
 To install you need a working Rocket.Chat installation. See the `Rocket.Chat documentation <https://docs.rocket.chat>`_
 for that.
