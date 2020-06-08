@@ -1,7 +1,7 @@
 Rocket Chat
 ===========
 
-Since version 6.4.144 Group-Office can integrate with `Rocket.Chat <https://rocket.chat>`_. With rocket chat you can chat with your team in
+Since version 6.4.145 Group-Office can integrate with `Rocket.Chat <https://rocket.chat>`_. With rocket chat you can chat with your team in
 different channels, share files and even start a **video conference** from your desktop, phone or tablet!
 
 .. figure:: /_static/system-settings/rocketchat/rocket-chat.png
