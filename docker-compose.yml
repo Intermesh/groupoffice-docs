@@ -6,6 +6,6 @@ services:
       context: docker-sphinx-autobuild
     restart: always
     ports:
-      - "8000:8000"
+      - "8004:8000"
     volumes:
       - ./:/home/python/docs:delegated

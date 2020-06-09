@@ -8,11 +8,11 @@ https://groupoffice.readthedocs.io/
 Building these docs with Docker
 -------------------------------
 
-This image automatically builds the documentation and serves them on port 8000.
+This image automatically builds the documentation and serves them on port 8004.
 The docs will be built and rebuilt after making changes. You can view them in your
 browser at:
 
-http://localhost:8000/
+http://localhost:8004/
 
 ### Docker compose
 
@@ -34,5 +34,5 @@ Build the autobuild image::
 
 Then run it::
 
-    docker run -it -p 8000:8000 --rm -v "$(pwd)/../":/home/python/docs sphinx-autobuild
+    docker run -it -p 8004:8000 --rm -v "$(pwd)/../":/home/python/docs sphinx-autobuild
     
