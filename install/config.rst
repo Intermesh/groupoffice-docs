@@ -76,6 +76,7 @@ Edit /etc/groupoffice/globalconfig.inc.php and add::
 
     $config['product_name'] = 'My Office'; //Will replace the word 'Group-Office' with 'My Office'
     $config['custom_css_url'] = '/branding/style.css'; //Loads a custom CSS stylesheet.
+    $config['support_link'] = 'https://docs.example.com/'; //Changes the URL behind "Help" in the main menu. Can also be an e-mail address
 
 In the branding folder create a style.css stylesheet with for example this content::
 
