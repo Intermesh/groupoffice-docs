@@ -29,19 +29,19 @@ Download it for:
 - :ref:`MacOS <assistant-for-macos>`
 - :ref:`Linux <assistant-for-linux>`
 
-Collabora Online
-----------------
+LibreOffice Online
+------------------
 
 .. figure:: /_static/using/files/collabora-online.png
    :alt: Collabora Online
 
-With Collabora Online you can edit office documents in your browser. You need a working
-Collabora Online server. More info on https://www.collaboraoffice.com/code/
+With LibreOffice Online you can edit office documents in your browser. You need a working
+LibreOffice Online server. More info on https://www.libreoffice.org/download/libreoffice-online/
 
 Configuration
 `````````````
 
-For Collabora to work you need to setup SSL and allow your Group-Office URL to use it.
+For LibreOffice Online to work you need to setup SSL and allow your Group-Office URL to use it.
 
 SSL
 ~~~
@@ -128,7 +128,7 @@ If anything is wrong view the logs::
 Group-Office
 ~~~~~~~~~~~~
 
-When Collabora is running you can setup Group-Office to use it. Install the Office Online module from the Business package.
+When LibreOffice Online is running you can setup Group-Office to use it. Install the Office Online module from the Business package.
 
 .. figure:: /_static/using/files/install-office-online.png
    :alt: Install Office Online
@@ -139,13 +139,13 @@ Reload Group-Office and go to System Settings -> Office Online
 Then add your Collabora Code Service. The default port for Collabora is 9980.
 
 .. figure:: /_static/using/files/add-collabora-code-service.png
-   :alt: Add Collabora Code Service
+   :alt: Add LibreOffice Online Service
    :width: 400px
 
 Now every user can go to the files module and use it. Just right click a file and choose "Open with...".
 
 .. figure:: /_static/using/files/open-with-collabora-online.png
-   :alt: Use Collabora Code Service
+   :alt: Use LibreOffice Online Service
    :width: 400px
 
 

@@ -42,3 +42,10 @@ Login to Rocket.Chat as administrator and:
       :width: 100%
 
        Rocket Chat login with Group-Office button
+
+
+.. note:: If you get an error double check these settings:
+
+   - Administration -> Settings -> General -> Site URL. It has to match for the openid handshake to work.
+   - Administration -> Settings -> Oauth -> Groupoffice: check if id and secret match the parameters in the
+     Group-Office client. Also verify the other fields.
