@@ -32,6 +32,7 @@ Here's a list of config options:
    servermanager         bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
    zpush2_loglevel       int     Set to 32 to generate debugging info in log/z-push.log
    vmail_path            string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
+   custom_css_url        string  URL to stylesheet to load in the web interface.
    ====================  ======  ===========
 
 Recommended PHP settings
@@ -49,3 +50,54 @@ For optimal Group-Office perfomance we recommend these settings. This will allow
    post_max_size         1000M
    upload_max_filesize   1000M
    ====================  ===========
+
+
+Locking system settings
+-----------------------
+Configuration properties configurable in the GUI at System settings can be locked in the config.php or globalconfig.inc.php file::
+
+    $config['core'] => [
+        'title' => 'Pinned title',
+        'primaryColor' => '2E7D32',
+        'passwordMinLength' => 6,
+        'smtpEncryption => 'tls',
+        'smtpHost => 'localhost',
+        'smtpUsername => null,
+        'smtpPassword => null,
+        'smtpPort' => 587
+    ];
+
+Branding
+--------
+
+If you'd like to brand Group-Office you can easily do this:
+
+Edit /etc/groupoffice/globalconfig.inc.php and add::
+
+    $config['product_name'] = 'My Office'; //Will replace the word 'Group-Office' with 'My Office'
+    $config['custom_css_url'] = '/branding/style.css'; //Loads a custom CSS stylesheet.
+
+In the branding folder create a style.css stylesheet with for example this content::
+
+    /**
+     * Preferred primary theme colors
+     */
+    :root {
+        --c-primary: rgb(27, 100, 139);
+        --c-header-bg: rgb(27, 100, 139);
+        --c-primary-tp: rgba(27, 100, 139, .16);
+        --c-secondary: brown;
+        --c-accent: orange;
+    }
+
+    /**
+     * Override logo
+     */
+    .go-app-logo, .go-about-logo, .go-settings-logo, #go-logo {
+        background-image: url('my-group-office.png');
+        width: 240px;
+        height: 40px;
+    }
+
+
+.. note:: It will still leave copyright notices to Intermesh. It's not allowed to remove those.
