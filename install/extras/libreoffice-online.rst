@@ -14,9 +14,13 @@ For LibreOffice Online to work you need to setup SSL and allow your Group-Office
 Docker
 ------
 
-We found the easiest way to set it up is using Docker with Docker compose and nginx as reverse proxy. Makee sure that's
-installed on your server.  If you run it on the same server as Group-Office you should setup a virtual host in apache
-as reverse proxy.
+We found the easiest way to set it up is using Docker with Docker compose and Nginx or Apache as reverse proxy. If you
+run it on the same server as Group-Office you should setup with Apache as the package comes with Apache.
+
+Replace "docs.example.com" everywhere below with your hostname that you'll use to access LibreOffice Online.
+
+Docker compose
+~~~~~~~~~~~~~~
 
 Create a file "docs.example.com/docker-compose.yml"::
 
@@ -45,11 +49,14 @@ Create a file "docs.example.com/docker-compose.yml"::
 Replace the domain part with a regular expression that allows the Group-Office hosts. For a single domain you can replace this
 with just "groupoffice.example.com".
 
-Start docker with the command::
+Start docker with the command in the directory "docs.example.com"::
 
     docker-compose up -d
 
-Now setup the NGINX virtual host in /etc/nginx/sites-enabled/docs.example.com::
+Nginx
+~~~~~
+You can use either Nginx or Apache. If you already have Apache installed then skip this section and proceed with Apache.
+Setup the virtual host in a new text file: /etc/nginx/sites-enabled/docs.example.com::
 
     # HTTPS Server
     server {
@@ -116,6 +123,61 @@ It it's OK then reload nginx::
 
     systemctl reload nginx
 
+Now that Libre Office online is running you can skip to the Group-Office section below to connect it.
+
+Apache
+~~~~~~
+
+Create this virtual host in the text file /etc/apache2/sites-enabled::
+
+    <VirtualHost *:443>
+      ServerName docs.example.com:443
+      Options -Indexes
+
+      # SSL configuration, you may want to take the easy route instead and use Lets Encrypt!
+      SSLEngine on
+      SSLCertificateFile /path/to/signed_certificate
+      SSLCertificateChainFile /path/to/intermediate_certificate
+      SSLCertificateKeyFile /path/to/private/key
+      SSLProtocol             all -SSLv2 -SSLv3
+      SSLCipherSuite ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS
+      SSLHonorCipherOrder     on
+
+      # Encoded slashes need to be allowed
+      AllowEncodedSlashes NoDecode
+
+      # Container uses a unique non-signed certificate
+      SSLProxyEngine On
+      SSLProxyVerify None
+      SSLProxyCheckPeerCN Off
+      SSLProxyCheckPeerName Off
+
+      # keep the host
+      ProxyPreserveHost On
+
+      # static html, js, images, etc. served from loolwsd
+      # loleaflet is the client part of LibreOffice Online
+      ProxyPass           /loleaflet http://127.0.0.1:9980/loleaflet retry=0
+      ProxyPassReverse    /loleaflet http://127.0.0.1:9980/loleaflet
+
+      # WOPI discovery URL
+      ProxyPass           /hosting/discovery http://127.0.0.1:9980/hosting/discovery retry=0
+      ProxyPassReverse    /hosting/discovery http://127.0.0.1:9980/hosting/discovery
+
+      # Capabilities
+      ProxyPass           /hosting/capabilities http://127.0.0.1:9980/hosting/capabilities retry=0
+      ProxyPassReverse    /hosting/capabilities http://127.0.0.1:9980/hosting/capabilities
+
+      # Main websocket
+      ProxyPassMatch "/lool/(.*)/ws$" ws://127.0.0.1:9980/lool/$1/ws nocanon
+
+      # Admin Console websocket
+      ProxyPass   /lool/adminws ws://127.0.0.1:9980/lool/adminws
+
+      # Download as, Fullscreen presentation and Image upload operations
+      ProxyPass           /lool http://127.0.0.1:9980/lool
+      ProxyPassReverse    /lool http://127.0.0.1:9980/lool
+    </VirtualHost>
 
 Now that Libre Office online is running you can skip to the Group-Office section below to connect it.
 
