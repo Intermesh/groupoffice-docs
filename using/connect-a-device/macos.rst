@@ -92,6 +92,8 @@ Adding contacts and calendar accounts work identically in MacOS. Just choose
 
 6. Now check your Calendar or Contact app for your Group-Office data!
 
+.. note:: Unfortunately the Contacts app on MacOS will only sync the first address book in CardDAV.
+
 E-mail
 ------
 
