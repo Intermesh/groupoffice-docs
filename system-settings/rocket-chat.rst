@@ -22,8 +22,8 @@ Login to Rocket.Chat as administrator and:
 
 1. go to Administration -> Settings -> OAuth.
 2. On the top right choose "Add custom oauth".
-3. Note the callback URL on top. You need that later when adding the client in Group-Office.
-4. Fill in your URL to Group-Office plus /api/oauth.php. For exampl.e https://groupoffice.example.com/api/oauth.php
+3. Note the callback URL / or redirect URI on top. For some reason they made it grey so it doesn't stand out. You need that later when adding the client in Group-Office.
+4. Fill in your URL to Group-Office plus /api/oauth.php. For example: https://groupoffice.example.com/api/oauth.php
 5. Copy the settings from the image below. Instead of the example password choose a strong password.:
 
    .. figure:: /_static/system-settings/rocketchat/custom-oauth.png
@@ -33,9 +33,15 @@ Login to Rocket.Chat as administrator and:
 
 6. Login to Group-Office and go to System Settings -> Oauth 2.0
 7. Click "Add client" and fill in the fields:
+
    - Match the "Identifier" and "Secret" from step 5.
    - Enable "Is confidential"
-   - The redirect URI is on top of the Rocket.Chat custom oauth page.
+   - The redirect URI is the callback URL on top of the Rocket.Chat custom oauth page. It's marked in the red square in the screenshot below:
+
+      .. figure:: /_static/system-settings/rocketchat/callback-url.png
+         :width: 80%
+
+          Rocket Chat callback URL
 8. Click save and test if you can login with Group-Office. You should see a "Login with Group-Office" button.
 
    .. figure:: /_static/system-settings/rocketchat/login-with-group-office.png
@@ -46,6 +52,6 @@ Login to Rocket.Chat as administrator and:
 
 .. note:: If you get an error double check these settings:
 
-   - Administration -> Settings -> General -> Site URL. It has to match for the openid handshake to work.
-   - Administration -> Settings -> Oauth -> Groupoffice: check if id and secret match the parameters in the
+   - Administration -> General -> Site URL. It has to match for the openid handshake to work.
+   - Administration -> Oauth -> Groupoffice: check if id and secret match the parameters in the
      Group-Office client. Also verify the other fields.
