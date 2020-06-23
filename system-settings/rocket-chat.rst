@@ -42,6 +42,14 @@ Login to Rocket.Chat as administrator and:
          :width: 80%
 
           Rocket Chat callback URL
+
+      The input should look like this:
+
+      .. figure:: /_static/system-settings/rocketchat/rocket-chat-oauth-client.png
+         :width: 80%
+
+          Rocket Chat oauth client
+
 8. Click save and test if you can login with Group-Office. You should see a "Login with Group-Office" button.
 
    .. figure:: /_static/system-settings/rocketchat/login-with-group-office.png
