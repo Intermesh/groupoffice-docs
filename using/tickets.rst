@@ -127,7 +127,7 @@ Here you can configure the messages that will be sent to your customers.
 .. figure:: /_static/using/tickets/email-template.png
    :width: 50%
 
-   E-mail templare
+   E-mail template
 
 There are five template types:
 
