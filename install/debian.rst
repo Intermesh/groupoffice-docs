@@ -47,10 +47,11 @@ Our preferred way of installing is using our Debian packages:
 
       apt-get install php-apcu
 
-9. If you purchased Group-Office Professional licenses then make sure the 
+9. If you purchased **Group-Office Professional licenses** then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
    files in "/usr/share/groupoffice/". For example 
    "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
+   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/6.4.x/scripts/install-ioncube.sh
 
 10. Then visit http://yourserver/groupoffice and the installer should appear:
 
