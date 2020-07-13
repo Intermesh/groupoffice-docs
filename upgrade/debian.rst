@@ -48,9 +48,9 @@ From older versions than 6.3
 - If your system is older than 6.2 your system probably depends on mcrypt. If you 
   migrate to a new server and you run into email password problems you might need 
   to install https://pecl.php.net/package/mcrypt to decrypt email passwords. 
-  If you have plaibn MD5 hashes in your pa_mailboxes database table run this SQL query::
+  If you have plain MD5 hashes in your pa_mailboxes database table run this SQL query::
 
-     update `pa_mailboxes` set `password` = concat("{PLAIN-MD5}", `password`);
+     update `pa_mailboxes` set `password` = concat("{PLAIN-MD5}", `password`) WHERE `password` NOT LIKE '{%' AND `password` NOT LIKE '$%';
 
 Steps
 ~~~~~

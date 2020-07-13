@@ -28,7 +28,7 @@ In the picture above you can see two custom filters called "Software engineers" 
 Adding a filter
 ---------------
 
-Click the add button in the filters toolbar to open the filter dialog.
+Click the add button in the filters toolbar and choose "Filter" to open the filter dialog.
 Add your conditions and click "Save".
 If you want to share this filter with other users you can add groups in the permissions tab.
 
@@ -63,3 +63,12 @@ It can also be used for inverting one of the queries. For example select all con
 NOT work in the Netherlands.
 
 Click the "Add sub group" button to add one.
+
+
+Adding an input field
+---------------------
+
+You can also create variable input field filters. You can add an a text filter field for a custom field you have or drop down
+filter that. You can see some examples in the screenshot on top of this page (Address list, Country and Custom seelct).
+
+To add one click the add button and select "Input field". Then choose the filter you'd like to add and click 'Save'.
