@@ -2,7 +2,7 @@
 JMAP API
 ==========
 
-This part explains how you can use the JMAP API from 3rd party software.
+This part explains how you can use the `JMAP API <https://jmap.io>`_ from 3rd party software.
 
 API key
 -------

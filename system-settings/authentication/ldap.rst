@@ -24,7 +24,8 @@ a profile. Enter the LDAP server details and domains.
 The domains are important because users need to login with <LDAPUSER>@<DOMAIN> 
 to trigger the LDAP authenticator.
 
-.. note:: If you're using Microsoft ActiveDirectory then you should use "samaccountname" as the username attribute.
+.. note:: If you're using **Microsoft ActiveDirectory** then you should use "**samaccountname**" as the username attribute. 
+   The users DN is typically **CN=Users,DC=example,DC=com**
 
 .. image:: ../../_static/ldap/1-ldap-server-profile.png
    :width: 500px
