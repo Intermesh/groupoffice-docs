@@ -109,7 +109,11 @@ But you can also search on other fields. For example::
 
    modified: > -1 week
 
-Will show all contacts that have been modified in the past week.
+Will show all contacts that have been modified in the past week. 
+
+Ranges are also supported for date filters::
+
+   modified: last week..now
 
 Or::
 
