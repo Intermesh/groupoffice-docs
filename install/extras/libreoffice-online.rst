@@ -181,6 +181,19 @@ Create this virtual host in the text file /etc/apache2/sites-enabled::
 
 Now that Libre Office online is running you can skip to the Group-Office section below to connect it.
 
+
+Verify LibreOffice install
+--------------------------
+
+You can verify that the install worked by visiting the URL below in your browser:
+
+https://docs.example.com/hosting/discovery
+
+You should see an XML document. If not then look at the log files::
+
+	docker-compose logs
+
+
 Debian packages
 ---------------
 
