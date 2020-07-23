@@ -287,7 +287,7 @@ When LibreOffice Online is running you can setup Group-Office to use it. Install
 
 Reload Group-Office and go to System Settings -> Office Online
 
-Then add your Collabora Code Service. The default port for LibreOffice online is 9980. BUt with the reverse proxy setup
+Then add your LibreOffice Online Service. The default port for LibreOffice online is 9980. BUt with the reverse proxy setup
 above we're using the standard SSL port so it's not necessary to specify it.
 
 .. figure:: /_static/using/files/add-collabora-code-service.png
