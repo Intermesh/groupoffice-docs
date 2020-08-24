@@ -150,6 +150,56 @@ Add every employee for that project in this screen.
 
    Project resources / employees
 
+CSV Import and Export
+`````````````````````
+
+It is entirely possible to manage projects by exporting them to CSV or importing them from CSV. Please note that by default,
+this is only to be done by admin users or other users with the 'manage' permission.
+
+CSV Export
+++++++++++
+
+Exporting your current projects is done from the menu above the projects grid:
+
+.. figure:: /_static/using/projects/projects-export.png
+   :width: 50%
+
+A dialog window is opened with export options and a tab in which to select the columns to export. Upon clicking the save
+button, a CSV file should be generated and saved.
+
+.. note:: Please note that if you have work with parent projects and child projects, only the projects will be exported
+   that are on the current level in the hierarchy and that are *not* project folders.
+
+CSV Import
+++++++++++
+
+Likewise, you can import projects from CSV from the menu above the projects grid. Upon clinking the import option, a new
+dialog is opened:
+
+.. figure:: /_static/using/projects/projects-import.png
+   :width: 50%
+
+   Projects import dialog with an already uploaded file
+
+In the CSV, the first row should contain the column names. For an example, you can download an example CSV file from the
+import dialog.
+
+In order for a project import to be successful, the following columns should exist in the CSV file:
+
+1. ``name`` or ``path``. The ``name`` can be distilled from the path. If the ``path`` is omitted, a project will always
+   be imported into the top level of the projects hierarchy.
+2. ``type_id`` or ``type_name``. We should know which project type a project is.
+3. ``status_id`` or ``status_name``. Defines the project status.
+4. ``template_id`` or ``template_name``. Defines the project template.
+
+If one of the conditions above is not satisfied, the import script will return an error message.
+
+.. note:: In order to import a hierarchical structure of projects, be sure to include the ``path`` or ``parent_project_id``
+   column. Each level consists of the project name by level, concatenated with forward slashes, e.g.
+   ``Project/Subproject/Subsubproject``. If you want to import a large number of subprojects, for which the parent
+   project ID fields are known, you can include the column ``parent_project_id`` instead. If both columns are included,
+   the ``parent_project_id`` column will be ignored.
+
 Reports
 -------
 
