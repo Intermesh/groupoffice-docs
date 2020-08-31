@@ -6,12 +6,16 @@ menu in the record you can:
 
 1. Edit the user
 2. Login as this user
-3. Delete the user
+3. Archive a user
+4. Delete the user
 
-.. note:: Instead of deleting users you can also disable them. This will keep
-   all data and references to the user but the user can't login or used for new
-   items. To deactivate a user you must "Edit" it and toggle "Login enabled" on 
-   the account page.
+.. note:: Instead of deleting or archiving users you can simply disable them. Disabling a user will keep
+   all data and references to the user but the user can't login or used for new items. To deactivate a
+   user you must "Edit" it and toggle "Login enabled" on the account page.
+
+.. warning:: Archiving a user will not only disable the user. It will also hide any calendars, note books
+   task lists and address books from other users. If for a user is re-enabled, these shares have to be restored
+   manually by either the user or the administrator.
 
 .. figure:: /_static/system-settings/users.png
    :alt: User list
