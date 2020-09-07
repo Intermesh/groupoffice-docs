@@ -52,6 +52,7 @@ Visit https://www.group-office.com for more information.
    using/billing
    using/file-search
    using/chat
+   using/studio
    
 .. toctree::
    :maxdepth: 2
