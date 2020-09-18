@@ -209,7 +209,18 @@ Dialog
 
 The dialog for editing items looks like the screen shot above.
 
+Deleting a Generated Module
+---------------------------
 
+Everybody likes experimenting. The Studio module in particularly inviting. We know!
 
+If you need to entirely clean up your generated code, there's two steps to be taken.
 
+1. Remove the module from Group Office:
+	1. Log in as administrator;
+	2. Right click the module and select the delete option;
+	3. Click the save button on the bottom right;
+2. Physically delete the subdirectory with the generated code.
 
+.. warning:: You **will** encounter error messages if you perform the second step without performing the
+   first step. In certain cases, you will not be able to log into GroupOffice anymore.
