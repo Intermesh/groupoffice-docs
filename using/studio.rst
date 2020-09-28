@@ -76,7 +76,7 @@ Upon finishing this step, a database migration script will be generated for the 
 generated and the module is saved into the ``www/go/modules/PACKAGE/NAME/`` subdirectory. Subsequently, the module is
 installed directly.
 
-.. warning:: Trying to install a studio module into business or community generate an error message.
+.. warning:: Trying to install a studio module into business or community generates an error message.
 
 .. warning:: It is not possible to save two different entities with the same name.
 
@@ -212,7 +212,7 @@ The dialog for editing items looks like the screen shot above.
 Deleting a Generated Module
 ---------------------------
 
-Everybody likes experimenting. The Studio module in particularly inviting. We know!
+Everybody likes experimenting. The Studio module is particularly inviting. We know!
 
 If you need to entirely clean up your generated code, there's two steps to be taken.
 
