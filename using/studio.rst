@@ -76,7 +76,7 @@ Upon finishing this step, a database migration script will be generated for the 
 generated and the module is saved into the ``www/go/modules/PACKAGE/NAME/`` subdirectory. Subsequently, the module is
 installed directly.
 
-.. warning:: Trying to install a studio module into business or community generate an error message.
+.. warning:: Trying to install a studio module into business or community generates an error message.
 
 .. warning:: It is not possible to save two different entities with the same name.
 
@@ -209,7 +209,18 @@ Dialog
 
 The dialog for editing items looks like the screen shot above.
 
+Deleting a Generated Module
+---------------------------
 
+Everybody likes experimenting. The Studio module is particularly inviting. We know!
 
+If you need to entirely clean up your generated code, there's two steps to be taken.
 
+1. Remove the module from Group Office:
+	1. Log in as administrator;
+	2. Right click the module and select the delete option;
+	3. Click the save button on the bottom right;
+2. Physically delete the subdirectory with the generated code.
 
+.. warning:: You **will** encounter error messages if you perform the second step without performing the
+   first step. In certain cases, you will not be able to log into GroupOffice anymore.
