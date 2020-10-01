@@ -25,7 +25,7 @@ Here's a list of config options:
    sseEnabled            bool    Enable Server Sent Events for live push updates. Some servers don't support two connections!
    quota                 int     Max storage in bytes this installation may use
    max_users             int     Max number of users this system may have
-   allowed_modules       string  Comma separated string of modules the system may use
+   allowed_modules       array   Array of modules or packages the system may use. Eg. ['legacy/*', 'community/*', 'business/newsletters']. For backwards compatibility this can also be a comma separated string.
    product_name          string  For branding the system to another name
    debug                 bool    Enable debugging for developers. Can also be temporarilty enabled with CTRL + F7 or Cmd + F7 in the browser.
    debugLog              bool    Disable debug log when debug = true.
