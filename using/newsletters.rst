@@ -133,6 +133,16 @@ A simple example template::
    {{creator.profile.organizations[0].name}}
    
 
+Finding a contact with id = 1 ::
+
+    [assign contact = 1 | entity:Contact]
+    {{contact.name}}
+
+Find the first linked contact::
+
+    [assign firstContactLink = someEntityVar | links:Contact | first]
+    {{firstContactLink.name}}
+
 Filters
 ~~~~~~~
 
