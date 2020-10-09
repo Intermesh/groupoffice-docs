@@ -138,3 +138,7 @@ Or store the postal code of the first linked contact::
     [assign firstContactLink = entity | links:Contact | first]
     [assign address = firstContactLink.addresses | first]{{address.zipCode}}
 
+Or if you want addresses of the contact in the grid you could create a field with this template::
+
+    {{entity.addresses | column:formatted| implode}}
+
