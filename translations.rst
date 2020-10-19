@@ -10,6 +10,7 @@ At the moment we have the following:
 - Arabic عربي 
 - বাংলা (Bangladesh)
 - 한국어
+- Bulgarian
 - Català
 - Chinese Simplified
 - Chinese Traditional
