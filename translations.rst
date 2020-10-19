@@ -51,7 +51,7 @@ You can find the download spreadsheet button next to the language selection in S
 
     .. code::
 
-        cli.php community/dev/Language/import --path=lang.csv
+        php cli.php community/dev/Language/import --path=lang.csv
 
 .. _customize-language:
 
