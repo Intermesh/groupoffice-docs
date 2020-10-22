@@ -33,6 +33,7 @@ Here's a list of config options:
    zpush2_loglevel       int     Set to 32 to generate debugging info in log/z-push.log
    vmail_path            string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
    custom_css_url        string  URL to stylesheet to load in the web interface.
+   email_enable_labels  bool    Enable labels for e-mail if IMAP server supports it
    ====================  ======  ===========
 
 Recommended PHP settings
