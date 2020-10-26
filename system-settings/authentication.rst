@@ -4,10 +4,11 @@ Authentication
 On the authentication page you can manage:
 
 1. The minimum password length of user passwords
-2. Two factor authentication
-3. Restrict access based on IP addresses
-4. LDAP Authentication
-5. IMAP Authentication
+2. Logout users automatically if they are inactive and disable the "Remember my login until I press logout on this computer".
+3. Two factor authentication
+4. Restrict access based on IP addresses
+5. LDAP Authentication
+6. IMAP Authentication
 
 .. note:: 
 
