@@ -58,23 +58,24 @@ Steps
 1. Make sure you're on the latest 6.2 version.
 2. Make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
-3. Uninstall the old "groupoffice-com" package but do **NOT** deconfigure the database:
+3. If you are coming from version 5.0 or lower. Then you must install the projects2 module in 6.2 to migrate your existing data. This can't be done in a later version!
+4. Uninstall the old "groupoffice-com" package but do **NOT** deconfigure the database:
 
    .. code:: bash
    
       apt-get remove groupoffice-com
       
-4. If you made manual changes inside /usr/share/groupoffice (Like installing z-push for example). The the package manager will leave these folders intact. To avoid problems move /usr/share/groupoffice away before installing::
+5. If you made manual changes inside /usr/share/groupoffice (Like installing z-push for example). The the package manager will leave these folders intact. To avoid problems move /usr/share/groupoffice away before installing::
    
       mv /usr/share/groupoffice /root/groupofficebak
 
-5. Edit /etc/apt/sources.list and remove:
+6. Edit /etc/apt/sources.list and remove:
 
    .. code:: bash
    
       deb http://repos.groupoffice.eu/ sixtwo main
 
-6. Now do a fresh install of the **6.3** Debian package. But note:
+7. Now do a fresh install of the **6.3** Debian package. But note:
 
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
