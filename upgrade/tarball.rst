@@ -9,16 +9,17 @@ tarball. But if you really want use it then follow these steps:
 3. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
 4. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
-5. Move away your old source files to a backup location.
+5. If you are coming from version 5.0 or lower. Then you must install the projects2 module in 6.2 to migrate your existing data. This can't be done in a later version!
+6. Move away your old source files to a backup location.
    
    .. warning:: Do not copy the new files over the existing. This will result in a broken system.
       
-6. Put the new files at the right location.
-7. If exists copy your old config.php or config.ini and license file to the new 
+7. Put the new files at the right location.
+8. If exists copy your old config.php or config.ini and license file to the new 
    files. It is good practice to keep these files one directory higher then the 
    Group-Office source so you have a complete clean code base.
-8. Visit http://yourdomain/install/ and follow instructions.
-9. Check if you have the right cron job in place::
+9. Visit http://yourdomain/install/ and follow instructions.
+10. Check if you have the right cron job in place::
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
 
