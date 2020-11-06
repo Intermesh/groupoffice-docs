@@ -31,7 +31,7 @@ Steps:
 
       mysql -u root -p -e 'create database groupoffice_temp;'
       mysql -u root -p groupoffice_temp < backup.sql
-      mysqldump --no-create-info --insert-ignore -u root -p groupoffice_temp > merge-data.sql
+      mysqldump --no-create-info --insert-ignore --complete-insert -u root -p groupoffice_temp > merge-data.sql
 
 2. Your file merge-data.sql will contain the command to insert in the database and ignore the insert if the record already
    exists. Now load this into your live database called "groupoffice_live" in this example::
