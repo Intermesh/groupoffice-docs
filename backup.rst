@@ -15,12 +15,13 @@ You need to backup the following items:
 
 
 Recovery
-========
+--------
 
 To recover a backup simply replace the folders you've backed up using the information above and restore the database.
 
 Oops, I accidentally deleted something...
------------------------------------------
+`````````````````````````````````````````
+
 Mistakes happen. Sometimes you've accidentally deleted something from Group-Office. You could then restore all missing
 items from a backup by merging. Please be aware that everthing that was deleted will be restored. Also the items that
 you deleted intentionally.
