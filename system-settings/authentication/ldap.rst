@@ -65,9 +65,19 @@ to build a module that can customize the LDAP synchronization.
 
 If you want to test the sync on the terminal lookup the ID from your configuration in table 'ldapauth_server' and run::
 
+Test connectivity::
+
+   php cli.php community/ldapauthenticator/Sync/test --id=<ID FROM DATABASE> --debug=1
+
+To sync users::
+
    php cli.php community/ldapauthenticator/Sync/users --id=<ID FROM DATABASE> --dryRun=1 --delete=1 --maxDeletePercentage=50
 
+And for groups::
 
+   php cli.php community/ldapauthenticator/Sync/groups --id=<ID FROM DATABASE> --dryRun=1 --delete=1 --maxDeletePercentage=50
+
+For debugging you could also add --debug=1 to output some extensive debug information
 
 Test environment
 ----------------
