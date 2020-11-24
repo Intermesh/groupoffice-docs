@@ -124,7 +124,7 @@ Changing the font
 -----------------
 
 You can't select a font in the template editor. The font is globally defined in 
-config.php. The administrator can change the default font:
+:ref:`config.php <configuration>`. The administrator can change the default font:
 
 $config['$html_editor_font']="font-size:13px; font-family:Arial, Helvetica, sans-serif;";
 

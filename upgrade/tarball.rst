@@ -15,7 +15,7 @@ tarball. But if you really want use it then follow these steps:
    .. warning:: Do not copy the new files over the existing. This will result in a broken system.
       
 7. Put the new files at the right location.
-8. If exists copy your old config.php or config.ini and license file to the new 
+8. If exists copy your old :ref:`config.php <configuration>` and license file to the new
    files. It is good practice to keep these files one directory higher then the 
    Group-Office source so you have a complete clean code base.
 9. Visit http://yourdomain/install/ and follow instructions.

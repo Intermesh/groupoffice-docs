@@ -46,7 +46,7 @@ A property must be defined for all database columns the model should use.
 There should also be a public $albums property.
 
 .. note:: Mappings are cached for performance. When making changes you need to 
-   run ``/install/upgrade.php`` to rebuild the cache. You can also disable cache in the config.php file::
+   run ``/install/upgrade.php`` to rebuild the cache. You can also disable cache in the :ref:`config.php <configuration>` file::
 
         $config['core'] = [
             'general' => [
