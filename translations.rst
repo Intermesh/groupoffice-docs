@@ -45,13 +45,14 @@ We've made it easy for you to contribute to translations. You can download all l
 Make the translations and send it to support@intermesh.nl. Then we can import it into the project and 
 include it in the next release.
 
-You can find the download spreadsheet button next to the language selection in System Settings -> General. 
+You can find the **download spreadsheet** button next to the language selection in **System Settings -> General**.
 
-.. note:: If you want to import the language CSV file your self you can run:
+.. note:: If you want to import the language CSV file yourself then install the Community / Developer tools module you
+    and run the following command in a terminal:
 
     .. code::
 
-        cli.php community/dev/Language/import --path=lang.csv
+        ./cli.php community/dev/Language/import --path=lang.csv
 
 .. _customize-language:
 
