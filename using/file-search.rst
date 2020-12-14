@@ -40,3 +40,21 @@ If you want to index directly after upload. You can put this in :ref:`config.php
 
 .. note:: If indexing is not working you might need to install some 
    additional tools. See :ref:`the installation instructions <install-documents>`.
+
+
+OCR
+```
+
+By default OCR is enabled for TIFF files only. You can enable JPEG, PNG and PDF too with this config option::
+
+    $config['filesearch_ocr_extensions'] = ['tiff', 'tif', 'png', 'jpg', 'jpeg', 'pdf'];
+
+Note that the index process will cause much more load and that OCR results from JPEG files are not that great.
+
+You can also set the language for Tesseract with this option::
+
+    $config['filesearch_language'] = 'nld';
+
+Make sure that language is installed::
+
+    apt install tesseract-ocr-nld
