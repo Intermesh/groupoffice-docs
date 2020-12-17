@@ -243,6 +243,7 @@ To install take these steps:
 
 7. Checkout the rspamd Web GUI at http://yourserver/rspamd/
 
+.. _multi-instance:
 
 Multi Instance
 --------------
@@ -262,13 +263,27 @@ to enable it:
 
       mkdir /etc/groupoffice/multi_instance && chown www-data:www-data /etc/groupoffice/multi_instance
 	 
-
 3. Create "multi_instance" data folder::
    
       mkdir /var/lib/groupoffice/multi_instance && chown www-data:www-data /var/lib/groupoffice/multi_instance
-   
-4. Login as administrator into the main Group Office instance that will manage the
+
+4. If you're using the professional version and the studio module is allowed in /etc/groupoffice/globalconfig.inc.php
+   (see default settings below), then a package folder will be created for each instance in
+   /usr/share/groupoffice/go/modules. So you have to make that folder writable for the webserver::
+
+      chown www-data:www-data /usr/share/groupoffice/go/modules
+
+5. Login as administrator into the main Group Office instance that will manage the
    other instances and install the "Multi Instance" module from the "Community" package.
+
+Default settings
+````````````````
+
+You can control the default allowed modules via /etc/groupoffice/globalconfig.inc.php this file supports the same
+properties as :ref:`config.php <configuration>` but applies to all instances if not overriden in the instance config
+file.
+
+New portals will also copy the system settings of the main portal.
 
 .. _install-documents:
 

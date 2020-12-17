@@ -38,6 +38,17 @@ Here's a list of config options:
    email_enable_labels   bool    Enable labels for e-mail if IMAP server supports it
    ====================  ======  ===========
 
+
+Global configuration
+--------------------
+
+You can also create a file called::
+
+   /etc/groupoffice/globalconfig.inc.php
+
+this file supports the same properties as the regular file but applies to all Group-Office instances on the server when
+running :ref:`multiple instances <multi-instance>`.
+
 Recommended PHP settings
 ------------------------
 
@@ -53,7 +64,6 @@ For optimal Group-Office perfomance we recommend these settings. This will allow
    post_max_size         1000M
    upload_max_filesize   1000M
    ====================  ===========
-
 
 Locking system settings
 -----------------------
@@ -75,7 +85,7 @@ Branding
 
 If you'd like to brand Group-Office you can easily do this:
 
-Edit /etc/groupoffice/globalconfig.inc.php and add::
+Edit the configuration or global configuration file and add::
 
     $config['product_name'] = 'My Office'; //Will replace the word 'Group-Office' with 'My Office'
     $config['custom_css_url'] = '/branding/style.css'; //Loads a custom CSS stylesheet.
