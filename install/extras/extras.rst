@@ -8,5 +8,4 @@ Extras
    fail2ban
    imapproxy
    httpproxy
-
-
+   fetchmail

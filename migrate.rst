@@ -9,7 +9,7 @@ the database.
 Backup
 ------
 
-Determine where the data files are stored (You can also just open config.php and 
+Determine where the data files are stored (You can also just open :ref:`config.php <configuration>` and
 lookup the value instead of using 'cat' and 'grep' on linux)::
 
    cat /etc/groupoffice/config.php | grep file_storage_path
@@ -22,7 +22,7 @@ Now create an archive of this path::
 
    tar czf groupoffice-files.tar.gz /var/lib/groupoffice
 
-This command outputs the database parameters (You can also just open config.php 
+This command outputs the database parameters (You can also just open :ref:`config.php <configuration>`
 and lookup the values instead of using 'cat' and 'grep' on linux)::
 
    cat config.php | grep db

@@ -20,6 +20,11 @@ You can set this per group:
 Rules
 -----
 
+Login is allowed when:
+
+1. There are no rules defined for any group you are a member of.
+2. One of the rules of groups you are a member of matches your IP address
+
 Each rule has a group and a pattern for IP addresses. You can use "*" to match any part of an IP address and '?' to
 match a single character.
 
@@ -29,4 +34,3 @@ Some examples:
 - "192.168.1.?" will match 192.168.1.1 till 192.168.1.9.
 - "192.168.1.* will match 192.168.1 till 192.168.1.255
 
-If any of the rules matches for a user login is allowed.

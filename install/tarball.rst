@@ -50,7 +50,9 @@ Instructions
 
 1. Grab the source from:
 
-   https://sourceforge.net/projects/group-office/files/6.4/
+   https://github.com/Intermesh/groupoffice/releases
+   
+   .. note:: For PHP 7.0 use the -php-70.tar.gz file. For all newer PHP version use the php-7.1.tar.gz file
 
 2. Put the unpacked source in apache's document root.
 

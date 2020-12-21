@@ -112,7 +112,7 @@ Creating a custom PDF script
 
 Sometimes the default PDF does not suit your needs. In that case you can program 
 your own PDF creator script. All you need to do is copy modules/billing/Pdf.php a
-nd put the path to the new file in config.php like this:
+nd put the path to the new file in :ref:`config.php <configuration>` like this:
 
 ````````````````````````````````````````````````````````
 $config['billing_pdf_class'] = '/any/path/to/Pdf.php'; 

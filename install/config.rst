@@ -1,3 +1,5 @@
+.. _configuration:
+
 Configuration file
 ==================
 
@@ -25,7 +27,7 @@ Here's a list of config options:
    sseEnabled            bool    Enable Server Sent Events for live push updates. Some servers don't support two connections!
    quota                 int     Max storage in bytes this installation may use
    max_users             int     Max number of users this system may have
-   allowed_modules       string  Comma separated string of modules the system may use
+   allowed_modules       array   Array of modules or packages the system may use. Eg. ['legacy/\*', 'community/\*', 'business/newsletters']. For backwards compatibility this can also be a comma separated string.
    product_name          string  For branding the system to another name
    debug                 bool    Enable debugging for developers. Can also be temporarilty enabled with CTRL + F7 or Cmd + F7 in the browser.
    debugLog              bool    Disable debug log when debug = true.
@@ -33,7 +35,19 @@ Here's a list of config options:
    zpush2_loglevel       int     Set to 32 to generate debugging info in log/z-push.log
    vmail_path            string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
    custom_css_url        string  URL to stylesheet to load in the web interface.
+   email_enable_labels   bool    Enable labels for e-mail if IMAP server supports it
    ====================  ======  ===========
+
+
+Global configuration
+--------------------
+
+You can also create a file called::
+
+   /etc/groupoffice/globalconfig.inc.php
+
+this file supports the same properties as the regular file but applies to all Group-Office instances on the server when
+running :ref:`multiple instances <multi-instance>`.
 
 Recommended PHP settings
 ------------------------
@@ -50,7 +64,6 @@ For optimal Group-Office perfomance we recommend these settings. This will allow
    post_max_size         1000M
    upload_max_filesize   1000M
    ====================  ===========
-
 
 Locking system settings
 -----------------------
@@ -72,7 +85,7 @@ Branding
 
 If you'd like to brand Group-Office you can easily do this:
 
-Edit /etc/groupoffice/globalconfig.inc.php and add::
+Edit the configuration or global configuration file and add::
 
     $config['product_name'] = 'My Office'; //Will replace the word 'Group-Office' with 'My Office'
     $config['custom_css_url'] = '/branding/style.css'; //Loads a custom CSS stylesheet.

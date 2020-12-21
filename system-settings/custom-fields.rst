@@ -119,3 +119,26 @@ Where:
 - value is a string without quotes. For checkboxes you can use 0,1 or true or false.
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
+
+
+Template field
+--------------
+
+The template field can render data using :ref:`templates`.
+
+The template holds the "entity" model as variable. Which is the entity the custom field belongs too.
+
+You can for example take the first linked contact and store it's name::
+
+    [assign firstContactLink = entity | links:Contact | first]
+    {{firstContactLink.name}}
+
+Or store the postal code of the first linked contact::
+
+    [assign firstContactLink = entity | links:Contact | first]
+    [assign address = firstContactLink.addresses | first]{{address.zipCode}}
+
+Or if you want addresses of the contact in the grid you could create a field with this template::
+
+    {{entity.addresses | column:formatted| implode}}
+

@@ -21,9 +21,11 @@ Please refer to the :ref:`development section <developer>` for more information 
 
 Out of the box, a module will have plenty of functions and options though.
 
-.. note:: Please make sure that the ownership for at least the ``www/go/modules`` subdirectory is set to the Apache or
+.. note:: Please make sure that the ownership for the ``www/go/modules`` subdirectory is set to the Apache or
    nginx user. In the case of Debian or Ubuntu, this is commonly www-data. The www-data user must have write permissions
-   in the ``www/go/modules`` subdirectory. This is commonly the case, but you should double check just in case.
+   in the ``www/go/modules`` subdirectory. This is commonly NOT the case. So you must run::
+
+        chown www-data:www-data /usr/share/groupoffice/go/modules
 
 
 Installation
@@ -89,6 +91,8 @@ Add Custom Fields
 
 A feature of studio is that almost every field is stored as a :ref:`custom field<custom-fields>`. After all, the entire module is custom!
 This works in exactly the same way as for standard modules.
+
+.. note:: If you want to present data of a linked item. Read the template field section on the :ref:`custom fields<custom-fields>` page.
 
 Permissions
 ```````````
