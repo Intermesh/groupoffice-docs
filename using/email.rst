@@ -394,3 +394,54 @@ Go to Settings -> Details -> "Default applications" and select "Group-Office Ass
    :width: 100%
 
    Ubuntu default apps
+
+S-Mime
+--------
+
+With SMIME you can sign and encrypt your messages. If the SMIME module has been installed you should have an SMIME tab at:
+
+E-mail -> Settings -> Accounts -> Double click account.
+
+Here you must upload a PCSK12 (``*.p12``) certificate. For security reasons, you must enter your Group-Office password here. Group-Office will verify that the Group-Office password does not match the PCSK12 password file. A PCSK12 file without a password will also not be accepted.
+
+.. figure:: /_static/using/email/smime-account-settings.jpg
+   :width: 100%
+
+Obtaining a certificate for SMIME
+`````````````````````````````````
+
+A good article on how to get a certificate can be found here:
+
+http://kb.mozillazine.org/Getting_an_SMIME_certificate
+
+You can import the certificate into Firefox and create a ``*.p12`` backup file at with the Firefox certificate manager.
+You can find that in the Advanced menu of the Firefox preferences tab. For security reasons, make sure you choose a password
+that is different from your Group-Office account.
+
+.. note:: Somehow Group-Office is unable to verify the certificate if you generate the p12 backup file with Google Chrome. Please use Firefox to obtain your p12 file.
+
+Signing and Encrypting messages
+```````````````````````````````
+Once you've setup your certificate you can sign and encrypt messages in the e-mail composer using the "Extra options"
+menu (See screenshot). Note that you'll need the public certificates of all the recipients when encrypting a message.
+You can obtain public certificates by verifying their signatures when they send you a signed message.
+
+
+.. figure:: /_static/using/email/smime-email-editor.png
+   :width: 100%
+
+
+Verifying and saving public certificates
+````````````````````````````````````````
+When you receive a signed message, you can verify the signature. When the signature is valid.  Group-Office will automatically
+save the public certificate which can be used to send encrypted messages.
+
+Root Certificates
+`````````````````
+For correct verification you might need to set some extra certificates in the Group-Office config file. For debian servers,
+the following extra setting should suffice:
+
+.. code-block:: php
+
+	$config['smime_root_cert_location'] = '/etc/ssl/certs';
+
