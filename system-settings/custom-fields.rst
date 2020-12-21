@@ -103,7 +103,7 @@ near the Filters header, click on the + and select Filter:
 Conditionally required fields
 -----------------------------
 
-It's possible to make fields required based on a simple condition. You can also hide the field if the condition does not match.
+It's possible to make fields required based on one or more simple conditions. You can also hide the field if the condition does not match.
 
 For example you could create a checkbox called "provideDetails" and create a text field "details" with a condition 'provideDetails = true'.
 The result will be that when you check the box the provideDetails field will be shown and made required.
@@ -117,8 +117,28 @@ Where:
 - fieldName can be any property or custom field
 - operator can be: =, !=, >, >=, <, <=
 - value is a string without quotes. For checkboxes you can use 0,1 or true or false.
+- multiple conditions can be combined with either AND or OR.
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
+
+Subconditions
+`````````````
+
+The syntax for multiple subconditions is not too complex::
+
+    <fieldName> <operator> <value> AND <fieldName> <operator> <value>
+
+or::
+
+    <fieldName> <operator> <value> OR <fieldName> <operator> <value>
+
+``OR`` clauses act as inclusive; ``A OR B`` will parse as true when A is true, B is true or both are true.
+
+You can even chain multiple ``AND`` or ``OR`` clauses: ``A AND B AND C`` will parse as true when all three subconditons are true. Alternatively,
+``A OR B OR C`` will parse as true when one or more subconditions parse as true.
+
+.. warning:: You cannot group subconditions, like ``(A AND B) OR C``.
+
 
 
 Template field
