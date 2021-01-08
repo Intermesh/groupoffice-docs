@@ -44,3 +44,5 @@ Take these steps to install:
             'clientsecret' => '<<CLIENT SECRET from GROUP OFFICE Oauth 2.0 module>>',
             'scope' => array( 'openid')
         ];
+
+6. Optionally, you can use the bookmarks module to add the wiki page as a module page.
