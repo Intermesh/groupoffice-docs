@@ -33,8 +33,11 @@ Take these steps to install:
         $wgGroupPermissions['*']['autocreateaccount'] = true;
         $wgGroupPermissions['*']['createaccount'] = true;
 
-        $wgPluggableAuth_EnableLocalLogin = false;
+        //automatically login when logged in to Group-Office
         $wgPluggableAuth_EnableAutoLogin = true;
+
+        // The above doesn't work when enabling local logins!
+        $wgPluggableAuth_EnableLocalLogin = false;
 
         $wgOpenIDConnect_Config['<<GROUPOFFICE_URL>>/api/oauth.php'] = [
             'clientID' => 'mediawiki',
