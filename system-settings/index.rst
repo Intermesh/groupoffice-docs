@@ -27,6 +27,4 @@ the place to configure everything for Group-Office.
    document-templates
    default-permissions
    rocket-chat
-
-
-
+   oauth2
