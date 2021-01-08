@@ -1,4 +1,4 @@
-.. _mediawiki:
+.. _media-wiki:
 
 MediaWiki
 =========

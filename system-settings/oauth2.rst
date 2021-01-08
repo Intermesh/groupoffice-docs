@@ -20,6 +20,7 @@ You can add clients at System Settings -> OAuth 2.0.
 We've used this to integrate:
 
 - :ref:`rocketchat`
-- :ref:`mediawiki`
+- :ref:`media-wiki`
 
 But any system supporting OpenID connect should be able to use this feature.
+
