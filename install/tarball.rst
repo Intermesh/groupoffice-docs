@@ -1,5 +1,5 @@
-Tarball 
--------
+Manual from Tarball 
+-------------------
 
 We strongly recommend that you use our Debian packages or Docker over this method.
 But if you really want to use the Tarball source then here is how.
