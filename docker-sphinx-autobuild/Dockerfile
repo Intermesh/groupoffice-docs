@@ -1,10 +1,9 @@
-FROM keimlink/sphinx-doc
+FROM sphinxdoc/sphinx
 
-COPY --chown=1000:1000 requirements.pip ./
-
-RUN . .venv/bin/activate \
-    && python -m pip install --requirement requirements.pip
+WORKDIR /docs
+ADD requirements.pip /docs
+RUN pip3 install -r requirements.pip
 
 EXPOSE 8000
 
-CMD ["sphinx-autobuild", "--host", "0.0.0.0", "--port", "8000", "/home/python/docs", "/home/python/docs/_build/html", "-i", "**/.idea/**", "-i", "**/.git/**", "-i", "**/docker/**",  "-i", "**/*.*~"]
+CMD ["sphinx-autobuild", "--host", "0.0.0.0", "--port", "8000", "/docs", "/docs/_build/html", "-i", "**/.idea/**", "-i", "**/.git/**", "-i", "**/docker/**",  "-i", "**/*.*~"]

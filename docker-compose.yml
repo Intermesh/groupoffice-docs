@@ -8,4 +8,4 @@ services:
     ports:
       - "8004:8000"
     volumes:
-      - ./:/home/python/docs:delegated
+      - ./:/docs:delegated

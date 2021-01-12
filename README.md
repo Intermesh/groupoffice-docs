@@ -14,25 +14,9 @@ browser at:
 
 http://localhost:8004/
 
-### Docker compose
+Run:
 
-The easiest way is to start this docker with::
+```
+docker-compose up -d
+```
 
-    docker-compose up -d
-
-### Manual
-
-You can also do it without docker-compose:
-
-Pull the image for sphinx-doc::
-
-    docker pull keimlink/sphinx-doc
-
-Build the autobuild image::
-
-    docker build -t sphinx-autobuild docker-sphinx-autobuild
-
-Then run it::
-
-    docker run -it -p 8004:8000 --rm -v "$(pwd)/../":/home/python/docs sphinx-autobuild
-    
