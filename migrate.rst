@@ -34,6 +34,10 @@ This outputs::
    $config['db_name']='groupoffice';
    $config['db_user']='groupoffice';
    $config['db_pass']='password';
+   
+you might want to disable Group-Office so nobody can work in it anymore by adding this to :ref:`config.php <configuration>`::
+
+   $config['enabled'] = false;
 
 Now create a dump of the database::
 
