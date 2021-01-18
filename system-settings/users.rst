@@ -109,7 +109,7 @@ Visibility of users
 
 By default all users are visible to eachother. You can see users when you share something with another user for example.
 If you'd like to change this you need to change the default permissions of a new user group. Because every user get's
-it's own personal group used for permissions. You can change this at :ref:`user-groups-defaults`.
+it's own personal group used for permissions. You can change the default or at :ref:`user-groups-defaults`. It's also possible to reset or add new permissions for all users / groups at :ref:`user-groups-defaults` with the "Reset all" or "Add to all" buttons.
 
 You can change visibility settings per user in the user account page at the "Visible to" tab.
 
