@@ -29,6 +29,22 @@ Download it for:
 - :ref:`MacOS <assistant-for-macos>`
 - :ref:`Linux <assistant-for-linux>`
 
+Microsoft Office Online
+-----------------------
+
+.. figure:: /_static/using/files/microsoft-office-online.png
+   :alt: Mirosoft Office Online
+
+By becoming a Microsoft partner, we can offer Microsoft Office Online to everyone.
+You need an Office 365 for business subscription.
+
+In our cloud version it's already configured by default. Right click on a file and
+edit with "Office Online" and make it the default if you desire.
+
+You can also host Office Online yourself and integrate it with Group-Office. Read more about that here:
+
+https://docs.microsoft.com/en-us/officeonlineserver/office-online-server
+
 LibreOffice Online
 ------------------
 
