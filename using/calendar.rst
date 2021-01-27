@@ -52,6 +52,12 @@ An unmerged view will put the calendars underneath eachother:
 
    Unmerged view
 
+Or the same view but merged and with unique colors:
+
+.. figure:: /_static/using/calendar/merged-view.png
+   :width: 100%
+
+   Merged view
 
 Resources
 ---------
