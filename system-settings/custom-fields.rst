@@ -118,6 +118,7 @@ Where:
 - operator can be: =, !=, >, >=, <, <=
 - value is a string without quotes. For checkboxes you can use 0,1 or true or false.
 - multiple conditions can be combined with either AND or OR.
+- Grouping is also possible since 6.4.219: <fieldName1> is true AND (<fieldName2> = test OR <fieldName2> = 1234)
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
 
