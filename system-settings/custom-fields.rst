@@ -118,28 +118,9 @@ Where:
 - operator can be: =, !=, >, >=, <, <=
 - value is a string without quotes. For checkboxes you can use 0,1 or true or false.
 - multiple conditions can be combined with either AND or OR.
-- Grouping is also possible since 6.4.219: <fieldName1> is true AND (<fieldName2> = test OR <fieldName2> = 1234)
+- Grouping is also possible since 6.4.219. eg. <fieldName1> is true AND (<fieldName2> = test OR <fieldName2> = 1234)
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
-
-Subconditions
-`````````````
-
-The syntax for multiple subconditions is not too complex::
-
-    <fieldName> <operator> <value> AND <fieldName> <operator> <value>
-
-or::
-
-    <fieldName> <operator> <value> OR <fieldName> <operator> <value>
-
-``OR`` clauses act as inclusive; ``A OR B`` will parse as true when A is true, B is true or both are true.
-
-You can even chain multiple ``AND`` or ``OR`` clauses: ``A AND B AND C`` will parse as true when all three subconditons are true. Alternatively,
-``A OR B OR C`` will parse as true when one or more subconditions parse as true.
-
-.. warning:: You cannot group subconditions, like ``(A AND B) OR C``.
-
 
 
 Template field
