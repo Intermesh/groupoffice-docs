@@ -28,3 +28,4 @@ the place to configure everything for Group-Office.
    default-permissions
    rocket-chat
    oauth2
+   tools
