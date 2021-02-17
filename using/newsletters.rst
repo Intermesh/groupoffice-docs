@@ -64,8 +64,8 @@ Fields of the recipient
 
 Other
 `````
-- unsubscribeUrl
-- now (Date) The time the message is sent
+- unsubscribeUrl: The URL a recipient can use to remove himself from the list. eg. <a href="{{unsubscribeUrl}}">unsubscribe</a>
+- now: (Date) The time the message is sent
 
 Creator
 ```````
