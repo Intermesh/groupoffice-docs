@@ -106,6 +106,8 @@ PDF templates also support a background image or base PDF to use as stationery p
 
 `Download an example PDF document </_static/using/billing/Sample_invoice.pdf>`_
 
+The variables you can use in the fields of the template is identical to the template syntax of :ref:`e-mail templates <template-variables>`.
+
 
 Creating a custom PDF script
 ++++++++++++++++++++++++++++
@@ -119,7 +121,7 @@ $config['billing_pdf_class'] = '/any/path/to/Pdf.php';
 ````````````````````````````````````````````````````````
 
 ODF Templates
--------------
+`````````````
 
 You can also create ODF templates for invoice items. The benefit is that you can edit the documents after generation.
 
