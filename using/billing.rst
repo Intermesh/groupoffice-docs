@@ -104,7 +104,7 @@ Here you can setup templates for the invoice, quotes or PDF documents. You can c
 
 PDF templates also support a background image or base PDF to use as stationery paper.
 
-`Download an example PDF document </_static/using/billing/Sample_invoice.pdf>`_
+:download:`Download an example PDF document </_static/using/billing/Sample_invoice.pdf>`
 
 The variables you can use in the fields of the template is identical to the template syntax of :ref:`e-mail templates <template-variables>`.
 
@@ -127,7 +127,7 @@ You can also create ODF templates for invoice items. The benefit is that you can
 
 You can also create odt templates so that you can edit invoices after creating them. You can use the same variables as for e-mail templates.  
 
-`Download an example ODF document </_static/using/billing/Sample_invoice.odt>`_
+:download:`Download an example ODF document </_static/using/billing/Sample_invoice.odt>`
 
 Statuses
 --------
