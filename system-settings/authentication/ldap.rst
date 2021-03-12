@@ -45,6 +45,14 @@ to change the password as that's not supported yet:
    :alt: LDAP User settings
 
 
+User query
+----------
+The user query can be used to narrow down the users that are allowed to login and / or synchronized.
+
+For example all users except the members of 'ship_crew'::
+
+    (&(objectClass=inetOrgPerson)(!(memberOf=CN=ship_crew,ou=people,dc=planetexpress,dc=com)))
+
 Synchronization
 ---------------
 
