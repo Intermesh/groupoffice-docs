@@ -37,13 +37,17 @@ When upgrading to the next major release follow these steps prior to the above:
 
       /etc/apt/sources.list.d/groupoffice.list
 
-   For 6.4 change it to::
+   - For 6.4 change it to::
 
-      deb http://repo.group-office.com/ 64-php-71 main
+         deb http://repo.group-office.com/ 64-php-71 main
 
-   Or when running PHP 7.0::
+     Or when running PHP 7.0::
 
-      deb http://repo.group-office.com/ 64-php-70 main
+         deb http://repo.group-office.com/ 64-php-70 main
+         
+   - For 6.5 change it to::
+   
+         deb http://repo.group-office.com/ sixfive main
 
 
 From older versions than 6.3
