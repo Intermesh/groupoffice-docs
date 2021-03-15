@@ -14,29 +14,30 @@ Here's a list of config options:
 .. table:: Config options
    :widths: auto
 
-   ====================  ======  ===========
-   Name                  Type    Description
-   ====================  ======  ===========
-   db_name               string  Database name
-   db_host               string  Database server hostname
-   db_port               string  Database server port
-   db_user               string  Database username
-   db_pass               string  Database password
-   file_storage_path     string  Where the files on disk are stored
-   tmpdir                string  Temporary files directory
-   sseEnabled            bool    Enable Server Sent Events for live push updates. Some servers don't support two connections!
-   quota                 int     Max storage in bytes this installation may use
-   max_users             int     Max number of users this system may have
-   allowed_modules       array   Array of modules or packages the system may use. Eg. ['legacy/\*', 'community/\*', 'business/newsletters']. For backwards compatibility this can also be a comma separated string.
-   product_name          string  For branding the system to another name
-   debug                 bool    Enable debugging for developers. Can also be temporarilty enabled with CTRL + F7 or Cmd + F7 in the browser.
-   debugLog              bool    Disable debug log when debug = true.
-   servermanager         bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
-   zpush2_loglevel       int     Set to 32 to generate debugging info in log/z-push.log
-   vmail_path            string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
-   custom_css_url        string  URL to stylesheet to load in the web interface.
-   email_enable_labels   bool    Enable labels for e-mail if IMAP server supports it
-   ====================  ======  ===========
+   ============================  ======  ===========
+   Name                          Type    Description
+   ============================  ======  ===========
+   db_name                       string  Database name
+   db_host                       string  Database server hostname
+   db_port                       string  Database server port
+   db_user                       string  Database username
+   db_pass                       string  Database password
+   file_storage_path             string  Where the files on disk are stored
+   tmpdir                        string  Temporary files directory
+   sseEnabled                    bool    Enable Server Sent Events for live push updates. Some servers don't support two connections!
+   quota                         int     Max storage in bytes this installation may use
+   max_users                     int     Max number of users this system may have
+   allowed_modules               array   Array of modules or packages the system may use. Eg. ['legacy/\*', 'community/\*', 'business/newsletters']. For backwards compatibility this can also be a comma separated string.
+   product_name                  string  For branding the system to another name
+   debug                         bool    Enable debugging for developers. Can also be temporarilty enabled with CTRL + F7 or Cmd + F7 in the browser.
+   debugLog                      bool    Disable debug log when debug = true.
+   servermanager                 bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
+   zpush2_loglevel               int     Set to 32 to generate debugging info in log/z-push.log
+   zpush2_special_log_users      array   Set to usernames you want to debug. eg. ['testuser', 'testuser2']
+   vmail_path                    string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
+   custom_css_url                string  URL to stylesheet to load in the web interface.
+   email_enable_labels           bool    Enable labels for e-mail if IMAP server supports it
+   ============================  ======  ===========
 
 
 Global configuration
