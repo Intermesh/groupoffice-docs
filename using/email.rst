@@ -106,7 +106,7 @@ HTML document in another program, make sure this HTML only contains inline style
 Style sections in the head are not supported.
 
 Images
-------
+~~~~~~
 
 When you insert an image make sure you don't copy paste it from another 
 template or web page. Always insert it through the insert image toolbar from the 
@@ -114,14 +114,14 @@ template editor. This way the image will be embedded into the HTML e-mail
 template and will automatically be sent along with your e-mail messages.
 
 Choose the right signature feature
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can't use this feature together with the plain text signature at 
 E-mail -> Administration -> Accounts -> Double click account row. Either use 
 the simple plain text signature here or the e-mail templates.
 
 Changing the font
------------------
+~~~~~~~~~~~~~~~~~
 
 You can't select a font in the template editor. The font is globally defined in 
 :ref:`config.php <configuration>`. The administrator can change the default font:
@@ -131,7 +131,7 @@ $config['$html_editor_font']="font-size:13px; font-family:Arial, Helvetica, sans
 .. _template-variables:
 
 Template variables
-------------------
+~~~~~~~~~~~~~~~~~~
 
 You can use the following values in the document:
 
