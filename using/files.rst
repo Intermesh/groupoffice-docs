@@ -56,7 +56,7 @@ LibreOffice Online
 With LibreOffice Online you can edit office documents in your browser. You need a working
 LibreOffice Online server. More info on https://www.libreoffice.org/download/libreoffice-online/
 
-For installations read the :ref:`LibreOffice online installation page. <libreoffice-online>`
+For installing read the :ref:`LibreOffice online installation page. <libreoffice-online>`
 
 
 OnlyOffice
@@ -73,4 +73,5 @@ Designed to make collaboration easy. A complete productivity suite to run your e
 
 Edit Text Documents, Spreadsheets and Presentations online in your browser.
 
+For installing read the :ref:`OnlyOffice installation page. <onlyoffice-install>`
 
