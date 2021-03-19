@@ -37,5 +37,10 @@ Configure at least the URL to your OnlyOffice server.
 
 Now you can open a document in the files module with OnlyOffice by right clicking on a file and choose **'Open with'**.
 
+.. note:: If you get a 404 error when editing because /onlyoffice is not found then you probably are missing the alias in your
+   webserver configuration. The Group-Office Debian and Docker packages automatically create this but with the tarball
+   package you have to do this manually.
+   :ref:`Example configuration can be found here. <webserver-aliases>`
+
 
 

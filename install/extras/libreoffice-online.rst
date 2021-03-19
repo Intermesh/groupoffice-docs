@@ -38,6 +38,6 @@ Now every user can go to the files module and use it. Just right click a file an
 
 
 .. note:: If you get a 404 error when editing because /wopi is not found then you probably are missing the alias in your
-   webserver configuration. The Group-Office Debian package automatically does this but with the tarball package you have
-   to do this manually.
+   webserver configuration. The Group-Office Debian and Docker packages automatically create this but with the tarball
+   package you have to do this manually.
    :ref:`Example configuration can be found here. <webserver-aliases>`
