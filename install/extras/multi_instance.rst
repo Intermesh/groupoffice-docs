@@ -45,11 +45,11 @@ Deleting and restoring instances
 
 When you delete an instance it's stored in the trash folder. You can restore an instance with this command::
 
-    ./cli.php community/multi_instance/Instance/retore --name=test.example.com
+    ./cli.php community/multi_instance/Instance/restore --name=test.example.com
 
 When you have deleted the same name for a second time the folder might be named with a suffix. You can specify the trash path in that case::
 
-    ./cli.php community/multi_instance/Instance/retore --name=test.example.com --trashPath=-trashPath=/var/lib/groupoffice/multi_instance/_trash_/test.example.com-606050820f3d
+    ./cli.php community/multi_instance/Instance/restore --name=test.example.com --trashPath=-trashPath=/var/lib/groupoffice/multi_instance/_trash_/test.example.com-606050820f3d
 
 
 Default settings
