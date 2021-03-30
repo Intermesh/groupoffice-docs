@@ -16,15 +16,10 @@ Our preferred way of installing is using our Debian packages:
 
       sudo add-apt-repository universe
 
-3. First add our repository to the package management system. 
+3. First add our repository to the package management system::
 
-    If you run PHP 7.1 or higher (Debian 10+, Ubuntu 18.04+) add::
-
-        echo "deb http://repo.group-office.com/ 64-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
-      
-    If you run PHP 7.0 (Debian 9) run::
-   
-        echo "deb http://repo.group-office.com/ 64-php-70 main" > /etc/apt/sources.list.d/groupoffice.list
+     echo "deb http://repo.group-office.com/ sixfive main" > /etc/apt/sources.list.d/groupoffice.list    
+ 
 
 4. Make sure "dirmngr" is installed for adding the public key::
 
@@ -48,10 +43,8 @@ Our preferred way of installing is using our Debian packages:
       apt-get install php-apcu
 
 9. If you purchased **Group-Office Professional licenses** then make sure the 
-   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
-   files in "/usr/share/groupoffice/". For example 
-   "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
-   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/6.4.x/scripts/install-ioncube.sh
+   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed.
+   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/master/scripts/install-ioncube.sh
 
 10. Then visit http://yourserver/groupoffice and the installer should appear:
 
