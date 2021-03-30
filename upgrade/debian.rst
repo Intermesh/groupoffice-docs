@@ -36,6 +36,10 @@ When upgrading to the next major release follow these steps prior to the above:
 3. Then you need to adjust the repository in::
 
       /etc/apt/sources.list.d/groupoffice.list
+      
+    - For 6.5 change it to::
+   
+         deb http://repo.group-office.com/ sixfive main
 
    - For 6.4 change it to::
 
@@ -45,9 +49,7 @@ When upgrading to the next major release follow these steps prior to the above:
 
          deb http://repo.group-office.com/ 64-php-70 main
          
-   - For 6.5 change it to::
-   
-         deb http://repo.group-office.com/ sixfive main
+  
 
 
 From older versions than 6.3
