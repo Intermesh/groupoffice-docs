@@ -20,7 +20,7 @@ You need a Linux server with:
    Operating System      Linux / Docker
    Webserver             Apache 2+
    Database              MySQL 5.7+ / MariaDB 10.0.5
-   Programming language	 PHP 7.0+
+   Programming language	 PHP 7.3+
    ====================  ===========
 
 Required PHP Extensions
@@ -51,8 +51,6 @@ Instructions
 1. Grab the source from:
 
    https://github.com/Intermesh/groupoffice/releases
-   
-   .. note:: For PHP 7.0 use the -php-70.tar.gz file. For all newer PHP version use the php-7.1.tar.gz file
 
 2. Put the unpacked source in apache's document root.
 
