@@ -16,7 +16,7 @@ After the upgrade you should consider replacing the "gota" module with the new
 
 You can find the change log here:
 
-https://github.com/Intermesh/groupoffice/blob/6.4.x/CHANGELOG.md
+https://github.com/Intermesh/groupoffice/blob/master/CHANGELOG.md
 
 You might need to switch to the branch (For example 6.3) to view the latest.
 
