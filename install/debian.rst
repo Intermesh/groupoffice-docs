@@ -143,6 +143,9 @@ properly. So obtain an SSL certificate and take these steps:
       ssl = yes
       ssl_cert = </etc/letsencrypt/live/YOURHOSTNAME/fullchain.pem
       ssl_key = </etc/letsencrypt/live/YOURHOSTNAME/privkey.pem
+      
+      
+
 
 2. Restart dovecot::
 
@@ -164,6 +167,17 @@ properly. So obtain an SSL certificate and take these steps:
 6. You can verify the SSL certificate with this command::
 
        printf 'quit\n' | openssl s_client -connect YOURHOSTNAME:25 -starttls smtp | openssl x509 -dates -noout
+       
+Letsencrypt
+~~~~~~~~~~~
+
+When using Letsencrypt you'll need a renewal hook to reload dovecot and postix on renewal of the certificates.
+
+Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content::
+
+   #!/bin/sh
+   systemctl reload postfix
+   systemctl reload dovecot
 
 External IMAP access
 ````````````````````
