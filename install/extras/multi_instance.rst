@@ -3,8 +3,15 @@
 Multi Instance
 --------------
 
-It's possible to host multiple instances of Group Office on one server. After
-installing Group Office via the Debian packages or Docker you'll need to do the following
+It's possible to host multiple instances of Group Office on one server. They all have their own
+database and optionally a license for additional modules.
+When pointing the DNS of a domain with a wildcard to the server, you can create a new instance
+with a few mouse clicks or via an API.
+
+Installation
+````````````
+
+After installing Group Office via the Debian packages or Docker you'll need to do the following
 to enable it:
 
 1. Make sure the main install database user has permissions to create databases
