@@ -38,6 +38,8 @@ Here's a list of config options:
    vmail_path                    string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
    custom_css_url                string  URL to stylesheet to load in the web interface.
    email_enable_labels           bool    Enable labels for e-mail if IMAP server supports it
+   allow_themes.                 bool    Enable themes
+   theme                         bool    Default theme ("Paper")
    ============================  ======  ===========
 
 
