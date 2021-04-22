@@ -199,6 +199,7 @@ Fields of the contact
 - {company:formatted_address} Get the full address formatted according to the country standards.
 - {company:formatted_post_address} Get the full address formatted according to the country standards.
 
+- {company:debtorNumber}
 - {company:mtime}
 - {company:ctime}
 - {company:crn} Company registration number
