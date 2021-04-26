@@ -58,31 +58,33 @@ Create a Module
 The following fields need to be entered. This step can be run only once for each module, so make sure that you enter the
 correct data:
 
-+-------------+----------------------------------------------------------+
-| Property    | Description                                              |
-+=============+==========================================================+
-| Name        | The name of the module                                   |
-+-------------+----------------------------------------------------------+
-| Package     | The package name. This allows you to group your modules. |
-+-------------+----------------------------------------------------------+
-| Description + A description to be displayed in the modules manager     |
-+-------------+----------------------------------------------------------+
-| Sort order  | Makes modules sortable by your own preference            |
-+-------------+----------------------------------------------------------+
-+ Entity name | The name of the database object.                         |
-+-------------+----------------------------------------------------------+
-| ACL Entity  | Enables access control for your entities                 |
-+-------------+----------------------------------------------------------+
++-------------+---------------------------------------------------------------------------------+
+| Property    | Description                                                                     |
++=============+=================================================================================+
+| Name        | The name of the module                                                          |
++-------------+---------------------------------------------------------------------------------+
+| Package     | The package name. This allows you to group your modules, e.g. by customer name. |
++-------------+---------------------------------------------------------------------------------+
+| Description | A description to be displayed in the modules manager                            |
++-------------+---------------------------------------------------------------------------------+
+| Sort order  | Makes modules sortable by your own preference                                   |
++-------------+---------------------------------------------------------------------------------+
++ Entity name | The name of the database object.                                                |
++-------------+---------------------------------------------------------------------------------+
+| ACL Entity  | Enables access control for your entities                                        |
++-------------+---------------------------------------------------------------------------------+
 
 Upon finishing this step, a database migration script will be generated for the module, a number of PHP files is
 generated and the module is saved into the ``www/go/modules/PACKAGE/NAME/`` subdirectory. Subsequently, the module is
 installed directly.
 
+.. note:: As a rule of thumb, you should enable access control if your end users are going to use your generated module.
+
 .. warning:: Trying to install a studio module into business or community generates an error message.
 
 .. warning:: It is not possible to save two different entities with the same name.
 
-Add Custom Fields
+ Add Custom Fields
 `````````````````
 
 .. figure:: /_static/using/studio/studio-custom-fields.png

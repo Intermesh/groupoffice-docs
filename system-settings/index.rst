@@ -19,13 +19,14 @@ the place to configure everything for Group-Office.
    general
    appearance
    notifications
+   authentication
+   default-permissions
+   custom-fields
+   users
    groups
    modules
-   authentication   
-   users
-   custom-fields
+   system-tasks
    document-templates
-   default-permissions
    rocket-chat
    oauth2
    tools
