@@ -29,15 +29,49 @@ Download it for:
 - :ref:`MacOS <assistant-for-macos>`
 - :ref:`Linux <assistant-for-linux>`
 
+Microsoft Office Online
+-----------------------
+
+.. figure:: /_static/using/files/microsoft-office-online.png
+   :alt: Mirosoft Office Online
+
+By becoming a Microsoft partner, we can offer Microsoft Office Online to everyone.
+You need an Office 365 for business subscription.
+
+In our cloud version it's already configured by default. Right click on a file and
+edit with "Office Online" and make it the default if you desire.
+
+You can also host Office Online yourself and integrate it with Group-Office. Read more about that here:
+
+https://docs.microsoft.com/en-us/officeonlineserver/office-online-server
+
 LibreOffice Online
 ------------------
 
 .. figure:: /_static/using/files/collabora-online.png
-   :alt: Collabora Online
+   :alt: LibreOffice Online
+
+   LibreOffice Online
 
 With LibreOffice Online you can edit office documents in your browser. You need a working
 LibreOffice Online server. More info on https://www.libreoffice.org/download/libreoffice-online/
 
-For installations read the :ref:`LibreOffice online installation page. <libreoffice-online>`
+For installing read the :ref:`LibreOffice online installation page. <libreoffice-online>`
 
+
+OnlyOffice
+----------
+
+.. figure:: /_static/using/files/onlyoffice.png
+   :alt: OnlyOffice
+
+   OnlyOffice
+
+Run your private office with Group-Office and `OnlyOffice <https://www.onlyoffice.com>`_.
+
+Designed to make collaboration easy. A complete productivity suite to run your entire business with.
+
+Edit Text Documents, Spreadsheets and Presentations online in your browser.
+
+For installing read the :ref:`OnlyOffice installation page. <onlyoffice-install>`
 

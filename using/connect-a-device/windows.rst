@@ -60,6 +60,8 @@ The Group-Office Assistant is a small program that you can install on your Windo
 Linux computer. It will automatically download files opened from Group-Office and monitor
 it for changes. When the file is saved it automatically uploads it back to Group-Office.
 
+`Click here for a video of the installation proces <https://www.youtube.com/watch?v=6L7ZtvEAZEQ>`_
+
 `Click here to download Group-Office Assistant for Windows 
 <https://repo.group-office.com/downloads/group-office-assistant-windows.exe>`_.
 

@@ -34,6 +34,10 @@ This outputs::
    $config['db_name']='groupoffice';
    $config['db_user']='groupoffice';
    $config['db_pass']='password';
+   
+you might want to disable Group-Office so nobody can work in it anymore by adding this to :ref:`config.php <configuration>`::
+
+   $config['enabled'] = false;
 
 Now create a dump of the database::
 
@@ -55,3 +59,14 @@ Installing the backup on the new server
 2. Replace the file folder with the groupoffice-file.tar.gz contents.
 3. Replace the database with the mysqldump created in the backup.
 4. Run /install/ to finish.
+
+
+.. note:: If you run into this error when importing the database dump file::
+
+      ERROR 1118 (42000) at line x: Row size too large (> 8126). Changing some columns to TEXT or BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline
+
+   Then try to add this line on top of the dump file::
+
+      set innodb_strict_mode=0;
+
+   and retry.

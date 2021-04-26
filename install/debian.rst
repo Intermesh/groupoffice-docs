@@ -16,15 +16,10 @@ Our preferred way of installing is using our Debian packages:
 
       sudo add-apt-repository universe
 
-3. First add our repository to the package management system. 
+3. First add our repository to the package management system::
 
-    If you run PHP 7.1 or higher (Debian 10+, Ubuntu 18.04+) add::
-
-        echo "deb http://repo.group-office.com/ 64-php-71 main" > /etc/apt/sources.list.d/groupoffice.list
-      
-    If you run PHP 7.0 (Debian 9) run::
-   
-        echo "deb http://repo.group-office.com/ 64-php-70 main" > /etc/apt/sources.list.d/groupoffice.list
+     echo "deb http://repo.group-office.com/ sixfive main" > /etc/apt/sources.list.d/groupoffice.list    
+ 
 
 4. Make sure "dirmngr" is installed for adding the public key::
 
@@ -48,10 +43,8 @@ Our preferred way of installing is using our Debian packages:
       apt-get install php-apcu
 
 9. If you purchased **Group-Office Professional licenses** then make sure the 
-   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
-   files in "/usr/share/groupoffice/". For example 
-   "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
-   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/6.4.x/scripts/install-ioncube.sh
+   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed.
+   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/master/scripts/install-ioncube.sh
 
 10. Then visit http://yourserver/groupoffice and the installer should appear:
 
@@ -150,6 +143,9 @@ properly. So obtain an SSL certificate and take these steps:
       ssl = yes
       ssl_cert = </etc/letsencrypt/live/YOURHOSTNAME/fullchain.pem
       ssl_key = </etc/letsencrypt/live/YOURHOSTNAME/privkey.pem
+      
+      
+
 
 2. Restart dovecot::
 
@@ -171,6 +167,17 @@ properly. So obtain an SSL certificate and take these steps:
 6. You can verify the SSL certificate with this command::
 
        printf 'quit\n' | openssl s_client -connect YOURHOSTNAME:25 -starttls smtp | openssl x509 -dates -noout
+       
+Letsencrypt
+~~~~~~~~~~~
+
+When using Letsencrypt you'll need a renewal hook to reload dovecot and postix on renewal of the certificates.
+
+Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content::
+
+   #!/bin/sh
+   systemctl reload postfix
+   systemctl reload dovecot
 
 External IMAP access
 ````````````````````
@@ -243,47 +250,7 @@ To install take these steps:
 
 7. Checkout the rspamd Web GUI at http://yourserver/rspamd/
 
-.. _multi-instance:
 
-Multi Instance
---------------
-
-It's possible to host multiple instances of Group Office on one server. After
-installing Group Office via the Debian packages or Docker you do the following
-to enable it:
-
-1. Make sure the main install database user has permissions to create databases
-   by running the following SQL:
-   
-   .. code:: sql
-
-      GRANT ALL PRIVILEGES ON *.* TO 'groupoffice'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-   
-2. Create "multi_instance" config folder::
-
-      mkdir /etc/groupoffice/multi_instance && chown www-data:www-data /etc/groupoffice/multi_instance
-	 
-3. Create "multi_instance" data folder::
-   
-      mkdir /var/lib/groupoffice/multi_instance && chown www-data:www-data /var/lib/groupoffice/multi_instance
-
-4. If you're using the professional version and the studio module is allowed in /etc/groupoffice/globalconfig.inc.php
-   (see default settings below), then a package folder will be created for each instance in
-   /usr/share/groupoffice/go/modules. So you have to make that folder writable for the webserver::
-
-      chown www-data:www-data /usr/share/groupoffice/go/modules
-
-5. Login as administrator into the main Group Office instance that will manage the
-   other instances and install the "Multi Instance" module from the "Community" package.
-
-Default settings
-````````````````
-
-You can control the default allowed modules via /etc/groupoffice/globalconfig.inc.php this file supports the same
-properties as :ref:`config.php <configuration>` but applies to all instances if not overriden in the instance config
-file.
-
-New portals will also copy the system settings of the main portal.
 
 .. _install-documents:
 

@@ -1,5 +1,5 @@
-Tarball 
--------
+Manual from Tarball 
+-------------------
 
 We strongly recommend that you use our Debian packages or Docker over this method.
 But if you really want to use the Tarball source then here is how.
@@ -20,7 +20,7 @@ You need a Linux server with:
    Operating System      Linux / Docker
    Webserver             Apache 2+
    Database              MySQL 5.7+ / MariaDB 10.0.5
-   Programming language	 PHP 7.0+
+   Programming language	 PHP 7.3+
    ====================  ===========
 
 Required PHP Extensions
@@ -51,8 +51,6 @@ Instructions
 1. Grab the source from:
 
    https://github.com/Intermesh/groupoffice/releases
-   
-   .. note:: For PHP 7.0 use the -php-70.tar.gz file. For all newer PHP version use the php-7.1.tar.gz file
 
 2. Put the unpacked source in apache's document root.
 
@@ -76,11 +74,15 @@ Instructions
       #For WOPI support (Collabora Online and Office Online)
       Alias /wopi <YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php
 
+      #For OnlyOffice support
+      Alias /onlyoffice <YOURDOCUMENTROOT>/go/modules/business/onlyoffice/connector.php
+
       #DAV Service discovery. At least required for iOS7 support
       Redirect 301 /.well-known/carddav /carddav
       Redirect 301 /.well-known/caldav /caldav
        
-   Or if you're not able to add these aliases you could create a .htaccess file and use mod_rewrite rules. Replace <YOURDIR> with the relative URL of where Group-Office is installed::
+   Or if you're not able to add these aliases you could create a .htaccess file and use mod_rewrite rules.
+   Replace <YOURDOCUMENTROOT> with the path where Group-Office is installed::
    
       RewriteEngine On
       
@@ -89,11 +91,12 @@ Instructions
       RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
       
       # Configure /webdav, /caldav etc. on your domain
-      RewriteRule ^webdav(.*)$ /<YOURDIR>/modules/dav/files.php
-      RewriteRule ^caldav(.*)$ /<YOURDIR>/modules/caldav/calendar.php
-      RewriteRule ^carddav(.*)$ /<YOURDIR>/modules/carddav/addressbook.php
-      RewriteRule ^wopi(.*)$ /<YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php
-      RewriteRule ^Microsoft-Server-ActiveSync(.*)$ /<YOURDIR>/modules/z-push/index.php
+      RewriteRule ^webdav(.*)$ <YOURDOCUMENTROOT>/modules/dav/files.php
+      RewriteRule ^caldav(.*)$ <YOURDOCUMENTROOT>/modules/caldav/calendar.php
+      RewriteRule ^carddav(.*)$ <YOURDOCUMENTROOT>/modules/carddav/addressbook.php
+      RewriteRule ^wopi(.*)$ <YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php
+      RewriteRule ^Microsoft-Server-ActiveSync(.*)$ <YOURDOCUMENTROOT>/modules/z-push/index.php
+      RewriteRule ^onlyoffice(.*)$ <YOURDOCUMENTROOT>/go/modules/business/onlyoffice/connector.php
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 

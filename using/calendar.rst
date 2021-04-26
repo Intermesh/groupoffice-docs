@@ -33,7 +33,31 @@ state even though this user does not have permissions for the calendar.
 Views
 -----
 A view is a calendar with multiple calendars visible in it. Either merged in one regular view or each calendar
-underneath each other. You can create views in Calendar -> Administration -> Views.
+underneath each other.
+
+You can create views in Calendar -> Administration -> Views:
+
+.. figure:: /_static/using/calendar/create-view.png
+   :width: 100%
+
+   Creating a view
+
+Chose **merge** if you want a regular calendar view with multiple calendars in it. You can also override the event
+colours by assigning a unique color per calendar.
+
+An unmerged view will put the calendars underneath eachother:
+
+.. figure:: /_static/using/calendar/view.png
+   :width: 100%
+
+   Unmerged view
+
+Or the same view but merged and with unique colors:
+
+.. figure:: /_static/using/calendar/merged-view.png
+   :width: 100%
+
+   Merged view
 
 Resources
 ---------
