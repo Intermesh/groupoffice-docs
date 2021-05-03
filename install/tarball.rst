@@ -111,7 +111,7 @@ Instructions
 
 6. Follow the instructions on screen.
 
-7. Finally, create a cron job for the scheduled tasks::
+7. Finally, create a cron job for the scheduled tasks. For exampkle in the file /etc/cron.d/groupoffice::
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
       
