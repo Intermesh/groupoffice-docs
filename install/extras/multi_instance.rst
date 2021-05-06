@@ -41,6 +41,11 @@ to enable it:
 6. Make sure the instances DNS records (we recommend using a wildcard domain) are pointing to the server and is picked
    up by the apache configuration.
 
+7. To log the hostname in access and error logs of apache you can set this in your virtual host settings::
+
+      LogFormat "%V %h %l %u %t \"%r\" %s %b" vcommon
+      ErrorLogFormat "%V [%t] [%l] [pid %P] [client %a] %F: %E: %M"
+
 Creating an instance
 ````````````````````
 In the "Multi instance" tab you can click the add button. Enter the full hostname of the instance and click "Save".
