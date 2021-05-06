@@ -20,16 +20,29 @@ Go to System Settings -> Authentication
    :alt: LDAP server profile
 
 There's a new section for LDAP server profiles. Click on the add button to add 
-a profile. Enter the LDAP server details and domains.
-The domains are important because users need to login with <LDAPUSER>@<DOMAIN> 
-to trigger the LDAP authenticator.
+a profile.
 
-.. note:: If you're using **Microsoft ActiveDirectory** then you should use "**samaccountname**" as the username attribute. 
-   The users DN is typically **CN=Users,DC=example,DC=com**
+Server profile
+``````````````
+Enter the LDAP server details and domains.
+The domains are important because users are stored as and need to login with <LDAPUSER>@<DOMAIN>
+to trigger the LDAP authenticator.
 
 .. image:: ../../_static/ldap/1-ldap-server-profile.png
    :width: 500px
    :alt: LDAP server profile
+
+**Default domain**
+
+A default domain can be set in the "Authentication" page. When that is set the user can also
+login without the domain. Make sure there's no local user with the same username because that will
+be preferred over the LDAP user. So if there's a user "admin" on Group-Office and a user "admin" on the
+LDAP server. You can't login without the domain.
+
+**Microsoft ActiveDirectory**
+
+If you're using Microsoft ActiveDirectory then you should use "**samaccountname**" as the username attribute.
+The users DN is typically **CN=Users,DC=example,DC=com**
 
 Now check if you can login with the LDAP domain:
 
@@ -65,6 +78,64 @@ it will sync daily at midnight.
 .. image:: ../../_static/ldap/5-ldap-synchronization.png
    :width: 500px
    :alt: LDAP server profile
+
+
+Mapping
+-------
+
+When users are created from LDAP a mapping is made from LDAP attributes to the Group-Office user.
+This is the default mapping which also contains some examples::
+
+   $config['ldapMapping'] = [
+   				'enabled' => function($record) {
+   					//return $record->ou[0] != 'Delivering Crew';
+   					return true;
+   				},
+
+
+   				'diskQuota' => function($record) {
+   				    // return in bytes
+   					//return 1024 * 1024 * 1024;
+   					return null;
+   				},
+   				'email' => 'mail',
+   				'recoveryEmail' => 'mail',
+   				'displayName' => 'cn',
+   				'firstName' => 'givenname',
+   				'lastName' => 'sn',
+   				'initials' => 'initials',
+
+   				'jobTitle' => 'title',
+   				'department' => 'department',
+   				'notes' => 'info',
+
+   //				'addressType' => function($record) {
+   //					return \go\modules\community\addressbook\model\Address::TYPE_WORK;
+   //				},
+   				'street' => 'street',
+   				'zipCode' => 'postalCode',
+   				'city' => 'l',
+   				'state' => 's',
+   //				'countryCode' => function($record) {
+   //					return "NL";
+   //				},
+
+   				'homePhone' => 'homePhone',
+   				'mobile' => 'mobile',
+   				'workFax' => 'facsimiletelephonenumber',
+   				'workPhone' => 'telephonenumber',
+
+   				'organization' => 'organizationname',
+
+   //				'homeDir' => function($record) {
+   //					//relative path from group-office file_storage_path
+   //					return "ldap_homes/" . $record->uid[0];
+   //				}
+   				];
+
+You can override this default by entering this in your :ref:`config.php <configuration>` file.
+
+.. note:: Mappings are supported since 6.5.47
 
 Advanced
 ````````
