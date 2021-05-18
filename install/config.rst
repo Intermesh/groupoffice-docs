@@ -53,6 +53,18 @@ You can also create a file called::
 this file supports the same properties as the regular file but applies to all Group-Office instances on the server when
 running :ref:`multiple instances <multi-instance>`.
 
+You can also preconfigure module settings that are normallly set in the user interface. For example you can set
+the OnlyOffice server URL for all instances::
+
+    $config['business'] = [
+
+        'onlyoffice' => [
+            'documentServerUrl' => 'https://onlyoffice.example.com',
+            'documentServerSecret' => 'mysecretkey'
+        ]
+
+    ];
+
 Recommended PHP settings
 ------------------------
 

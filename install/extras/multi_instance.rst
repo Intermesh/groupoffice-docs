@@ -68,7 +68,7 @@ Default settings
 ````````````````
 
 You can control the default allowed modules via /etc/groupoffice/globalconfig.inc.php this file supports the same
-properties as :ref:`config.php <configuration>` but applies to all instances if not overriden in the instance config
+properties as :ref:`config.php <configuration>` but applies to all instances if not overridden in the instance config
 file.
 
 New portals will also copy the system settings of the main portal.
