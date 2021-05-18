@@ -26,6 +26,7 @@ At the moment we have the following:
 - Hrvatski
 - Italiano
 - Magyar
+- Монгол хэл (Mongolian)
 - Nederlands
 - Norsk bokmål
 - Polski
