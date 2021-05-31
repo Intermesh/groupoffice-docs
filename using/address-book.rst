@@ -165,3 +165,30 @@ If you want to search for a phrase or without wildcards then you can use quotes:
 
    name: "John Jacks"
 
+
+Look for duplicates
+-------------------
+
+It often occurs that duplicate contacts are created. Group-Office has a feature to deduplicate contacts.
+
+In the more menu choose "Look for duplicates":
+
+.. figure:: /_static/using/address-book/look-for-duplicates-menu.png
+   :alt: Look for duplicates menu
+   :width: 300px
+
+   Look for duplicates menu
+
+
+The following dialog will open:
+
+.. figure:: /_static/using/address-book/look-for-duplicates-dialog.png
+   :alt: Import CSV dialog
+   :width: 100%
+
+   Look for duplicates dialog
+
+Here you can choose the properties that should match to find duplicates. You can then select one or more records and
+choose "Merge selected".
+
+All links, comments, files etc. will be merged into the first selected record. The other records will be removed.
