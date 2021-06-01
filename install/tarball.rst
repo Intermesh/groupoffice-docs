@@ -91,12 +91,12 @@ Instructions
       RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
       
       # Configure /webdav, /caldav etc. on your domain
-      RewriteRule ^webdav(.*)$ <YOURDOCUMENTROOT>/modules/dav/files.php
-      RewriteRule ^caldav(.*)$ <YOURDOCUMENTROOT>/modules/caldav/calendar.php
-      RewriteRule ^carddav(.*)$ <YOURDOCUMENTROOT>/modules/carddav/addressbook.php
-      RewriteRule ^wopi(.*)$ <YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php
-      RewriteRule ^Microsoft-Server-ActiveSync(.*)$ <YOURDOCUMENTROOT>/modules/z-push/index.php
-      RewriteRule ^onlyoffice(.*)$ <YOURDOCUMENTROOT>/go/modules/business/onlyoffice/connector.php
+      RewriteRule ^/webdav(.*)$ <YOURDOCUMENTROOT>/modules/dav/files.php
+      RewriteRule ^/caldav(.*)$ <YOURDOCUMENTROOT>/modules/caldav/calendar.php
+      RewriteRule ^/carddav(.*)$ <YOURDOCUMENTROOT>/modules/carddav/addressbook.php
+      RewriteRule ^/wopi(.*)$ <YOURDOCUMENTROOT>/go/modules/business/wopi/wopi.php [E=PATH_INFO:/$1]
+      RewriteRule ^/Microsoft-Server-ActiveSync(.*)$ <YOURDOCUMENTROOT>/modules/z-push/index.php
+      RewriteRule ^/onlyoffice(.*)$ <YOURDOCUMENTROOT>/go/modules/business/onlyoffice/connector.php [E=PATH_INFO:/$1]
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
