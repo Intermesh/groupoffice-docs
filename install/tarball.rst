@@ -99,9 +99,9 @@ Instructions
       RewriteRule ^webdav(.*)$ /modules/dav/files.php
       RewriteRule ^caldav(.*)$ /modules/caldav/calendar.php
       RewriteRule ^carddav(.*)$ /modules/carddav/addressbook.php
-      RewriteRule ^wopi(.*)$ /go/modules/business/wopi/wopi.php [E=PATH_INFO:/$1]
+      RewriteRule ^wopi(.*)$ /go/modules/business/wopi/wopi.php/$1 [L]
       RewriteRule ^Microsoft-Server-ActiveSync(.*)$ /modules/z-push/index.php
-      RewriteRule ^onlyoffice(.*)$ /go/modules/business/onlyoffice/connector.php [E=PATH_INFO:/$1]
+      RewriteRule ^onlyoffice(.*)$ /go/modules/business/onlyoffice/connector.php/$1 [L]
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
