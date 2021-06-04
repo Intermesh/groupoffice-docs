@@ -31,7 +31,7 @@ Major release upgrade
 When the second digit increases in the version number we call this a major release. For example when upgrading to 6.4 from 6.3.
 When upgrading to the next major release follow these steps prior to the above:
 
-1. Run the above command first to upgrade to the latest 6.3.
+1. Run the above command first to upgrade to the latest 6.3 (if you're on version 6.2 please read section below first).
 2. Then open your browser to update the database.
 3. Then you need to adjust the repository in::
 
@@ -99,11 +99,11 @@ Steps
      "Keep the local version currently installed".
    - Use the following APT repository in /etc/apt/sources.list.d/groupoffice.list::
 
-         deb http://repo.group-office.com/ 64-php-71 main
+         deb http://repo.group-office.com/ 63-php-71 main
       
      Or when running PHP 7.0::
 
-         deb http://repo.group-office.com/ 64-php-70 main
+         deb http://repo.group-office.com/ 63-php-70 main
 
 
 Mailserver
