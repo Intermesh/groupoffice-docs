@@ -97,9 +97,13 @@ Steps
    - When the installer asks to install a database choose "NO".
    - When the installer asks to replace /etc/groupoffice/config.php, choose 
      "Keep the local version currently installed".
-   - Use **63-php-70** or **63-php-71** for the repositiory instead of the 6.4 one.
+   - Use the following APT repository in /etc/apt/sources.list.d/groupoffice.list::
 
-Continue at :ref:`install-debian`.
+         deb http://repo.group-office.com/ 64-php-71 main
+      
+     Or when running PHP 7.0::
+
+         deb http://repo.group-office.com/ 64-php-70 main
 
 
 Mailserver
