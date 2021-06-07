@@ -29,7 +29,7 @@ Here's a list of config options:
    max_users                     int     Max number of users this system may have
    allowed_modules               array   Array of modules or packages the system may use. Eg. ['legacy/\*', 'community/\*', 'business/newsletters']. For backwards compatibility this can also be a comma separated string.
    product_name                  string  For branding the system to another name
-   debug                         bool    Enable debugging for developers. Can also be temporarilty enabled with CTRL + F7 or Cmd + F7 in the browser.
+   debug                         bool    Enable debugging for developers. Can also be temporarily enabled with CTRL + F7 or Cmd + F7 in the browser.
    debugLog                      bool    Disable debug log when debug = true.
    debugEmail                    string  Set to an e-mail address to redirect all mail to for testing purposes.
    servermanager                 bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
@@ -52,6 +52,18 @@ You can also create a file called::
 
 this file supports the same properties as the regular file but applies to all Group-Office instances on the server when
 running :ref:`multiple instances <multi-instance>`.
+
+You can also preconfigure module settings that are normallly set in the user interface. For example you can set
+the OnlyOffice server URL for all instances::
+
+    $config['business'] = [
+
+        'onlyoffice' => [
+            'documentServerUrl' => 'https://onlyoffice.example.com',
+            'documentServerSecret' => 'mysecretkey'
+        ]
+
+    ];
 
 Recommended PHP settings
 ------------------------
