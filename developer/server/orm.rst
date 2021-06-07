@@ -244,3 +244,123 @@ and Entity::getType()->changes() for an example. See the address books's
 `Group <https://github.com/Intermesh/groupoffice/blob/master/www/go/modules/community/addressbook/model/Group.php>`_ 
 entity for an example.
 
+Relations with Active Record Models
+------------------------------------
+
+Since we are moving from the old ActiveRecord models to our modern JMAP ORM, chances are that at some point you
+will need to create relations between entities and older ActiveRecord models.
+
+There is no official support for such relations in GroupOffice, but there is a workaround. Consider the following
+example: we have a module named planner, that depends on the `community/tasks` module and the `legacy/projects` module.
+There is already a JMAP entity named `Task` and it has time registrations connected to it as per the old `pr2_hours`
+table in the projects module. We need to aggregate these time registrations for each task. There are roughly three ways
+to achieve this, a very bad way, a somewhat hackish, but slightly better way and another hackish way which may or may
+not suit your use case.
+
+The bad
+```````
+
+In the `Modules.php` class (see the :ref:`the server module tutorial <building-a-server-module>` for details, you can
+write an event listener function like below:
+
+.. code:: php
+
+	public static function defineListeners()
+	{
+		Task::on(TASK::EVENT_MAPPING,  static::class, 'onTaskMap');
+	}
+	public static function onTaskMap(Mapping $mapping)
+	{
+		$mapping->setQuery((new Query())->select('COALESCE(SUM(prh.duration), 0) AS timeBooked')->
+		// etc..
+	}
+
+This may or may not work. In some cases, the use of `setQuery` is simply being blocked in case of an override. A poor
+alternative would be to edit the `defineMapping()` method of the `Task` entity. This has two major disadvantages:
+
+1. **Performance**: Whether you want to or not, you have an extra join and an expensive aggregate function as soon as you try to retrieve tasks. That is not desirable.
+2. **Dependencies**: projects2 is an optional module. You will run into trouble as soon as the projects2 module is not installed
+
+In short: just don't!
+
+The ugly
+````````
+
+In your custom development module, add a relation, in our case a `HasOne` relation:
+
+.. code:: php
+
+	public static function defineListeners()
+	{
+		Task::on(Task::EVENT_MAPPING, static::class, 'onTaskMap');
+	}
+	public static function onTaskMap(Mapping $mapping)
+	{
+		$mapping->addHasOne('hours', ProjectHoursProperty::class, ['id' => 'task_id'], false);
+	}
+
+We also create a property model named ProjectHoursProperty.
+
+.. code:: php
+
+	class ProjectHoursProperty extends Property
+	{
+		public $task_id = null;
+		public $timeBooked;
+		protected static function defineMapping()
+		{
+			return parent::defineMapping()->addTable('pr2_hours', 'prh')->setQuery(
+				(new Query())->select('COALESCE(SUM(prh.duration), 0) AS timeBooked')
+				->groupBy(['prh.task_id'])
+			);
+		}
+
+		public function getTimeBooked()
+		{
+			return $this->timeBooked;
+		}
+
+		public function internalSave()
+		{
+			return true; // but do nothing
+		}
+	}
+
+As soon as the `hours` relation is requested, a sum of worked hours for the current tasks is retrieved from the old
+ActiveRecord model.
+
+.. note:: You may notice the `internalSave()` override. This is automatically called upon saving a task with hours. Since we do not wish to override anything, we just tell the model to do nothing.
+
+Bonus: The good
+```````````````
+
+Simply create JMAP entities (and properties) for the old Active Record tables.
+
+
+Another bonus: scalars
+``````````````````````
+
+In theory, one can use a scalar relation to retrieve related ActiveRecord models for an entity:
+
+.. code:: php
+
+	public static function defineListeners()
+	{
+		Task::on(Task::EVENT_MAPPING, static::class, 'onTaskMap');
+	}
+	public static function onTaskMap(Mapping $mapping)
+	{
+		$mapping->addScalar('hours', 'pr2_hours, ['id' => 'task_id']);
+	}
+
+However, since scalar relations merely return identifier fields for said related models, the only possible use case for
+using scalars to retrieve related ActiveRecord models is to check whether they exist. If you really want to use scalar
+relations in this way, you may want to add the following code to your Entity model:
+
+.. code:: php
+
+	public function hasTimeRegistrations()
+	{
+		return count($this->hours) > 0;
+	}
+
