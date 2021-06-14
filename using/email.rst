@@ -247,7 +247,7 @@ Conditions
 ``````````
 You can also check if a value is not empty using <gotpl></gotpl> tags::
 
-   <gotpl if="user:work_phone">{user:work_phone} | </gotpl>
+   <gotpl if="user:work_phone">Tel: {user:work_phone}</gotpl>
 
 
 Example template for standard letter
