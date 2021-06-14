@@ -243,6 +243,13 @@ Project fields
 - {project:units_budget}
 - {project:responsibleUser:name} The manager
 
+Conditions
+``````````
+You can also check if a value is not empty using <gotpl></gotpl> tags::
+
+   <gotpl if="user:work_phone">{user:work_phone} | </gotpl>
+
+
 Example template for standard letter
 ````````````````````````````````````
 
@@ -263,6 +270,8 @@ Best regards,
 
 
 {user:displayName}
+<gotpl if="user:work_phone">tel: {user:work_phone}</gotpl>
+
 
 
 Filtering and out of office
