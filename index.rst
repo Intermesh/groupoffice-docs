@@ -46,6 +46,7 @@ Visit https://www.group-office.com for more information.
    using/document-templates
    using/files
    using/notes
+   using/business
    using/tickets
    using/projects
    using/holidays
