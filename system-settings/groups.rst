@@ -27,7 +27,7 @@ A few special groups are created by default:
 
 3. **Internal**: All calendars, address books and task lists are shared to this 
    group with write access by default. New employees are commonly added to this 
-   group. It should contain all company users and not your customers. 
+   group. It should contain all company users and not your customers.
 
 .. figure:: /_static/system-settings/groups.png
    :alt: System Settings - Groups

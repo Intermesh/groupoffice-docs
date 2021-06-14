@@ -117,10 +117,40 @@ Where:
 - fieldName can be any property or custom field
 - operator can be: =, !=, >, >=, <, <=
 - value is a string without quotes. For checkboxes you can use 0,1 or true or false.
+- empty or non-empty values are checked by using `myField is empty` and `myOtherField is not empty` respectively
 - multiple conditions can be combined with either AND or OR.
-- Grouping is also possible since 6.4.219. eg. <fieldName1> is true AND (<fieldName2> = test OR <fieldName2> = 1234)
+- Grouping is also possible since 6.4.219. eg. `<fieldName1> is true AND (<fieldName2> = test OR <fieldName2> = 1234)`
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
+
+Examples
+````````
+
+If the Answer is supposed to be larger than 41, but smaller than 43, use the following:
+
+.. code::
+
+	theAnswer = 42
+
+or if you are into `Vogon poetry <https://en.wikipedia.org/wiki/Vogon#Poetry>`_:
+
+.. code::
+
+    theAnswer > 41 AND theAnswer < 43
+
+
+If you want to require or hide a field based on the following conditions:
+
+- The answer is 42;
+- Either of the conditions below:
+	- There is a home planet destruction date but the owner has no towel;
+	- The home planet still exists and the owner has a towel;
+
+then the condition should read something like this:
+
+.. code::
+
+	(theAnswer = 42 AND ((homePlanetDestructionDate IS NOT NULL AND hasTowel = 0) OR (homePlanetDestructionDate IS NULL AND hasTowel = 1)))
 
 
 Template field
