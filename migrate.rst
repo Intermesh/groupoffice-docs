@@ -45,7 +45,7 @@ Now create a dump of the database::
 
 You might want to compress this file to save bandwidth::
 
-   tar czf groupoffice-database.tar.gz groupoffice-20190101.sql
+   tar -czf groupoffice-database.tar.gz groupoffice-20190101.sql
 
 Now we've packed up all necessary files in archives:
 
@@ -55,10 +55,38 @@ Now we've packed up all necessary files in archives:
 Installing the backup on the new server
 ---------------------------------------
 
-1. Install a clean :ref:`install` following this manual
-2. Replace the file folder with the groupoffice-file.tar.gz contents.
-3. Replace the database with the mysqldump created in the backup.
-4. Run /install/ to finish.
+1. Install a clean :ref:`install` following this manual. You can install a newer version. Pick a version that can upgrade your current version. Please refer to the upgrade page.
+2. Copy the archives created to the new server in /tmp
+3. Replace the file folder with the groupoffice-files.tar.gz contents. For example::
+
+      # change to /tmp
+      cd /tmp
+      
+      # unpack archive
+      tar -zxf groupoffice-files.tar.gz
+      
+      #backup the existing folder (should be empty but to be safe)
+      mv /var/lib/groupoffice /var/lib/groupofficebak
+      
+      # move unpacked folder to /var/lib
+      mv groupoffice /var/lib/
+      
+      # replace www-data with your web server user in the following command
+      chown -R www-data:www-data /var/lib/groupoffice 
+      
+      
+4. Replace the database with the mysqldump created in the backup. For example::
+      
+      # change to /tmp
+      cd /tmp
+      
+      # unpack archive
+      tar -zxf groupoffice-database.tar.gz
+      
+      # Import dump file to mysql
+      mysql groupoffice -u groupoffice -p < groupoffice-20190101.sql
+      
+5. Run /install/ to finish.
 
 
 .. note:: If you run into this error when importing the database dump file::
