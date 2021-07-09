@@ -27,7 +27,7 @@ Our preferred way of installing is using our Debian packages:
 
 5. Add our public key::
 
-      apt-key adv --recv-keys --keyserver pool.sks-keyservers.net 0758838B
+      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0758838B
       
 6. Update APT::
 
