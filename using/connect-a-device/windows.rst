@@ -81,6 +81,12 @@ After installing it you can use it as follows:
 .. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
+Automated install
+`````````````````
+For advanced options for installing please look at this page:
+
+https://jrsoftware.org/ishelp/index.php?topic=setupcmdline
+
 WebDAV
 ------
 Additionally you can map Group-Office as network drive using WebDAV. The assistant makes this easy for you after editing a file. Then you can right click the icon and choose "Connect network drive".
