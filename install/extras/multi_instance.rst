@@ -64,6 +64,14 @@ When you have deleted the same name for a second time the folder might be named 
     ./cli.php community/multi_instance/Instance/restore --name=test.example.com --trashPath=-trashPath=/var/lib/groupoffice/multi_instance/_trash_/test.example.com-606050820f3d
 
 
+Automatically empty trash
+`````````````````````````
+
+The trash folder might fill up too much space. This cron job delete's all trash after one month::
+
+   0 0 * * * root find /var/lib/multi_instance/_trash_  -maxdepth 1 -mtime +30 -exec rm -r "{}" \;
+
+
 Default settings
 ````````````````
 
