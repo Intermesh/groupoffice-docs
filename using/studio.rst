@@ -84,7 +84,7 @@ installed directly.
 
 .. warning:: It is not possible to save two different entities with the same name.
 
- Add Custom Fields
+Add Custom Fields
 `````````````````
 
 .. figure:: /_static/using/studio/studio-custom-fields.png
@@ -177,14 +177,11 @@ Confirmation
 The 'Enable module' will make the module available for your end users. You may want to disable it if you wish to do some
 custom editing. In that case, you can re-enable it from the System Settings.
 
-You can disable Studio for your module by ticking the 'Lock code generation' checkbox. This is particularly useful for
-manual changes to the code. Upon saving, a studio module can not be regenerated.
-
 In order to finish the workflow, you **must** check the 'Overwrite existing code' checkbox. This will re-generate all
 code and throw away any and all manual additions to the code. By clicking finish, code generation will be initialized.
 
-.. note:: Removing a studio record will **not** delete the module. It will merely disable the regeneration of code in
-   a very thorough way.
+.. note:: Removing a studio record manually will **not** delete the module. It will merely disable the regeneration of
+   code in a very thorough way.
 
 The Generated Screens
 ---------------------
@@ -224,9 +221,17 @@ If you need to entirely clean up your generated code, there's two steps to be ta
 
 1. Remove the module from Group Office:
 	1. Log in as administrator;
-	2. Right click the module and select the delete option;
-	3. Click the save button on the bottom right;
+	2. Go to System Settings > Modules;
+	3. Find your module and hover over its corresponding table row. A three dot menu appears on the right. Select the 'Delete' option.
+	4. Click the save button on the bottom right;
 2. Physically delete the subdirectory with the generated code.
+
+.. warning:: Deleting an entire module will delete any database records for this module as well. If there's any data you
+   do not wish to lose, make sure to have a backup at hand.
+
+.. note:: After physically removing a subdirectory, if you receive an error that a module class was not found, you may
+   want to re-run the upgrade script. Alternatively, regenerate the autoloader by running ``composer install`` in the
+   GO root (if you have composer on your system that is).
 
 .. warning:: You **will** encounter error messages if you perform the second step without performing the
    first step. In certain cases, you will not be able to log into GroupOffice anymore.
