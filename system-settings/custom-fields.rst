@@ -173,4 +173,9 @@ Or store the postal code of the first linked contact::
 Or if you want addresses of the contact in the grid you could create a field with this template::
 
     {{entity.addresses | column:formatted| implode}}
+    
+Or fetching a contact from a custom field::
+
+   [assign contact = entity.customFields.customFieldContactFieldName | entity:Contact]
+   {{contact.name}}
 
