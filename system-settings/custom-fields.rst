@@ -176,6 +176,10 @@ Or if you want addresses of the contact in the grid you could create a field wit
     
 Or fetching a contact from a custom field::
 
-   [assign contact = entity.customFields.customFieldContactFieldName | entity:Contact]
+   [assign contact = entity.customFields.<CONTACT_CUSTOM_FIELD_DATABASE_NAME> | entity:Contact]
    {{contact.name}}
+   
+Custom fields often hold ID numbers. You can convert them to text like this:
+
+{{contact.customFields.asText.<DATABASE_NAME>}}
 
