@@ -60,7 +60,7 @@ Fields of the recipient
 - contact.debtorNumber
 - contact.IBAN
 - contact.vatNo
-- :ref:`custom-fields` (The database name prefixed with "contact.customFields.")
+- :ref:`custom-fields` (See the syntax below)
 
 Other
 `````
@@ -86,6 +86,10 @@ A variable is written like this::
 Or a custom field::
 
    {{contact.customFields.<DATABASE_NAME_OF_CUSTOMFIELD>}}
+   
+Some custom fields are stored with an ID. Like a select field for example. You can get the text like this::
+
+   {{contact.customFields.asText.<DATABASE_NAME_OF_CUSTOMFIELD>}}
 
 Arrays can be written like this::
 
