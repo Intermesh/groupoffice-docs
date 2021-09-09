@@ -30,7 +30,7 @@ For example the ``go/modules/community/music/model/Artist`` model defines:
 You can see that it maps a table ``music_artist`` and adds a property 'albums' as an array. If you'd like to retrieve
 relations between entity models, use the ``addScalar`` method instead of the ``addArray`` method.
 
-Furthermore, one can define custom properties from database queries by using the ``setQuery`` method. For example, one
+Furthermore, one can define custom properties from database queries by using the ``addQuery`` method. For example, one
 could define an `albumcount` property for an artist like this:
 
 .. code:: php
@@ -38,7 +38,7 @@ could define an `albumcount` property for an artist like this:
   protected static function defineMapping() {
     return parent::defineMapping()
         ->addTable("music_artist", "artist")
-            ->setQuery((new Query())->select('COUNT(alb.id) AS albumcount')
+            ->addQuery((new Query())->select('COUNT(alb.id) AS albumcount')
             ->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
     }
 
@@ -54,6 +54,10 @@ There should also be a public $albums property.
             ]
         ];
 
+
+.. warning:: As per Group Office 6.6, the ``setQuery`` method has been deprecated in favor of the ``addQuery`` method.
+   Any custom development that uses the ``setQuery`` method, will fall back on the ``addQuery`` method, but you will
+   get a deprecation warning in your IDE.
 
 addTable() method
 `````````````````
@@ -118,7 +122,7 @@ This will create a new default address book for each new user and will assign it
 
 addRelation() method
 ````````````````````
-With add ``addRelation()`` you can map "Property" models with a has one or has many
+With the ``addRelation()`` method you can map "Property" models with a has one or has many
 relation. These properties will be loaded and saved automatically.
 
 .. note:: You can't add relations to other entities. Only "Property" models can
@@ -131,6 +135,29 @@ relation. These properties will be loaded and saved automatically.
    only then it's recommended to name it "findOtherEntity()" so it won't become
    a public API property.
 
+addQuery() method
+`````````````````
+
+As per Group Office 6.6, the ``addQuery()`` method allows you to add custom SQL code to your mapping. The parameter is a
+``go/core/db/Query`` Object. It replaces the ``setQuery()`` method in earlier Group Office versions and has the
+advantage of being stackable. That is, depending on the modules installed, the mapping will merge custom SQL code
+instead of overwriting it.
+
+As per the tutorial, a valid use case would be to add the album title to a music review:
+
+.. code:: php
+
+      protected static function defineMapping()
+      {
+          return parent::defineMapping()
+              ->addTable('music_review')
+              ->addQuery((new Query())->select('a.name AS albumtitle')
+                  ->join('music_album', 'a', 'a.id=music_review.albumId'));
+      }
+
+
+.. note:: When developing against Group Office 6.5 or below, you can still use the ``setQuery()`` method, but you
+   will not be able to use multiple ``setQuery()`` methods for your entities. One will overwrite the other.
 
 Getters and Setters
 -------------------
@@ -251,7 +278,9 @@ Since we are moving from the old ActiveRecord models to our modern JMAP ORM, cha
 will need to create relations between entities and older ActiveRecord models.
 
 There is no official support for such relations in GroupOffice, but there is a workaround. Consider the following
-example: we have a module named planner, that depends on the `community/tasks` module and the `legacy/projects` module.
+example: we have a module named planner, that depends on the `community/tasks` module `legacy/timeregistration2` and
+the `legacy/projects` modules.
+
 There is already a JMAP entity named `Task` and it has time registrations connected to it as per the old `pr2_hours`
 table in the projects module. We need to aggregate these time registrations for each task. There are roughly three ways
 to achieve this, a very bad way, a somewhat hackish, but slightly better way and another hackish way which may or may
@@ -260,23 +289,25 @@ not suit your use case.
 The bad
 ```````
 
-In the `Modules.php` class (see the :ref:`the server module tutorial <building-a-server-module>` for details, you can
+In the ``Modules.php`` class (see the :ref:`the server module tutorial <building-a-server-module>` for details), you can
 write an event listener function like below:
 
 .. code:: php
 
+	// go\core\modules\community\tasks\Module.php
+
 	public static function defineListeners()
 	{
-		Task::on(TASK::EVENT_MAPPING,  static::class, 'onTaskMap');
+		Task::on(Task::EVENT_MAPPING,  static::class, 'onTaskMap');
 	}
 	public static function onTaskMap(Mapping $mapping)
 	{
-		$mapping->setQuery((new Query())->select('COALESCE(SUM(prh.duration), 0) AS timeBooked')->
+		$mapping->addQuery((new Query())->select('COALESCE(SUM(prh.duration), 0) AS timeBooked')->
 		// etc..
 	}
 
-This may or may not work. In some cases, the use of `setQuery` is simply being blocked in case of an override. A poor
-alternative would be to edit the `defineMapping()` method of the `Task` entity. This has two major disadvantages:
+This may or may not work. In some cases, the use of ``addQuery`` is simply being blocked in case of an override. A poor
+alternative would be to edit the ``defineMapping()`` method of the `Task` entity. This has two major disadvantages:
 
 1. **Performance**: Whether you want to or not, you have an extra join and an expensive aggregate function as soon as you try to retrieve tasks. That is not desirable.
 2. **Dependencies**: projects2 is an optional module. You will run into trouble as soon as the projects2 module is not installed
@@ -309,7 +340,7 @@ We also create a property model named ProjectHoursProperty.
 		public $timeBooked;
 		protected static function defineMapping()
 		{
-			return parent::defineMapping()->addTable('pr2_hours', 'prh')->setQuery(
+			return parent::defineMapping()->addTable('pr2_hours', 'prh')->addQuery(
 				(new Query())->select('COALESCE(SUM(prh.duration), 0) AS timeBooked')
 				->groupBy(['prh.task_id'])
 			);
@@ -334,7 +365,37 @@ ActiveRecord model.
 Bonus: The good
 ```````````````
 
-Simply create JMAP entities (and properties) for the old Active Record tables.
+Since worked hours for tasks are being managed in the time registration module, the Task entity can be extended from
+within the time registration module. If the time registration module is not enabled, the timeBooked property will
+be irrelevant to the task and the extra query will not be added to the mapping.
+
+.. code:: php
+
+	/*
+	 * modules\Timeregistration2\Timeregistration2Module.php
+	 */
+	class Timeregistration2Module extends \GO\Professional\Module
+	{
+
+		 // (...)
+
+		public function defineListeners()
+		{
+		    Task::on(Property::EVENT_MAPPING, static::class, 'onTaskMap');
+	    }
+
+		public static function onTaskMap(Mapping $mapping)
+		{
+			$mapping->addQuery((new Query())
+				->select('COALESCE(SUM(prh.duration) * 60, 0) AS timeBooked')
+			    ->join('pr2_hours', 'prh', 'prh.task_id = task.id', 'left')
+			    ->groupBy(['task.id'])
+		    );
+	    }
+
+		// (...)
+	}
+
 
 
 Another bonus: scalars
