@@ -30,6 +30,7 @@ At the moment we have the following:
 - Nederlands
 - Norsk bokmål
 - Polski
+- Portugués - Portugal
 - Português - Brazil
 - Pусский
 - Romanian
