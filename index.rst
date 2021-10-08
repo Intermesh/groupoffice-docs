@@ -19,7 +19,7 @@ Visit https://www.group-office.com for more information.
    install/install
    upgrade/upgrade
    backup
-   migrate
+   migrate/index
    logging
    system-settings/index
 

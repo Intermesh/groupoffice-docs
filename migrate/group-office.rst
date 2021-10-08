@@ -6,8 +6,8 @@ the database.
 
 .. note:: The filesystem paths shown here might be different in your environment.
 
-Backup
-------
+Create the backup
+-----------------
 
 Determine where the data files are stored (You can also just open :ref:`config.php <configuration>` and
 lookup the value instead of using 'cat' and 'grep' on linux)::
@@ -98,3 +98,11 @@ Installing the backup on the new server
       set innodb_strict_mode=0;
 
    and retry.
+
+----------------
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Mailserver
+
+   mail-server
