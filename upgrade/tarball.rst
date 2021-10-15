@@ -25,6 +25,20 @@ tarball. But if you really want use it then follow these steps:
 
 .. note:: If you're upgrading from 6.2 to 6.3 or higher and you are running the CGI version of PHP then you need to add a reqrite rule to add the "Authorization" header. Read more at :ref:`cgi-authorization`.
 
+Registering a license
+`````````````````````
+
+When upgrading from 6.4 to 6.5, you may run into a licensing issue.
+
+Since 6.5, it is possible to install or reinstall a license from within Group Office itself, so you do not need to
+download the license file anymore. Make sure that you are logged as an administrator, click on the menu and select
+'Register'.
+
+.. figure:: /_static/upgrade/registration.png
+
+   Registration screen
+
+Click the 'Get license now' button, log in to the Group Office website, find your license key and paste it in the text box.
 
 Update script
 `````````````
