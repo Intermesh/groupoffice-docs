@@ -179,7 +179,11 @@ Or fetching a contact from a custom field::
    [assign contact = entity.customFields.<CONTACT_CUSTOM_FIELD_DATABASE_NAME> | entity:Contact]
    {{contact.name}}
    
-Custom fields often hold ID numbers. You can convert them to text like this:
+Custom fields often hold ID numbers. You can convert them to text like this::
 
-{{contact.customFields.asText.<DATABASE_NAME>}}
+   {{contact.customFields.asText.<DATABASE_NAME>}}
+   
+Sometimes it can be useful to show the database ID on the information panels. You can use this template for it::
+
+   {{entity.id}}
 
