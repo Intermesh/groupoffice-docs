@@ -226,6 +226,7 @@ The following template variables can be used to show information about the ticke
 - {ticket:last_name} Contact's last name.
 - {ticket:email} Contact's email address.
 - {ticket:phone} Contact's phone number.
+- {ticket:rate} The total amount in money spent on the ticket
 
 Options
 -------

@@ -164,6 +164,10 @@ It will find anything with "John Jacks*". Because of the automatic wildcards (*)
 If you want to search for a phrase or without wildcards then you can use quotes::
 
    name: "John Jacks"
+   
+If you want to search for evrry contact with a name starting with an 's' you can search for::
+
+   name: "s%"
 
 
 Look for duplicates
