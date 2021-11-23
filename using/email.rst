@@ -15,6 +15,9 @@ The e-mail module supports:
 - :ref:`links`
 - :ref:`sharing`
 
+.. note:: When linking an email, it is not the email itself that is linked, but a locally saved copy of that email.
+   Therefore, when you move or delete an email, the link is preserved.
+
 Creating accounts
 -----------------
 

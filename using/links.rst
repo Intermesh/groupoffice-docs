@@ -49,3 +49,21 @@ you can use the link browser.
 .. figure:: /_static/using/links/link-browser.png
 
   Link browser
+
+Managing links
+--------------
+
+Since a link is defined as a custom connection between two entities, a link will be automatically deleted when one of the
+linked entities is deleted.
+
+.. figure:: /_static/using/links/link-context-menu.jpg
+
+  Link menu
+
+Next to each link, you can call a small menu to do perform certain actions
+
+Optionally, one can edit a link by writing a description for it. This may enable the user to give a bit more
+information of the nature of said link.
+
+Of course, a link can be removed manually by selecting the Delete option in the menu.
+

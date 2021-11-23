@@ -299,7 +299,7 @@ The next step is to update the ``defineMapping`` method, to actually count the a
 		return parent::defineMapping()
 						->addTable("music_artist", "artist")
 						->addMap('albums', Album::class, ['id' => 'artistId']);
-						->setQuery((new Query())->select('COUNT(alb.id) AS albumCount')
+						->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
 							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
 	}
 
@@ -658,7 +658,7 @@ The next step is to create a model, which we extend from the ``AclOwnerEntity`` 
       {
           return parent::defineMapping()
               ->addTable('music_review')
-              ->setQuery((new Query())->select('a.name AS albumtitle')
+              ->addQuery((new Query())->select('a.name AS albumtitle')
                   ->join('music_album', 'a', 'a.id=music_review.albumId'));
       }
 
