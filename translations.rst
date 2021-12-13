@@ -64,7 +64,7 @@ Customize
 
 It's possible to customize language by overriding the default language string. For example if you want to rename "Address book" to "Contact" you create this file in the Admin personal file area::
 
-   language/legacy/addressbook/en.php
+   language/community/addressbook/en.php
    
 So this is language/<MODULE PACKAGE>/<MODULE NAME>/<LANGCODE>.php
 
