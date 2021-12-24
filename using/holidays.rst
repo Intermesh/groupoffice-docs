@@ -52,7 +52,9 @@ There are two ways to create a special leave budget:
 1. The employee files a leave request in the common way. The only difference is that the chosen leave type is special leave. When the manager approves this request, a special leave budget will be created automatically.
 2. The manager can create a special leave budget manually for the employee. It is up to the employee to file requests to spend the budgeted hours.
 
-A manager can edit leave budgets as needed, e.g. when an employee is entitled to more or fewer hours than initially requested.
+When an employee has multiple available special leave budgets, they can select the relevant special leave budget for
+their leave request. It is perfectly possible to have multiple simultaneous budget open or to submit a request for a new
+type of special leave. 
 
 Manager
 -------
@@ -62,3 +64,6 @@ employee adds new holidays.
 .. note::
 
    Managers will need manage permissions for the module so they can see all employees hours and approve them.
+
+
+A manager can edit leave budgets as needed, e.g. when an employee is entitled to more or fewer hours than initially requested.
