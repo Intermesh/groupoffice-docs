@@ -78,7 +78,6 @@ There's also a number of settings available for each activity type:
 
 - Budgetable: in order for the employee to register hours for this activity, a budget in hours needs to be defined.
 - The budget expires: When a budget is set and this option is enabled, the remaining budget will be set to zero for the next year.
-- Remaining budget is transferable over years: commonly used with certain types of special leave, any unspent hours are transferred to a new yearly budget.
 - Disabled: the employee is unable to register hours to this activity.
 
 .. note:: Special leave and holidays are managed in the :ref:`holidays <holidays>` module.

@@ -7,7 +7,7 @@ spend in a year. Every subsequent month, 1/12th of this available credit is adde
 
 Up to version 6.4, for each leave type, the budget had to be set for each individual year. In version 6.5 and up, a yearly
 credit is directly applied to the current employee agreement. Each year, the budget is renewed until an agreement is either
-updated or cancelled. Please see the :ref:`business <business>` page for more information
+updated or cancelled. Please see :ref:`the business documentation <business>` for more information.
 
 Specifically, for every user and every year, the following statistics are tracked:
 
@@ -54,7 +54,7 @@ There are two ways to create a special leave budget:
 
 When an employee has multiple available special leave budgets, they can select the relevant special leave budget for
 their leave request. It is perfectly possible to have multiple simultaneous budget open or to submit a request for a new
-type of special leave. 
+type of special leave.
 
 Manager
 -------
