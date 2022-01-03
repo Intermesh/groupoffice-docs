@@ -18,7 +18,7 @@ You need a Linux server with:
    Type                  Requirement
    ====================  ===========
    Operating System      Linux / Docker
-   Webserver             Apache 2+
+   Webserver             Apache 2+ / php-fpm or fastcgi
    Database              MySQL 5.7+ / MariaDB 10.0.5
    Programming language	 PHP 7.3+
    ====================  ===========

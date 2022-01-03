@@ -31,11 +31,18 @@ Major release upgrade
 When the second digit increases in the version number we call this a major release. For example when upgrading to 6.4 from 6.3.
 When upgrading to the next major release follow these steps prior to the above:
 
-1. Run the above command first to upgrade to the latest 6.3 (if you're on version 6.2 please read section below first).
+1. Run the above command first to upgrade to the latest 6.x
+   **Note**: if you're on version 6.2 please read section below first.
+
 2. Then open your browser to update the database.
-3. Then you need to adjust the repository in::
+3. Major release upgrades can't be skipped so you need to do them step by step.
+   Adjust the repository to the next major release in::
 
       /etc/apt/sources.list.d/groupoffice.list
+
+    - For 6.6 change it to::
+
+         deb http://repo.group-office.com/ sixsix main
       
     - For 6.5 change it to::
    
