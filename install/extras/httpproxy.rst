@@ -6,4 +6,7 @@ Sometimes it's handy to use a proxy like nginx to forward requests to an interna
 - X-Forwarded-Proto : http or https. This is the protocol the proxy server uses.
 - X-Forwarded-Host : The hostname of the proxy server.
 
-See for more information: https://linuxize.com/post/nginx-reverse-proxy/
+See for more information:
+
+- nginx: https://linuxize.com/post/nginx-reverse-proxy/
+- Apache: https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers
