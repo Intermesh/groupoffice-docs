@@ -100,18 +100,18 @@ This is the default mapping which also contains some examples::
    				},
    				'email' => 'mail',
 
-//				Example function to look for a preferred domain
-//				'email' => function($record) {
-//					// Look for email address with preferred domain
-//					foreach($record->mail as $email) {
-//						if(stristr($email, '@example.com')) {
-//							return $email;
-//						}
-//					}
-//
-//					//If not found return first.
-//					return $record->mail[0] ?? null;
-//				},
+    //				Example function to look for a preferred domain
+    //				'email' => function($record) {
+    //					// Look for email address with preferred domain
+    //					foreach($record->mail as $email) {
+    //						if(stristr($email, '@example.com')) {
+    //							return $email;
+    //						}
+    //					}
+    //
+    //					//If not found return first.
+    //					return $record->mail[0] ?? null;
+    //				},
 
    				'recoveryEmail' => 'mail',
    				'displayName' => 'cn',
