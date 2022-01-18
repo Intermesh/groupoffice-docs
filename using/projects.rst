@@ -237,8 +237,24 @@ Users don't need access to the projects module to use time tracking.
 
 When a user accidentally closed a week the manager can reopen it at Administration -> Employees. Double click an employee and set the close date back in time.
 
+
+Tasks
+-----
+
+Projects can be defined as a number of tasks that share a common goal. Group Office support task and task list management
+from within a project. You can find more information on tasks :ref:`on this page <tasks>`.
+
+.. figure:: /_static/using/projects/project-tasks-tab.png
+
+   Project task management
+
+
+
+
 Jobs
-----
+````
+
+.. attention:: As per version 6.6, project jobs have been obsoleted in favor of the new tasks module.
 
 In the jobs panel you can define smaller parts of the project. You can also select these in the time entry dialog to keep track of how much time these jobs took.
 

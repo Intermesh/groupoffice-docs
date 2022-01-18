@@ -48,6 +48,7 @@ Visit https://www.group-office.com for more information.
    using/notes
    using/business
    using/tickets
+   using/tasks
    using/projects
    using/holidays
    using/billing
