@@ -10,13 +10,28 @@ topics that we'll describe here.
 
    E-mail module
 
-The e-mail module supports:
 
-- :ref:`links`
-- :ref:`sharing`
+Linking and saving e-mails
+--------------------------
 
-.. note:: When linking an email, it is not the email itself that is linked, but a locally saved copy of that email.
-   Therefore, when you move or delete an email, the link is preserved.
+When the professional module "Save mail as" is installed, you can :ref:`link <links>` and save e-mails.
+
+You can do this via the save as menu:
+
+.. figure:: /_static/using/email/save-as-menu.png
+   :width: 400
+
+   Link or save an e-mail via the save as menu.
+
+or via right click on email in the message grid.
+
+When you link an e-mail it is copied from the mail server and stored in the Group-Office database. So when
+you delete mail from the mail server the linked e-mails will be preserved.
+
+.. note:: When linking an email, the copy inherits the permissions of the target item. So by linking the e-amil
+   you are sharing it with anybody who can see the project, contact or whatever item you are linking it
+   to.
+
 
 Creating accounts
 -----------------
@@ -63,12 +78,12 @@ go to:
 
 E-mail -> Administration -> Accounts -> Double click account -> Permissions
 
-Here you can add the users and user groups you want to grant access. 
+Here you can add the users and user groups you want to grant access. Read more
+about sharing :ref:`here <sharing>`.
 
 Secretary
----------
-
-If you want a secretary who handles calendar invitations, you may need to share 
+`````````
+If you want a secretary who handles calendar invitations, you may need to share
 the e-mail accounts too. It's important that you share the owner's e-mail 
 account instead of adding a duplicate mail account. Group-Office uses the e-mail 
 account owner to find the right calendar to store the appointments in.
@@ -86,6 +101,10 @@ When you share an account there are three levels:
 +-------------------+---------------------------------------------------------+
 | Manage            | The user has full access to the account                 |
 +-------------------+---------------------------------------------------------+
+
+
+
+
 
 Creating e-mail signatures or templates
 ---------------------------------------
