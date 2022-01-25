@@ -55,7 +55,8 @@ Visit https://www.group-office.com for more information.
    using/file-search
    using/chat
    using/studio
-   
+   using/oauth2
+
 .. toctree::
    :maxdepth: 2
    :caption: Contribute
