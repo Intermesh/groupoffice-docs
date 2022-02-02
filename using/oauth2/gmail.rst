@@ -4,10 +4,10 @@
 Use Gmail with OAuth2
 =====================
 
-Support for the Gmail IMAP server has been expanded with OAuth2. In the old days, a user would be able to log into Gmail
-with their email address and password. However, when a user enables 2 factor authentication, this is not possible anymore.
-One way to circumvent this, is the configuration of an `App Password or LSA <https://support.google.com/accounts/answer/6010255>`_,
-but Google itself `does not recommend this <https://support.google.com/accounts/answer/185833?>`_ :
+In the old days, a user would be able to log into Gmail with their email address and password. However, when a user
+enables 2 factor authentication, this is not possible anymore. One way to circumvent this, is the configuration of an
+`App Password or LSA <https://support.google.com/accounts/answer/6010255>`_, but Google itself `does not recommend
+this <https://support.google.com/accounts/answer/185833?>`_ :
 
 	Tip: App Passwords aren’t recommended and are unnecessary in most cases. To help keep your account secure, use "Sign
 	in with Google" to connect apps to your Google Account.
@@ -15,8 +15,6 @@ but Google itself `does not recommend this <https://support.google.com/accounts/
 .. warning:: LSA were supposed to be phased out by 2020. Also, in case you have not clicked the link above, LSA means 'Less Secure App' . Please do not use these anymore!
 
 This guide contains a HOWTO on how to connect your Gmail account through OAuth2 with Group Office.
-
-.. note:: This module is supported for versions 6.5 and up.
 
 Create an app
 `````````````
@@ -53,27 +51,3 @@ A note to developers
 When using the official `Group Office development environment <https://github.com/Intermesh/docker-groupoffice-development>`_,
 please make sure to set the URL to `http://localhost:8000` in the system settings. Localhost is the only non-https URL that
 accepted by Google. You cannot use `http://host.docker.internal:8000` as the URL in your system configuration.
-
-Configure a Group Office Account
-````````````````````````````````
-
-First, you should install the OAuth2Client module. It is in the community package.
-
-If you have set up your app in the API dashboard, you can :ref:`set up <email>` your Gmail account in Group Office. It
-does need to be in production status yet, but you have certain restrictions if it is still in testing.
-
-1. Open the accounts dialog and either add a new account or open an existing gmail account.
-2. In the tab 'Properties', make sure that the field 'Authentication Method' is set to 'GoogleOauth2'.
-
-.. figure:: /_static/using/oauth2/email-account-tab-properties.png
-   :width: 800px
-
-3. In the tab 'OAuth2', enter the client ID, client secret and project Id from the downloaded JSON file. and click 'Apply'.
-
-.. figure:: /_static/using/oauth2/email-account-tab-oauth.png
-   :width: 800px
-
-4. Gain a refresh token by clicking the button 'Refresh token'. A new window will open with a Google consent screen. Make sure that you check all checkboxes for gmail in the consent screen.
-5. Close the account dialog by clicking 'Ok'. Your refresh token should be saved.
-
-From now on, you will be able to use gmail in Group Office using OAuth2.
