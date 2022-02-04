@@ -20,7 +20,7 @@ for that.
 
 Login to Rocket.Chat as administrator and:
 
-1. Important: Disable OTP authentication at Administration -> Settings -> Accounts or it won't work.
+1. **Important**: Disable OTP authentication at Administration -> Settings -> Accounts or it won't work.
 2. go to Administration -> Settings -> OAuth.
 3. On the top right choose "Add custom oauth".
 4. Note the callback URL / or redirect URI on top. For some reason they made it grey so it doesn't stand out. You need that later when adding the client in Group-Office.
@@ -28,9 +28,14 @@ Login to Rocket.Chat as administrator and:
 6. Copy the settings from the image below. Instead of the example password choose a strong password.:
 
    .. figure:: /_static/system-settings/rocketchat/custom-oauth.png
-      :width: 100%
+      :width: 80%
 
        Rocket Chat custom oauth settings
+
+   .. figure:: /_static/system-settings/rocketchat/custom-oauth-2.png
+         :width: 80%
+
+          Rocket Chat custom oauth settings part 2
 
 7. Login to Group-Office and go to System Settings -> Oauth 2.0
 8. Click "Add client" and fill in the fields:
@@ -50,6 +55,8 @@ Login to Rocket.Chat as administrator and:
          :width: 80%
 
           Rocket Chat oauth client
+
+
 
 9. Click save and test if you can login with Group-Office. You should see a "Login with Group-Office" button.
 
