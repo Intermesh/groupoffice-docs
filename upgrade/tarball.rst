@@ -48,7 +48,7 @@ given directory.
 
 You can run it like this::
 
-    ./update-groupoffice.sh <DIR_OF GROUPOFFICE>
+    ./update_groupoffice.sh <DIR_OF GROUPOFFICE>
 
 
 .. warning:: Please backup before using!
@@ -57,6 +57,12 @@ You can run it like this::
 
     #!/bin/bash
     set -e
+
+    if [ -z "$1" ]
+      then
+        echo "Please supply the target directory"
+        exit 1;
+    fi
 
     TARGET=$1
 
@@ -71,16 +77,30 @@ You can run it like this::
         exit 1
     fi
 
-    read -r -p "Are you sure you want to update directory '$TARGET'? [y/N]" response;
+    get_latest_release() {
+      curl --silent "https://api.github.com/repos/intermesh/groupoffice/releases/latest" | # Get latest release from GitHub api
+        grep '"tag_name":' |                                            # Get tag line
+        sed -E 's/.*"v([^"]+)".*/\1/'                                    # Pluck JSON value
+    }
+
+    if [ -z "$2" ]
+      then
+        VERSION=`get_latest_release`
+    else
+        VERSION=$2;
+    fi
+
+    read -r -p "Are you sure you want to update directory '$TARGET' to Group-Office version '$VERSION'? [y/N]" response;
     if [[ "$response" != "y"  ]]; then
         exit 0
     fi
 
+    rm -rf goupdate
     mkdir -p goupdate
     cd goupdate
-    rm -f download
-    wget https://sourceforge.net/projects/group-office/files/latest/download
-    tar zxf download
+
+    wget https://github.com/Intermesh/groupoffice/releases/download/v$VERSION/groupoffice-$VERSION.tar.gz
+    tar zxf groupoffice-$VERSION.tar.gz
 
     GO=`ls | grep groupoffice`
     echo $GO

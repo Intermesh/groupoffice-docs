@@ -66,3 +66,17 @@ Clear calendar holiday cache
 ----------------------------
 
 Recalculates holidays in the calendar.
+
+
+Reset JMAP sync state
+---------------------
+
+It's recommended to use the JMAP API but when making changes to the database directly it could be
+useful to make clients resynchronize an entity::
+
+    sudo -u www-data cli.php core/System/resetSyncState --entity=Contact
+
+or to resynchronize everything::
+
+    sudo -u www-data cli.php core/System/resetSyncState
+
