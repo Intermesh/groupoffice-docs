@@ -428,3 +428,10 @@ You can run it with this command::
    ./cli.php core/System/jmap < jmap.json > contacts.xlsx
 
 We pipe the output directly to a file because the System/blob outputs binary data in this case.
+
+
+.. note:: We also created a wrapper command to do this::
+
+      cli.php community/addressbook/AddressBook/export --addressBookId=3 --format=csv 
+      
+      
