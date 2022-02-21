@@ -434,4 +434,11 @@ We pipe the output directly to a file because the System/blob outputs binary dat
 
       cli.php community/addressbook/AddressBook/export --addressBookId=3 --format=csv 
       
+   And these too::
+      
+      ./cli.php community/tasks/Tasklist/export --tasklistId=4 --format=csv
+      ./cli.php community/notes/NoteBook/export --noteBookId=65 --format=csv
+      
+   
+      
       
