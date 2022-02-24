@@ -1,7 +1,9 @@
 Projects
 ========
 
-With the projects module you can easily manage project information in one place and keep track of worked hours, material usage and travel costs. You can also share projects with customers and co-workers. With the project tasks it's easy for employees and the manager to keep track of the project progress.
+With the projects module you can easily manage project information in one place and keep track of worked hours,
+material usage and travel costs. You can also share projects with customers and co-workers. With the project tasks
+it's easy for employees and the manager to keep track of the project progress.
 
 The managers also have reports about progress and budgeting.
 
@@ -88,9 +90,8 @@ Jobs
 
 On this tab you can define default project:
 
-- Tasks
+- Tasks, either linked to the users' default list or in a special project task list
 - Sub projects
-- Jobs
 
 On the name and description fields you can use template tags like:
 
@@ -237,17 +238,6 @@ Users don't need access to the projects module to use time tracking.
 
 When a user accidentally closed a week the manager can reopen it at Administration -> Employees. Double click an employee and set the close date back in time.
 
-Jobs
-----
-
-In the jobs panel you can define smaller parts of the project. You can also select these in the time entry dialog to keep track of how much time these jobs took.
-
-Before you can use jobs you must setup employees for the project. Otherwise the jobs panel will stay disabled.
-
-.. figure:: /_static/using/projects/jobs.png
-   :width: 50%
-
-   Project jobs
 
 Hours approval
 --------------
