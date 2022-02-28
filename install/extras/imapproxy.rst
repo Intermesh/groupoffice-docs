@@ -76,4 +76,8 @@ run::
    tls_ca_path /etc/ssl/certs/
 
 
+Updating accounts
+-----------------
+You can of course update accounts one by one but you can also use this SQL command to do it all at once::
 
+   update em_accounts set port = 1143 where host='localhost';

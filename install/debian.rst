@@ -16,6 +16,8 @@ Our preferred way of installing is using our Debian packages:
 
       sudo add-apt-repository universe
 
+   When using Ubuntu Impish 20.10 or higher you need to install PHP 7.4. See https://groupoffice.blogspot.com/2022/02/ubuntu-impish-2110.html
+
 3. First add our repository to the package management system::
 
      echo "deb http://repo.group-office.com/ sixsix main" > /etc/apt/sources.list.d/groupoffice.list

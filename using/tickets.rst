@@ -227,6 +227,7 @@ The following template variables can be used to show information about the ticke
 - {ticket:email} Contact's email address.
 - {ticket:phone} Contact's phone number.
 - {ticket:rate} The total amount in money spent on the ticket
+- {ticket:rateHours} The total amount in hours spent on the ticket
 
 Options
 -------
