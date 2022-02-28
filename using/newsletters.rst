@@ -9,6 +9,19 @@ Newsletters
 
 The newsletters module is an easy tool to manage address lists and send out newsletters. Using powerful templates you can personalize your messages.
 
+Accounts
+--------
+
+You can manage SMTP accounts from System Settings screen, tab Newsletters.
+
+.. figure:: /_static/using/newsletters/system-settings.png
+   :alt: Account management
+   :width: 100%
+
+   Account management
+
+.. tip:: If you need to prevent your SMTP server to end up on a spam blacklist, you can maximize the number of messages sent per minute.
+
 Create lists
 ------------
 
@@ -163,3 +176,4 @@ A number formatted in Dutch style with 2 decimals::
    
 
    
+
