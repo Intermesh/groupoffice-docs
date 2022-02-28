@@ -33,7 +33,7 @@ Permission types
 ````````````````
 Permission types control who can access projects in the projects module. You don't set permissions per project but each project can have a permission type. If you're a small organization just one permission type might be sufficient. But if you have different departments it could be useful to setup a permission type for each department. It just depends on who may see the project information.
 
-The permission levels are straight forward and you can read more about it :ref:`here <sharing>`.
+The permission levels are straightforward and you can read more about it :ref:`here <sharing>`.
 
 .. note:: **Root level**
 
@@ -238,6 +238,33 @@ Users don't need access to the projects module to use time tracking.
 
 When a user accidentally closed a week the manager can reopen it at Administration -> Employees. Double click an employee and set the close date back in time.
 
+
+Tasks
+-----
+
+Projects can be defined as a number of tasks that share a common goal. Group Office support task and task list management
+from within a project. You can find more information on tasks :ref:`on this page <tasks>`.
+
+.. figure:: /_static/using/projects/project-tasks-tab.png
+
+   Project task management
+
+
+
+
+Jobs
+````
+
+.. attention:: As per version 6.6, project jobs have been obsoleted in favor of the new tasks module.
+
+In the jobs panel you can define smaller parts of the project. You can also select these in the time entry dialog to keep track of how much time these jobs took.
+
+Before you can use jobs you must setup employees for the project. Otherwise the jobs panel will stay disabled.
+
+.. figure:: /_static/using/projects/jobs.png
+   :width: 50%
+
+   Project jobs
 
 Hours approval
 --------------
