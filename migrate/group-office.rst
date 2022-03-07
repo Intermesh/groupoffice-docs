@@ -44,11 +44,11 @@ Create the backup
 
       a. create an archive of this folder::
       
-         tar czf groupoffice-backup.tar.gz /var/lib/groupoffice
+            tar czf groupoffice-backup.tar.gz /var/lib/groupoffice
       
       b. or transfer it directly with 'rsync' to the new server::
       
-         rsync -av /var/lib/groupoffice user@newserver.com:/var/lib
+            rsync -av /var/lib/groupoffice user@newserver.com:/var/lib
 
 Installing the backup on the new server
 ---------------------------------------
