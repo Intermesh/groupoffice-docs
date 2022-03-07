@@ -26,14 +26,15 @@ Create the backup
    and lookup the values instead of using 'cat' and 'grep' on linux)::
 
       cat config.php | grep db
+ 
 
   This outputs::
 
-      $config['db_type']='mysql';
-      $config['db_host']='localhost';
-      $config['db_name']='groupoffice';
-      $config['db_user']='groupoffice';
-      $config['db_pass']='password';
+     $config['db_type']='mysql';
+     $config['db_host']='localhost';
+     $config['db_name']='groupoffice';
+     $config['db_user']='groupoffice';
+     $config['db_pass']='password';
 
 4. Now create a dump of the database (replace '/var/lib/groupoffice/' with your actual path found in step 1)::
 
@@ -43,7 +44,7 @@ Create the backup
 
       a. create an archive of this folder::
       
-          tar czf groupoffice-backup.tar.gz /var/lib/groupoffice
+         tar czf groupoffice-backup.tar.gz /var/lib/groupoffice
       
       b. or transfer it directly with 'rsync' to the new server::
       
