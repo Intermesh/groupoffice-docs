@@ -48,34 +48,49 @@ Create the backup
       
       b. or transfer it directly with 'rsync' to the new server::
       
-            rsync -av /var/lib/groupoffice user@newserver.com:/var/lib
+            rsync -av /var/lib/groupoffice user@newserver.com:/tmp
 
 Installing the backup on the new server
 ---------------------------------------
 
-1. Install a clean :ref:`install` following this manual. You can install a newer version. Pick a version that can upgrade your current version. Please refer to the upgrade page.
+1. Install a clean :ref:`install` following this manual. You can install a newer version. Pick a version that can upgrade your current version. Please refer to the :ref:`upgrade` page.
 2. If you created the archive then copy it to the new server in /tmp
-   a. Replace the file folder with the groupoffice-backup.tar.gz contents. For example::
 
-      # change to /tmp
-      cd /tmp
+   a. If you created an archive then unpack it and replace the files folder with the groupoffice-backup.tar.gz contents. For example:
+
+      Change to /tmp::
+
+         cd /tmp
       
-      # unpack archive
-      tar -zxf groupoffice-backup.tar.gz
+      Unpack the backup archive::
+
+         tar -zxf groupoffice-backup.tar.gz
       
-      #backup the existing folder (should be empty but to be safe)
-      mv /var/lib/groupoffice /var/lib/groupofficebak
+      Backup the existing folder (should be empty but to be safe)::
+
+         mv /var/lib/groupoffice /var/lib/groupofficebak
       
-      # move unpacked folder to /var/lib
-      mv groupoffice /var/lib/
+      Move the unpacked folder to /var/lib::
+
+         mv groupoffice /var/lib/
       
-      # replace www-data with your web server user in the following command
-      chown -R www-data:www-data /var/lib/groupoffice 
+      Replace www-data with your web server user in the following command::
+
+         chown -R www-data:www-data /var/lib/groupoffice
+
+   b. If you used 'rsync' to transfer the data to /tmp then move it to the right place::
+
+      Backup the existing folder (should be empty but to be safe)::
+
+         mv /var/lib/groupoffice /var/lib/groupofficebak
+
+      Move the transferred data to the right place::
+
+         mv /tmp/groupoffice /var/lib
       
       
-4. Replace the database with the mysqldump created in the backup. For example::
-      
-      # Import dump file to mysql
+4. Import MySQL dumpfile created in the backup into the empty database::
+
       mysql groupoffice -u groupoffice -p < /var/lib/groupoffice/groupoffice-20190101.sql
       
 5. Run /install/ to finish.
