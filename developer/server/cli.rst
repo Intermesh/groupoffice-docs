@@ -432,12 +432,16 @@ We pipe the output directly to a file because the System/blob outputs binary dat
 
 .. note:: We also created a wrapper command to do this::
 
-      cli.php community/addressbook/AddressBook/export --addressBookId=3 --format=csv 
+      ./cli.php community/addressbook/AddressBook/export --addressBookId=3 --format=csv
       
    And these too::
-      
+      ./cli.php community/addressbook/AddressBook/delete --addressBookId=3
       ./cli.php community/tasks/Tasklist/export --tasklistId=4 --format=csv
       ./cli.php community/notes/NoteBook/export --noteBookId=65 --format=csv
+      ./cli.php community/tasks/Tasklist/delete --tasklistId=4
+      ./cli.php community/tasks/NoteBook/delete --tasklistId=4
+      ./cli.php  core/System/deleteGroup --id=29
+      ./cli.php  core/System/deleteUser --id=29
       
    
       
