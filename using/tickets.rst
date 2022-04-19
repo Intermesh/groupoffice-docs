@@ -220,6 +220,7 @@ The following template variables can be used to show information about the ticke
 - {LINK} Hyperlink to the ticket's page.
 - {ticket:ticket_number}
 - {ticket:subject}
+- {ticket:type}
 - {ticket:company}
 - {ticket:first_name} Contact's first name.
 - {ticket:middle_name} Contact's middle name.
