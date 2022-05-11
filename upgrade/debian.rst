@@ -14,14 +14,11 @@ To upgrade minor releases run:
    apt-get update
    apt-get install groupoffice
 
-This will install the new software but doesn't upgrade the database. When launching Group-Office it
-will guide you through the database upgrade. You can also do this step on the command line.
+This will install the new software but doesn't upgrade the database.
+When Group-Office open Group-Office now they will get a message that the service is unavailable at this time because an
+upgrade is being installed.
 
-Version 6.3.97+::
-
-   php /usr/share/groupoffice/upgrade.php -c=/etc/groupoffice/config.php
-
-Version 6.4+::
+Launch /install to upgrade the database or run it on the command line::
 
    php /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
    
