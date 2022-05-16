@@ -14,16 +14,16 @@ To upgrade minor releases run:
    apt-get update
    apt-get install groupoffice
 
-This will install the new software but doesn't upgrade the database. When launching Group-Office it
-will guide you through the database upgrade. You can also do this step on the command line.
+This will install the new software but doesn't upgrade the database.
+When Group-Office open Group-Office now they will get a message that the service is unavailable at this time because an
+upgrade is being installed.
 
-Version 6.3.97+::
-
-   php /usr/share/groupoffice/upgrade.php -c=/etc/groupoffice/config.php
-
-Version 6.4+::
+Launch /install to upgrade the database or run it on the command line::
 
    php /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
+   
+
+.. note:: In 6.6 we changed the dependency from "mariadb-server" or "mysql-server" into a recommendation for the "default-mysql-server". On Ubuntu server this leads to the situation where "mariadb-server" is suggested to be auto removed. To solve this you can install it manually with "apt install mariadb-server".
 
 
 Major release upgrade

@@ -235,3 +235,22 @@ If you need to entirely clean up your generated code, there's two steps to be ta
 
 .. warning:: You **will** encounter error messages if you perform the second step without performing the
    first step. In certain cases, you will not be able to log into GroupOffice anymore.
+
+
+Converting a Generating Module
+------------------------------
+
+If you migrate from Group Office 6.5 to 6.6, the minimum supported PHP version is bumped up to 7.3 . Older Studio modules
+will not run anymore, since we implemented return type hinting in 6.6. Older studio versions do not generate the code
+with return type hinting, so the generated PHP files need to be converted.
+
+Normally, this conversion happens automatically. It is just part of the update process. If for some reason, you still need
+to convert modules manually, we have written a convenient :ref:`CLI<cli>` tool. Log onto your server, navigate to the
+Group Office installation subdirectory and run the following command::
+
+		# sudo -u www-data php cli.php business/studio/Studio/patch65to66
+
+Please note that the module itself needs to be visible from the studio module, i.e. in the ``studio_studio`` table a
+record must exist that refers to your generated module.
+
+

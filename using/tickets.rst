@@ -220,6 +220,7 @@ The following template variables can be used to show information about the ticke
 - {LINK} Hyperlink to the ticket's page.
 - {ticket:ticket_number}
 - {ticket:subject}
+- {ticket:type}
 - {ticket:company}
 - {ticket:first_name} Contact's first name.
 - {ticket:middle_name} Contact's middle name.
@@ -227,6 +228,7 @@ The following template variables can be used to show information about the ticke
 - {ticket:email} Contact's email address.
 - {ticket:phone} Contact's phone number.
 - {ticket:rate} The total amount in money spent on the ticket
+- {ticket:rateHours} The total amount in hours spent on the ticket
 
 Options
 -------

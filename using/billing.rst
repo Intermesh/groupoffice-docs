@@ -186,21 +186,21 @@ In the e-mail template per status you can use the following variables:
 Order data
 ++++++++++
 
-- {company_id}		 The company id
-- {contact_id}		 The contact id
-- {id}		         The database id of the order
-- {order_id}		 The textual order ID
-- {po_id}			 The purchase order ID
-- {btime}			 The date of the order
-- {due_date}		Due date for payment
-- {due_days}		Days left for payment
-- {dtime)		Delivery date
-- {reference}		 The order reference
-- {total}			 The gross amount of the order 
-- {subtotal}		 The nett amount of the order
-- {vat}
-- {total_paid}          Amount paid
-- {total_outstanding}   Amount outstanding (Since 6.4.75)
+- {order:company_id}		 The company id
+- {order:contact_id}		 The contact id
+- {order:id}		         The database id of the order
+- {order:order_id}		 The textual order ID
+- {order:po_id}			 The purchase order ID
+- {order:btime}			 The date of the order
+- {order:due_date}		Due date for payment
+- {order:due_days}		Days left for payment
+- {order:dtime)		Delivery date
+- {order:reference}		 The order reference
+- {order:total}			 The gross amount of the order
+- {order:subtotal}		 The nett amount of the order
+- {order:vat}
+- {order:total_paid}          Amount paid
+- {order:total_outstanding}   Amount outstanding (Since 6.4.75)
 
 Custom fields
 +++++++++++++

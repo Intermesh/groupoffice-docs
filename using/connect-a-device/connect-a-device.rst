@@ -11,6 +11,7 @@ The following items can be synchronized:
 - Notes
 - Tasks
 - E-mail
+- Files
 
 On desktop computers you can edit files directly with your desktop applications.
 

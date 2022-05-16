@@ -36,8 +36,7 @@ On Debian based distributions you can install the Group Office Assistant.
 
 2. Add our public key::
 
-      gpg --keyserver pool.sks-keyservers.net --recv-keys 0758838B
-      gpg --export --armor 0758838B | sudo apt-key add -
+      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0758838B
 
 3. Update APT::
 

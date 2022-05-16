@@ -1,7 +1,9 @@
 Projects
 ========
 
-With the projects module you can easily manage project information in one place and keep track of worked hours, material usage and travel costs. You can also share projects with customers and co-workers. With the project tasks it's easy for employees and the manager to keep track of the project progress.
+With the projects module you can easily manage project information in one place and keep track of worked hours,
+material usage and travel costs. You can also share projects with customers and co-workers. With the project tasks
+it's easy for employees and the manager to keep track of the project progress.
 
 The managers also have reports about progress and budgeting.
 
@@ -31,7 +33,7 @@ Permission types
 ````````````````
 Permission types control who can access projects in the projects module. You don't set permissions per project but each project can have a permission type. If you're a small organization just one permission type might be sufficient. But if you have different departments it could be useful to setup a permission type for each department. It just depends on who may see the project information.
 
-The permission levels are straight forward and you can read more about it :ref:`here <sharing>`.
+The permission levels are straightforward and you can read more about it :ref:`here <sharing>`.
 
 .. note:: **Root level**
 
@@ -88,9 +90,8 @@ Jobs
 
 On this tab you can define default project:
 
-- Tasks
+- Tasks, either linked to the users' default list or in a special project task list
 - Sub projects
-- Jobs
 
 On the name and description fields you can use template tags like:
 
