@@ -1,3 +1,6 @@
+.. _email:
+
+
 E-mail
 ======
 
@@ -36,6 +39,9 @@ you delete mail from the mail server the linked e-mails will be preserved.
 Creating accounts
 -----------------
 
+User name and password
+``````````````````````
+
 Only users with manage permissions for the e-mail module can create e-mail 
 accounts. If you don't have manage permissions then you can only edit your 
 e-mail address, sender name and signature if you have one pre-configured.
@@ -64,6 +70,12 @@ this account. If you are an administrator you can also set it up for another
 user by selecting it here. At last fill in the other values you got from your 
 e-mail service provider. If you get a 'certificate-failure' error then tick 
 the 'Don't validate certificate' option.
+
+
+OAuth2
+``````
+
+A secure way to log in to cloud based email is OAuth2. Currently, only :ref:`Gmail <gmail>` is supported.
 
 Synchronize e-mail
 ------------------
