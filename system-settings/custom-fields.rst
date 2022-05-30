@@ -123,6 +123,10 @@ Where:
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
 
+.. note::
+
+	Older modules have a slightly weird issue with comboboxes. For example: if you want to add a condition to filter on project status, the proper syntax would be `status_id = Closed`.
+
 Examples
 ````````
 
