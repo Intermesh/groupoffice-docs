@@ -154,7 +154,7 @@ then the condition should read something like this:
 
 .. code::
 
-	(theAnswer = 42 AND ((homePlanetDestructionDate IS NOT NULL AND hasTowel = 0) OR (homePlanetDestructionDate IS NULL AND hasTowel = 1)))
+	(theAnswer = 42 AND ((homePlanetDestructionDate is not empty AND hasTowel = 0) OR (homePlanetDestructionDate is empty AND hasTowel = 1)))
 
 
 Template field
