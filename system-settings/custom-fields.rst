@@ -187,3 +187,6 @@ Sometimes it can be useful to show the database ID on the information panels. Yo
 
    {{entity.id}}
 
+
+More documentation about the template syntax can be found :ref:`here <template_syntax>`.
+
