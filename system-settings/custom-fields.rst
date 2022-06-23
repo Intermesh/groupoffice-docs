@@ -165,6 +165,11 @@ You can for example take the first linked contact and store it's name::
     [assign firstContactLink = entity | links:Contact | first]
     {{firstContactLink.name}}
 
+Or the first project (A list of entities is available in the database table core_link.clientName)::
+
+    [assign firstProjectLink = entity | links:Project | first]
+    {{firstProjectLink.name}}
+
 Or store the postal code of the first linked contact::
 
     [assign firstContactLink = entity | links:Contact | first]
