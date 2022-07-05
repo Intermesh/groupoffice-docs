@@ -50,6 +50,10 @@ Checks if the filesystem is in sync with the database. Adds and removes missing 
 You can run it on the command line too::
 
    sudo -u www-data groupofficecli.php -r=files/folder/syncFilesystem
+   
+Or specify a path::
+
+   sudo -u www-data groupofficecli.php -r=files/folder/syncFilesystem --path=projects2
 
 
 Update file search index
