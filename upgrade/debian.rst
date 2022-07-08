@@ -20,7 +20,7 @@ upgrade is being installed.
 
 Launch /install to upgrade the database or run it on the command line::
 
-   php /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
+   sudo -u www-data /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
    
 
 .. note:: In 6.6 we changed the dependency from "mariadb-server" or "mysql-server" into a recommendation for the "default-mysql-server". On Ubuntu server this leads to the situation where "mariadb-server" is suggested to be auto removed. To solve this you can install it manually with "apt install mariadb-server".
