@@ -74,13 +74,14 @@ For optimal Group-Office perfomance we recommend these settings. This will allow
 .. table:: PHP settings
    :widths: auto
 
-   ====================  ===========
-   Name                  Value
-   ====================  ===========
-   memory_limit          256M
-   post_max_size         1000M
-   upload_max_filesize   1000M
-   ====================  ===========
+   ======================  ===========  ========================================================================================
+   Name                    Value        Explanation
+   ======================  ===========  ========================================================================================
+   memory_limit            256M         For example parsing large e-mail messages for ActiveSync require high memory usage.
+   post_max_size           1G           Allows for uploading files of 1GB size. Raise if you need more.
+   upload_max_filesize     1G.          Allows for uploading files of 1GB size. Raise if you need more.
+   session.gc_maxlifetime  86400        The default of 30 minutes will cause a logout if you leave your computer for 30 minutes.
+   ======================  ===========  ========================================================================================
 
 Locking system settings
 -----------------------
