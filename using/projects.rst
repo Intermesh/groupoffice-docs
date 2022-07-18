@@ -24,7 +24,7 @@ The projects module supports:
 .. note:: Having trouble with making time entries? 
 
    Make sure the projects are not having a status that is closed. Also make sure 
-   the user account is set as an `employee <employees_>`_ and project resource.
+   the user account is an :ref:`employee of a business <business>`. and project resource.
 
 Administration
 --------------
@@ -132,7 +132,8 @@ It's also possible to exclude hours from billing or to setup different fees per 
 Employees
 `````````
 
-Every user that needs access to time tracking must be an employee of a business. Go to System Settings -> Users. Double click a user and go to the "Employee" tab. The minimal field required is the value for "Business". When that is set the user will be available as a resource for projects.
+Every user that needs access to time tracking must be an :ref:`employee of a business <business>`. Go to
+System Settings -> Users. Double click a user and go to the "Employee" tab. The minimal field required is the value for "Business". When that is set the user will be available as a resource for projects.
 
 To make the projects available for the time tracking module of a user you'll also need to define for each project which employees are working on it.
 To do that, you'll need to open the edit dialog of a project and go to the "Employees" tab.
