@@ -139,6 +139,16 @@ This is the default mapping which also contains some examples::
    				'workFax' => 'facsimiletelephonenumber',
    				'workPhone' => 'telephonenumber',
 
+   	//				// example for contact custom fields
+    //				'contactCustomFields' => [
+    //					'field' => 'employeeType'
+    //				],
+    //
+    //				// example for user custom fields
+    //				'userCustomFields' => [
+    //					'field' => 'ou'
+    //				]
+
    				'organization' => 'organizationname',
 
    //				'homeDir' => function($record) {
