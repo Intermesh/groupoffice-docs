@@ -22,6 +22,7 @@ Visit https://www.group-office.com for more information.
    migrate/index
    logging
    system-settings/index
+   troubleshooting/index
 
 .. toctree::
    :maxdepth: 2

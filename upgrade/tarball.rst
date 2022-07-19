@@ -23,7 +23,7 @@ tarball. But if you really want use it then follow these steps:
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
 
-.. note:: If you're upgrading from 6.2 to 6.3 or higher and you are running the CGI version of PHP then you need to add a reqrite rule to add the "Authorization" header. Read more at :ref:`cgi-authorization`.
+.. note:: If you're upgrading from 6.2 to 6.3 or higher and you are running the CGI version of PHP then you need to add a rewrite rule to add the "Authorization" header. Read more at :ref:`cgi-authorization`.
 
 Registering a license
 `````````````````````
