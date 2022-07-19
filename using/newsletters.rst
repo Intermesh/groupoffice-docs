@@ -89,6 +89,8 @@ Fields of the user who created the newsletter
 - creator.username
 
 
+.. _template_syntax:
+
 Syntax
 ``````
 

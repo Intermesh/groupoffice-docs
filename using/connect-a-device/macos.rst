@@ -59,8 +59,8 @@ Unfortunately the MacOS webdav implementation can be rather slow due to a lot of
 We found that the `Mountain Duck WebDAV client <https://mountainduck.io>`_ is much faster.
 
 
-Calendar & Contacts
--------------------
+Calendar, Reminders and Contacts
+--------------------------------
 
 Adding contacts and calendar accounts work identically in MacOS. Just choose 
 "CalDAV" for calendars and "CardDAV" for contacts.
@@ -84,6 +84,11 @@ Adding contacts and calendar accounts work identically in MacOS. Just choose
 
    .. figure:: /_static/macos-caldav/4-add-caldav-account.png
       :width: 400px
+
+   .. note:: On some servers the auto detection fails. In that case you can try to set the type to advanced and add this
+      path (The trailing / is important here)::
+
+         /caldav/principals/<YOURUSERNAME>/
 
 5. Click "Sign in" to finish and you might be able to select additional data sources in the account settings screen.
 

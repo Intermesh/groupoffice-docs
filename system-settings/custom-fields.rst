@@ -169,6 +169,11 @@ You can for example take the first linked contact and store it's name::
     [assign firstContactLink = entity | links:Contact | first]
     {{firstContactLink.name}}
 
+Or the first project (A list of entities is available in the database table core_link.clientName)::
+
+    [assign firstProjectLink = entity | links:Project | first]
+    {{firstProjectLink.name}}
+
 Or store the postal code of the first linked contact::
 
     [assign firstContactLink = entity | links:Contact | first]
@@ -190,4 +195,7 @@ Custom fields often hold ID numbers. You can convert them to text like this::
 Sometimes it can be useful to show the database ID on the information panels. You can use this template for it::
 
    {{entity.id}}
+
+
+More documentation about the template syntax can be found :ref:`here <template_syntax>`.
 
