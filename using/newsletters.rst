@@ -148,6 +148,7 @@ A simple example template::
 
    {{creator.displayName}}
    {{creator.profile.organizations[0].name}}
+   {{creator.profile.phoneNumbers[0].number}}
    
 
 Finding a contact with id = 1 ::
