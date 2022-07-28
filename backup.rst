@@ -31,7 +31,7 @@ Steps:
 1. Load the backup database in a temporary database called "groupoffice_temp" in this example::
 
       mysql -e 'create database groupoffice_temp;'
-      mysql -p groupoffice_temp < backup.sql
+      mysql groupoffice_temp < backup.sql
       mysqldump --no-create-info --insert-ignore --complete-insert groupoffice_temp > merge-data.sql
 
 2. Your file merge-data.sql will contain the command to insert in the database and ignore the insert if the record already
