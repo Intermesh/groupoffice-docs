@@ -89,6 +89,23 @@ The custom field will show in the:
    Toggle custom fields in grid columns
 
 
+Permissions
+-----------
+
+By default, custom field sets and fields can only be managed by administrator users. In order to enable end users to manage
+field sets, add the 'Change custom fields' permission to the desired users or groups. This can be found in System Settings
+-> Modules -> System Permissions.
+
+
+Fieldsets versus entities
+`````````````````````````
+
+Please note that fieldset permissions are independent on the permissions for the individual entities. When editing custom
+fields for an individual entity, the permissions are inherited from said entity. Custom fields for entities depend on the
+permissions for the entity proper and not on the field set. However, if an end user wants to edit a field set for a
+certain entity type, the permissions for the *field set* apply.
+
+
 Filters
 -------
 
