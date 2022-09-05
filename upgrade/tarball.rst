@@ -5,6 +5,7 @@ We strongly recommend that you use our Debian packages or Docker instead of the
 tarball. But if you really want use it then follow these steps:
 
 1. Grab the version to install from https://github.com/Intermesh/groupoffice/releases
+   Remember to upgrade to each 6.x major release step by step. Grab older releases from: https://sourceforge.net/projects/group-office/files/
 2. Make sure your system meets the :ref:`system-requirements`.
 3. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
 4. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 

@@ -30,14 +30,14 @@ Steps:
 
 1. Load the backup database in a temporary database called "groupoffice_temp" in this example::
 
-      mysql -u root -p -e 'create database groupoffice_temp;'
-      mysql -u root -p groupoffice_temp < backup.sql
-      mysqldump --no-create-info --insert-ignore --complete-insert -u root -p groupoffice_temp > merge-data.sql
+      mysql -e 'create database groupoffice_temp;'
+      mysql groupoffice_temp < backup.sql
+      mysqldump --no-create-info --insert-ignore --complete-insert groupoffice_temp > merge-data.sql
 
 2. Your file merge-data.sql will contain the command to insert in the database and ignore the insert if the record already
    exists. Now load this into your live database called "groupoffice_live" in this example::
 
-      mysql -u root -p groupoffice_live < merge-data.sql
+      mysql groupoffice_live < merge-data.sql
 
 3. Now all records should be back in the database. To reset the Group-Office cache and sync states run the upgrade procdure in the browser::
 
