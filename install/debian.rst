@@ -252,7 +252,20 @@ To install take these steps:
 
 7. Checkout the rspamd Web GUI at http://yourserver/rspamd/
 
+Database credentials
+````````````````````
 
+The mailserver connects to the "groupoffice" database to lookup mailboxes, aliases and domains. If you need to change the "groupoffice" database password, username or name. Then you also need to change the login details in these files:
+
+- /etc/dovecot/dovecot-groupoffice-sql.conf.ext
+- /etc/postfix/mysql_virtual_mailbox_maps.cf
+- /etc/postfix/mysql_virtual_mailbox_domains.cf
+- /etc/postfix/mysql_virtual_alias_maps.cf
+
+Afterwards restart postfix and dovecot::
+
+   systemctl restart postfix
+   systemctl restart dovecot
 
 .. _install-documents:
 
@@ -270,17 +283,4 @@ These tools provide support for:
 - PDF documents
 
 
-Database credentials
---------------------
 
-The mailserver connects to the "groupoffice" database to lookup mailboxes, aliases and domains. If you need to change the "groupoffice" database password, username or name. Then you also need to change the login details in these files:
-
-- /etc/dovecot/dovecot-groupoffice-sql.conf.ext
-- /etc/postfix/mysql_virtual_mailbox_maps.cf
-- /etc/postfix/mysql_virtual_mailbox_domains.cf
-- /etc/postfix/mysql_virtual_alias_maps.cf
-
-Afterwards restart postfix and dovecot::
-
-   systemctl restart postfix
-   systemctl restart dovecot
