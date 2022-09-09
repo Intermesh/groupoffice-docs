@@ -75,7 +75,8 @@ the 'Don't validate certificate' option.
 OAuth2
 ``````
 
-A secure way to log in to cloud based email is OAuth2. Currently, only :ref:`Gmail <gmail>` is supported.
+A secure way to log in to cloud based email is OAuth2. Currently, only :ref:`Gmail <gmail>` and :ref:`Azure <azure>` are
+supported.
 
 Synchronize e-mail
 ------------------

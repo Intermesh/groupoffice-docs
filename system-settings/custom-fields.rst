@@ -89,6 +89,23 @@ The custom field will show in the:
    Toggle custom fields in grid columns
 
 
+Permissions
+-----------
+
+By default, custom field sets and fields can only be managed by administrator users. In order to enable end users to manage
+field sets, add the 'Change custom fields' permission to the desired users or groups. This can be found in System Settings
+-> Modules -> System Permissions.
+
+
+Fieldsets versus entities
+`````````````````````````
+
+Please note that fieldset permissions are independent on the permissions for the individual entities. When editing custom
+fields for an individual entity, the permissions are inherited from said entity. Custom fields for entities depend on the
+permissions for the entity proper and not on the field set. However, if an end user wants to edit a field set for a
+certain entity type, the permissions for the *field set* apply.
+
+
 Filters
 -------
 
@@ -123,6 +140,10 @@ Where:
 
 .. warning:: The fieldName, operator and value must be separated by spaces.
 
+.. note::
+
+	Older modules have a slightly weird issue with comboboxes. For example: if you want to add a condition to filter on project status, the proper syntax would be `status_id = Closed`.
+
 Examples
 ````````
 
@@ -150,7 +171,7 @@ then the condition should read something like this:
 
 .. code::
 
-	(theAnswer = 42 AND ((homePlanetDestructionDate IS NOT NULL AND hasTowel = 0) OR (homePlanetDestructionDate IS NULL AND hasTowel = 1)))
+	(theAnswer = 42 AND ((homePlanetDestructionDate is not empty AND hasTowel = 0) OR (homePlanetDestructionDate is empty AND hasTowel = 1)))
 
 
 Template field

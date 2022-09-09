@@ -18,7 +18,7 @@ following fields are common:
 * **Name**: This is the name that of the connection that will be displayed in the OAuth2 connection combobox when configuring an email account.
 * **Provider**: Select one of the know provider. See below for details. When a default provider is selected, one does not need to configure IMAP and SMTP servers.
 * **Client Id**: Refers to the client Id as given by your provider.
-* **Client Secret**: Refers to the client secret at given by your provider
+* **Client Secret**: Refers to the client secret at given by your provider.
 * **API Project Id**: The naming of this field differs by provider. Google names it Project Id, whereas Azure refers to it as Tenant Id.
 
 
@@ -59,3 +59,4 @@ Currently, we support the following OAuth2 providers:
    :maxdepth: 2
 
    oauth2/gmail
+   oauth2/azure
