@@ -50,6 +50,20 @@ The folder will show up under shared for other users. Not for the user that shar
    :alt: Share folder 4
    :width: 50%
 
+.. _files-open-with:
+
+Opening files
+-------------
+Opening files is as easy as a double click on the file of course. But you can also change the default
+action. For example you might want to edit text documents with :ref:`Only Office <onlyoffice>`,
+:ref:`Microsoft Office Online <officeonline>` or your :ref:`own desktop application <assistant>`.
+You can view images in the online viewer or in a browser tab. To change this
+right click on a file and choose "Open with...". Check the box "Remember my decision for this file type"
+to make it the default. Then choose your preferred action.
+
+.. figure:: /_static/using/files/open-with-dialog.png
+  :alt: Change default open file action
+  :width: 100%
 
 Integrations
 ------------
@@ -71,6 +85,8 @@ Download it for:
 - :ref:`MacOS <assistant-for-macos>`
 - :ref:`Linux <assistant-for-linux>`
 
+.. _officeonline:
+
 Microsoft Office Online
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -81,7 +97,10 @@ By becoming a Microsoft partner, we can offer Microsoft Office Online to everyon
 You need an Office 365 for business subscription.
 
 In our cloud version it's already configured by default. Right click on a file and
-edit with "Office Online" and make it the default if you desire.
+open with "Office Online" and make it the default if you desire.
+
+n our cloud version it's already configured by default. Now you can open a document in the files module
+with Office 365 by right clicking on a file and choose :ref:`'Open with...' <files-open-with>`.
 
 You can also host Office Online yourself and integrate it with Group-Office. Read more about that here:
 
@@ -100,6 +119,7 @@ LibreOffice Online server. More info on https://www.libreoffice.org/download/lib
 
 For installing read the :ref:`LibreOffice online installation page. <libreoffice-online>`
 
+.. _onlyoffice:
 
 OnlyOffice
 ~~~~~~~~~~
@@ -109,7 +129,7 @@ OnlyOffice
 
    OnlyOffice
 
-Run your private office with Group-Office and `OnlyOffice <https://www.onlyoffice.com>`_.
+Run your private office with Group-Office and `OnlyOffice <https://www.onlyoffice.com>`__.
 
 Designed to make collaboration easy. A complete productivity suite to run your entire business with.
 

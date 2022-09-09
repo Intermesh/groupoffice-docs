@@ -30,7 +30,8 @@ above we're using the standard SSL port so it's not necessary to specify it.
    :alt: Add LibreOffice Online Service
    :width: 400px
 
-Now every user can go to the files module and use it. Just right click a file and choose "Open with...".
+Now you can open a document in the files module with LibreOffice by right clicking on a file and
+choose :ref:`'Open with...' <files-open-with>`.
 
 .. figure:: /_static/using/files/open-with-collabora-online.png
    :alt: Use LibreOffice Online Service
