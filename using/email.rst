@@ -94,6 +94,33 @@ E-mail -> Administration -> Accounts -> Double click account -> Permissions
 Here you can add the users and user groups you want to grant access. Read more
 about sharing :ref:`here <sharing>`.
 
+Sharing folders
+---------------
+Group-Office also supports sharing folders via IMAP. The mailserver must support this feature too.
+If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
+
+
+.. figure:: /_static/using/email/share-folder.png
+   :width: 100%
+
+   Share folder
+
+
+Note that the username should be the IMAP username and not the Group-Office username.
+When the folder is shared it doesn't automatically subscribe it for the users. So they have to subscribe to
+the folder before they can use it. You can read about subscribing in the next chapter.
+
+
+Subscribing folders
+-------------------
+With IMAP mail accounts you can sub- and unsubscribe folders. To do this right click on any account folder
+and choose "Subscribe to folders". Enable or disable folders and press "Ok".
+
+.. figure:: /_static/using/email/subscribe-folder.png
+   :width: 100%
+
+   Subscribe folders
+
 Secretary
 `````````
 If you want a secretary who handles calendar invitations, you may need to share
