@@ -94,6 +94,28 @@ E-mail -> Administration -> Accounts -> Double click account -> Permissions
 Here you can add the users and user groups you want to grant access. Read more
 about sharing :ref:`here <sharing>`.
 
+Secretary
+`````````
+If you want a secretary who handles calendar invitations, you may need to share
+the e-mail accounts too. It's important that you share the owner's e-mail
+account instead of adding a duplicate mail account. Group-Office uses the e-mail
+account owner to find the right calendar to store the appointments in.
+
+When you share an account there are three levels:
+
++-------------------+---------------------------------------------------------+
+| Level             | Extra privileges with manage permissions                |
++===================+=========================================================+
+| Read	            | User's can only view messages                           |
++-------------------+---------------------------------------------------------+
+| Read and delegate | Users can view, mark messages as read and reply with    |
+|                   | their own account. The account owner will be cc'd       |
+|                   | automatically.                                          |
++-------------------+---------------------------------------------------------+
+| Manage            | The user has full access to the account                 |
++-------------------+---------------------------------------------------------+
+
+
 Sharing folders
 ---------------
 Group-Office also supports sharing folders via IMAP. The mailserver must support this feature too.
@@ -120,28 +142,6 @@ and choose "Subscribe to folders". Enable or disable folders and press "Ok".
    :width: 100%
 
    Subscribe folders
-
-Secretary
-`````````
-If you want a secretary who handles calendar invitations, you may need to share
-the e-mail accounts too. It's important that you share the owner's e-mail 
-account instead of adding a duplicate mail account. Group-Office uses the e-mail 
-account owner to find the right calendar to store the appointments in.
-
-When you share an account there are three levels:
-
-+-------------------+---------------------------------------------------------+
-| Level             | Extra privileges with manage permissions                |
-+===================+=========================================================+
-| Read	            | User's can only view messages                           |
-+-------------------+---------------------------------------------------------+
-| Read and delegate | Users can view, mark messages as read and reply with    | 
-|                   | their own account. The account owner will be cc'd       |
-|                   | automatically.                                          |
-+-------------------+---------------------------------------------------------+
-| Manage            | The user has full access to the account                 |
-+-------------------+---------------------------------------------------------+
-
 
 
 
