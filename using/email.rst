@@ -97,8 +97,8 @@ about sharing :ref:`here <sharing>`.
 Secretary
 `````````
 If you want a secretary who handles calendar invitations, you may need to share
-the e-mail accounts too. It's important that you share the owner's e-mail 
-account instead of adding a duplicate mail account. Group-Office uses the e-mail 
+the e-mail accounts too. It's important that you share the owner's e-mail
+account instead of adding a duplicate mail account. Group-Office uses the e-mail
 account owner to find the right calendar to store the appointments in.
 
 When you share an account there are three levels:
@@ -108,13 +108,40 @@ When you share an account there are three levels:
 +===================+=========================================================+
 | Read	            | User's can only view messages                           |
 +-------------------+---------------------------------------------------------+
-| Read and delegate | Users can view, mark messages as read and reply with    | 
+| Read and delegate | Users can view, mark messages as read and reply with    |
 |                   | their own account. The account owner will be cc'd       |
 |                   | automatically.                                          |
 +-------------------+---------------------------------------------------------+
 | Manage            | The user has full access to the account                 |
 +-------------------+---------------------------------------------------------+
 
+
+Sharing folders
+---------------
+Group-Office also supports sharing folders via IMAP. The mailserver must support this feature too.
+If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
+
+
+.. figure:: /_static/using/email/share-folder.png
+   :width: 100%
+
+   Share folder
+
+
+Note that the username should be the IMAP username and not the Group-Office username.
+When the folder is shared it doesn't automatically subscribe it for the users. So they have to subscribe to
+the folder before they can use it. You can read about subscribing in the next chapter.
+
+
+Subscribing folders
+-------------------
+With IMAP mail accounts you can sub- and unsubscribe folders. To do this right click on any account folder
+and choose "Subscribe to folders". Enable or disable folders and press "Ok".
+
+.. figure:: /_static/using/email/subscribe-folder.png
+   :width: 100%
+
+   Subscribe folders
 
 
 
