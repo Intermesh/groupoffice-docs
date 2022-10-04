@@ -23,7 +23,7 @@ Office does not support the POP3 protocol, you can skip the sections on POP3.
 Register your AAD application
 `````````````````````````````
 
-As with <gmail>, you need to set up an application first. This happens in the Azure environment and is documented `on this
+As with :ref:`Gmail<gmail>`, you need to set up an application first. This happens in the Azure environment and is documented `on this
 page <https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app>`_. Make sure that the app is
 configured as a web application. You need to add the following redirect URI: `https://yourhost/go/modules/community/oauth2client/gauth.php/callback`.
 Of course, 'yourhost' refers to the URL of your Group Office instance.
@@ -73,7 +73,7 @@ In System settings > OAuth2 Client Settings, when you add an Azure connection, t
 
 - Provider is Azure. Obviously.
 - The Client id field is the Application ID of your app.
-- The Client secret is the client secret you hopefully wrote down in step 1d above.
+- The Client secret is the client secret you hopefully wrote down in step 1d above. Please make sure that you write down the value of the secret, not the Secret ID.
 - The API Project ID is the Directory ID of your app.
 
 After saving, you can configure the email accounts as per the generic documentation.

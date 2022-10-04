@@ -227,7 +227,7 @@ Users don't need access to the projects module to use time tracking.
 
 .. note:: Closing weeks
 
-   Users can close weeks. When a week is closed the manager can approve the hours and the user can't edit the time entries anymore.
+   Users can close weeks. When a week is closed the manager can approve the hours up to and including the currently selected week. The user will not be able to edit the time entries anymore.
 
 When a user accidentally closed a week the manager can reopen it at Administration -> Employees. Double click an employee and set the close date back in time.
 

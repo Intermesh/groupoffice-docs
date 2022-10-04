@@ -517,3 +517,12 @@ the following extra setting should suffice:
 
 	$config['smime_root_cert_location'] = '/etc/ssl/certs';
 
+Searching in message bodies
+---------------------------
+As of Group Office 6.6.103, searching in email bodies has been disabled by default. Full body search is quite a resource
+hog. If you do wish to enable email body search, please add the following configuration option to your Group Office
+:ref:`configuration file <configuration>`:
+
+.. code-block:: php
+
+	$config['email_allow_body_search'] = true;

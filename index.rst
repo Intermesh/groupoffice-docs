@@ -57,6 +57,7 @@ Visit https://www.group-office.com for more information.
    using/chat
    using/studio
    using/oauth2
+   using/dokuwiki
 
 .. toctree::
    :maxdepth: 2
