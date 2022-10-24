@@ -48,7 +48,7 @@ ActiveSync
 ``````````
 When you're having issues with synchronisation there are some additional log files you can inspect. Read more about that `here <https://groupoffice.readthedocs.io/en/latest/logging.html#z-push>`__.
 
-Also check if https://yourhostname.com/Microsoft-Server-ActiveSync is presenting a login dialog and is not displaying errors.
+Also check if https://yourhostname.com/Microsoft-Server-ActiveSync is presenting a login dialog and is not displaying errors. If this page is not working then please check step 3 of the install instructions: https://groupoffice.readthedocs.io/en/latest/install/tarball.html#instructions
 
 Asking support
 --------------
