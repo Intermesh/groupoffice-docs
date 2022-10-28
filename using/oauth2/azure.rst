@@ -71,9 +71,9 @@ Configure Group Office
 
 In System settings > OAuth2 Client Settings, when you add an Azure connection, the following fields should be entered:
 
-- Provider is Azure. Obviously.
+- Select "Azure" as provider
 - The Client id field is the Application ID of your app.
-- The Client secret is the client secret you hopefully wrote down in step 1d above. Please make sure that you write down the value of the secret, not the Secret ID.
+- The Client secret is the client secret you should have written down in step 1d above. Please make sure that you write down the value of the secret, not the Secret ID.
 - The API Project ID is the Directory ID of your app.
 
 After saving, you can configure the email accounts as per the generic documentation.
