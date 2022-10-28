@@ -78,6 +78,7 @@ In System settings > OAuth2 Client Settings, when you add an Azure connection, t
 
 After saving, you can configure the email accounts as per the generic documentation.
 
+.. tip:: If you see that sent messages are saved twice in your 'Sent' folder, you can deactivate the "Sent" folder in the account settings. This will not prevent Exchange to copy a message to "Sent", but the sent message will not be duplicated.
 
 A note to developers
 ++++++++++++++++++++
