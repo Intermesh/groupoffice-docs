@@ -12,7 +12,7 @@ The newsletters module is an easy tool to manage address lists and send out news
 Accounts
 --------
 
-You can manage SMTP accounts from System Settings screen, tab Newsletters.
+If you have manage permissions for the newsletters module, you can manage SMTP accounts from System Settings screen, tab Newsletters.
 
 .. figure:: /_static/using/newsletters/system-settings.png
    :alt: Account management
@@ -32,16 +32,24 @@ contacts.
 You can add contacts one by one but you can also add entire search results using
 filters.
 
+.. note:: Individual newsletters inherit their permissions from the parent distribution list. In practice this means that users can only manage newsletters
+
 Compose
 -------
 
-To send a newsletter click the add button from the "Sent items" panel.
+To send a newsletter, click the "Compose" button from the "Sent items" panel. Start sending the message by clicking the
+"Send" button.
+
+Testing a newsletter is easy. Just click the "Test message" button and you will send the newsletter to the selected recipients only.
 
 .. figure:: /_static/using/newsletters/compose.png
    :alt: Compose
    :width: 100%
 
    Compose
+
+
+.. tip:: After hitting the "Send" button you can pause / unpause the distribution of the newsletter. That will pause or unpause the next batch of emails to be sent the next minute.
 
 .. _templates:
 

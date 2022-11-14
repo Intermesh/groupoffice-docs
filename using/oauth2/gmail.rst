@@ -45,6 +45,18 @@ Create an app
 
 .. note:: Once an app has been published, anybody with a Gmail account can use this app. Furthermore, refresh tokens will expire while your app remains in test mode.
 
+
+Configure Group Office
+``````````````````````
+
+In System settings > OAuth2 Client Settings, when you add an Google connection, the following fields should be entered:
+
+- Select "Google" as provider
+- The Client id field is the Application ID of your app.
+- The Client secret is the client secret you should have written down in step 1d above. Please make sure that you write down the value of the secret, not the Secret ID.
+
+After saving, you can configure the email accounts as per the generic documentation.
+
 A note to developers
 ++++++++++++++++++++
 

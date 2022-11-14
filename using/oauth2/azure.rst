@@ -23,7 +23,7 @@ Office does not support the POP3 protocol, you can skip the sections on POP3.
 Register your AAD application
 `````````````````````````````
 
-As with <gmail>, you need to set up an application first. This happens in the Azure environment and is documented `on this
+As with :ref:`Gmail<gmail>`, you need to set up an application first. This happens in the Azure environment and is documented `on this
 page <https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app>`_. Make sure that the app is
 configured as a web application. You need to add the following redirect URI: `https://yourhost/go/modules/community/oauth2client/gauth.php/callback`.
 Of course, 'yourhost' refers to the URL of your Group Office instance.
@@ -71,13 +71,14 @@ Configure Group Office
 
 In System settings > OAuth2 Client Settings, when you add an Azure connection, the following fields should be entered:
 
-- Provider is Azure. Obviously.
+- Select "Azure" as provider
 - The Client id field is the Application ID of your app.
-- The Client secret is the client secret you hopefully wrote down in step 1d above.
+- The Client secret is the client secret you should have written down in step 1d above. Please make sure that you write down the value of the secret, not the Secret ID.
 - The API Project ID is the Directory ID of your app.
 
 After saving, you can configure the email accounts as per the generic documentation.
 
+.. tip:: If you see that sent messages are saved twice in your 'Sent' folder, you can deactivate the "Sent" folder in the account settings. This will not prevent Exchange to copy a message to "Sent", but the sent message will not be duplicated.
 
 A note to developers
 ++++++++++++++++++++
