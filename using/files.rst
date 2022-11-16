@@ -50,6 +50,8 @@ The folder will show up under shared for other users. Not for the user that shar
    :alt: Share folder 4
    :width: 50%
 
+.. note:: Visibility of files is solely dependent on the permissions defined for its containing folder. There is no way to hide individual files except to move them in a private folder.
+
 .. _files-open-with:
 
 Opening files
