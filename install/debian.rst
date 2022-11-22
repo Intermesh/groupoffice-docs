@@ -12,15 +12,16 @@ Our preferred way of installing is using our Debian packages:
 
       sudo -s
       
-2. Only on Ubuntu make sure the "universe" repository is enabled::
-
-      sudo add-apt-repository universe
-
-   When using Ubuntu Impish 20.10 or higher you need to install PHP 7.4. See https://groupoffice.blogspot.com/2022/02/ubuntu-impish-2110.html
+2. When installing 6.6 on Ubuntu Impish 20.10 or higher you need to install PHP 7.4. See https://groupoffice.blogspot.com/2022/02/ubuntu-impish-2110.html
+   Group-Office 6.7 (currently in unstable) will run on PHP 7.3 or higher including PHP 8.1.
 
 3. First add our repository to the package management system::
 
      echo "deb http://repo.group-office.com/ sixsix main" > /etc/apt/sources.list.d/groupoffice.list
+     
+   Or if you want to try our bleeding edge development then add:
+   
+     echo "deb http://repo.group-office.com/ unstable main" > /etc/apt/sources.list.d/groupoffice.list
 
 4. Add our public key::
 
