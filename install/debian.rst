@@ -21,41 +21,36 @@ Our preferred way of installing is using our Debian packages:
 3. First add our repository to the package management system::
 
      echo "deb http://repo.group-office.com/ sixsix main" > /etc/apt/sources.list.d/groupoffice.list
- 
 
-4. Make sure "dirmngr" is installed for adding the public key::
+4. Add our public key::
 
-      apt-get install dirmngr
-
-5. Add our public key::
-
-      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0758838B
+      wget -O- https://repo.group-office.com/downloads/groupoffice.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/groupoffice.gpg
       
-6. Update APT::
+5. Update APT::
 
       apt-get update
 
-7. Then install Group-Office by running::
+6. Then install Group-Office by running::
 
       apt-get install groupoffice
       
       
-8. Optionally you can install php-acpu for better performance of the cache::
+7. Optionally you can install php-acpu for better performance of the cache::
 
       apt-get install php-apcu
 
-9. If you purchased **Group-Office Professional licenses** then make sure the 
+8. If you purchased **Group-Office Professional licenses** then make sure the 
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed.
    You might want to use our script: https://github.com/Intermesh/groupoffice/blob/master/scripts/install-ioncube.sh
 
-10. Then visit http://yourserver/groupoffice and the installer should appear:
+9. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-11. Follow the instructions on screen and enjoy Group-Office!
+10. Follow the instructions on screen and enjoy Group-Office!
 
 
 .. _mailserver:
