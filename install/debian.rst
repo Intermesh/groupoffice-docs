@@ -22,7 +22,7 @@ Our preferred way of installing is using our Debian packages:
      
    Or if you want to try our bleeding edge development then add::
    
-     echo "deb http://repo.group-office.com/ unstable main" > /etc/apt/sources.list.d/groupoffice.list
+     echo "deb http://repo.group-office.com/ testing main" > /etc/apt/sources.list.d/groupoffice.list
 
 4. Add our public key::
 
