@@ -5,7 +5,7 @@ Group-Office is an open-source groupware and CRM application. It's our mission t
 Easy to use modules such as the Calendar, Address Book, Projects and time tracking come by default. But it's also 
 possible to customize Group-Office with your own custom modules.
 
-Visit https://www.group-office.com for more information.
+Visit https://www.group-office.com for more information. Source code can be found at https://github.com/Intermesh.
 
 .. figure:: _static/groupoffice-start-page.png
    :alt: The Group Office start page
