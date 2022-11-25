@@ -437,6 +437,8 @@ You can setup Group-Office as your default mail client on your macOS, Windows or
 e-mail address in other applications Group-Office will open with the e-mail compose window.
 To do this you need to install the :ref:`assistant`. When it's installed you can select it in your OS:
 
+.. note: For this to work you will have to edit at least one file so the assisant knows where your Group-Office installation is hosted.
+
 Windows
 ```````
 Go to Settings -> Apps -> "Default apps" and select "Group-Office" for mail:
