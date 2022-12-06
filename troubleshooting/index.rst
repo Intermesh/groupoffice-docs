@@ -44,6 +44,8 @@ server.
 Log entries can normally be found in the log files of the web server. The exact location of the error log depends on your
 configuration, but ``/var/log/apache2`` is the default location for apache in many Linux distributions.
 
+`Read More about logging here <https://groupoffice.readthedocs.io/en/latest/logging.html>`__.
+
 ActiveSync
 ``````````
 When you're having issues with synchronisation there are some additional log files you can inspect. Read more about that `here <https://groupoffice.readthedocs.io/en/latest/logging.html#z-push>`__.
