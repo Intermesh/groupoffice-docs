@@ -201,14 +201,13 @@ External SMTP access
 
 .. note:: We recommend to install fail2ban too because spammers will try to abuse your server when you enable SMTP!
 
-1. Configure Postfix SMTP with these commands::
+External access is possible when using TLS on the submission port (587) with authentication. 
 
-      postconf -e 'smtpd_sasl_auth_enable = yes'
-   
-2. Restart postfix::
+To avoid abuse SMTP access is disabled for accounts by default since version 6.6.139. You can enable external SMTP access in Group-Office at E-mail domains -> Domain -> Mailbox.
 
-      invoke-rc.d postfix restart
+If you want to enable it for all you can run this SQL command::
 
+   update pa_mailboxes set smtpAllowed=true;
 
 Anti spam / virus
 `````````````````
