@@ -27,3 +27,15 @@ the phone to confirm you've set it up and you're done.
 
    While this module is called Google authenticator it doesn't need a 
    Google account. It does not interact with Google when logging in in any way.
+
+Enforce 2FA for user groups
+---------------------------
+
+System administrators can enforce two factor authentication for specific user groups. In the system settings screen,
+open the tab 'Authentication' and select a group.
+
+.. figure:: ../../_static/system-settings/otp-system-settings.png
+	:alt: Force 2FA for user groups
+
+	Enforcing 2FA in Group Office 6.6
+
