@@ -1,4 +1,6 @@
 
+.. _server_module:
+
 Building a server module
 ========================
 

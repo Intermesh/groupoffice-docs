@@ -11,6 +11,7 @@ other systems.
    building-a-server-module.rst   
    building-a-webclient-module.rst
    building-a-webclient-module-part-2.rst
+   override-an-existing-module.rst
    server
    webclient
    jmap
