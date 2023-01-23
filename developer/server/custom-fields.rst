@@ -96,4 +96,4 @@ Conversely, retrieving the value of a custom field is done in a similar way:
 	$documentationUri = $note->customFields->URI;
 
 Although the older ActiveRecord model falls outside the scope of this document, please note that getting and setting
-custom field values works in the same way. 
+custom field values works in the same way.
