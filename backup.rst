@@ -32,15 +32,23 @@ Steps:
 
       mysql -e 'create database groupoffice_temp;'
       mysql groupoffice_temp < backup.sql
-      mysqldump --no-create-info --insert-ignore --complete-insert groupoffice_temp > merge-data.sql
+      
+      
+2. Export the data with insert ignore statements so it will only import missing records::
 
-2. Your file merge-data.sql will contain the command to insert in the database and ignore the insert if the record already
+      mysqldump --no-create-info --insert-ignore --complete-insert groupoffice_temp > merge-data.sql
+      
+  Or if you'd like to restore just some tables (be careful you need to know the database very well)::
+
+     mysqldump --no-create-info --insert-ignore --complete-insert groupoffice_temp "core_pdf_block" "core_pdf_template" "core_email_template" "core_email_template_attachment" > merge-data.sql
+
+3. Your file merge-data.sql will contain the command to insert in the database and ignore the insert if the record already
    exists. Now load this into your live database called "groupoffice_live" in this example::
 
       mysql groupoffice_live < merge-data.sql
 
-3. Now all records should be back in the database. To reset the Group-Office cache and sync states run the upgrade procdure in the browser::
+4. Now all records should be back in the database. To reset the Group-Office cache and sync states run the upgrade procdure in the browser::
 
     https://groupoffice.example.com/install/upgrade.php
 
-4. If you also need to restore missing files the use the command line utility rsync to restore the data.
+5. If you also need to restore missing files the use the command line utility rsync to restore the data.
