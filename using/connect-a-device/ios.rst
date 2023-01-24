@@ -9,6 +9,10 @@ You can synchronize:
 - Contacts
 - E-mail
 - Tasks (Called "Reminders" on iOS)
+- Files (Using WebDAV)
+
+Microsoft ActiveSync
+--------------------
 
 To setup an ActiveSync account take the following steps:
 
@@ -60,3 +64,8 @@ To setup an ActiveSync account take the following steps:
 10. Now you must give it some time to sync everything and check your contacts, 
 e-mail and calendar for your Group-Office data!
 
+
+Files (WebDAV)
+--------------
+
+With the app "FilebrowerGO" see https://www.stratospherix.com/products/filebrowser/ you can mount the webdav drive and access files directly from your phone.
