@@ -34,6 +34,7 @@ Here's a list of config options:
    debug_usernames               array   Debug only for these usernames. eg. ['demo', 'foo']
    debugEmail                    string  Set to an e-mail address to redirect all mail to for testing purposes.
    email_allow_body_search       bool    Enable searching in email bodies. Disabled by default as per version 6.6.103 .
+   sieve_rewrite_hosts           string  When using an IMAP proxy then configure the real mail host for sieve calls here. eg. "localhost=mail.example.com";
    servermanager                 bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
    zpush2_loglevel               int     Set to 32 to generate debugging info in log/z-push.log
    zpush2_special_log_users      array   Set to usernames you want to debug. eg. ['testuser', 'testuser2']
