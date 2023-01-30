@@ -81,3 +81,10 @@ Updating accounts
 You can of course update accounts one by one but you can also use this SQL command to do it all at once::
 
    update em_accounts set port = 1143 where host='localhost';
+   
+   
+Managesieve
+-----------
+If you use manage sieve too, you need to tell Group-Office that localhost actually points to an external mailserver via the proxy. Edit config.php and add::
+
+   $config['sieve_rewrite_hosts']='localhost=mail.example.com';
