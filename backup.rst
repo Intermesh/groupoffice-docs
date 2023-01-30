@@ -41,6 +41,8 @@ Steps:
   Or if you'd like to restore just some tables (be careful you need to know the database very well)::
 
      mysqldump --no-create-info --insert-ignore --complete-insert groupoffice_temp "core_pdf_block" "core_pdf_template" "core_email_template" "core_email_template_attachment" > merge-data.sql
+     
+  If you would like to overwrite existing data you can use the --replace flag instead of --insert-ignore. Be careful!
 
 3. Your file merge-data.sql will contain the command to insert in the database and ignore the insert if the record already
    exists. Now load this into your live database called "groupoffice_live" in this example::
