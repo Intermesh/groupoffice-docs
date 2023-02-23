@@ -171,6 +171,10 @@ If you want to test the sync on the terminal lookup the ID from your configurati
 Test connectivity::
 
    php cli.php community/ldapauthenticator/Sync/test --id=<ID FROM DATABASE> --debug=1
+   
+Test a single user::
+
+   php cli.php community/ldapauthenticator/Sync/test --id=<ID FROM DATABASE> --username=<USERNAME>
 
 To sync users::
 
