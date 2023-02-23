@@ -22,7 +22,7 @@ On this tab you can change your:
 - Display name
 - Password
 
-You can also setup two factor authentication with :ref:`google-authenticator`.
+You can also setup two factor authentication with :ref:`OTP`.
 
 Profile
 ```````
