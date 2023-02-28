@@ -196,13 +196,13 @@ Upload message
 Upload a pre-created email message by pressing the "Upload message" button in the Newletter composer.
 The file needs to be a .ZIP with the following content:
 
-- index.html
+- /index.html
 - /images/*
 
 .. note:: Email template creators like BeeFree will generate exported messages in this format.
 
-Place all the images references in the index.html folder into the /images/ folder.
-If images are not inside this folder they will not be extracted and included in the email.
+All the images references in `index.html` need to be inside the `images/` folder.
+If images are not in this folder they can not be extracted and included in the email.
 
-Once the message is uploaded the Compsose dialog will switch te read-only mode.
+Once the message is uploaded the Compsoser dialog will switch to read-only mode.
 
