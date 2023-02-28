@@ -186,5 +186,23 @@ A number formatted in Dutch style with 2 decimals::
    {{contact.customFields.number|number:2:,:.}}
    
 
-   
+Upload message
+--------------
+
+.. figure:: /_static/using/newsletters/upload.png
+   :alt: Upload message
+   :width: 100%
+
+Upload a pre-created email message by pressing the "Upload message" button in the Newletter composer.
+The file needs to be a .ZIP with the following content:
+
+- index.html
+- /images/*
+
+.. note:: Email template creators like BeeFree will generate exported messages in this format.
+
+Place all the images references in the index.html folder into the /images/ folder.
+If images are not inside this folder they will not be extracted and included in the email.
+
+Once the message is uploaded the Compsose dialog will switch te read-only mode.
 
