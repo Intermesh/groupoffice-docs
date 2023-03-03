@@ -53,6 +53,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/projects
    using/holidays
    using/billing
+   using/finance
    using/file-search
    using/chat
    using/studio
