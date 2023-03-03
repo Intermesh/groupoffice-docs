@@ -1,6 +1,13 @@
 Finance
 =======
 
+.. figure:: /_static/using/finance/finance.png
+   :alt: Finance
+   :width: 100%
+
+   Finance
+
+
 With the finance module you can create quotations, orders and invoices. You can clearly keep track of the process
 from the first customer contact till the completion of your project or sale.
 
@@ -134,6 +141,8 @@ In the e-mail templates you can also add some standard attachments like your gen
 
 The templates are very flexible. Perhaps you just want to upload your logo or stationary paper, you can also
 fully customize the display of the data using HTML and template tags.
+
+A typical quote e-mail template might look like this:
 
 .. figure:: /_static/using/finance/email-template.png
    :alt: E-mail template
@@ -302,3 +311,36 @@ The outstanding invoices statement looks like this by default:
    :width: 100%
 
    Outstanding invoices
+
+When there are debtors to be notified you are reminded with a badge in the menu:
+
+
+.. figure:: /_static/using/finance/menu-badges.png
+   :alt: Menu badges
+
+   Menu badges
+
+Reports
+```````
+You can view a monthly report from the more menu in the main grid:
+
+.. figure:: /_static/using/finance/monthly-report.png
+   :alt: Monthly report
+   :width: 100%
+
+   Monthly report
+
+You can also export to excel or CSV
+
+
+Contracts
+---------
+With contracts you can create repeating invoices or orders. When they are due for sending you're notified with a badge (see above).
+You can filter to show only the contracts due for sending. Then via the menu choose "Create due invoices now".
+
+
+.. figure:: /_static/using/finance/contracts.png
+   :alt: Contracts
+   :width: 100%
+
+   Contracts
