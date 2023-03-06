@@ -1,18 +1,18 @@
 .. _otp:
 
-OTP Client Configuration
-========================
+Google Authenticator
+====================
 
-You can use two factor authentication (2FA for short) when the OTP Authenticator module has been installed. You can
+You can use two factor authentication (2FA for short) when the Google Authenticator module has been installed. You can
 find it in the Community package.
 
-.. note:: Prior to Group Office 6.7, this module was named Google Authenticator. We renamed it to a more generic name.
+.. note:: As per to Group Office 6.7, this module will be renamed to *OTP Authenticator*.
 
 First install any OTP app on your mobile phone or desktop. You can use for example:
 
 1. `Google Authenticator <https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=nl>`_
-2. `OTP Auth <https://itunes.apple.com/us/app/otp-auth/id659877384>`_ (iOS only)
-3. `Aegis Authenticator <https://getaegis.app>` is a powerful open source OTP client for Android
+2. OTP Auth (`iOS <https://itunes.apple.com/us/app/otp-auth/id659877384>`_ and `MacOS <https://apps.apple.com/us/app/otp-auth/id1471867429?mt=12>`_)
+3. `Aegis Authenticator <https://getaegis.app>`_ is a powerful open source OTP client for Android
 
 After installing an OTP app on your phone go to "My Account" -> "Account" and 
 click on the "Enable OTP Authenticator" button.
