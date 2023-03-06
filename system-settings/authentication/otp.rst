@@ -1,32 +1,30 @@
-.. _google-authenticator:
+.. _otp:
 
 Google Authenticator
 ====================
 
-You can use two factor authentication when the Google Authenticator module has 
-been installed. 
+You can use two factor authentication (2FA for short) when the Google Authenticator module has been installed. You can
+find it in the Community package.
 
-First install any OTP app on your mobile phone. You can use for example:
+.. note:: As per to Group Office 6.7, this module will be renamed to *OTP Authenticator*.
+
+First install any OTP app on your mobile phone or desktop. You can use for example:
 
 1. `Google Authenticator <https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=nl>`_
-2. `OTP Auth <https://itunes.apple.com/us/app/otp-auth/id659877384>`_ (iOS only)
+2. OTP Auth (`iOS <https://itunes.apple.com/us/app/otp-auth/id659877384>`_ and `MacOS <https://apps.apple.com/us/app/otp-auth/id1471867429?mt=12>`_)
+3. `Aegis Authenticator <https://getaegis.app>`_ is a powerful open source OTP client for Android
 
 After installing an OTP app on your phone go to "My Account" -> "Account" and 
-click on the "Enable Google Authenticator" button.
+click on the "Enable OTP Authenticator" button.
 
 .. figure:: ../../_static/google-authenticator.png
 	 :alt: Google Authenticator
 
-	 Google Authenticator
+	 Google Authenticator module in Group-Office 6.6
 
 You will be prompted for your Group-Office password. Next you will be asked to 
 scan the QR code with your app to register Group-Office. Enter the code from 
 the phone to confirm you've set it up and you're done.
-
-.. note:: 
-
-   While this module is called Google authenticator it doesn't need a 
-   Google account. It does not interact with Google when logging in in any way.
 
 Enforce 2FA for user groups
 ---------------------------
