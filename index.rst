@@ -59,6 +59,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/studio
    using/oauth2
    using/dokuwiki
+   using/templates
 
 .. toctree::
    :maxdepth: 2

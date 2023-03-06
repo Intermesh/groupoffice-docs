@@ -1,3 +1,5 @@
+.. _finance:
+
 Finance
 =======
 
@@ -344,3 +346,515 @@ You can filter to show only the contracts due for sending. Then via the menu cho
    :width: 100%
 
    Contracts
+
+
+Templates
+---------
+
+You can setup :ref:`templates<templates>` For documents, emails and statements .
+
+Available variables
+````````
+
+You can use the following variables in these templates:
+
+business
+~~~~~~~~
+The business the item belongs to.
+
+- name
+- contactId
+- hourlyRevenue
+
+book
+~~~~
+The book of a document.
+
+- name
+- businessId
+- currency
+
+document
+~~~~~~~~
+The invoice, quote, order, po.
+
+- document.number
+- document.date
+- document.sentAt
+- document.expiresAt
+- document.acceptedAt
+- document.createdBy
+- document.createdAt
+- document.modifiedBy
+- document.modifiedAt
+- document.customerTo
+- document.customerStreet
+- document.customerZipCode
+- document.customerCity
+- document.customerState
+- document.customerCountryCode
+- document.vatReverseCharge
+- document.greeting
+- document.closing
+- document.showTotals
+- document.showPricePerLine
+- document.itemGroups[]
+
+
+document.itemGroup
+++++++++++++++++++
+
+- title
+- showTotals
+- items[]
+
+itemGroup.item
+++++++++++++++
+
+- quantity
+- description
+- unitPrice
+- unitCost
+- vatRate
+- discount
+- articleId
+
+customer
+~~~~~~~~
+The organization or contact of the customer
+
+- customer.salutation
+- customer.name
+- customer.prefix
+- customer.firstName
+- customer.middleName
+- customer.lastName
+- customer.suffix
+- customer.jobTitle
+- customer.gender
+- customer.organizations: Array(same properties as contact)
+- customer.dates: Array (type, date)
+- customer.emailAddresses: Array(type, email)
+- customer.phoneNumbers: Array(type, number)
+- customer.addresses: Array(type, street, street2, zipCode, city, state, country, countryCode)
+- customer.urls: Array(type, url)
+- customer.debtorNumber
+- customer.IBAN
+- customer.vatNo
+- :ref:`custom-fields`, :ref:`See the templates section for the syntax<templates>`
+
+contact
+~~~~~~~
+The contact set for the document if it's book's business model is set to B2B.
+Same fields as customer above but prefixed with "contact".
+
+creator
+~~~~~~~
+The user who created the document.
+
+- creator.displayName
+- creator.username
+
+
+Examples
+````````
+
+Example quote
+~~~~~~~~~~~~~
+
+.. code-block:: html
+
+    <table border="0">
+        <tr>
+
+            <td width="60%">
+                <div style="font-size: 200%; color: #2d4386">{{template.name}}</div>
+                <br />
+            </td>
+            <td width="40%">
+                [if {{logo}}]
+                <img src="{{logo}}" />
+                [/if]
+            </td>
+        </tr>
+        <tr>
+
+            <td >
+
+                <small>To:</small>
+
+                <p>
+                    {{document.customerTo}}<br />
+                    {{document.formattedAddress|nl2br}}
+
+                    <br /><br /><br />
+
+                </p>
+
+                <table>
+
+                    <tr>
+                        <td width="30%"><b>Number:</b></td> <td>{{document.number}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Date:</b></td> <td>{{document.date|date:d-m-Y}}</td>
+                    </tr>
+
+                    [if {{document.reference}}]
+                    <tr><td><b>Reference:</b></td> <td>{{document.reference}}</td></tr>
+                    [/if]
+
+                </table>
+
+
+            </td>
+
+
+            <td>
+
+                <small>Offered by:</small>
+
+                [assign businessOrg = business.contactId | entity:Contact]
+
+                <p>
+                    {{businessOrg.name}}<br />
+                    [assign bAddress = businessOrg.addresses | filter:type:"postal" | first]
+                    [if !{{bAddress}}]
+                    [assign bAddress = businessOrg.addresses | first]
+                    [/if]
+                    {{bAddress.formatted|nl2br}}
+
+                    <br />
+
+                    <br />
+                </p>
+
+                <table border="0">
+
+                    [assign orgEmail = businessOrg.emailAddresses | sort:type:"work" | first | prop:email]
+                    [if {{orgEmail}}]
+                    <tr><td width="20%">e-mail:</td><td width="80%"> {{orgEmail}}</td></tr>
+                    [/if]
+
+                    [assign orgNumber = businessOrg.phoneNumbers | sort:type:"work" | first | prop:number]
+                    [if {{orgNumber}}]
+                    <tr><td width="20%">tel:</td><td width="80%"> {{orgNumber}}</td></tr>
+                    [/if]
+
+                    [if {{businessOrg.registrationNumber}}]
+                        <tr><td colspan="2"><br /></td></tr>
+                        <tr><td>Company no.:</td><td> {{businessOrg.registrationNumber}}</td></tr>
+                    [/if]
+
+                </table>
+
+            </td>
+
+        </tr>
+    </table>
+
+    <br />
+    [if {{document.greeting}}]
+    <p>
+        {{document.greeting}}
+        <br />
+        <br />
+    </p>
+    [/if]
+    <br />
+
+    <table cellspacing="0" cellpadding="4">
+        <tr style=" background-color: #f1f1f1;">
+            [if {{document.showPricePerLine}}]
+                <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="10%" align="right">Quantity</th>
+                <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="60%">Description</th>
+            [else]
+                <th colspan="2" style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="70%">Description</th>
+            [/if]
+
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="10%" align="right">[if {{document.showPricePerLine}}]VAT %[/if]</th>
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="20%" align="right">[if {{document.showPricePerLine}}]Price[/if]</th>
+
+        </tr>
+
+
+        [each itemGroup in document.itemGroups]
+
+            [if {{itemGroup.title}}]
+                <tr><td colspan="4" style="line-height: 200%;font-size:1.3em;font-weight:bold">{{itemGroup.title}}</td></tr>
+            [/if]
+
+            [each item in itemGroup.items]
+                <tr>
+                    [if {{document.showPricePerLine}}]
+                        <td align="right">{{item.quantity|number}}</td>
+                        <td>{{item.description}}</td>
+                        <td align="right">{{item.vatRate|number}}</td>
+                        [assign rowTotal = {{item.unitPrice}} * {{item.quantity}} ]
+                        <td align="right">{{book.currency}} {{rowTotal|number}}</td>
+                    [else]
+                        <td colspan="4">{{item.description}}</td>
+                    [/if]
+                </tr>
+            [/each]
+
+            [if {{itemGroup.showTotals}}]
+                <tr>
+                    <td colspan="3" align="right">
+                        [if {{document.showPricePerLine}}]Total[else]Price[/if]:
+                    </td>
+                    <td align="right">
+                        {{book.currency}} {{itemGroup.subTotalPrice|number}}
+                    </td>
+                </tr>
+            [/if]
+
+        [/each]
+
+
+        [if {{document.showTotals}}]
+
+        [if {{document.itemGroups|count}} > 1]
+            <tr><td colspan="4" style="line-height: 200%;font-size:1.3em;font-weight:bold">Total</td></tr>
+        [/if]
+
+
+        [if {{document.vatTotals|count}} > 0]
+        [if {{document.showPricePerLine}}]
+            <tr>
+                <td colspan="3">
+                </td>
+                <td align="right" style="border-top: 0.5px solid black">
+                </td>
+            </tr>
+        [/if]
+        <tr>
+            <td colspan="3" align="right">
+                Subtotal:
+            </td>
+            <td align="right">
+                {{book.currency}} {{document.subTotalPrice|number}}
+            </td>
+        </tr>
+        [/if]
+
+
+        [if {{document.vatReverseCharge}}]
+            <tr>
+                <td colspan="3" align="right">
+                    VAT Reverse charge (0%):
+                </td>
+                <td align="right">
+                    {{book.currency}} 0.00
+                </td>
+            </tr>
+        [else]
+            [each vatTotal in document.vatTotals]
+                <tr>
+                    <td colspan="3" align="right">
+                        VAT {{vatTotal.rate|number}}%:
+                    </td>
+                    <td align="right">
+                        {{book.currency}} {{vatTotal.price|number}}
+                    </td>
+                </tr>
+            [/each]
+        [/if]
+
+
+
+        <tr>
+            <td colspan="3">
+            </td>
+            <td align="right" style="border-top: 0.5px solid black">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" align="right">
+                Total:
+            </td>
+            <td align="right">
+                {{book.currency}} {{document.totalPrice|number}}
+            </td>
+        </tr>
+
+        [/if]
+
+
+    </table>
+
+
+    <br />
+
+    [if {{document.closing}}]
+    <p>
+        {{document.closing}}
+        <br />
+        <br />
+    </p>
+    [/if]
+
+
+    <p>
+    <div style="font-size: 120%; color: #2d4386">Terms</div>
+    This document is valid for one month after the date above. Please contact us if you have any questions.
+
+
+    To accept this offer please sign here and return:
+    <br />
+    <br />
+    Signed by:
+    <br />
+    Date:
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr width="30%" />
+
+    </p>
+
+
+Example statement
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: html
+
+    <table>
+        <tr>
+
+            <td width="75%">
+                <div style="font-size: 200%; color: #2d4386">{{template.name}}</div>
+                <span color="grey">{{date|date:d-m-Y}}</span>
+                <br />
+            </td>
+            <td width="25%">
+                [if {{logo}}]
+                    <img src="{{logo}}" />
+                [/if]
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+
+                <small>To:</small>
+
+                <p>
+                    {{customer.name}}<br />
+                    [assign address = customer.addresses | filter:type:"postal" | first]
+                    [if !{{address}}]
+                    [assign address = customer.addresses | first]
+                    [/if]
+                    {{address.formatted|nl2br}}
+                </p>
+
+
+            </td>
+
+
+            <td>
+
+                <small>From:</small>
+
+                [assign businessOrg = business.contactId | entity:Contact]
+
+                <p>
+                    {{businessOrg.name}}<br />
+                    [assign bAddress = businessOrg.addresses | filter:type:"postal" | first]
+                    [if !{{bAddress}}]
+                    [assign bAddress = businessOrg.addresses | first]
+                    [/if]
+                    {{bAddress.formatted|nl2br}}
+
+                    <br />
+
+                    <br />
+
+                <table border="0">
+
+                    [assign orgEmail = businessOrg.emailAddresses | sort:type:"work" | first | prop:email]
+                    [if {{orgEmail}}]
+                    <tr><td width="20%">E-mail:</td><td width="80%"> {{orgEmail}}</td></tr>
+                    [/if]
+
+                    [assign orgNumber = businessOrg.phoneNumbers | sort:type:"work" | first | prop:number]
+                    [if {{orgNumber}}]
+                    <tr><td width="20%">Phone:</td><td width="80%"> {{orgNumber}}</td></tr>
+                    [/if]
+
+                    <tr><td colspan="2"><br /></td></tr>
+                    [if {{businessOrg.nameBank}}]
+                        <tr><td width="20%">Bank:</td><td width="80%"> {{businessOrg.nameBank}}</td></tr>
+                    [/if]
+                    <tr><td width="20%">IBAN:</td><td width="80%"> {{businessOrg.IBAN}}</td></tr>
+                    [if {{businessOrg.BIC}}]
+                        <tr><td>BIC:</td><td> {{businessOrg.BIC}}</td></tr>
+                    [/if]
+                    <tr><td colspan="2"><br /></td></tr>
+                    [if {{businessOrg.vatNo}}]
+                        <tr><td>VAT no.:</td><td> {{businessOrg.vatNo}}</td></tr>
+                    [/if]
+                    [if {{businessOrg.registrationNumber}}]
+                        <tr><td>Reg no.:</td><td> {{businessOrg.registrationNumber}}</td></tr>
+                    [/if]
+
+                </table>
+                </p>
+
+
+            </td>
+
+
+
+        </tr>
+    </table>
+
+    <br />
+    <br />
+
+    <table cellspacing="0" cellpadding="4">
+        <tr style=" background-color: #f1f1f1;">
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="16%">Invoice no.</th>
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="16%">Date</th>
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="17%">Due</th>
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="17%" align="right">Amount</th>
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="17%" align="right">Paid</th>
+            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="17%" align="right">To be paid</th>
+        </tr>
+
+        [assign total = 0]
+
+        [each invoice in invoices]
+        <tr>
+            <td><a href="{{invoice.customerUrl}}">{{invoice.number}}</a></td>
+            <td>{{invoice.date|date:d-m-Y}}</td>
+            <td>{{invoice.expiresAt|date:d-m-Y}}</td>
+            <td align="right">{{book.currency}} {{invoice.totalPrice|number}}</td>
+            <td align="right">{{book.currency}} {{invoice.paidAmount|number}}</td>
+            [assign balance = {{invoice.totalPrice}} - {{invoice.paidAmount}} ]
+            [assign parent.total = {{parent.total}} + {{balance}}]
+            <td align="right">{{book.currency}} {{balance|number}}</td>
+        </tr>
+        [/each]
+
+        <tr>
+            <td colspan="5" style="border-top: 0.5px solid black;font-weight: bold" align="right">
+                Total to be paid:
+            </td>
+            <td align="right" style="border-top: 0.5px solid black; font-weight: bold">
+                {{book.currency}} {{total|number}}
+            </td>
+        </tr>
+
+    </table>
+
+
+    <br />
+
+    <p>
+        Please pay the outstanding amount immediately. If you're having trouble paying please contact us.
+    </p>
