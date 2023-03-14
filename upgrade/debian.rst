@@ -36,9 +36,11 @@ When upgrading to the next major release follow these steps prior to the above:
 
 2. Then open your browser to update the database.
 3. Major release upgrades can't be skipped so you need to do them step by step.
-   Adjust the repository to the next major release in::
+   Adjust the repository to the next major release in '/etc/apt/sources.list.d/groupoffice.list':
 
-      /etc/apt/sources.list.d/groupoffice.list
+    - For 6.7 change it to::
+
+        deb http://repo.group-office.com/ sixsseven main
 
     - For 6.6 change it to::
 
@@ -48,7 +50,7 @@ When upgrading to the next major release follow these steps prior to the above:
    
          deb http://repo.group-office.com/ sixfive main
 
-   - For 6.4 change it to::
+    - For 6.4 change it to::
 
          deb http://repo.group-office.com/ 64-php-71 main
 
