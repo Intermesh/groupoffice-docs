@@ -19,8 +19,9 @@ tarball. But if you really want use it then follow these steps:
 8. If exists copy your old :ref:`config.php <configuration>` and license file to the new
    files. It is good practice to keep these files one directory higher then the 
    Group-Office source so you have a complete clean code base.
-9. Visit http://yourdomain/install/ and follow instructions.
-10. Check if you have the right cron job in place::
+9. If you have any :ref:`studio-generated <studio>` modules, copy these into the ``go/modules`` folder. Please note that if you don't, the studio-generated modules will be entirely disabled.
+10. Visit http://yourdomain/install/ and follow instructions.
+11. Check if you have the right cron job in place::
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
 
