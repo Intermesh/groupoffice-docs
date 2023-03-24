@@ -11,48 +11,44 @@ Our preferred way of installing is using our Debian packages:
 1. On Debian login as the root server and on Ubuntu become root by running::
 
       sudo -s
-      
-2. When installing 6.6 on Ubuntu Impish 20.10 or higher you need to install PHP 7.4. See https://groupoffice.blogspot.com/2022/02/ubuntu-impish-2110.html
-   
-   Group-Office 6.7 (currently in unstable) will run on PHP 7.3 or higher including PHP 8.1.
 
-3. First add our repository to the package management system::
+2. First add our repository to the package management system::
 
-     echo "deb http://repo.group-office.com/ sixsix main" > /etc/apt/sources.list.d/groupoffice.list
+     echo "deb http://repo.group-office.com/ sixseven main" > /etc/apt/sources.list.d/groupoffice.list
      
    Or if you want to try our bleeding edge development then add::
    
      echo "deb http://repo.group-office.com/ testing main" > /etc/apt/sources.list.d/groupoffice.list
 
-4. Add our public key::
+3. Add our public key::
 
       wget -O- https://repo.group-office.com/downloads/groupoffice.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/groupoffice.gpg
       
-5. Update APT::
+4. Update APT::
 
       apt-get update
 
-6. Then install Group-Office by running::
+5. Then install Group-Office by running::
 
       apt-get install groupoffice
       
       
-7. Optionally you can install php-acpu for better performance of the cache::
+6. Optionally you can install php-acpu for better performance of the cache::
 
       apt-get install php-apcu
 
-8. If you purchased **Group-Office Professional licenses** then make sure the 
+7. If you purchased **Group-Office Professional licenses** then make sure the
    `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed.
    You might want to use our script: https://github.com/Intermesh/groupoffice/blob/master/scripts/install-ioncube.sh
 
-9. Then visit http://yourserver/groupoffice and the installer should appear:
+8. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-10. Follow the instructions on screen and enjoy Group-Office!
+9. Follow the instructions on screen and enjoy Group-Office!
 
 
 .. _mailserver:

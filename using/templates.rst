@@ -146,6 +146,7 @@ You can use filters to format data. They can be used with a "|" char followed by
 - prop(property) get the propery name
 - nl2br: Change line breaks to HTML <br> tags
 - empty: returns true if empty or false if not
+- dump: For debugging only. Dumps the variable type and value.
 
 Arrays
 ++++++

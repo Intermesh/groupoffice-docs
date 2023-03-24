@@ -1,4 +1,4 @@
-.. _suport:
+.. _support:
 
 Support
 =======
