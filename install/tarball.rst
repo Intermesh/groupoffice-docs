@@ -4,47 +4,6 @@ Manual from Tarball
 We strongly recommend that you use our Debian packages or Docker over this method.
 But if you really want to use the Tarball source then here is how.
 
-.. _system-requirements:
-
-System requirements
-^^^^^^^^^^^^^^^^^^^
-
-You need a Linux server with:
-
-.. table:: Software
-   :widths: auto
-
-   ====================  ===========
-   Type                  Requirement
-   ====================  ===========
-   Operating System      Linux / Docker
-   Webserver             Apache 2+ / php-fpm or fastcgi
-   Database              MySQL 5.7+ / MariaDB 10.0.5
-   Programming language	 PHP 7.3+
-   ====================  ===========
-
-Required PHP Extensions
-+++++++++++++++++++++++
-
-- pcre       
-- mbstring
-- ctype
-- date
-- iconv
-- curl
-- zip
-- soap
-- gd
-- pdo
-- pdo_mysql (With mysqlnd, nd_pdo_mysql)
-- mysqlnd
-- calendar
-
-Recommended:
-
-- acpu (for better caching performance)
-- ioncube (For professional version with Intermesh support)
-
 Instructions
 ^^^^^^^^^^^^
 
