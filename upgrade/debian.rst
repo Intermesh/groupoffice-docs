@@ -58,7 +58,6 @@ When upgrading to the next major release follow these steps prior to the above:
 
          deb http://repo.group-office.com/ 64-php-70 main
          
-
 Switching among major distribution versions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
