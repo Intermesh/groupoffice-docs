@@ -58,7 +58,15 @@ When upgrading to the next major release follow these steps prior to the above:
 
          deb http://repo.group-office.com/ 64-php-70 main
          
-  
+
+Switching among major distribution versions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is common for system administrators to upgrade their distribution along with the used Group-Office version, especially
+when upgrading from a very old version. You will run into trouble if the minimum or maximum PHP version is not satisfied.
+Group-Office will simply not install.
+
+To solve this problem, you can add the `PPA by Ondrej Sury <https://deb.sury.org>`_ and install the PHP version you want.
 
 
 From older versions than 6.3
