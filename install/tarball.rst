@@ -20,7 +20,7 @@ You need a Linux server with:
    Operating System      Linux / Docker
    Webserver             Apache 2+ / php-fpm or fastcgi
    Database              MySQL 5.7+ / MariaDB 10.0.5
-   Programming language	 PHP 7.3+
+   Programming language	 PHP 7.3+ (PHP 8.0 is not supported by Ioncube. PHP 8.1 is supported).
    ====================  ===========
 
 Required PHP Extensions
