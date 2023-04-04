@@ -49,6 +49,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/notes
    using/business
    using/tickets
+   using/support
    using/tasks
    using/projects
    using/holidays
