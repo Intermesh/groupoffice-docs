@@ -144,7 +144,7 @@ and choose "Subscribe to folders". Enable or disable folders and press "Ok".
    Subscribe folders
 
 
-
+.. _template-variables:
 
 Creating e-mail signatures or templates
 ---------------------------------------
