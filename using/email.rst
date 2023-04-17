@@ -312,6 +312,9 @@ You can also check if a value is not empty using <gotpl></gotpl> tags::
 
    <gotpl if="user:work_phone">Tel: {user:work_phone}</gotpl>
 
+.. note:: Microsoft Word automatically changes double quotes (") into curly quotes. Group-Office needs the regular
+   quotes to function. You can press Ctrl+Z (Undo) immediately after Word performs the AutoFormat that changes them to
+   "curly" quotes to have an ordinary double quote.
 
 Example template for standard letter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
