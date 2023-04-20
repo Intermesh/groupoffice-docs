@@ -1,9 +1,9 @@
 2-Factor authentication for Exchange ActiveSync
 ===============================================
 
-Since version 6.7 we've built in a special two factor authentication mechanism for ActiveSync devices. Unfortunately
-the protocol doesn't support native 2-factor authentication but we found a clever workaround.
-When enabled, the user can setup an account with his username and password. But it will only synchronise an informative
+Since version 6.7 we've built in a special two-factor authentication mechanism for ActiveSync devices to improve your
+security. Unfortunately the protocol doesn't support native 2-factor authentication, but we've found a clever workaround.
+When enabled, the user can setup an account with his username and password. But it will only synchronize an informative
 message:
 
 .. figure:: ../../_static/system-settings/2fa-eas-message.png
@@ -20,7 +20,7 @@ allow the device to connect:
 
 	 2-Factor authentication approve device
 
-The connected devices can be managed from :ref:`my-account` ->
+The connected devices can be managed from :ref:`your account settings<my-account>`:
 
 .. figure:: ../../_static/system-settings/2fa-eas-clients.png
 	 :alt: Connected clients
