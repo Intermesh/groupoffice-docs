@@ -40,7 +40,7 @@ When upgrading to the next major release follow these steps prior to the above:
 
     - For 6.7 change it to::
 
-        deb http://repo.group-office.com/ sixsseven main
+        deb http://repo.group-office.com/ sixseven main
 
     - For 6.6 change it to::
 
