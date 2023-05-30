@@ -11,6 +11,8 @@ to do it in steps:
 - 6.2 can upgrade to 6.3
 - 6.3 can upgrade to 6.4 and so on. Every major release needs to be upgraded to the next from 6.2 and higher.
 
+Make sure your system meets the :ref:`system-requirements`.
+
 Needless to say, but always make a **backup** before upgrading.
 
 After the upgrade you should consider replacing the "gota" module with the new

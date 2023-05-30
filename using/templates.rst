@@ -33,6 +33,9 @@ Some custom fields are stored with an ID. Like a select field for example. You c
 
    {{contact.customFields.asText.<DATABASE_NAME_OF_CUSTOMFIELD>}}
 
+
+
+
 Arrays
 ~~~~~~
 Arrays can be written like this::
@@ -116,6 +119,14 @@ A simple example template::
    {{creator.displayName}}
    {{creator.profile.organizations[0].name}}
    {{creator.profile.phoneNumbers[0].number}}
+
+
+Attachment field with photo's in e-mail template::
+
+    [each photo in contact.customFields.Photos]
+    <h3>{{photo.name}}</h3>
+    <img src="{{photo.blobId|blobUrl}}" alt="{{photo.name|htmlEncode}}" style="max-width:100%"><hr>
+    [/each]
 
 
 

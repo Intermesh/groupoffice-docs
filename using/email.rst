@@ -118,8 +118,7 @@ When you share an account there are three levels:
 
 Sharing folders
 ---------------
-Group-Office also supports sharing folders via IMAP. The mailserver must support this feature too.
-If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
+Group-Office also supports sharing folders via IMAP. If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
 
 
 .. figure:: /_static/using/email/share-folder.png
@@ -131,6 +130,8 @@ If the mailserver supports it you should see a "Share" option in the right click
 Note that the username should be the IMAP username and not the Group-Office username.
 When the folder is shared it doesn't automatically subscribe it for the users. So they have to subscribe to
 the folder before they can use it. You can read about subscribing in the next chapter.
+
+.. note:: The mailserver must support this feature too otherwise the share folder button will be hidden. For Dovecot this means the IMAP ACL plugin must be installed. The IMAP server will then report the "ACL" capability.
 
 
 Subscribing folders
@@ -311,6 +312,9 @@ You can also check if a value is not empty using <gotpl></gotpl> tags::
 
    <gotpl if="user:work_phone">Tel: {user:work_phone}</gotpl>
 
+.. note:: Microsoft Word automatically changes double quotes (") into curly quotes. Group-Office needs the regular
+   quotes to function. You can press Ctrl+Z (Undo) immediately after Word performs the AutoFormat that changes them to
+   "curly" quotes to have an ordinary double quote.
 
 Example template for standard letter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
