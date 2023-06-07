@@ -37,6 +37,9 @@ There are roughly three ways to enter a ticket:
 2. Create one manually from within the Support module;
 3. Create one manually from within the Help module;
 
+When an end user sends an email to a support mailbox, they are matched to an existing user in Group-Office. If they do
+not exist, a new user is created. In order for this to work, currently you must enable user registration in System Settings.
+
 Help module
 ```````````
 
