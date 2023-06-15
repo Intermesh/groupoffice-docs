@@ -104,8 +104,8 @@ You can run it like this::
     wget https://github.com/Intermesh/groupoffice/releases/download/v$VERSION/groupoffice-$VERSION.tar.gz
     tar zxf groupoffice-$VERSION.tar.gz
 
-    GO=`ls | grep groupoffice`
-    echo $GO
+    GO=`ls -d */ | grep groupoffice`
+    echo "Source dir: $GO"
 
     cd $GO
 
