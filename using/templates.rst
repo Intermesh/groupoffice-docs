@@ -128,7 +128,12 @@ Attachment field with photo's in e-mail template::
     <img src="{{photo.blobId|blobUrl}}" alt="{{photo.name|htmlEncode}}" style="max-width:100%"><hr>
     [/each]
 
+Or photo's from the entity's files folder::
 
+    [each photo in document|entityFiles]
+    <h3>{{photo.name}}</h3>
+    <img src="{{photo.blobId|blobUrl}}" alt="{{photo.name|htmlEncode}}" style="max-width:100%"><hr>
+    [/each]
 
 Filters
 ~~~~~~~
