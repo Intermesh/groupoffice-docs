@@ -858,3 +858,40 @@ Example statement
     <p>
         Please pay the outstanding amount immediately. If you're having trouble paying please contact us.
     </p>
+
+Payment Providers
+-----------------
+
+We have integrated some payment providers. If you need another one feel free to contact us!
+
+PayPal
+``````
+
+Go to the PayPal developer portal and setup credentials. You can setup sandbox credentials for testing and live credentials:
+
+https://developer.paypal.com/dashboard/applications
+
+Make sure the PayPal module is installed and fill in the PayPal credentials at System Settings -> Paypal:
+
+.. figure:: /_static/system-settings/paypal/system-settings.png
+   :width: 100%
+
+   PayPal system settings
+
+When this is setup the "Pay with paypal" button will appear on the invoice page:
+
+.. figure:: /_static/system-settings/paypal/invoice.png
+   :width: 100%
+
+   Invoice page
+
+
+Mollie
+``````
+The setup for https://mollie.com is very similar to PayPal:
+
+- Login to your Mollie account
+- Go to Developers -> API keys
+- Copy the key
+
+Now in Group-Office install the Mollie module and enter the key in System Settings -> Mollie
