@@ -895,3 +895,14 @@ The setup for https://mollie.com is very similar to PayPal:
 - Copy the key
 
 Now in Group-Office install the Mollie module and enter the key in System Settings -> Mollie
+
+
+MultiSafePay
+````````````
+The setup for https://www.multisafepay.com is very similar to PayPal:
+
+- Login to your MultiSafePay account
+- Go to Developers -> API keys
+- Copy the key
+
+Now in Group-Office install the MultiSafePay module and enter the key in System Settings -> MultiSafePay
