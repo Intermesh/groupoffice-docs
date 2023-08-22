@@ -87,6 +87,13 @@ For advanced options for installing please look at this page:
 
 https://jrsoftware.org/ishelp/index.php?topic=setupcmdline
 
+
+Debug
+`````
+If you want to view debug output from the assistant for some reason. You can launch it from the command prompt with these flags::
+
+    "c:\Program Files (x86)\Group-Office Assistant\Group-Office Assistant.exe" -c --console
+
 WebDAV
 ------
 Additionally you can map Group-Office as network drive using WebDAV. The assistant makes this easy for you after editing a file. Then you can right click the icon and choose "Connect network drive".
