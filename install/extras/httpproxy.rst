@@ -18,3 +18,7 @@ Some requests to Group-Office live for a long time:
 
 - sse.php: Used for server sent events to update changes with a push notification. It lives for 120s
 - Microsoft-Server-ActiveSync, For synchronising mobile devices. It may live up to 3600s.
+
+In your Apache Proxy configuration you could use::
+
+    ProxyTimeout 1800

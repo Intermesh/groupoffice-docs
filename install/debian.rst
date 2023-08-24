@@ -38,8 +38,10 @@ Our preferred way of installing is using our Debian packages:
       apt-get install php-apcu
 
 7. If you purchased **Group-Office Professional licenses** then make sure the
-   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed.
-   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/master/scripts/install-ioncube.sh
+   `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
+   You can run this command to do all the work::
+
+      curl -s https://raw.githubusercontent.com/Intermesh/groupoffice/sourceguardian/scripts/sg_install.sh | bash
 
 8. Then visit http://yourserver/groupoffice and the installer should appear:
 

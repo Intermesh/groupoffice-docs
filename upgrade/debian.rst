@@ -23,8 +23,6 @@ Launch /install to upgrade the database or run it on the command line::
    sudo -u www-data /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
    
 
-.. note:: In 6.6 we changed the dependency from "mariadb-server" or "mysql-server" into a recommendation for the "default-mysql-server". On Ubuntu server this leads to the situation where "mariadb-server" is suggested to be auto removed. To solve this you can install it manually with "apt install mariadb-server".
-
 
 Major release upgrade
 ~~~~~~~~~~~~~~~~~~~~~
@@ -35,8 +33,15 @@ When upgrading to the next major release follow these steps prior to the above:
    **Note**: if you're on version 6.2 please read section below first.
 
 2. Then open your browser to update the database.
+
 3. Major release upgrades can't be skipped so you need to do them step by step.
    Adjust the repository to the next major release in '/etc/apt/sources.list.d/groupoffice.list':
+
+    - For 6.8 change it to::
+
+         deb http://repo.group-office.com/ sixeight main
+
+      .. note:: In 6.8 we switched from Ioncube to SourceGuardian. Please make sure SourceGuardian is installed. See point 7. at :ref:`install-debian`.
 
     - For 6.7 change it to::
 
@@ -45,6 +50,9 @@ When upgrading to the next major release follow these steps prior to the above:
     - For 6.6 change it to::
 
          deb http://repo.group-office.com/ sixsix main
+
+      .. note:: In 6.6 we changed the dependency from "mariadb-server" or "mysql-server" into a recommendation for the "default-mysql-server". On Ubuntu server this leads to the situation where "mariadb-server" is suggested to be auto removed. To solve this you can install it manually with "apt install mariadb-server".
+
       
     - For 6.5 change it to::
    
@@ -54,18 +62,9 @@ When upgrading to the next major release follow these steps prior to the above:
 
          deb http://repo.group-office.com/ 64-php-71 main
 
-     Or when running PHP 7.0::
+      Or when running PHP 7.0::
 
          deb http://repo.group-office.com/ 64-php-70 main
-         
-Switching among major distribution versions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-It is common for system administrators to upgrade their distribution along with the used Group-Office version, especially
-when upgrading from a very old version. You will run into trouble if the minimum or maximum PHP version is not satisfied.
-Group-Office will simply not install.
-
-To solve this problem, you can add the `PPA by Ondrej Sury <https://deb.sury.org>`_ and install the PHP version you want.
 
 
 From older versions than 6.3
