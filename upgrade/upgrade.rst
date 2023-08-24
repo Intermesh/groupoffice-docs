@@ -23,7 +23,6 @@ Release notes are posted to our blog:
 
 https://www.group-office.com/blog/
 
-You might need to switch to the branch (For example 6.3) to view the latest.
 
 .. toctree::
    :maxdepth: 2
