@@ -80,10 +80,28 @@ For optimal Group-Office perfomance we recommend these settings. This will allow
    Name                    Value        Explanation
    ======================  ===========  ========================================================================================
    memory_limit            256M         For example parsing large e-mail messages for ActiveSync require high memory usage.
-   post_max_size           1G           Allows for uploading files of 1GB size. Raise if you need more.
-   upload_max_filesize     1G.          Allows for uploading files of 1GB size. Raise if you need more.
+   post_max_size           5G           Allows for uploading files of 1GB size. Raise if you need more. See also Apache settings below.
+   upload_max_filesize     5G           Allows for uploading files of 1GB size. Raise if you need more. See also Apache settings below.
    session.gc_maxlifetime  86400        The default of 30 minutes will cause a logout if you leave your computer for 30 minutes.
    ======================  ===========  ========================================================================================
+
+Apache settings
+---------------
+
+Uploading large files
+`````````````````````
+By default Apache doesn't allow a request body larger than 1G. If you want to upload bigger files then raise it. For example 5G::
+
+    LimitRequestBody 5368709120
+
+Security improvements
+`````````````````````
+You can hide your version information by setting these Apache configuration parameters in
+/etc/apache2/conf-enabled/security.conf::
+
+    ServerSignature Off
+    ServerTokens Prod
+
 
 Locking system settings
 -----------------------

@@ -259,6 +259,16 @@ Afterwards restart postfix and dovecot::
    systemctl restart postfix
    systemctl restart dovecot
 
+
+Cleaning up
+```````````
+
+When you remove domains or mailboxes they are removed from the database. But the actual mail data is still stored on disk.
+You can purge that by running this command::
+
+    /usr/share/groupoffice/groupofficecli.php -r=postfixadmin/maildir/cleanup --dryRyn=0
+
+
 .. _install-documents:
 
 Documents

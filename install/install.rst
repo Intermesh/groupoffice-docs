@@ -24,6 +24,7 @@ Group-Office 6.7 has the following requirements in order to be officially suppor
 .. toctree::
    :maxdepth: 2
 
+   requirements
    Debian / Ubuntu <debian>
    Docker <docker>
    Tarball <tarball>

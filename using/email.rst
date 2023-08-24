@@ -118,8 +118,7 @@ When you share an account there are three levels:
 
 Sharing folders
 ---------------
-Group-Office also supports sharing folders via IMAP. The mailserver must support this feature too.
-If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
+Group-Office also supports sharing folders via IMAP. If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
 
 
 .. figure:: /_static/using/email/share-folder.png
@@ -132,6 +131,8 @@ Note that the username should be the IMAP username and not the Group-Office user
 When the folder is shared it doesn't automatically subscribe it for the users. So they have to subscribe to
 the folder before they can use it. You can read about subscribing in the next chapter.
 
+.. note:: The mailserver must support this feature too otherwise the share folder button will be hidden. For Dovecot this means the IMAP ACL plugin must be installed. The IMAP server will then report the "ACL" capability.
+
 
 Subscribing folders
 -------------------
@@ -142,8 +143,6 @@ and choose "Subscribe to folders". Enable or disable folders and press "Ok".
    :width: 100%
 
    Subscribe folders
-
-
 
 
 Creating e-mail signatures or templates
@@ -168,7 +167,7 @@ HTML document in another program, make sure this HTML only contains inline style
 Style sections in the head are not supported.
 
 Images
-~~~~~~
+``````
 
 When you insert an image make sure you don't copy paste it from another 
 template or web page. Always insert it through the insert image toolbar from the 
@@ -176,31 +175,32 @@ template editor. This way the image will be embedded into the HTML e-mail
 template and will automatically be sent along with your e-mail messages.
 
 Choose the right signature feature
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``````````````````````````````````
 
 You can't use this feature together with the plain text signature at 
 E-mail -> Administration -> Accounts -> Double click account row. Either use 
 the simple plain text signature here or the e-mail templates.
 
 Changing the font
-~~~~~~~~~~~~~~~~~
+`````````````````
 
 You can't select a font in the template editor. The font is globally defined in 
-:ref:`config.php <configuration>`. The administrator can change the default font:
+:ref:`config.php <configuration>`. The administrator can change the default font::
 
-$config['$html_editor_font']="font-size:13px; font-family:Arial, Helvetica, sans-serif;";
+    $config['$html_editor_font']="font-size:13px; font-family:Arial, Helvetica, sans-serif;";
+
 
 .. _template-variables:
 
 Template variables
-~~~~~~~~~~~~~~~~~~
+``````````````````
 
 You can use the following values in the document:
 
 .. note:: Variables are typically wrapped in {..} signs but you may also use %..%. This is necessary when using variables inside HTML templates. For example <a href="mailto:%user:email%"> only works with % signs.
 
 Custom fields
-`````````````
+~~~~~~~~~~~~~
 
 You can use custom fields like this:
 
@@ -211,7 +211,7 @@ You can use custom fields like this:
 
 
 Common fields
-`````````````
+~~~~~~~~~~~~~
 
 - {date} Current date
 - {filename} The filename of the document.
@@ -225,7 +225,7 @@ Fields of the logged in user
 - {usercompany:\*} Any company field listed below can be used if this user has a profile (6.4+).
 
 Fields of the contact
-`````````````````````
+~~~~~~~~~~~~~~~~~~~~~
 
 - {contact:sirmadam} Sir or Madam depending on the gender.
 - {contact:salutation} The salutation
@@ -256,7 +256,7 @@ Fields of the contact
 - {contact:homepage}
 
 Fields of the contact
-`````````````````````
+~~~~~~~~~~~~~~~~~~~~~
 
 - {company:formatted_address} Get the full address formatted according to the country standards.
 - {company:formatted_post_address} Get the full address formatted according to the country standards.
@@ -291,7 +291,7 @@ Fields of the contact
 - {company:invoice_email}
 
 Project fields
-``````````````
+~~~~~~~~~~~~~~
 
 - {project:name}
 - {project:customer}
@@ -306,14 +306,18 @@ Project fields
 - {project:responsibleUser:name} The manager
 
 Conditions
-``````````
+~~~~~~~~~~
+
 You can also check if a value is not empty using <gotpl></gotpl> tags::
 
    <gotpl if="user:work_phone">Tel: {user:work_phone}</gotpl>
 
+.. note:: Microsoft Word automatically changes double quotes (") into curly quotes. Group-Office needs the regular
+   quotes to function. You can press Ctrl+Z (Undo) immediately after Word performs the AutoFormat that changes them to
+   "curly" quotes to have an ordinary double quote.
 
 Example template for standard letter
-````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 {company:name}
 {company:formatted_address}
@@ -472,7 +476,7 @@ Go to Settings -> Details -> "Default applications" and select "Group-Office Ass
 S-Mime
 --------
 
-With SMIME you can sign and encrypt your messages. If the SMIME module has been installed you should have an SMIME tab at:
+With S/MIME you can sign and encrypt your messages. If the S/MIME module has been installed you should have an "SMIME" tab at:
 
 E-mail -> Settings -> Accounts -> Double click account.
 
@@ -518,6 +522,18 @@ the following extra setting should suffice:
 .. code-block:: php
 
 	$config['smime_root_cert_location'] = '/etc/ssl/certs';
+
+Note on OpenSSL v3.x
+````````````````````
+When your system is using OpenSSL v3.x it can be that it's unable to read p12 files that have been created with
+older versions of openssl. You may get an error like::
+
+    error:0308010C:digital envelope routines::unsupported
+
+
+They moved weaker algorithms into a legacy encoder. Here's a guide on how to
+enable the legacy provider permanently via the openssl configuration: https://www.practicalnetworking.net/practical-tls/openssl-3-and-legacy-providers/
+Also check the comments at the bottom of the article because there's something missing.
 
 Searching in message bodies
 ---------------------------

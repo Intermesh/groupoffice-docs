@@ -48,8 +48,8 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/files
    using/notes
    using/business
-   using/support
    using/tickets
+   using/support
    using/tasks
    using/projects
    using/holidays
