@@ -1,6 +1,9 @@
 Manual upgrade from the Tarball
 -------------------------------
 
+.. note:: In version 6.8 we've switched from Ioncube to `SourceGuardian <https://www.sourceguardian.com/loaders.html>`_.
+    Please make sure that's installed if you're using the professional version.
+
 We strongly recommend that you use our Debian packages or Docker instead of the
 tarball. But if you really want use it then follow these steps:
 
