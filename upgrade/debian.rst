@@ -41,7 +41,8 @@ When upgrading to the next major release follow these steps prior to the above:
 
          deb http://repo.group-office.com/ sixeight main
 
-      .. note:: In 6.8 we switched from Ioncube to SourceGuardian. Please make sure SourceGuardian is installed. See point 7. at :ref:`install-debian`.
+      .. note:: In 6.8 we switched from Ioncube to SourceGuardian. Please make sure SourceGuardian is installed.
+         See point 7. at :ref:`install-debian`. If you're not using Ioncube for something else then you can uninstall it.
 
     - For 6.7 change it to::
 
