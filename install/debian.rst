@@ -14,7 +14,7 @@ Our preferred way of installing is using our Debian packages:
 
 2. First add our repository to the package management system::
 
-     echo "deb http://repo.group-office.com/ sixseven main" > /etc/apt/sources.list.d/groupoffice.list
+     echo "deb http://repo.group-office.com/ sixeight main" > /etc/apt/sources.list.d/groupoffice.list
      
    Or if you want to try our bleeding edge development then add::
    
