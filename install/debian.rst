@@ -14,7 +14,7 @@ Our preferred way of installing is using our Debian packages:
 
 2. First add our repository to the package management system::
 
-     echo "deb http://repo.group-office.com/ sixseven main" > /etc/apt/sources.list.d/groupoffice.list
+     echo "deb http://repo.group-office.com/ sixeight main" > /etc/apt/sources.list.d/groupoffice.list
      
    Or if you want to try our bleeding edge development then add::
    
@@ -38,8 +38,10 @@ Our preferred way of installing is using our Debian packages:
       apt-get install php-apcu
 
 7. If you purchased **Group-Office Professional licenses** then make sure the
-   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed.
-   You might want to use our script: https://github.com/Intermesh/groupoffice/blob/master/scripts/install-ioncube.sh
+   `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
+   You can run this command to do all the work::
+
+      curl -s https://raw.githubusercontent.com/Intermesh/groupoffice/sourceguardian/scripts/sg_install.sh | bash
 
 8. Then visit http://yourserver/groupoffice and the installer should appear:
 
@@ -258,6 +260,16 @@ Afterwards restart postfix and dovecot::
 
    systemctl restart postfix
    systemctl restart dovecot
+
+
+Cleaning up
+```````````
+
+When you remove domains or mailboxes they are removed from the database. But the actual mail data is still stored on disk.
+You can purge that by running this command::
+
+    /usr/share/groupoffice/groupofficecli.php -r=postfixadmin/maildir/cleanup --dryRyn=0
+
 
 .. _install-documents:
 

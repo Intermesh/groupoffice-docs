@@ -476,7 +476,7 @@ Go to Settings -> Details -> "Default applications" and select "Group-Office Ass
 S-Mime
 --------
 
-With SMIME you can sign and encrypt your messages. If the SMIME module has been installed you should have an SMIME tab at:
+With S/MIME you can sign and encrypt your messages. If the S/MIME module has been installed you should have an "SMIME" tab at:
 
 E-mail -> Settings -> Accounts -> Double click account.
 
@@ -522,6 +522,18 @@ the following extra setting should suffice:
 .. code-block:: php
 
 	$config['smime_root_cert_location'] = '/etc/ssl/certs';
+
+Note on OpenSSL v3.x
+````````````````````
+When your system is using OpenSSL v3.x it can be that it's unable to read p12 files that have been created with
+older versions of openssl. You may get an error like::
+
+    error:0308010C:digital envelope routines::unsupported
+
+
+They moved weaker algorithms into a legacy encoder. Here's a guide on how to
+enable the legacy provider permanently via the openssl configuration: https://www.practicalnetworking.net/practical-tls/openssl-3-and-legacy-providers/
+Also check the comments at the bottom of the article because there's something missing.
 
 Searching in message bodies
 ---------------------------

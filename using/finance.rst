@@ -478,9 +478,7 @@ Example quote
             </td>
         </tr>
         <tr>
-
-            <td >
-
+            <td>
                 <small>To:</small>
 
                 <p>
@@ -568,12 +566,10 @@ Example quote
         <tr style=" background-color: #f1f1f1;">
             [if {{document.showPricePerLine}}]
                 <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="10%" align="right">Quantity</th>
-                <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="60%">Description</th>
+                <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="70%">Description</th>
             [else]
-                <th colspan="2" style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="70%">Description</th>
+                <th colspan="2" style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="80%">Description</th>
             [/if]
-
-            <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="10%" align="right">[if {{document.showPricePerLine}}]VAT %[/if]</th>
             <th style="border-bottom: 0.5px solid black;border-top: 0.5px solid black;" width="20%" align="right">[if {{document.showPricePerLine}}]Price[/if]</th>
 
         </tr>
@@ -581,33 +577,48 @@ Example quote
 
         [each itemGroup in document.itemGroups]
 
-            [if {{itemGroup.title}}]
-                <tr><td colspan="4" style="line-height: 200%;font-size:1.3em;font-weight:bold">{{itemGroup.title}}</td></tr>
-            [/if]
+            [if {{itemGroup.showAs}} != "hidden"]
 
-            [each item in itemGroup.items]
-                <tr>
-                    [if {{document.showPricePerLine}}]
-                        <td align="right">{{item.quantity|number}}</td>
-                        <td>{{item.description}}</td>
-                        <td align="right">{{item.vatRate|number}}</td>
-                        [assign rowTotal = {{item.unitPrice}} * {{item.quantity}} ]
-                        <td align="right">{{book.currency}} {{rowTotal|number}}</td>
-                    [else]
-                        <td colspan="4">{{item.description}}</td>
+                [if {{itemGroup.showAs}} == "single"]
+                    <tr>
+                        [if {{document.showPricePerLine}}]
+                            <td align="right">1</td>
+                            <td>{{itemGroup.title}}</td>
+                            <td align="right">{{book.currency}} {{itemGroup.subTotalPrice|number}}</td>
+                        [else]
+                            <td colspan="3">{{itemGroup.title}}</td>
+                        [/if]
+                    </tr>
+
+                [else]
+                    [if {{itemGroup.title}}]
+                        <tr><td colspan="3" style="line-height: 200%;font-size:1.3em;font-weight:bold">{{itemGroup.title}}</td></tr>
                     [/if]
-                </tr>
-            [/each]
 
-            [if {{itemGroup.showTotals}}]
-                <tr>
-                    <td colspan="3" align="right">
-                        [if {{document.showPricePerLine}}]Total[else]Price[/if]:
-                    </td>
-                    <td align="right">
-                        {{book.currency}} {{itemGroup.subTotalPrice|number}}
-                    </td>
-                </tr>
+                    [each item in itemGroup.items]
+                        <tr>
+                            [if {{document.showPricePerLine}}]
+                                <td align="right">{{item.quantity|number}}</td>
+                                <td>{{item.description|nl2br}}</td>
+                                [assign rowTotal = {{item.unitPrice}} * {{item.quantity}} ]
+                                <td align="right">{{book.currency}} {{rowTotal|number}}</td>
+                            [else]
+                                <td colspan="3">{{item.description|nl2br}}</td>
+                            [/if]
+                        </tr>
+                    [/each]
+
+                    [if {{itemGroup.showAs}} == "groupwithtotal"]
+                        <tr>
+                            <td colspan="2" align="right">
+                                [if {{document.showPricePerLine}}]Total[else]Price[/if]:
+                            </td>
+                            <td align="right" style="border-top: 0.5px solid black">
+                                {{book.currency}} {{itemGroup.subTotalPrice|number}}
+                            </td>
+                        </tr>
+                    [/if]
+                [/if]
             [/if]
 
         [/each]
@@ -615,22 +626,19 @@ Example quote
 
         [if {{document.showTotals}}]
 
-        [if {{document.itemGroups|count}} > 1]
-            <tr><td colspan="4" style="line-height: 200%;font-size:1.3em;font-weight:bold">Total</td></tr>
-        [/if]
 
 
         [if {{document.vatTotals|count}} > 0]
         [if {{document.showPricePerLine}}]
             <tr>
-                <td colspan="3">
+                <td colspan="2">
                 </td>
-                <td align="right" style="border-top: 0.5px solid black">
+                <td align="right">
                 </td>
             </tr>
         [/if]
         <tr>
-            <td colspan="3" align="right">
+            <td colspan="2" align="right">
                 Subtotal:
             </td>
             <td align="right">
@@ -642,7 +650,7 @@ Example quote
 
         [if {{document.vatReverseCharge}}]
             <tr>
-                <td colspan="3" align="right">
+                <td colspan="2" align="right">
                     VAT Reverse charge (0%):
                 </td>
                 <td align="right">
@@ -652,7 +660,7 @@ Example quote
         [else]
             [each vatTotal in document.vatTotals]
                 <tr>
-                    <td colspan="3" align="right">
+                    <td colspan="2" align="right">
                         VAT {{vatTotal.rate|number}}%:
                     </td>
                     <td align="right">
@@ -662,17 +670,15 @@ Example quote
             [/each]
         [/if]
 
-
-
         <tr>
-            <td colspan="3">
+            <td colspan="2">
             </td>
             <td align="right" style="border-top: 0.5px solid black">
             </td>
         </tr>
 
         <tr>
-            <td colspan="3" align="right">
+            <td colspan="2" align="right">
                 Total:
             </td>
             <td align="right">
@@ -681,7 +687,6 @@ Example quote
         </tr>
 
         [/if]
-
 
     </table>
 
@@ -724,93 +729,93 @@ Example statement
 .. code-block:: html
 
     <table>
-        <tr>
+	<tr>
 
-            <td width="75%">
-                <div style="font-size: 200%; color: #2d4386">{{template.name}}</div>
-                <span color="grey">{{date|date:d-m-Y}}</span>
-                <br />
-            </td>
-            <td width="25%">
-                [if {{logo}}]
-                    <img src="{{logo}}" />
-                [/if]
-            </td>
-        </tr>
+		<td width="75%">
+			<div style="font-size: 200%; color: #2d4386">{{template.name}}</div>
+			<span color="grey">{{date|date:d-m-Y}}</span>
+			<br />
+		</td>
+		<td width="25%">
+			[if {{logo}}]
+				<img src="{{logo}}" />
+			[/if]
+		</td>
+	</tr>
 
-        <tr>
-            <td>
+	<tr>
+		<td>
 
-                <small>To:</small>
+			<small>To:</small>
 
-                <p>
-                    {{customer.name}}<br />
-                    [assign address = customer.addresses | filter:type:"postal" | first]
-                    [if !{{address}}]
-                    [assign address = customer.addresses | first]
-                    [/if]
-                    {{address.formatted|nl2br}}
-                </p>
-
-
-            </td>
+			<p>
+				{{customer.name}}<br />
+				[assign address = customer.addresses | filter:type:"postal" | first]
+				[if !{{address}}]
+				[assign address = customer.addresses | first]
+				[/if]
+				{{address.formatted|nl2br}}
+			</p>
 
 
-            <td>
-
-                <small>From:</small>
-
-                [assign businessOrg = business.contactId | entity:Contact]
-
-                <p>
-                    {{businessOrg.name}}<br />
-                    [assign bAddress = businessOrg.addresses | filter:type:"postal" | first]
-                    [if !{{bAddress}}]
-                    [assign bAddress = businessOrg.addresses | first]
-                    [/if]
-                    {{bAddress.formatted|nl2br}}
-
-                    <br />
-
-                    <br />
-
-                <table border="0">
-
-                    [assign orgEmail = businessOrg.emailAddresses | sort:type:"work" | first | prop:email]
-                    [if {{orgEmail}}]
-                    <tr><td width="20%">E-mail:</td><td width="80%"> {{orgEmail}}</td></tr>
-                    [/if]
-
-                    [assign orgNumber = businessOrg.phoneNumbers | sort:type:"work" | first | prop:number]
-                    [if {{orgNumber}}]
-                    <tr><td width="20%">Phone:</td><td width="80%"> {{orgNumber}}</td></tr>
-                    [/if]
-
-                    <tr><td colspan="2"><br /></td></tr>
-                    [if {{businessOrg.nameBank}}]
-                        <tr><td width="20%">Bank:</td><td width="80%"> {{businessOrg.nameBank}}</td></tr>
-                    [/if]
-                    <tr><td width="20%">IBAN:</td><td width="80%"> {{businessOrg.IBAN}}</td></tr>
-                    [if {{businessOrg.BIC}}]
-                        <tr><td>BIC:</td><td> {{businessOrg.BIC}}</td></tr>
-                    [/if]
-                    <tr><td colspan="2"><br /></td></tr>
-                    [if {{businessOrg.vatNo}}]
-                        <tr><td>VAT no.:</td><td> {{businessOrg.vatNo}}</td></tr>
-                    [/if]
-                    [if {{businessOrg.registrationNumber}}]
-                        <tr><td>Reg no.:</td><td> {{businessOrg.registrationNumber}}</td></tr>
-                    [/if]
-
-                </table>
-                </p>
+		</td>
 
 
-            </td>
+		<td>
+
+			<small>From:</small>
+
+			[assign businessOrg = business.contactId | entity:Contact]
+
+			<p>
+				{{businessOrg.name}}<br />
+				[assign bAddress = businessOrg.addresses | filter:type:"postal" | first]
+				[if !{{bAddress}}]
+				[assign bAddress = businessOrg.addresses | first]
+				[/if]
+				{{bAddress.formatted|nl2br}}
+
+				<br />
+
+				<br />
+
+			<table border="0">
+
+				[assign orgEmail = businessOrg.emailAddresses | sort:type:"work" | first | prop:email]
+				[if {{orgEmail}}]
+				<tr><td width="20%">E-mail:</td><td width="80%"> {{orgEmail}}</td></tr>
+				[/if]
+
+				[assign orgNumber = businessOrg.phoneNumbers | sort:type:"work" | first | prop:number]
+				[if {{orgNumber}}]
+				<tr><td width="20%">Phone:</td><td width="80%"> {{orgNumber}}</td></tr>
+				[/if]
+
+				<tr><td colspan="2"><br /></td></tr>
+				[if {{businessOrg.nameBank}}]
+					<tr><td width="20%">Bank:</td><td width="80%"> {{businessOrg.nameBank}}</td></tr>
+				[/if]
+				<tr><td width="20%">IBAN:</td><td width="80%"> {{businessOrg.IBAN}}</td></tr>
+				[if {{businessOrg.BIC}}]
+					<tr><td>BIC:</td><td> {{businessOrg.BIC}}</td></tr>
+				[/if]
+				<tr><td colspan="2"><br /></td></tr>
+				[if {{businessOrg.vatNo}}]
+					<tr><td>VAT no.:</td><td> {{businessOrg.vatNo}}</td></tr>
+				[/if]
+				[if {{businessOrg.registrationNumber}}]
+					<tr><td>Reg no.:</td><td> {{businessOrg.registrationNumber}}</td></tr>
+				[/if]
+
+			</table>
+			</p>
+
+
+		</td>
 
 
 
-        </tr>
+	</tr>
     </table>
 
     <br />
@@ -858,3 +863,52 @@ Example statement
     <p>
         Please pay the outstanding amount immediately. If you're having trouble paying please contact us.
     </p>
+
+
+Payment Providers
+-----------------
+
+We have integrated some payment providers. If you need another one feel free to contact us!
+
+PayPal
+``````
+
+Go to the PayPal developer portal and setup credentials. You can setup sandbox credentials for testing and live credentials:
+
+https://developer.paypal.com/dashboard/applications
+
+Make sure the PayPal module is installed and fill in the PayPal credentials at System Settings -> Paypal:
+
+.. figure:: /_static/system-settings/paypal/system-settings.png
+   :width: 100%
+
+   PayPal system settings
+
+When this is setup the "Pay with paypal" button will appear on the invoice page:
+
+.. figure:: /_static/system-settings/paypal/invoice.png
+   :width: 100%
+
+   Invoice page
+
+
+Mollie
+``````
+The setup for https://mollie.com is very similar to PayPal:
+
+- Login to your Mollie account
+- Go to Developers -> API keys
+- Copy the key
+
+Now in Group-Office install the Mollie module and enter the key in System Settings -> Mollie
+
+
+MultiSafePay
+````````````
+The setup for https://www.multisafepay.com is very similar to PayPal:
+
+- Login to your MultiSafePay account
+- Go to Developers -> API keys
+- Copy the key
+
+Now in Group-Office install the MultiSafePay module and enter the key in System Settings -> MultiSafePay

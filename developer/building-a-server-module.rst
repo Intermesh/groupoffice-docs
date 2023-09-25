@@ -41,6 +41,7 @@ When writing code we following standards:
 3. Don't use ?> close tag at the end of class files
 4. One class per file
 5. YAGNI
+6. DRY
 
 Naming conventions
 ------------------
@@ -86,13 +87,13 @@ Database
 ````````
 
 Start with creating the database tables. The tables would be prefixed with the
-module name. For example "**music**\_artist".
+package and module names. For example ``tutorial_music_artist``.
 
 Create the tables by importing this SQL into your database:
 
 .. code-block:: sql
 
-  CREATE TABLE `music_album` (
+  CREATE TABLE `tutorial_music_album` (
     `id` int(11) NOT NULL,
     `artistId` int(11) NOT NULL,
     `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -100,7 +101,7 @@ Create the tables by importing this SQL into your database:
     `genreId` int(11) NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-  CREATE TABLE `music_artist` (
+  CREATE TABLE `tutorial_music_artist` (
     `id` int(11) NOT NULL,
     `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
     `photo` binary(40) DEFAULT NULL,
@@ -111,47 +112,47 @@ Create the tables by importing this SQL into your database:
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
   
-  CREATE TABLE `music_genre` (
+  CREATE TABLE `tutorial_music_genre` (
     `id` int(11) NOT NULL,
     `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-  INSERT INTO `music_genre` (`id`, `name`) VALUES
+  INSERT INTO `tutorial_music_genre` (`id`, `name`) VALUES
   (1, 'Pop'),
   (2, 'Rock'),
   (3, 'Blues'),
   (4, 'Jazz');
 
 
-  ALTER TABLE `music_album`
+  ALTER TABLE `tutorial_music_album`
     ADD PRIMARY KEY (`id`),
     ADD KEY `artistId` (`artistId`),
     ADD KEY `genreId` (`genreId`);
 
-  ALTER TABLE `music_artist`
+  ALTER TABLE `tutorial_music_artist`
     ADD PRIMARY KEY (`id`),
     ADD KEY `photo` (`photo`);
 
-  ALTER TABLE `music_genre`
+  ALTER TABLE `tutorial_music_genre`
     ADD PRIMARY KEY (`id`);
 
 
-  ALTER TABLE `music_album`
+  ALTER TABLE `tutorial_music_album`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
-  ALTER TABLE `music_artist`
+  ALTER TABLE `tutorial_music_artist`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
-  ALTER TABLE `music_genre`
+  ALTER TABLE `tutorial_music_genre`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 
-  ALTER TABLE `music_album`
-    ADD CONSTRAINT `music_album_ibfk_1` FOREIGN KEY (`artistId`) REFERENCES `music_artist` (`id`) ON DELETE CASCADE,
-    ADD CONSTRAINT `music_album_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `music_genre` (`id`);
+  ALTER TABLE `tutorial_music_album`
+    ADD CONSTRAINT `tutorial_music_album_ibfk_1` FOREIGN KEY (`artistId`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `tutorial_music_album_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `tutorial_music_genre` (`id`);
 
-  ALTER TABLE `music_artist`
-    ADD CONSTRAINT `music_artist_ibfk_1` FOREIGN KEY (`photo`) REFERENCES `core_blob` (`id`);
+  ALTER TABLE `tutorial_music_artist`
+    ADD CONSTRAINT `tutorial_music_artist_ibfk_1` FOREIGN KEY (`photo`) REFERENCES `core_blob` (`id`);
 
 
 Database rules
@@ -201,8 +202,11 @@ This will generate:
 1. ``Module.php``, required for every module. Contains Author info and controls the installation.
 2. ``views/extjs3``, The webclient code. We'll get to that later.
 3. ``language/en.php``, translation file.
-4. ``install/install.sql``, uninstall.sql and updates.php, these files handle installation and upgrading.
+4. ``install/install.sql``, ``uninstall.sql`` and ``updates.php``, these files handle installation and upgrading.
 5. ``model``, this folder contains all models.
+
+As per Group-Office 6.7, by default, the development status will be `beta`. If you have finished implementing your new
+module, in ``Module.php``, the status should be manually set to `stable`.
 
 .. note:: Docker runs as root and will write these files as root. 
 
@@ -267,7 +271,7 @@ And then change the mapping:
 
    protected static function defineMapping() {
        return parent::defineMapping()
-               ->addTable("music_artist", "artist")
+               ->addTable("tutorial_music_artist", "artist")
                ->addArray('albums', Album::class, ['id' => 'artistId']);
    }
 
@@ -299,7 +303,7 @@ The next step is to update the ``defineMapping`` method, to actually count the a
 
   protected static function defineMapping() {
 		return parent::defineMapping()
-						->addTable("music_artist", "artist")
+						->addTable("tutorial_music_artist", "artist")
 						->addMap('albums', Album::class, ['id' => 'artistId']);
 						->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
 							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
@@ -481,7 +485,7 @@ by overriding the "filter" method:
 		return parent::defineFilters()
 			->add('genres', function (\go\core\db\Criteria $criteria, $value, \go\core\orm\Query $query, array $filter) {
 				if (!empty($value)) {
-					$query->join('music_album', 'album', 'album.artistId = artist.id')
+					$query->join('tutorial_music_album', 'album', 'album.artistId = artist.id')
 					->groupBy(['artist.id']) // group the results by id to filter out duplicates because of the join
 					->where(['album.genreId' => $value]);
 				}
@@ -541,16 +545,16 @@ fields <custom-fields>` to different entities.
 
 First, we need to update the database. For an entity to be customized, we need to add a table that follows the convention below::
 
-  <Module>_<Entity>_custom_fields
+  <Package>_<Module>_<Entity>_custom_fields
 
 We will have to write a database migration. Open ``go/modules/tutorial/music/updates.php`` and add the following code:
 
 .. code:: php
 
   $updates['202002041445'][] = <<<'EOT'
-  CREATE TABLE IF NOT EXISTS `music_artist_custom_fields`
+  CREATE TABLE IF NOT EXISTS `tutorial_music_artist_custom_fields`
       ( id INT(11) NOT NULL PRIMARY KEY,
-      CONSTRAINT `music_artist_custom_fields_ibfk_1` FOREIGN KEY(id) REFERENCES music_artist (id)
+      CONSTRAINT `music_artist_custom_fields_ibfk_1` FOREIGN KEY(id) REFERENCES tutorial_music_artist (id)
       ON DELETE CASCADE ON UPDATE RESTRICT ) ENGINE = INNODB;
   EOT;
 
@@ -593,12 +597,12 @@ of other users. This section deals with developing entities that have some form 
 In our tutorial module, we will add a ACL entity named 'review', which will allow you to add reviews to albums and
 control with whom you want to share your guilty pleasures.
 
-The first step is to create the ``music_review`` table. Open ``install/updates.php`` and add the code below:
+The first step is to create the ``tutorial_music_review`` table. Open ``install/updates.php`` and add the code below:
 
 .. code:: php
 
   $updates['202002071045'][] = <<<'EOT'
-  CREATE TABLE IF NOT EXISTS `music_review`
+  CREATE TABLE IF NOT EXISTS `tutorial_music_review`
       ( `id` INT(11) NOT NULL PRIMARY KEY,
       `albumId` INT(11) NOT NULL,
       `aclId` INT(11) NOT NULL,
@@ -611,13 +615,13 @@ The first step is to create the ``music_review`` table. Open ``install/updates.p
        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
   EOT;
   $updates['202002071045'][] = <<<'EOT'
-  ALTER TABLE `music_review`
+  ALTER TABLE `tutorial_music_review`
       ADD KEY `aclId` (`aclId`),
       ADD KEY `albumId` (`albumId`);
   EOT;
   $updates['202002071045'][] = <<<'EOT'
-  ALTER TABLE `music_review`
-      ADD CONSTRAINT `music_review_fk1` FOREIGN KEY (`albumId`) REFERENCES `music_album` (`id`) ON DELETE CASCADE,
+  ALTER TABLE `tutorial_music_review`
+      ADD CONSTRAINT `music_review_fk1` FOREIGN KEY (`albumId`) REFERENCES `tutorial_music_album` (`id`) ON DELETE CASCADE,
       ADD CONSTRAINT `music_review_fk2` FOREIGN KEY (`aclId`) REFERENCES `core_acl` (`id`);
   EOT;
 
@@ -659,9 +663,9 @@ The next step is to create a model, which we extend from the ``AclOwnerEntity`` 
       protected static function defineMapping()
       {
           return parent::defineMapping()
-              ->addTable('music_review')
+              ->addTable('tutorial_music_review')
               ->addQuery((new Query())->select('a.name AS albumtitle')
-                  ->join('music_album', 'a', 'a.id=music_review.albumId'));
+                  ->join('tutorial_music_album', 'a', 'a.id=music_review.albumId'));
       }
 
       protected function internalSave()
@@ -703,8 +707,8 @@ The next step is to create a model, which we extend from the ``AclOwnerEntity`` 
           Artist::entityType()->changes(
               go()->getDbConnection()
                   ->select('art.id, null, 0')
-                  ->from('music_artist', 'art')
-                  ->join('music_album', 'alb', 'alb.artistId = art.id')
+                  ->from('tutorial_music_artist', 'art')
+                  ->join('tutorial_music_album', 'alb', 'alb.artistId = art.id')
                   ->where('alb.id', 'IN', $albumIds)
           );
       }
@@ -714,7 +718,7 @@ The next step is to create a model, which we extend from the ``AclOwnerEntity`` 
           return parent::defineFilters()
               ->add('albumId', function (\go\core\db\Criteria $criteria, $value, \go\core\orm\Query $query, array $filter) {
                   if (!empty($value)) {
-                      $query->where(['music_review.albumId' => $value]);
+                      $query->where(['tutorial_music_review.albumId' => $value]);
                   }
               });
 

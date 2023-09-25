@@ -105,7 +105,7 @@ Creating resources
 
 After you setup a resource group you can add resources. Go to:
 
-Calendar -> Administration -> Recources -> Add
+Calendar -> Administration -> Resources -> Add
 
 Enter a name and click on "Apply". The permissions tab is now enabled. 
 

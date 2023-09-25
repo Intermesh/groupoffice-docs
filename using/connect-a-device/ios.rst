@@ -51,7 +51,7 @@ To setup an ActiveSync account take the following steps:
    .. figure:: /_static/ios-eas/6-certificate-warning.PNG
       :width: 400px
 
-8. Enter your :ref:`server-hostname` and username.
+8. Enter your :ref:`server-hostname` and your Group-Office username.
 
    .. figure:: /_static/ios-eas/7-server-settings.PNG
       :width: 400px

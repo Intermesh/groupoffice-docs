@@ -1,6 +1,9 @@
 Manual upgrade from the Tarball
 -------------------------------
 
+.. note:: In version 6.8 we've switched from Ioncube to `SourceGuardian <https://www.sourceguardian.com/loaders.html>`_.
+    Please make sure that's installed if you're using the professional version.
+
 We strongly recommend that you use our Debian packages or Docker instead of the
 tarball. But if you really want use it then follow these steps:
 
@@ -104,8 +107,8 @@ You can run it like this::
     wget https://github.com/Intermesh/groupoffice/releases/download/v$VERSION/groupoffice-$VERSION.tar.gz
     tar zxf groupoffice-$VERSION.tar.gz
 
-    GO=`ls | grep groupoffice`
-    echo $GO
+    GO=`ls -d */ | grep groupoffice`
+    echo "Source dir: $GO"
 
     cd $GO
 

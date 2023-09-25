@@ -15,14 +15,14 @@ Make sure your system meets the :ref:`system-requirements`.
 
 Needless to say, but always make a **backup** before upgrading.
 
-After the upgrade you should consider replacing the "gota" module with the new
-"assistant" module for better file editing on the desktop.
-
 You can find the change log here:
 
 https://github.com/Intermesh/groupoffice/blob/master/CHANGELOG.md
 
-You might need to switch to the branch (For example 6.3) to view the latest.
+Release notes are posted to our blog:
+
+https://www.group-office.com/blog/
+
 
 .. toctree::
    :maxdepth: 2

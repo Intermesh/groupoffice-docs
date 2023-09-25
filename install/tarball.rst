@@ -63,8 +63,7 @@ Instructions
       RewriteRule ^onlyoffice(.*)$ /go/modules/business/onlyoffice/connector.php/$1 [L]
 
 4. If you purchased Group-Office Professional licenses then make sure the 
-   `Ioncube loader <http://www.ioncube.com/loaders.php>`_ is installed and place the license 
-   files in the root folder of Group-Office. For example "/usr/share/groupoffice/groupoffice-pro-6.3-license.txt".
+   `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
 
 5. Then visit http://yourserver/ and the installer should appear:
 
@@ -88,8 +87,16 @@ Instructions
 
 Authentication with CGI or FastCGI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When using PHP through CGI the "Authorization" header might not be passed by default. You can enable this header by adding these "mod_rewrite" rules to your VirtualHost section or .htacess file::
+When using PHP through CGI the "Authorization" header might not be passed by default.
+You can enable this header by setting the Authorization as environment variable in
+your VirtualHost section or .htacess file::
 
-      RewriteEngine On
-      RewriteCond %{HTTP:Authorization} ^(.*)
-      RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+    SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+Alternatively you could use these "mod_rewrite" rules::
+
+    RewriteEngine On
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+
