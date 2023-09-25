@@ -89,7 +89,7 @@ The server client allows you to:
 
 Install the module at Start menu -> modules
 
-Then edit /etc/groupoffice/globalconfig.inc.php or create it if it doesn't exist:
+Then edit ``/etc/groupoffice/globalconfig.inc.php`` or create it if it doesn't exist:
 
 .. code:: php
 
@@ -128,6 +128,8 @@ And when you set your password this account will be updated too.
       :width: 50%
 
       Option to create mailbox when creating new users
+
+  .. note:: This file must be writable by the www-data user.
 
 TLS / SSL
 `````````

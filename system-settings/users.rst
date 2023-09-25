@@ -14,8 +14,8 @@ menu in the record you can:
    user you must "Edit" it and toggle "Login enabled" on the account page.
 
 .. warning:: Archiving a user will not only disable the user. It will also hide any calendars, note books
-   task lists and address books from other users. If for a user is re-enabled, these shares have to be restored
-   manually by either the user or the administrator.
+   task lists and address books from other non-admin users. If for a user is re-enabled, these shares have to be
+   restored manually by either the user or the administrator.
 
 .. figure:: /_static/system-settings/users.png
    :alt: User list
@@ -107,8 +107,8 @@ Other locations such as projects and address book folders are owned by the
 Visibility of users
 -------------------
 
-By default all users are visible to eachother. You can see users when you share something with another user for example.
-If you'd like to change this you need to change the default permissions of a new user group. Because every user get's
+By default all users are visible to each other. You can see users when you share something with another user for example.
+If you'd like to change this you need to change the default permissions of a new user group. Because every user gets
 it's own personal group used for permissions. You can change the default or at :ref:`user-groups-defaults`. It's also possible to reset or add new permissions for all users / groups at :ref:`user-groups-defaults` with the "Reset all" or "Add to all" buttons.
 
 You can change visibility settings per user in the user account page at the "Visible to" tab.
