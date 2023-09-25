@@ -35,8 +35,9 @@ Note that the working week is by default for all users in the Holidays module: 8
 Leave types
 -----------
 
-There are roughly two types of leave days: leave days (most commonly holidays) and special leave. The main difference is
-that leave days are commonly budgeted by year, whereas special leave is incidental.
+Since version 6.6, there are roughly two types of leave days: leave days (most commonly holidays) and special leave. The
+main difference is that leave days are commonly budgeted by year, whereas special leave is incidental. Special leave needs
+to be budgeted separately, as different rules apply to different types of special leave.
 
 Holidays
 ````````
@@ -47,10 +48,15 @@ either approve or deny the request. After each step, an email message is sent to
 Special leave
 `````````````
 
+.. figure:: /_static/using/holidays/special-leave-budget-request.png
+   :width: 80%
+
+   Request a special leave budget
+
 There are two ways to create a special leave budget:
 
-1. The employee files a leave request in the common way. The only difference is that the chosen leave type is special leave. When the manager approves this request, a special leave budget will be created automatically.
-2. The manager can create a special leave budget manually for the employee. It is up to the employee to file requests to spend the budgeted hours.
+1. The employee files a request for a special leave budget. The manager needs to approve the leave budget in order for the employee to book leave hours to those budgets.
+2. The manager can creates a special leave budget for the employee. It is up to the employee to file requests to spend the budgeted hours.
 
 When an employee has multiple available special leave budgets, they can select the relevant special leave budget for
 their leave request. It is perfectly possible to have multiple simultaneous budget open or to submit a request for a new
