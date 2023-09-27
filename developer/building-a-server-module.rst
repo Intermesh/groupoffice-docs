@@ -46,20 +46,22 @@ When writing code we following standards:
 Naming conventions
 ------------------
 
-+-----------------------+------------------------------------------------+
-| Properties            | lowerCamelCase                                 |
-+-----------------------+------------------------------------------------+
-| Methods               | lowerCamelCase                                 |
-+-----------------------+------------------------------------------------+
-| Constants             | UPPER_UNDERSCORED                              |
-+-----------------------+------------------------------------------------+
-| Database tables       | lower_underscored (For windows compatibility)  |
-|                       | and singular eg. "contact" and not "contacts"  |
-+-----------------------+------------------------------------------------+
-| Database fields       | lowerCamelCase                                 |
-+-----------------------+------------------------------------------------+
-| Namespaces            | lower_underscored                              |
-+-----------------------+------------------------------------------------+
++-----------------------+---------------------------------------------------+
+| Properties            | lowerCamelCase                                    |
++-----------------------+---------------------------------------------------+
+| Methods               | lowerCamelCase                                    |
++-----------------------+---------------------------------------------------+
+| Constants             | UPPER_UNDERSCORED                                 |
++-----------------------+---------------------------------------------------+
+| Database tables       | lower_underscored (For windows compatibility),    |
+|                       | names consist of package, module and object name, |
+|                       | and singular e.g.                                 |
+|                       | ``business_registration_registration``            |
++-----------------------+---------------------------------------------------+
+| Database fields       | lowerCamelCase                                    |
++-----------------------+---------------------------------------------------+
+| Namespaces            | lower_underscored                                 |
++-----------------------+---------------------------------------------------+
 
 
 .. note:: We're currently refactoring the whole code base. So you will encounter
@@ -159,60 +161,13 @@ Database rules
 ``````````````
 
 1. Also see `naming conventions`_.
-2. Date's use column type "DATE".
+2. Date fields use column type "DATE".
 3. Date and time columns use type "DATETIME".
 4. Foreign key's must be defined for relationships. Think about cascading delete set to null or restrict.
    In general. Properties should always be cascaded and entities should be restricted. They should be 
    cascaded by overriding the internalSave() function so all the application logic will be executed like cleaning up links, logging etc.
 5. We often choose a varchar to be 190 characters so it can be indexed on all database versions.
 6. Columns modifiedBy (int), createdBy (int), createdAt (DATETIME), modifiedAt (DATETIME) are automatically set by Group Office.
-
-
-Code generator
---------------
-
-We've written a command line tool to make it easy to start with a new module.
-When you've created your database tables then you can run it to generate the
-models and controllers. 
-You need to install the "Development tools" module that is part of the "Community" package. Login as administrator and go to :ref:`System Settings -> Modules <modules>`.
-
-Then you can run it at any time from within the project directory to add new model properties, models
-or controllers::
-   
-   php {PATH_TO_GROUPOFFICE}/cli.php community/dev/Module/init --package=tutorial --name=music
-
-.. note:: When using docker-compose use:
-   command with::
-
-      docker-compose exec groupoffice-master php /usr/local/share/groupoffice/cli.php community/dev/Module/init --package=tutorial --name=music
-
-
-the command should output::
-
-  Generating model/Album.php
-  Updating go\modules\community\music\model\Album with new properties
-  Generating model/Artist.php
-  Updating go\modules\community\music\model\Artist with new properties
-  Generating model/Genre.php
-  Updating go\modules\community\music\model\Genre with new properties
-  Done
-
-This will generate:
-
-1. ``Module.php``, required for every module. Contains Author info and controls the installation.
-2. ``views/extjs3``, The webclient code. We'll get to that later.
-3. ``language/en.php``, translation file.
-4. ``install/install.sql``, ``uninstall.sql`` and ``updates.php``, these files handle installation and upgrading.
-5. ``model``, this folder contains all models.
-
-As per Group-Office 6.7, by default, the development status will be `beta`. If you have finished implementing your new
-module, in ``Module.php``, the status should be manually set to `stable`.
-
-.. note:: Docker runs as root and will write these files as root. 
-
-   So you need to change the ownership to your own user by running::
-
-      sudo chown -R $USER:$USER src/master/www/go/modules/tutorial
 
 Property and Entity models
 --------------------------
