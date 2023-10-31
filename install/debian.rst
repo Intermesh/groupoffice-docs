@@ -41,7 +41,7 @@ Our preferred way of installing is using our Debian packages:
    `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
    You can run this command to do all the work::
 
-      curl -s https://raw.githubusercontent.com/Intermesh/groupoffice/sourceguardian/scripts/sg_install.sh | bash
+      curl -s https://raw.githubusercontent.com/Intermesh/groupoffice/master/scripts/sg_install.sh | bash
 
 8. Then visit http://yourserver/groupoffice and the installer should appear:
 
