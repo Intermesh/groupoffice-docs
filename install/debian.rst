@@ -22,7 +22,7 @@ Our preferred way of installing is using our Debian packages:
 
 3. Add our public key::
 
-      wget -O- https://repo.group-office.com/downloads/groupoffice.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/groupoffice.gpg
+      wget -qO - https://repo.group-office.com/downloads/groupoffice.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/groupoffice.gpg
       
 4. Update APT::
 
