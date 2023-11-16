@@ -36,7 +36,7 @@ Instructions
       #For OnlyOffice support
       Alias /onlyoffice <YOURDOCUMENTROOT>/go/modules/business/onlyoffice/connector.php
 
-      # for OpenID service discovery
+      #For OpenID service discovery
       Alias /.well-known/openid-configuration <YOURDOCUMENTROOT>/api/oauth.php/.well-known/openid-configuration
 
       #DAV Service discovery. At least required for iOS7 support
