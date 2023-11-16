@@ -36,6 +36,9 @@ Instructions
       #For OnlyOffice support
       Alias /onlyoffice <YOURDOCUMENTROOT>/go/modules/business/onlyoffice/connector.php
 
+      # for OpenID service discovery
+      Alias /.well-known/openid-configuration <YOURDOCUMENTROOT>/api/oauth.php/.well-known/openid-configuration
+
       #DAV Service discovery. At least required for iOS7 support
       Redirect 301 /.well-known/carddav /carddav
       Redirect 301 /.well-known/caldav /caldav
@@ -50,7 +53,7 @@ Instructions
       # Set the base to slash as it may already have been set to something else in the main configuration.
       RewriteBase /
       
-      # The followng two lines are only necessary when using PHP in CGI mode and not an apache module
+      # The following two lines are only necessary when using PHP in CGI mode and not an apache module
       RewriteCond %{HTTP:Authorization} ^(.*)
       RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
       
@@ -61,6 +64,8 @@ Instructions
       RewriteRule ^wopi(.*)$ /go/modules/business/wopi/wopi.php/$1 [L]
       RewriteRule ^Microsoft-Server-ActiveSync(.*)$ /modules/z-push/index.php
       RewriteRule ^onlyoffice(.*)$ /go/modules/business/onlyoffice/connector.php/$1 [L]
+      RewriteRule "^/\.well-known/openid-configuration"  "/api/oauth.php/.well-known/openid-configuration" [PT]
+
 
 4. If you purchased Group-Office Professional licenses then make sure the 
    `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
