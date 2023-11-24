@@ -16,7 +16,7 @@ from the first customer contact till the completion of your project or sale.
 Initial setup
 -------------
 
-There are a coupkle of modules related to finance. You should consider which ones you need:
+There are a couple of modules related to finance. You should consider which ones you need:
 
 - Finance: Base module for creating quotations, orders and invoices.
 - Catalog: If you need a catalog of products that can be added to quotes and invoices.
@@ -324,7 +324,7 @@ When there are debtors to be notified you are reminded with a badge in the menu:
 
 Reports
 ```````
-You can view a monthly report from the more menu in the main grid:
+You can view a yearly and monthly turnover report from the more menu in the main grid:
 
 .. figure:: /_static/using/finance/monthly-report.png
    :alt: Monthly report
@@ -441,6 +441,7 @@ The organization or contact of the customer
 - customer.debtorNumber
 - customer.IBAN
 - customer.vatNo
+- customer.registrationNumber
 - :ref:`custom-fields`, :ref:`See the templates section for the syntax<templates>`
 
 contact
