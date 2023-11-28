@@ -52,6 +52,8 @@ Our preferred way of installing is using our Debian packages:
 
 9. Follow the instructions on screen and enjoy Group-Office!
 
+.. note:: The package installs the apache configuration in /etc/apache2/conf-available/groupoffice.conf.
+
 
 .. _mailserver:
 
