@@ -2,7 +2,12 @@ System Tasks
 ============
 
 The system tasks tab enables you to schedule automated tasks. These automated tasks are commonly referred to as
-cron jobs, after the cron scheduling sysstem in most common Unix systems.
+cron jobs, after the cron scheduling system in most common Unix systems. Some examples are:
+
+- Calculate disk space usage in the night.
+- Sending e-mail reminders
+- Garbage collection
+- Sending newsletters
 
 .. figure:: /_static/system-settings/system-tasks-overview.png
    :alt: System Settings - System Tasks

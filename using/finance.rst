@@ -16,7 +16,7 @@ from the first customer contact till the completion of your project or sale.
 Initial setup
 -------------
 
-There are a coupkle of modules related to finance. You should consider which ones you need:
+There are a couple of modules related to finance. You should consider which ones you need:
 
 - Finance: Base module for creating quotations, orders and invoices.
 - Catalog: If you need a catalog of products that can be added to quotes and invoices.
@@ -35,11 +35,13 @@ Navigate to System settings -> modules and install the modules you need:
 
 Then reload Group-Office so the System settings page is updated with the new options.
 
-Language
-````````
-You'll have to configure various templates for quotes, invoices, reminders, emails etc. They all have a language
+Languages
+`````````
+The finance module is multilingual. It takes over the language from the address book. You'll have to configure various
+templates for quotes, invoices, reminders, emails etc. They all have a language
 option. Organisations and contacts also have a language option. The contact language will be used to find a
 template in their language. If not found it will fall back on the first language.
+The template syntax and examples :ref:`are found below in the templates section<finance_templates>`.
 
 .. _Business finance:
 Business
@@ -324,7 +326,7 @@ When there are debtors to be notified you are reminded with a badge in the menu:
 
 Reports
 ```````
-You can view a monthly report from the more menu in the main grid:
+You can view a yearly and monthly turnover report from the more menu in the main grid:
 
 .. figure:: /_static/using/finance/monthly-report.png
    :alt: Monthly report
@@ -348,10 +350,13 @@ You can filter to show only the contracts due for sending. Then via the menu cho
    Contracts
 
 
+.. _finance_templates:
+
 Templates
 ---------
 
-You can setup :ref:`templates<templates>` For documents, emails and statements .
+You can setup :ref:`templates<templates>` For documents, emails and statements. The general template syntax is described
+in :ref:`the document templates section here<templates>`.
 
 Available variables
 ````````
@@ -441,6 +446,7 @@ The organization or contact of the customer
 - customer.debtorNumber
 - customer.IBAN
 - customer.vatNo
+- customer.registrationNumber
 - :ref:`custom-fields`, :ref:`See the templates section for the syntax<templates>`
 
 contact
@@ -484,6 +490,11 @@ Example quote
                 <p>
                     {{document.customerTo}}<br />
                     {{document.formattedAddress|nl2br}}
+
+                    [if {{customer.vatNo}}]
+                    <br />
+                    VAT no.: {{customer.vatNo}}
+                    [/if]
 
                     <br /><br /><br />
 

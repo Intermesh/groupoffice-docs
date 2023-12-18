@@ -149,9 +149,15 @@ You can use filters to format data. They can be used with a "|" char followed by
 
    {{contact.customFields.number|number:2:,:.}}
 
-- multiply(multiplier)
-- add(number)
-- entity(type, id): Fetch an entity::
+- multiply(multiplier): Multiply a number::
+
+   {{contact.customFields.number|multiply:2}}
+
+- add(number): Add to a number::
+
+   {{contact.customFields.number|add:2}}
+
+- entity(type, id): Fetch an entity by ID::
 
         [assign contact = 1 | entity:Contact]
 
@@ -159,7 +165,10 @@ You can use filters to format data. They can be used with a "|" char followed by
 
     [assign firstContactLink = someEntityVar | links:Contact | first]
 
-- prop(property) get the propery name
+- prop(property) get a property from an object or array by name::
+
+      [assign formattedAddress = contact.addresses | sort:type:"postal" | first | prop:formatted]
+
 - nl2br: Change line breaks to HTML <br> tags
 - empty: returns true if empty or false if not
 - dump: For debugging only. Dumps the variable type and value.
