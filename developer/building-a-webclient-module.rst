@@ -1,3 +1,6 @@
+.. _webclient_module:
+
+
 Building a webclient module
 ===========================
 
@@ -28,17 +31,7 @@ When opening Group-Office you should see "Music" in the start menu. When opening
 
 GOUI
 ----
-
-Since version 6.7, we have started phasing out ExtJS in favor of our own TypeScript framework.
-We have named it GOUI, which is short for Group-Office User Interface. As of 2023, ExtJS is considered obsolete
-and it contains unnecessary compatibility layers for browsers that have been obsoleted for years now. As yet,
-Group-Office will keep supporting ExtJS, but all new development will use the GOUI framework.
-
-GOUI is written in TypeScript and is intended to generate clean Javascript and HTML code. In that respect, GOUI
-is clearly inspired by ExtJS. However, the generated code is more suited to more modern standards for Javascript,
-HTML and CSS. Also, since we compile our code into modern Javascript, it will be more secure by default.
-
-In the future, this guide will be rewritten for the GOUI framework. In the meantime, you can visit our
+In the future, this guide will be rewritten for the :ref:`GOUI framework <goui>`. In the meantime, you can visit our
 goui documentation site on https://goui.io/ .
 
 Entities
