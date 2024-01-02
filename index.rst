@@ -38,30 +38,45 @@ Visit https://www.group-office.com for more information. Source code can be foun
 
 .. toctree::
    :maxdepth: 2
-   :caption: Modules
+   :caption: Community Modules
 
    using/email
    using/calendar
    using/address-book
-   using/newsletters
-   using/document-templates
    using/files
    using/notes
-   using/business
-   using/tickets
-   using/support
    using/tasks
-   using/projects
-   using/holidays
-   using/billing
-   using/finance
-   using/file-search
    using/chat
-   using/studio
    using/oauth2
    using/dokuwiki
    using/templates
    using/bookmarks
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Professional package
+
+   using/business
+   using/tickets
+   using/support
+   using/document-templates
+   using/newsletters
+   using/projects
+   using/holidays
+   using/studio
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Billing package
+
+   using/billing
+   using/finance
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Document search package
+
+   using/file-search
 
 .. toctree::
    :maxdepth: 2
