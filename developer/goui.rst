@@ -12,9 +12,9 @@ We have named it GOUI, which is short for Group-Office User Interface. As of 202
 and it contains unnecessary compatibility layers for browsers that have been obsoleted for years now. As yet,
 Group-Office will keep supporting ExtJS, but all new development will use the GOUI framework.
 
-GOUI is written in TypeScript and is intended to generate clean Javascript and HTML code. In that respect, GOUI
-is clearly inspired by ExtJS. However, the generated code is more suited to more modern standards for Javascript,
-HTML and CSS. Also, since we compile our code into modern Javascript, it will be more secure by default.
+GOUI is written in `TypeScript <https://typescriptlang.org>` and is intended to generate clean Javascript and HTML code.
+In that respect, GOUI is clearly inspired by ExtJS. However, the generated code is more suited to more modern standards
+for Javascript, HTML and CSS. Also, since we compile our code into modern Javascript, it will be more secure by default.
 
 
 GOUI Documentation
