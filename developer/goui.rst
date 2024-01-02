@@ -28,5 +28,3 @@ Group-Office library for GOUI
 To get ahead of the rewrite of the :ref:`web client tutorial <webclient_module>`, please note that in order to start
 developing modules in GOUI, you need the GOUI-Groupoffice package as well. If you use our Docker Development environment,
 it will be installed automatically as long as you develop against 6.7 or up.
-
-
