@@ -471,90 +471,96 @@ Example quote
 .. code-block:: html
 
     <table border="0">
-        <tr>
+	<tr>
 
-            <td width="60%">
-                <div style="font-size: 200%; color: #2d4386">{{template.name}}</div>
+		<td width="60%">
+			<div style="font-size: 200%; color: #2d4386">{{template.name}}</div>
+			<br />
+		</td>
+		<td width="40%">
+			[if {{logo}}]
+			<img src="{{logo}}" />
+			[/if]
+		</td>
+	</tr>
+	<tr>
+
+		<td >
+
+			<small>To:</small>
+
+			<p>
+				{{document.customerTo}}<br />
+				{{document.formattedAddress|nl2br}}
+
+                [if {{customer.vatNo}}]
                 <br />
-            </td>
-            <td width="40%">
-                [if {{logo}}]
-                <img src="{{logo}}" />
+                VAT no.: {{customer.vatNo}}
                 [/if]
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <small>To:</small>
 
-                <p>
-                    {{document.customerTo}}<br />
-                    {{document.formattedAddress|nl2br}}
+                <br /><br /><br />
 
-                    [if {{customer.vatNo}}]
-                    <br />
-                    VAT no.: {{customer.vatNo}}
-                    [/if]
+			</p>
 
-                    <br /><br /><br />
+			<table>
 
-                </p>
+				<tr>
+					<td width="30%"><b>Number:</b></td> <td>{{document.number}}</td>
+				</tr>
 
-                <table>
+				<tr>
+					<td><b>Date:</b></td> <td>{{document.date|date:d-m-Y}}</td>
+				</tr>
 
-                    <tr>
-                        <td width="30%"><b>Number:</b></td> <td>{{document.number}}</td>
-                    </tr>
+				[if {{document.reference}}]
+				<tr><td><b>Reference:</b></td> <td>{{document.reference}}</td></tr>
+				[/if]
 
-                    <tr>
-                        <td><b>Date:</b></td> <td>{{document.date|date:d-m-Y}}</td>
-                    </tr>
-
-                    [if {{document.reference}}]
-                    <tr><td><b>Reference:</b></td> <td>{{document.reference}}</td></tr>
-                    [/if]
-
-                </table>
+			</table>
 
 
-            </td>
+		</td>
 
 
-            <td>
+		<td>
 
-                <small>Offered by:</small>
+			<small>Offered by:</small>
 
-                [assign businessOrg = business.contactId | entity:Contact]
+			[assign businessOrg = business.contactId | entity:Contact]
 
-                <p>
-                    {{businessOrg.name}}<br />
-                    [assign bAddress = businessOrg.addresses | filter:type:"postal" | first]
-                    [if !{{bAddress}}]
-                    [assign bAddress = businessOrg.addresses | first]
-                    [/if]
-                    {{bAddress.formatted|nl2br}}
+			<p>
+				{{businessOrg.name}}<br />
+				[assign bAddress = businessOrg.addresses | filter:type:"postal" | first]
+				[if !{{bAddress}}]
+				[assign bAddress = businessOrg.addresses | first]
+				[/if]
+				{{bAddress.formatted|nl2br}}
 
-                    <br />
+				<br />
 
-                    <br />
-                </p>
+				<br />
+			</p>
 
-                <table border="0">
+			<table border="0">
 
-                    [assign orgEmail = businessOrg.emailAddresses | sort:type:"work" | first | prop:email]
-                    [if {{orgEmail}}]
-                    <tr><td width="20%">e-mail:</td><td width="80%"> {{orgEmail}}</td></tr>
-                    [/if]
+				[assign orgEmail = businessOrg.emailAddresses | sort:type:"work" | first | prop:email]
+				[if {{orgEmail}}]
+				<tr><td width="20%">e-mail:</td><td width="80%"> {{orgEmail}}</td></tr>
+				[/if]
 
-                    [assign orgNumber = businessOrg.phoneNumbers | sort:type:"work" | first | prop:number]
-                    [if {{orgNumber}}]
-                    <tr><td width="20%">tel:</td><td width="80%"> {{orgNumber}}</td></tr>
-                    [/if]
+				[assign orgNumber = businessOrg.phoneNumbers | sort:type:"work" | first | prop:number]
+				[if {{orgNumber}}]
+				<tr><td width="20%">tel:</td><td width="80%"> {{orgNumber}}</td></tr>
+				[/if]
 
-                    [if {{businessOrg.registrationNumber}}]
-                        <tr><td colspan="2"><br /></td></tr>
-                        <tr><td>Company no.:</td><td> {{businessOrg.registrationNumber}}</td></tr>
-                    [/if]
+                <tr><td colspan="2"><br /></td></tr>
+                <tr><td width="20%">Bank:</td><td width="80%"> {{businessOrg.nameBank}}</td></tr>
+                <tr><td>IBAN:</td><td> {{businessOrg.IBAN}}</td></tr>
+                <tr><td>BIC:</td><td> {{businessOrg.BIC}}</td></tr>
+
+                <tr><td colspan="2"><br /></td></tr>
+                <tr><td>VAT no.:</td><td> {{businessOrg.vatNo}}</td></tr>
+                <tr><td>Company no.:</td><td> {{businessOrg.registrationNumber}}</td></tr>
 
                 </table>
 
@@ -565,8 +571,7 @@ Example quote
 
     <br />
     [if {{document.greeting}}]
-    <p>
-        {{document.greeting}}
+    <p>{{document.greeting}}
         <br />
         <br />
     </p>
@@ -607,7 +612,7 @@ Example quote
                     [/if]
 
                     [each item in itemGroup.items]
-                        <tr>
+                        <tr nobr="true">
                             [if {{document.showPricePerLine}}]
                                 <td align="right">{{item.quantity|number}}</td>
                                 <td>{{item.description|nl2br}}</td>
@@ -705,8 +710,7 @@ Example quote
     <br />
 
     [if {{document.closing}}]
-    <p>
-        {{document.closing}}
+    <p>{{document.closing}}
         <br />
         <br />
     </p>
