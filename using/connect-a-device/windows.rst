@@ -53,8 +53,8 @@ To setup an ActiveSync account take the following steps:
 
 .. _assistant-for-windows:
 
-Files
------
+Files - Group-Office assistant
+------------------------------
 
 The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
 Linux computer. It will automatically download files opened from Group-Office and monitor
@@ -96,16 +96,24 @@ If you want to view debug output from the assistant for some reason. You can lau
 
 WebDAV
 ------
-Additionally you can map Group-Office as network drive using WebDAV. The assistant makes this easy for you after editing a file. Then you can right click the icon and choose "Connect network drive".
+Additionally you can map Group-Office as network drive using WebDAV. Connect your client to
+
+\https://[:ref:`server-hostname`]/webdav
 
 WebDAV client issues
 ````````````````````
 Unfortunately there are some known issues with the native Windows WebDAV implementation:
 
-1. When opening office files you have to re-authenticate: https://support.microsoft.com/en-us/help/2019105/authentication-requests-when-you-open-office-documents
-2. There's a path length limit in both windows and office. So long paths will fail. The URL of your Group-Office counts as path too.
+1. Basic authentication is blocked since updates in 2023: https://learn.microsoft.com/en-us/deployoffice/security/basic-authentication-prompts-blocked . You can no longer use Microsoft's WebDAV implementation for third party services.
+2. When opening office files you have to re-authenticate: https://support.microsoft.com/en-us/help/2019105/authentication-requests-when-you-open-office-documents
+3. There's a path length limit in both windows and office. So long paths will fail. The URL of your Group-Office counts as path too.
 
-We recommend to use the assistant as it doesn't suffer from these issues and generally works faster.
+We recommend to use a WebDAV client:
+
+1. The :ref:`Group-Office Assistant <assistant-for-windows>` if you don't need it mapped as a drive
+2. `Mountain Duck WebDAV client <https://mountainduck.io>`_, It offers excellent webdav speed and you can also sync your files offline. The downside is that it brings extra costs per user.
+3. `RaiDrive <https://www.raidrive.com/download>`_, A good client that is less expensive than Mountain Duck but does not have offline synchronisation.
+
 
 
 
