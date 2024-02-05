@@ -43,6 +43,7 @@ Here's a list of config options:
    email_enable_labels           bool    Enable labels for e-mail if IMAP server supports it
    allow_themes.                 bool    Enable themes
    theme                         bool    Default theme ("Paper")
+   checkForUpdates               bool    Check if there's a new version available. Enabled by default.
    ============================  ======  ===========
 
 
