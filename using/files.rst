@@ -18,8 +18,6 @@ The files module supports:
 - :ref:`custom-fields`
 - :ref:`comments`
 - :ref:`sharing`
-- :ref:`files`
-
 
 Share folders
 -------------

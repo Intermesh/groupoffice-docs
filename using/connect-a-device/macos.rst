@@ -10,8 +10,8 @@ On Mac OS you can synchronize:
 
 .. _assistant-for-macos:
 
-Files
------
+Files - Group-Office Assistant
+------------------------------
 
 The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
 Linux computer. It will automatically download files opened from Group-Office and monitor
@@ -26,24 +26,9 @@ After downloading take the following steps to install:
    .. figure:: /_static/macos-assistant/1-dmg.png
       :width: 400px
 
-2. Launch Group-Office Assistant and MacOS will prompt for a security warning.
+2. In Group-Office right click on a file and choose "Open with".
 
-   .. figure:: /_static/macos-assistant/2-security-and-privacy.png
-      :width: 400px
-
-3. Navigate to System Preferences -> Security and Privacy and click the "Open anyway" button.
-
-   .. figure:: /_static/macos-assistant/1-warning.png
-      :width: 400px
-
-4. Confirm.
-
-   .. figure:: /_static/macos-assistant/3-are-you-sure.png
-      :width: 400px
-
-5. In Group-Office right click on a file and choose "Open with".
-
-6. Select the "Your desktop application (WebDAV) option to use the assistant.
+3. Select the "Your desktop application (WebDAV) option to use the assistant.
 
    .. figure:: /_static/macos-assistant/4-select-application.png
       :width: 400px
@@ -52,12 +37,14 @@ After downloading take the following steps to install:
 .. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
-WebDAV client issues
-````````````````````
+WebDAV clients
+``````````````
+You can use WebDAV to mount Group-Office as a network drive. Unfortunately the MacOS webdav implementation can be rather
+slow due to a lot of redundant requests.
+We found that the `Mountain Duck WebDAV client <https://mountainduck.io>`_ is much faster. Additionally, it has
+a smart synchronisation feature to work with your files offline. Connect the client to:
 
-Unfortunately the MacOS webdav implementation can be rather slow due to a lot of redundant requests.
-We found that the `Mountain Duck WebDAV client <https://mountainduck.io>`_ is much faster.
-
+\https://[:ref:`server-hostname`]/webdav
 
 Calendar, Reminders and Contacts
 --------------------------------

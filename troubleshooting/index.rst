@@ -1,6 +1,16 @@
 Troubleshooting
 ===============
 
+Lost password
+-------------
+If you lost the password for the admin user you can reset it on the command line::
+
+   sudo -u www-data ./cli.php core/System/setPassword --username=admin
+
+Or on docker::
+
+   docker compose exec -u www-data groupoffice ./www/cli.php core/System/setPassword --username=admin
+
 Upgrading
 ---------
 

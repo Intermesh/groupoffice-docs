@@ -18,8 +18,8 @@ You can find those by using your browser and go to /carddav/addressbooks/<ADDRES
 
 .. _assistant-for-linux:
 
-Files
------
+Files - Group-Office Assistant
+------------------------------
 
 The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
 Linux computer. It will automatically download files opened from Group-Office and monitor
@@ -51,3 +51,11 @@ On Debian based distributions you can install the Group Office Assistant.
 
 .. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
+
+
+WebDAV
+------
+You can use WebDAV to mount Group-Office as a network drive. Linux Desktops have WebDAV built in. For GNOME users you can launch the file explorer and choose "Connect to server" from the menu.
+Connect the client to:
+
+https://[Server hostname]/webdav
