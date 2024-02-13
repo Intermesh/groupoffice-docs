@@ -18,11 +18,13 @@ Visit https://www.group-office.com for more information. Source code can be foun
 
    install/install
    upgrade/upgrade
-   backup
+   maintenance/backup
+   maintenance/cleanup
    migrate/index
-   logging
    system-settings/index
    troubleshooting/index
+   troubleshooting/logging
+
 
 .. toctree::
    :maxdepth: 2
