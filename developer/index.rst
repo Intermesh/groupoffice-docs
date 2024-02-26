@@ -15,3 +15,4 @@ other systems.
    server
    webclient
    jmap
+   goui
