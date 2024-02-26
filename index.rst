@@ -66,6 +66,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/projects
    using/holidays
    using/studio
+   using/gdpr
 
 .. toctree::
    :maxdepth: 2
