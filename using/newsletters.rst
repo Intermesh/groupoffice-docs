@@ -52,7 +52,7 @@ Testing a newsletter is easy. Just click the "Test message" button and you will 
 .. tip:: After hitting the "Send" button you can pause / unpause the distribution of the newsletter. That will pause or unpause the next batch of emails to be sent the next minute.
 
 Templates
-=========
+---------
 
 From the composer you can also manage :ref:`templates<templates>` . Via the menu shown in the screenshot above.
 You can use the following variables in these templates:
