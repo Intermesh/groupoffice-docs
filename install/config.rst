@@ -95,6 +95,10 @@ By default Apache doesn't allow a request body larger than 1G. If you want to up
 
     LimitRequestBody 5368709120
 
+Also disable the mod_reqtimeout as it kills the upload if it takes longer than 20s by default:
+
+https://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html
+
 Security improvements
 `````````````````````
 You can hide your version information by setting these Apache configuration parameters in
