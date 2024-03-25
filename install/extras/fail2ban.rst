@@ -33,7 +33,7 @@ It works by monitoring the apache access log for invalid logins.
             ignoreregex =
 
 
-3. Define the jail in /etc/fail2ban/jail.d/groupoffice-web.conf::
+3. Define the jail in /etc/fail2ban/jail.d/groupoffice.conf::
 
       [groupoffice-web]
       enabled = true
