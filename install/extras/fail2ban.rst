@@ -50,7 +50,7 @@ For more information about Fail2ban and the configuration of it visit https://ww
 
 .. note:: These filters work from version 6.8.40 and up
 
-.. note:: If you use the Group-Office mailserver then also enable the sasl, dovecot and postfix filters.
+.. note:: If you use the Group-Office mailserver then also enable the postfix-sasl, postfix, dovecot, sieve filters.
 
 
 
