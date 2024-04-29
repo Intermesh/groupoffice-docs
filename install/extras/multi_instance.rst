@@ -80,3 +80,13 @@ properties as :ref:`config.php <configuration>` but applies to all instances if 
 file.
 
 New portals will also copy the system settings of the main portal.
+
+
+Command Line Tools
+``````````````````
+
+Group-Office searches for the config file in __DIR__/config.php, /etc/groupoffice/config.php and finally /etc/groupoffice/multu_instance/<HTTP_HOST>/config.php
+If you want to run a command line tool on an instance you can set the HTTP_HOST in the environment so it will use the
+correct instance::
+
+    export HTTP_HOST=myinstance.example.com
