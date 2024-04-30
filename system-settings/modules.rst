@@ -43,6 +43,9 @@ Since version 6.6, the module permissions have gotten an overhaul:
 In order to grant access to a group or user, just add them to the list above as per this screen shot. If a user is not
 in the listed users or groups in this list, they have no access to the module.
 
+The core module permissions can be set by clicking the button labeled 'System Permissions'. If a user does not have access
+to the core module, they cannot use Group-Office. Use with care.
+
 .. figure:: /_static/system-settings/module-add-permissions-66.png
    :alt: Add a group to task permissions
 
@@ -51,6 +54,8 @@ in the listed users or groups in this list, they have no access to the module.
 A big difference between the old permissions system and the new system, is that it is easier to define custom permissions.
 In the example above, you can define which users or groups are allowed to manage task lists or task categories. This
 is obviously only relevant to the tasks module, so this custom permission type will not be offered for other modules.
+
+
 
 The Old Way
 ```````````

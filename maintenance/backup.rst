@@ -3,7 +3,7 @@ Backup
 
 You need to backup the following items:
 
-1. The configuration file :ref:`config.php <configuration>`. Can be found in /etc/groupoffice or in
+1. The configuration file :ref:`config.php <configuration>`. Can be found in ``/etc/groupoffice`` or in
    the source directory.
 
 2. The MySQL / MariaDB database. You can find the connection parameters in :ref:`config.php <configuration>`.
@@ -11,7 +11,7 @@ You need to backup the following items:
 3. The data folder. You can find the "file_storage_path" in the :ref:`config.php <configuration>` file.
 
 4. If you use the Group-Office mailserver, then also backup the e-mail that's 
-   located in /var/mail/vhosts.
+   located in ``/var/mail/vhosts``.
 
 
 Recovery

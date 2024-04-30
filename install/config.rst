@@ -33,6 +33,7 @@ Here's a list of config options:
    debug_log                     bool    Disable debug log when debug = true.
    debug_usernames               array   Debug only for these usernames. eg. ['demo', 'foo']
    debugEmail                    string  Set to an e-mail address to redirect all mail to for testing purposes.
+   mailerDebugLevel              int     Saves debug messages from the mailer to ``debug.log``. The number of logs depends on the level. 0 disables this, whereas 4 is the maximum.
    email_allow_body_search       bool    Enable searching in email bodies. Disabled by default as per version 6.6.103 .
    sieve_rewrite_hosts           string  When using an IMAP proxy then configure the real mail host for sieve calls here. eg. "localhost=mail.example.com";
    servermanager                 bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
@@ -41,7 +42,7 @@ Here's a list of config options:
    vmail_path                    string  Customize where mail is stored. Defaults to "/var/mail/vhosts/"
    custom_css_url                string  URL to stylesheet to load in the web interface.
    email_enable_labels           bool    Enable labels for e-mail if IMAP server supports it
-   allow_themes.                 bool    Enable themes
+   allow_themes                  bool    Enable themes
    theme                         bool    Default theme ("Paper")
    checkForUpdates               bool    Check if there's a new version available. Enabled by default.
    ============================  ======  ===========
