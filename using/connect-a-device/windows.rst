@@ -112,7 +112,7 @@ We recommend to use a WebDAV client:
 
 1. The :ref:`Group-Office Assistant <assistant-for-windows>` if you don't need it mapped as a drive
 2. `Mountain Duck WebDAV client <https://mountainduck.io>`_, It offers excellent webdav speed and you can also sync your files offline. The downside is that it brings extra costs per user.
-3. `RaiDrive <https://www.raidrive.com/download>`_, A good client that is less expensive than Mountain Duck but does not have offline synchronisation.
+3. `RaiDrive <https://www.raidrive.com/download>`_, A good client that is free to use but does not have offline synchronisation.
 
 
 
