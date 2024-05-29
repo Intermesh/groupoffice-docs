@@ -14,15 +14,13 @@ To upgrade minor releases run:
    apt-get update
    apt-get install groupoffice
 
-This will install the new software but doesn't upgrade the database.
+This will install the new software and upgrades the database.
 When Group-Office open Group-Office now they will get a message that the service is unavailable at this time because an
 upgrade is being installed.
 
-Launch /install to upgrade the database or run it on the command line::
+.. note:: If for any reason you see a maintenance screen when launching Group-Office. Then launch /install to upgrade the database or run it on the command line::
 
-   sudo -u www-data /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
-   
-
+     sudo -u www-data /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
 
 Major release upgrade
 ~~~~~~~~~~~~~~~~~~~~~
@@ -34,7 +32,9 @@ When upgrading to the next major release follow these steps prior to the above:
 
 2. Then open your browser to update the database.
 
-3. Major release upgrades can't be skipped so you need to do them step by step.
+4. Make sure to install the latest license key from our website if you run the professional version.
+
+5. Major release upgrades can't be skipped so you need to do them step by step.
    Adjust the repository to the next major release in '/etc/apt/sources.list.d/groupoffice.list':
 
     - For 6.8 change it to::
