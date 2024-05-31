@@ -62,6 +62,7 @@ First, open the AAD application in the Azure portal.
 	d. In the search bar, enter 'Office 365 Exchange Online'.
 	e. Click 'Application permissions'
 	f. Check the IMAP.AccessAsApp checkbox and click 'Add permissions'
+	g. Check the SMTP.SendAsApp checkbox and click 'Add permissions'
 
 3. Get tenant admin consent. This depends on who is the owner of the tenant. If you are the tenant owner, simply click the button 'Grant admin consent' in the API Permissions list.
 4. Register service principals in Exchange. You need the Exchange power shell for this. My powers end here.

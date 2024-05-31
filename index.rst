@@ -80,6 +80,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    :caption: Document search package
 
    using/file-search
+   using/workflow
 
 .. toctree::
    :maxdepth: 2
