@@ -164,21 +164,20 @@ When entering ``y`` the script will create Group Office users accounts. The user
     $conf_path = '/etc/groupoffice/config.php';
     $path = '/usr/share/groupoffice/';
 
-    while(!is_file($path.'GO.php')) {
+    while (!is_file($path . 'GO.php')) {
         echo "Could not find GO.php in '$path'\n"
             . "Enter the path to your Group-Office installation to continue: ";
         $path = trim(fgets($handle));
-        $conf_path = $path.'config.php';
+        $conf_path = $path . 'config.php';
     }
     define('GO_CONFIG_FILE', $conf_path);
-    require_once($path.'GO.php');
+    require_once($path . 'GO.php');
 
 
-    use GO\Postfixadmin\Model\Domain;
-    use GO\Postfixadmin\Model\Mailbox;
-    //use GO\Base\Model\User;
     use go\core\model\User;
     use GO\Email\Model\Account;
+    use GO\Postfixadmin\Model\Domain;
+    use GO\Postfixadmin\Model\Mailbox;
 
     GO::session()->runAsRoot();
 
@@ -190,7 +189,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
 
         protected $imap_sync = '/usr/bin/imapsync'; //binary
         protected $domain = 'mydomain.com';
-        protected $quota = 512*1024; //quota in kb = (512MB)
+        protected $quota = 512 * 1024; //quota in kb = (512MB)
 
         protected $source = [
             'host' => '',
@@ -233,7 +232,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 $this->records = $this->loadCsv();
 
                 if (GO::modules()->isInstalled('postfixadmin')) {
-                    echo implode(array_keys($this->records), "\n") . "\n" .
+                    echo implode("\n", array_keys($this->records)) . "\n" .
                         "Do you want to create to following mailboxes? [y/N]: ";
                     $line = fgets($handle);
                     if (trim($line) == 'y') {
@@ -268,7 +267,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 }
                 echo "All done!\n";
             } catch (Exception $e) {
-                echo $e->getMessage() . "\n  at ".$e->getFile().":" . $e->getLine(). "\n";
+                echo $e->getMessage() . "\n  at " . $e->getFile() . ":" . $e->getLine() . "\n";
             }
         }
 
@@ -338,8 +337,9 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 $domain->domain = $this->domain;
                 $domain->default_quota = $this->quota;
                 $domain->user_id = 1;
-                if (!$domain->save())
-                    throw new Exception('Error while saving domain: ' . $this->domain. "\n" . implode("\n", $domain->getValidationErrors()));
+                if (!$domain->save()) {
+                    throw new Exception('Error while saving domain: ' . $this->domain . "\n" . implode("\n", $domain->getValidationErrors()));
+                }
             }
             foreach ($this->records as $record) {
                 $username = current(explode("@", $record['email']));
@@ -353,8 +353,9 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 $mailbox->name = $record['email'];
                 $mailbox->password = $record['password'];
                 echo "Saving mailbox " . $mailbox->username . " with quota " . ($mailbox->quota / 1024) . " MB...\n";
-                if (!$mailbox->save())
+                if (!$mailbox->save()) {
                     throw new Exception('Error while saving mailbox: ' . $record['email'] . "\n" . implode("\n", $mailbox->getValidationErrors()));
+                }
             }
             echo "All mailboxes are created, time to fetch from source mail host...\n";
         }
@@ -366,7 +367,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 $username = $parts[0];
 
                 // Check if the user exists in Group-Office and if it doesn't create it.
-                $user = User::find()->where(['username'=>$username])->single();
+                $user = User::find()->where(['username' => $username])->single();
                 if (!$user) {
                     $user = new User();
                     $user->username = $username;
@@ -376,8 +377,9 @@ When entering ``y`` the script will create Group Office users accounts. The user
                     $user->enabled = 1;
                 }
                 $user->setPassword($record['password']);
-                if (!$user->save())
+                if (!$user->save()) {
                     throw new Exception('Error while saving user: ' . $username . "\n" . print_r($user->getValidationErrors(), true));
+                }
 
                 // Create an e-mail account for the user
                 $account = Account::model()->findSingleByAttributes([
@@ -404,7 +406,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 if (!$account->save())
                     throw new Exception('Error while saving account: ' . $username . "\n" . implode("\n", $account->getValidationErrors()));
 
-                if(isset($createAlias)) {
+                if (isset($createAlias)) {
                     $account->addAlias(...$createAlias);
                 }
                 echo $username . "\n";
