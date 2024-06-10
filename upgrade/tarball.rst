@@ -13,18 +13,22 @@ tarball. But if you really want use it then follow these steps:
 3. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
 4. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
-5. If you are coming from version 5.0 or lower. Then you must install the projects2 module in 6.2 to migrate your existing data. This can't be done in a later version!
-6. Move away your old source files to a backup location.
+5. If you have the pro version then install the latest license key via the main menu or via CLI::
+
+      sudo -u www-data php7.4 ./groupoffice-6.5.113/cli.php core/System/setLicense --key=YOURKEY
+
+6. If you are coming from version 5.0 or lower. Then you must install the projects2 module in 6.2 to migrate your existing data. This can't be done in a later version!
+7. Move away your old source files to a backup location.
    
    .. warning:: Do not copy the new files over the existing. This will result in a broken system.
       
-7. Put the new files at the right location.
-8. If exists copy your old :ref:`config.php <configuration>` and license file to the new
+8. Put the new files at the right location.
+9. If exists copy your old :ref:`config.php <configuration>` and license file to the new
    files. It is good practice to keep these files one directory higher then the 
    Group-Office source so you have a complete clean code base.
-9. If you have any :ref:`studio-generated <studio>` modules, copy these into the ``go/modules`` folder. Please note that if you don't, the studio-generated modules will be entirely disabled.
-10. Visit http://yourdomain/install/ and follow instructions.
-11. Check if you have the right cron job in place::
+10. If you have any :ref:`studio-generated <studio>` modules, copy these into the ``go/modules`` folder. Please note that if you don't, the studio-generated modules will be entirely disabled.
+11. Visit http://yourdomain/install/ and follow instructions.
+12. Check if you have the right cron job in place::
 
       * * * * * www-data php <YOURDOCUMENTROOT>/cron.php
 
