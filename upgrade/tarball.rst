@@ -15,7 +15,7 @@ tarball. But if you really want use it then follow these steps:
    will become part of the Group-Office core.
 5. If you have the pro version then install the latest license key via the main menu or via CLI::
 
-      sudo -u www-data php7.4 ./groupoffice-6.5.113/cli.php core/System/setLicense --key=YOURKEY
+      sudo -u www-data php ./cli.php core/System/setLicense --key=YOURKEY
 
 6. If you are coming from version 5.0 or lower. Then you must install the projects2 module in 6.2 to migrate your existing data. This can't be done in a later version!
 7. Move away your old source files to a backup location.
