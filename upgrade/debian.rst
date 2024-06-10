@@ -32,7 +32,9 @@ When upgrading to the next major release follow these steps prior to the above:
 
 2. Then open your browser to update the database.
 
-4. Make sure to install the latest license key from our website if you run the professional version.
+4. Make sure to install the latest license key from our website if you run the professional version. This can be done via the GUI or via CLI::
+
+      sudo -u www-data php ./cli.php core/System/setLicense --key=<YOURKEY>
 
 5. Major release upgrades can't be skipped so you need to do them step by step.
    Adjust the repository to the next major release in '/etc/apt/sources.list.d/groupoffice.list':
