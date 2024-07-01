@@ -14,7 +14,7 @@ Or on docker::
 Upgrading
 ---------
 
-In recent 6.6 versions and up, the upgrade script is not being automatically anymore after updating the package. You will
+In recent 6.6 versions and up, the upgrade script will not automatically run anymore after updating the package. You will
 see this message in the screen:
 
 
@@ -37,7 +37,7 @@ If something unexpected happens (or does not happen unexpectedly!), first check 
 You can normally open the Javascript developer console by pressing Ctrl+Shift+i or F12, depending on the browser. Errors,
 warnings and informational messages can be found in the tab 'Console'.
 
-.. note:: If you enable debugging, your client side error messages will be more verbose. Add or edit the line ``$config["debug"] = true;`` in your Group Office configuration file (normally ``/etc/groupoffice/config.php``
+.. note:: If you enable debugging, your client side error messages will be more verbose. Add or edit the line ``$config["debug"] = true;`` in your Group Office configuration file (normally ``/etc/groupoffice/config.php``).
 
 
 Server-side errors
@@ -47,8 +47,8 @@ In the Networking tab of your developer toolbox, you can view the individual req
 a response code. These HTTP response codes are pretty easy to read and helpful when checking whether the problem is on the
 server.
 
-- 2XX : the request was successful. In some cases, the script was successful, but there feedback from the API, like form validation errors. In those cases, a helpful message is returned.
-- 4XX: the script or file unavailable to the current user. That is either because the user does not have the proper permission or the file does not exist.
+- 2XX : the request was successful. In some cases, the script was successful, but there is feedback from the API, like form validation errors. In those cases, a helpful message is returned.
+- 4XX: the script or file is unavailable to the current user. That is either because the user does not have the proper permission or the file does not exist.
 - 5XX: there is an actual error in a script.
 
 Log entries can normally be found in the log files of the web server. The exact location of the error log depends on your
