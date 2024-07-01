@@ -363,7 +363,7 @@ Our recurring payments feature is compatible with:
 - Credit Card
 - Paypal
 
-At the moment the only payment provider that implements this is `mollie.com <https://www.mollie.com/gb/products/recurring>`_.`
+At the moment the only payment provider that implements this is `mollie.com <https://www.mollie.com/gb/products/recurring>`_.
 Contact us if you desire to use another payment provider. We can implement this for you.
 
 .. _finance_templates:
