@@ -21,8 +21,7 @@ There are a couple of modules related to finance. You should consider which ones
 - Finance: Base module for creating quotations, orders and invoices.
 - Catalog: If you need a catalog of products that can be added to quotes and invoices.
 - Contracts: Contracts create repeating invoices or orders.
-- PayPal: Integrate online payments
-- Mollie & MultiSafePay: Dutch payment providers for online payments.
+- PayPal, Mollie & MultiSafePay: Payment providers for online payments.
 
 Navigate to System settings -> modules and install the modules you need:
 
@@ -339,8 +338,9 @@ You can also export to excel or CSV
 
 Contracts
 ---------
-With contracts you can create repeating invoices or orders. When they are due for sending you're notified with a badge (see above).
-You can filter to show only the contracts due for sending. Then via the menu choose "Create due invoices now".
+With contracts you can create recurring invoices or orders. When they are due for sending you're notified with a badge (see above).
+You can filter to show only the contracts due for sending. Then via the menu choose "Create due invoices now" and they
+will all be created and optionally sent out via e-mail.
 
 
 .. figure:: /_static/using/finance/contracts.png
@@ -349,6 +349,22 @@ You can filter to show only the contracts due for sending. Then via the menu cho
 
    Contracts
 
+
+Recurring payments
+``````````````````
+It's also possible for customers to give mandates for recurring payments via direct debit. The process for customers is
+simple and user-friendly. They can now click the "Direct Debit" button instead of "Pay" and follow the same payment process to set
+up their first recurring payment. Once the next invoice is generated in Group-Office, a background payment will be
+automatically created using the mandate provided by the customer.
+
+Our recurring payments feature is compatible with:
+
+- SEPA Direct debit
+- Credit Card
+- Paypal
+
+At the moment the only payment provider that implements this is `mollie.com <https://www.mollie.com/gb/products/recurring>`_.
+Contact us if you desire to use another payment provider. We can implement this for you.
 
 .. _finance_templates:
 
