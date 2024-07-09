@@ -1,6 +1,7 @@
 Users
 =====
 
+User management is available for administrators and any user who has permissions via System Settings -> Modules -> System permissions. 
 When clicking users you will see a list of all Group-Office users. Via the "more"
 menu in the record you can:
 
