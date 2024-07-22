@@ -112,6 +112,32 @@ the agent permissions are meant for the ticket agents and their permissions for 
 
 .. note:: Under the hood, tickets are simply saved as tasks. Hence, the classification of task lists as ticket types.
 
+Expiry options
+``````````````
+
+As of version 6.8.57 it is possible to automatically close inactive tickets. An automated task is run daily to find and
+close inactive tickets. An inactive ticket is defined as follows:
+
+- The number of days after which to expire a ticket is set to a value greater than zero,
+- Its status is 'In progress';
+- The last message for this ticket was by a ticket agent, i.e. the requester has not sent the latest reply.
+- The last message for this ticket is older than the set amount of days.
+
+Setting the number of days to zero will disable this option entirely.
+
+Feedback
+~~~~~~~~
+
+It is possible to customize the message that is sent by the system when a ticket is closed. You can also set whether to
+generate a feedback message and who will be able to see it. Either no message is sent, it is saved as a comment and sent
+to the requester or it is saved as a private note.
+
+Excluding types and categories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If certain categories or ticket types are set as 'excluded', any ticket that has that category or type will not be
+automatically closed.
+
 Migration of tickets
 ````````````````````
 
