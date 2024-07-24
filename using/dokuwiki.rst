@@ -25,7 +25,7 @@ Installation
 
 
 1. Install Dokuwiki on the server.
-2. Copy the directory: `lib/plugins/authgroupoffice` to the Dokuwiki installation under `<dokuwiki_path>/lib/plugins/authgroupoffice`.
+2. Copy the directory: `.../go/modules/community/docuwiki/lib/plugins/authgroupoffice` to the Dokuwiki installation under `<dokuwiki_path>/lib/plugins/authgroupoffice`.
 3. Open the dokuwiki config file found in this location: `[path to dokuwiki]/conf/dokuwiki.php`
 4. Set the following config variables:
 
@@ -61,4 +61,5 @@ Now Dokuwiki should be accessible through Group-Office.
 .. tip:: You may want to disable the login/logout button from DokuWiki. This can be done by editing the file `main.php` of the DokuWiki template. Remove this line:
 
 .. code-block:: php
+
 	<?php tpl_button('login')?>
