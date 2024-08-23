@@ -192,3 +192,27 @@ Here you can choose the properties that should match to find duplicates. You can
 choose "Merge selected".
 
 All links, comments, files etc. will be merged into the first selected record. The other records will be removed.
+
+
+Settings
+--------
+
+In the System Settings dialog, you are allowed to set the following parameters:
+
+-  Create a personal address book for each user;
+-  Automatically :ref:`link<links>` email conversations to users in selected address books.
+  
+You can blacklist or whitelist certain address books from automatically linking emails to the contacts. Please note 
+that this will eat a lot of disk space over time.
+
+User profile
+````````````
+
+Users can set their default address book. 
+
+Additionally, they can set which address books to show when initially opening address books:
+
+  - All contacts - Just show all contacts regardless of address book;
+  - Starred - Only show starred contacts;
+  - Default - Open the default address book;
+  - Last selected - Open the address book you opened last time. Will fall back on the default address book;
