@@ -11,17 +11,85 @@ They are used for newsletters, reports, invoice templates etc.
 Syntax
 ------
 
+Variable instantiations
+```````````````````````
+
+Assign
+~~~~~~
+
+Our templating has very rudimentary variable assignment::
+
+  [assign mainFile = {{entity.files | first}}]
+
+
+
+Configuration
+~~~~~~~~~~~~~
+
+If you work with PDF templates that are not in the main langugage, you can configure a number of formatting settings::
+
+  [config thousandsSeparator=.]
+  [config decimalSeparator=,]
+
+Currently, the configurable settings and their default values are:
+
+- ``decimals`` (``2``)
+- ``decimalSeparator`` (``.``)
+- ``thousandsSeparator`` (``,``)
+- ``dateFormat`` (``d-m-Y``)
+
+Control flows
+`````````````
+
+Out of the box, two types of control flows are supported. Keywords and conditions must be surrounded by square brackets.
+
+If - else
+~~~~~~~~~
+
+A typical if-statement looks like this::
+
+  [if {{entity.field}} == "<VALUE>"]
+    <!-- Do something -->
+  [/if]
+
+You can optianally fall back on a default with {{[else]}}::
+
+  [if {{entity.field}} == "<VALUE>"]
+    <!-- Do something -->
+  [else]
+    <!-- Do something else -->
+  [/fi]
+
+Each in
+~~~~~~~
+
+Iterations are handled in each-loops, e.g.::
+
+  [each file in entity.files]
+    <!-- do something with file -->
+  [/each]
+
+The index of the array you are iterating through can be used or manipulated as well with the ``{{eachIndex}}`` variable::
+
+  <ul>
+  [each file in entity.files]
+    <li>{{eachIndex}}: {{file.name}}</li>
+  [/each]
+  </ul>
+
 Variables
 `````````
 By default some variables are already present:
 
- - {{now|date:Y-m-d}} The current date time object. In this example a date filter is used.
- - {{system.title}} The title configured at System Settings -> General
- - {{system.url}} The URL to Group-Office configured at System Settings -> General
+ - ``{{now|date:Y-m-d}}`` The current date time object. In this example a date filter is used.
+ - ``{{system.title}}`` The title configured at System Settings -> General
+ - ``{{system.url}}`` The URL to Group-Office configured at System Settings -> General
+
 
 A variable is written like this::
 
-   {{contact.name}}
+    {{contact.name}}
+
 
 Custom fields
 ~~~~~~~~~~~~~
@@ -135,10 +203,13 @@ Or photo's from the entity's files folder::
     <img src="{{photo.blobId|blobUrl}}" alt="{{photo.name|htmlEncode}}" style="max-width:100%"><hr>
     [/each]
 
-Filters
-~~~~~~~
+.. note::
+  In PDF templates, use the ``{{blobPath}}`` filter if the ``{{blobUrl}}`` filter does not display an image file.
 
-You can use filters to format data. They can be used with a "|" char followed by the filter name. Optionally the filter can take arguments separated by a ":".
+Filters
+```````
+
+You can use filters to format or manipulate data. They can be used with a pipe sign (``|``) followed by the filter name. Optionally the filter can take arguments separated by a ``:``.
 
 - date(format as in PHP)::
 
@@ -174,7 +245,7 @@ You can use filters to format data. They can be used with a "|" char followed by
 - dump: For debugging only. Dumps the variable type and value.
 
 Arrays
-++++++
+~~~~~~
 
 - filter(property, value): Filters the array by property values::
 
@@ -192,7 +263,7 @@ Arrays
 
     {{contact.emailAddresses | prop:email | implode}}
 
-
+- newRow: useful when rendering tables. Check whether a new row should be started using a default modulo of 2.
 
 
 
