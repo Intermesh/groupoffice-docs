@@ -30,7 +30,9 @@ Our preferred way of installing is using our Debian packages:
 
 5. Then install Group-Office by running::
 
-      apt-get install groupoffice
+      apt-get install groupoffice --install-recommends
+
+   .. note:: When recommended packages are installed it will install apache2 and the default database server mariadb or mysql. If you don't want this you can use --no-install-recommends instead.
       
       
 6. Optionally you can install php-acpu for better performance of the cache::
