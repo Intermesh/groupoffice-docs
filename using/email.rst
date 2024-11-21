@@ -543,4 +543,10 @@ hog. If you do wish to enable email body search, please add the following config
 
 .. code-block:: php
 
-	$config['email_allow_body_search'] = true;
+	$config['community'] = [
+	    'email' => [
+	        'forceFTS' => [
+	            'your.imap.host' => true
+	        ]
+	    ]
+	];
