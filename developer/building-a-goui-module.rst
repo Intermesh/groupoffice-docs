@@ -61,6 +61,7 @@ First we create a ``package.json``` file in which you define your build and watc
 Now we tell Typescript how to behave by creating the ``tsconfig.json`` file:
 
 .. code:: json
+
     {
       "extends": "../../../../../../views/goui/tsconfig.module.json",
       "compilerOptions": {

@@ -234,24 +234,15 @@ Database rules
 Property and Entity models
 --------------------------
 
-You can read more about entities and properties :ref:`here <orm>`.
-By default, the tool generates only "Property" models. It doesn't know which models
-should be "Entities". An entity can be modified by the API directly and a property
-is only modifiable through an entity. For example an email address of a contact 
-is a property of the entity contact.
+It is up to you as the developer to determine which database tables should be treated as entities and which as properties.
+You can read more about entities and properties :ref:`here <orm>`, but a general rule of thumb is that entities can
+exist independently. An entity can be modified by the API directly and a property is only modifiable through an entity.
+For example an email address of a contact is a property of the entity contact.
 
 So the first step is to change some properties into JMAP entities. In this example
 Artist and Genre are entities.
 
-So in ``model/Artist.php`` change:
-
-.. code:: php
-   
-   use go\core\orm\Property;
-
-   class Artist extends Property {
-
-Into:
+So the ``model/Artist.php`` model class should be defined as an entity:
 
 .. code:: php
 
@@ -259,15 +250,61 @@ Into:
 
    class Artist extends Entity {
 
+If you were to define a Property instead, like for instance an album, you would do it like this:
 
-Do the same for Genre.
+.. code:: php
+   
+   use go\core\orm\Property;
 
-Now run the code generator tool again and it will generate controllers for these 
-entities. It should output::
+   class Artist extends Property {
 
-  Generating controller/Artist.php
-  Generating controller/Genre.php
-  Done
+Controllers
+-----------
+
+In the old days, controller classes were separated automatically based on the defined entity models. However, this tool
+has been replaced by something completely different. Instead, we write our own controller class like so:
+
+.. code:: php
+
+    namespace go\modules\tutorial\music\controller;
+
+    use Exception;
+    use go\core\jmap\EntityController;
+    use go\core\jmap\exception\InvalidArguments;
+    use go\core\util\ArrayObject;
+    use go\core\jmap\exception\StateMismatch;
+    use go\modules\tutorial\music\model;
+
+    class Artist extends EntityController
+    {
+
+    	protected function entityClass(): string
+    	{
+    		return model\Artist::class;
+    	}
+
+    	public function query(array $params): ArrayObject
+    	{
+    		return $this->defaultQuery($params);
+    	}
+
+    	public function get(array $params): ArrayObject
+    	{
+    		return $this->defaultGet($params);
+    	}
+
+     	public function set(array $params): ArrayObject
+    	{
+    		return $this->defaultSet($params);
+    	}
+
+      	public function changes(array $params): ArrayObject
+    	{
+    		return $this->defaultChanges($params);
+    	}
+    }
+
+Do the same for the Genre and Review controllers.
 
 Relations
 `````````
