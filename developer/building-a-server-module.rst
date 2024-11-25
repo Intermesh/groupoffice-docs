@@ -286,7 +286,7 @@ And then change the mapping:
 
 .. code:: php
 
-   protected static function defineMapping() {
+   protected static function defineMapping(): Mapping {
        return parent::defineMapping()
                ->addTable("tutorial_music_artist", "artist")
                ->addArray('albums', Album::class, ['id' => 'artistId']);

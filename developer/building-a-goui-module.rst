@@ -632,7 +632,54 @@ known albums. Additionally, a number of buttons is added to add, edit or delete 
 
 There is still a few loose ends in this panel, but for now we move on to the final part of this tutorial...
 
-The Dialog Window
------------------
+The Dialog Windows
+------------------
 
-... which would be the dialog window.
+... which would be the dialog window. Let's create a new Typescript file named ``ArtistWindow.ts`` and put the following
+code into it:
+
+.. code:: typescript
+
+    export class ArtistWindow extends FormWindow {
+    	constructor() {
+    		super("Artist");
+
+    		this.title = t("Artist");
+
+    		this.stateId = "artist-dialog";
+    		this.maximizable = true;
+    		this.resizable = true;
+    		this.width = 640;
+
+    		this.form.on("save", (form, data, isNew) => {
+    			if (isNew) {
+    				router.goto("artist/" + data.id);
+    			}
+    		})
+
+    		this.generalTab.items.add(
+    			fieldset({},
+    				textfield({
+    					name: "name",
+    					label: t("Name"),
+    					required: true
+    				}),
+    				checkbox({
+    					name: "active",
+    					label: t("Active"),
+    					type: "switch"
+    				}),
+    				textarea({
+    					name: "bio",
+    					label: t("Biography")
+    				})
+    			)
+    		)
+    		this.addCustomFields();
+    	}
+    }
+
+This is quite a simple form. It extends the built-in ``FormWindow`` class, that is part of the Group-Office core. It
+expects the Artist entity store as a parameter. When the form is saved, the artist details are opened in the east panel.
+If you defined any custom fields, they are to be rendered below the main form.
+
