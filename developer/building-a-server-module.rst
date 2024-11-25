@@ -261,7 +261,7 @@ The next step is to update the ``defineMapping`` method, to actually count the a
 						->addTable("tutorial_music_artist", "artist")
 						->addMap('albums', Album::class, ['id' => 'artistId']);
 						->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
-							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
+							->join('tutorial_music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
 	}
 
 The ``albumCount`` property is simply retrieved by counting the albums that are related to the current artist.
@@ -341,9 +341,10 @@ Find the "accessToken" property and save it. From now on you can do API requests
 
    http://localhost/api/jmap.php
    
-You must set the access token as a header on each request::
+You must set the access and CSRF tokens as a headers on each request::
 
    Auhorization: Bearer 5b7576e5c50ac30f0e53373f0fa614cedbdbe49df7637
+   X-CSRF-Token: 674060a9294c4fcffe57c6843c94fb0566295134b1b58
    Content-Type: application/json
 
 .. figure:: /_static/developer/building-a-module/authenticate.png
@@ -361,10 +362,10 @@ To create an artist, POST this JSON body:
     ["Artist/set", {
       "create": {
       "clientId-1": {
-        "name": "The Doors",
+        "name": "The Cure",
         "albums": [
-          {"name": "The Doors", "artistId": 1, "releaseDate": "1967-01-04", "genreId" :2},
-          {"name": "Strange Days", "artistId": 1, "releaseDate": "1967-09-25", "genreId" :2}
+          {"name": "Disintegration", "artistId": 1, "releaseDate": "1989-05-02", "genreId" :2},
+          {"name": "Songs Of A Lost World", "artistId": 1, "releaseDate": "2024-11-01", "genreId" :2}
           ]
 
       }
@@ -628,7 +629,7 @@ The next step is to create a model, which we extend from the ``AclOwnerEntity`` 
           if($this->isNew()) {
               $this->albumtitle = go()->getDbConnection()
                   ->selectSingleValue('name')
-                  ->from('music_album')
+                  ->from('tutorial_music_album')
                   ->where(['id' => $this->albumId])
                   ->single();
           }
