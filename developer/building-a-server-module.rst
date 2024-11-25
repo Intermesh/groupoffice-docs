@@ -95,66 +95,128 @@ Create the tables by importing this SQL into your database:
 
 .. code-block:: sql
 
-  CREATE TABLE `tutorial_music_album` (
-    `id` int(11) NOT NULL,
-    `artistId` int(11) NOT NULL,
-    `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `releaseDate` date NOT NULL,
-    `genreId` int(11) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  --
+  -- Table structure for table `tutorial_music_artist`
+  --
 
-  CREATE TABLE `tutorial_music_artist` (
-    `id` int(11) NOT NULL,
-    `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `photo` binary(40) DEFAULT NULL,
-    `createdAt` datetime NOT NULL,
-    `modifiedAt` datetime NOT NULL,
-    `createdBy` int(11) NOT NULL,
-    `modifiedBy` int(11) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CREATE TABLE IF NOT EXISTS `tutorial_music_artist`
+  (
+      `id`         int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `name`       varchar(190)     NOT NULL,
+      `photo`      binary(40)                DEFAULT NULL,
+      `createdAt`  datetime         NOT NULL,
+      `modifiedAt` datetime         NOT NULL,
+      `createdBy`  int(11)          NOT NULL,
+      `modifiedBy` int(11)          NOT NULL,
+      `active`     tinyint(1)       NOT NULL DEFAULT 1,
+      `bio`        text                      DEFAULT NULL,
+      PRIMARY KEY (`id`),
+      KEY `photo` (`photo`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
 
-  
-  CREATE TABLE `tutorial_music_genre` (
-    `id` int(11) NOT NULL,
-    `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-  INSERT INTO `tutorial_music_genre` (`id`, `name`) VALUES
-  (1, 'Pop'),
-  (2, 'Rock'),
-  (3, 'Blues'),
-  (4, 'Jazz');
+  --
+  -- Table structure for table `music_album`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_album`
+  (
+      `id`          int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `artistId`    int(11) UNSIGNED NOT NULL,
+      `name`        varchar(190)     NOT NULL,
+      `releaseDate` date             NOT NULL,
+      `genreId`     int(11) UNSIGNED NOT NULL,
+      PRIMARY KEY (`id`),
+      KEY `artistId` (`artistId`),
+      KEY `genreId` (`genreId`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  -- --------------------------------------------------------
+
+  --
+  -- Table structure for table `music_artist_custom_fields`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_artist_custom_fields`
+  (
+      `id` int(11) UNSIGNED NOT NULL,
+      PRIMARY KEY (`id`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  -- --------------------------------------------------------
+
+  --
+  -- Table structure for table `music_genre`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_genre`
+  (
+      `id`   int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `name` varchar(190)     NOT NULL,
+      PRIMARY KEY (`id`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  -- --------------------------------------------------------
+
+  --
+  -- Table structure for table `music_review`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_review`
+  (
+      `id`         int(11) UNSIGNED     NOT NULL AUTO_INCREMENT,
+      `albumId`    int(11) UNSIGNED     NOT NULL,
+      `aclId`      int(11)              NOT NULL,
+      `createdBy`  int(11)              NOT NULL,
+      `modifiedBy` int(11)              NOT NULL,
+      `rating`     smallint(5) UNSIGNED NOT NULL,
+      `title`      varchar(190)         NOT NULL,
+      `body`       text                 NOT NULL,
+      PRIMARY KEY (`id`),
+      KEY `aclId` (`aclId`),
+      KEY `albumId` (`albumId`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  --
+  -- Constraints for table `music_review`
+  --
+  ALTER TABLE `tutorial_music_review`
+      ADD CONSTRAINT `music_review_fk1` FOREIGN KEY (`albumId`) REFERENCES `tutorial_music_album` (`id`) ON DELETE CASCADE,
+      ADD CONSTRAINT `music_review_fk2` FOREIGN KEY (`aclId`) REFERENCES `core_acl` (`id`);
 
 
   ALTER TABLE `tutorial_music_album`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `artistId` (`artistId`),
-    ADD KEY `genreId` (`genreId`);
+      ADD CONSTRAINT `music_album_ibfk_1` FOREIGN KEY (`artistId`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE,
+      ADD CONSTRAINT `music_album_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `tutorial_music_genre` (`id`);
 
   ALTER TABLE `tutorial_music_artist`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `photo` (`photo`);
+      ADD CONSTRAINT `tutorial_music_artist_ibfk_1` FOREIGN KEY (`photo`) REFERENCES `core_blob` (`id`);
 
-  ALTER TABLE `tutorial_music_genre`
-    ADD PRIMARY KEY (`id`);
-
-
-  ALTER TABLE `tutorial_music_album`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
-  ALTER TABLE `tutorial_music_artist`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-  ALTER TABLE `tutorial_music_genre`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  --
+  -- Constraints for table `music_artist_custom_fields`
+  --
+  ALTER TABLE `tutorial_music_artist_custom_fields`
+      ADD CONSTRAINT `music_artist_cf_ibfk_1` FOREIGN KEY (`id`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE;
 
 
-  ALTER TABLE `tutorial_music_album`
-    ADD CONSTRAINT `tutorial_music_album_ibfk_1` FOREIGN KEY (`artistId`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE,
-    ADD CONSTRAINT `tutorial_music_album_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `tutorial_music_genre` (`id`);
+  INSERT INTO `tutorial_music_genre` (`id`, `name`)
+  VALUES (1, 'Pop'),
+         (2, 'Rock'),
+         (3, 'Blues'),
+         (4, 'Jazz'),
+         (5, 'Metal'),
+         (7, 'Industrial');
 
-  ALTER TABLE `tutorial_music_artist`
-    ADD CONSTRAINT `tutorial_music_artist_ibfk_1` FOREIGN KEY (`photo`) REFERENCES `core_blob` (`id`);
 
 
 Database rules
@@ -256,12 +318,13 @@ The next step is to update the ``defineMapping`` method, to actually count the a
 
 .. code:: php
 
-  protected static function defineMapping() {
-		return parent::defineMapping()
-						->addTable("tutorial_music_artist", "artist")
-						->addMap('albums', Album::class, ['id' => 'artistId']);
-						->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
-							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
+  	protected static function defineMapping(): Mapping
+  	{
+  		return parent::defineMapping()
+  			->addTable("tutorial_music_artist", "artist")
+  			->addMap('albums', Album::class, ['id' => 'artistId']);
+            ->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
+                ->join('tutorial_music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
 	}
 
 The ``albumCount`` property is simply retrieved by counting the albums that are related to the current artist.
@@ -341,9 +404,10 @@ Find the "accessToken" property and save it. From now on you can do API requests
 
    http://localhost/api/jmap.php
    
-You must set the access token as a header on each request::
+You must set the access and CSRF tokens as a headers on each request::
 
    Auhorization: Bearer 5b7576e5c50ac30f0e53373f0fa614cedbdbe49df7637
+   X-CSRF-Token: 674060a9294c4fcffe57c6843c94fb0566295134b1b58
    Content-Type: application/json
 
 .. figure:: /_static/developer/building-a-module/authenticate.png
@@ -361,10 +425,10 @@ To create an artist, POST this JSON body:
     ["Artist/set", {
       "create": {
       "clientId-1": {
-        "name": "The Doors",
+        "name": "The Cure",
         "albums": [
-          {"name": "The Doors", "artistId": 1, "releaseDate": "1967-01-04", "genreId" :2},
-          {"name": "Strange Days", "artistId": 1, "releaseDate": "1967-09-25", "genreId" :2}
+          {"name": "Disintegration", "artistId": 1, "releaseDate": "1989-05-02", "genreId" :2},
+          {"name": "Songs Of A Lost World", "artistId": 1, "releaseDate": "2024-11-01", "genreId" :2}
           ]
 
       }
@@ -628,7 +692,7 @@ The next step is to create a model, which we extend from the ``AclOwnerEntity`` 
           if($this->isNew()) {
               $this->albumtitle = go()->getDbConnection()
                   ->selectSingleValue('name')
-                  ->from('music_album')
+                  ->from('tutorial_music_album')
                   ->where(['id' => $this->albumId])
                   ->single();
           }
