@@ -334,68 +334,172 @@ In the center of the main panel, we create a list of artists. Again, this is ren
 sure that the center component renders a proper table:
 
 .. code:: typescript
+constructor() {
+		super("section");
 
-    this.artistTable = new ArtistTable();
-    this.artistTable.on("navigate", async (table: ArtistTable, rowIndex: number) => {
-        await router.goto("music/" + table.store.get(rowIndex)!.id);
-    });
+		this.id = "music";
+		this.cls = "vbox fit";
+		this.on("render", async () => {
+			try {
+				await authManager.requireLogin();
+			} catch (e) {
+				console.warn(e);
+				Notifier.error(t("Login is required on this page"));
+			}
 
-    // (...)
-
-    this.center = comp({
-        cls: 'active vbox',
-        itemId: 'table-container',
-        width: 550,
-        style: {
-            minWidth: "365px", //for the resizer's boundaries
-            maxWidth: "850px"
-        }
-    },
-
-    tbar({},
-        btn({
-            cls: "for-small-device",
-            title: t("Menu"),
-            icon: "menu",
-            handler: (button, ev) => {
-                this.activatePanel(this.west);
-            }
-        }),
-
-        '->',
-
-        searchbtn({
-            listeners: {
-                input: (sender, text) => {
-                    (this.artistTable.store.queryParams.filter as FilterCondition).text = text;
-                    this.artistTable.store.load();
-                }
-            }
-        }),
-
-        btn({
-            itemId: "add",
-            icon: "add",
-            cls: "filled primary",
-            handler: async () => {
-
-            }
-        })
-    ),
-
-    comp({
-            flex: 1,
-            stateId: "music",
-            cls: "scroll border-top main"
-        },
-        this.artistTable
-    ),
+			await this.genreTable.store.load();
+			await this.artistTable.store.load();
+		});
 
 
-    paginator({
-        store: this.artistTable.store
-    })
-),
+		this.artistTable = new ArtistTable();
+		this.artistTable.on("navigate", async (table: ArtistTable, rowIndex: number) => {
+			await router.goto("music/" + table.store.get(rowIndex)!.id);
+		});
+
+		this.west = this.createWest();
+		this.items.add(
+			comp({
+					flex: 1, cls: "hbox mobile-cards"
+				},
+
+				this.west,
+
+				splitter({
+					stateId: "music-splitter-west",
+					resizeComponentPredicate: this.west
+				}),
+
+				this.center = comp({
+						cls: 'active vbox',
+						itemId: 'table-container',
+						flex: 1,
+						style: {
+							minWidth: "365px", //for the resizer's boundaries
+							maxWidth: "850px"
+						}
+					},
+
+					tbar({},
+						btn({
+							cls: "for-small-device",
+							title: t("Menu"),
+							icon: "menu",
+							handler: (button, ev) => {
+								this.activatePanel(this.west);
+							}
+						}),
+
+						'->',
+
+						searchbtn({
+							listeners: {
+								input: (sender, text) => {
+
+									(this.artistTable.store.queryParams.filter as FilterCondition).text = text;
+									this.artistTable.store.load();
+
+								}
+							}
+						}),
+
+						mstbar({table: this.artistTable}),
+
+						btn({
+							itemId: "add",
+							icon: "add",
+							cls: "filled primary",
+							handler: async () => {
+								const w = new ArtistWindow();
+								w.on("close", async () => {
+									debugger;
+								});
+								w.show();
+
+							}
+						})
+					),
+
+					comp({
+							flex: 1,
+							stateId: "music",
+							cls: "scroll border-top main"
+						},
+						this.artistTable
+					),
+
+
+					paginator({
+						store: this.artistTable.store
+					})
+				),
+
+
+				splitter({
+					stateId: "music-splitter",
+					resizeComponentPredicate: "table-container"
+				}),
+
+				this.east = new ArtistDetail()
+			)
+		);
+	}
+
+	private activatePanel(active: Component) {
+		this.center.el.classList.remove("active");
+		this.east.el.classList.remove("active");
+		this.west.el.classList.remove("active");
+
+		active.el.classList.add("active");
+	}
+
+	private createWest(): Component {
+		this.genreTable = new GenreTable();
+		this.genreTable.rowSelectionConfig = {
+			multiSelect: true,
+			listeners: {
+				selectionchange: (tableRowSelect) => {
+					const genreIds = tableRowSelect.selected.map((index: number) => tableRowSelect.list.store.get(index)!.id);
+					(this.artistTable.store.queryParams.filter as FilterCondition).genres = genreIds;
+					this.artistTable.store.load();
+				}
+			}
+		}
+
+		return comp({
+				cls: "vbox scroll",
+				width: 300
+			},
+			tbar({
+					cls: "border-bottom"
+				},
+				comp({
+					tagName: "h3",
+					text: t("Genre"),
+					flex: 1
+				}),
+				'->',
+				btn({
+					cls: "for-small-device",
+					title: t("Close"),
+					icon: "close",
+					handler: (button, ev) => {
+						this.activatePanel(this.center);
+					}
+				})
+			),
+			this.genreTable
+		);
+	}
+
+	async load(id?: EntityID) {
+		if(id) {
+			void this.east.load(id);
+			this.activatePanel(this.east);
+		} else {
+			this.activatePanel(this.center);
+		}
+	}
 
 A number of interesting things are created here:
 
@@ -404,6 +508,7 @@ A number of interesting things are created here:
 - A search button is created that tells the entity store what to do with its input
 - The grid is rendered in a scrollable component. The ``flex`` attribute makes sure that this component takes up as much space as possible.
 - A paginator is rendered that interacts with the store as defined in the artist table.
+- A loader function will load a single entity in the east panel and activate it.
 
 Our next step is to create a table that renders the artist entities! As per our convention, create a new file named ``ArtistTable.ts``
 and type or paste the following code into it:
