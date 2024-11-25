@@ -334,7 +334,8 @@ In the center of the main panel, we create a list of artists. Again, this is ren
 sure that the center component renders a proper table:
 
 .. code:: typescript
-constructor() {
+
+    constructor() {
 		super("section");
 
 		this.id = "music";
