@@ -695,6 +695,8 @@ Time to spin up a detail panel! Create a new Typescript file named ``ArtistDetai
     			)
     		);
 
+    		this.addCustomFields();
+
     		this.toolbar.items.add(
     			btn({
     				icon: "edit",
@@ -914,5 +916,35 @@ Some notable things about this script:
 - The form has a combobox with that is based on the genre entity. Not bad for six lines of code.
 - In the constructor the entire artist entity is passed. This is needed, since we need to pass all the albums to the API upon saving.
 - In the save function, the current album is retrieved by its id if applicable. Otherwise, it is simply appended to the albums array.
+
+One thing that still needs to be done, is the ability to delete an album. You can work the same way as with adding or
+an album to an artist: update the full album list for an artist. However, just make sure that the album to be deleted is
+not in the list anymore. In the final column of the artist table, we add another button:
+
+.. code:: typescript
+
+    btn({
+        icon: "delete",
+        text: t("Delete"),
+        handler: async (btn) => {
+            const a  = this.entity!.albums.filter(album => album.id !== record.id);
+            jmapds("Artist").update(this.entity!.id, {albums: a});
+        }
+    })
+
+Finally, make sure that the albums are listed in chronological order. In the onLoad function of the details, sort the
+album list by release date:
+
+.. code:: typescript
+
+    this.on("load", (pnl, entity) => {
+        /* (...) */
+        entity.albums.sort((a: Album, b: Album) => {
+            const ra: string = <string>a.releaseDate, rb: string = <string>b.releaseDate;
+
+            return DateTime.createFromFormat(ra, "Y-m-d")!.compare(DateTime.createFromFormat(rb, "Y-m-d")!);
+        });
+        this.albumsTable.store.loadData(entity.albums, false);
+    });
 
 This concludes the first part of the series. Next part will be dedicated to the Acl Entity named reviews.
