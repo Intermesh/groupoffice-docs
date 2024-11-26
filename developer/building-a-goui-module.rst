@@ -152,7 +152,7 @@ Next, create an ``Index.ts`` file and paste the following code into it:
     				modules.openMainPanel("music");
     			});
 
-    			modules.addMainPanel( "business", "music", "music", t("Music"), () => {
+    			modules.addMainPanel( "tutorial", "music", "music", t("Music"), () => {
     				return mainPanel;
     			});
     		});
@@ -790,3 +790,129 @@ This is quite a simple form. It extends the built-in ``FormWindow`` class, that 
 expects the Artist entity store as a parameter. When the form is saved, the artist details are opened in the east panel.
 If you defined any custom fields, they are to be rendered below the main form.
 
+Before concluding this tutorial, the last dialog that needs to be built, is the album dialog. There is a challenge here:
+since Albums are properties, they cannot be saved separately. Therefore, upon submitting, the full album list is to be
+sent to the API, which will update add or delete albums as desired.
+
+First, we update the detail panel to open an album window on clicking the add and edit buttons respectively and load the
+artist and album data:
+
+.. code:: typescript
+
+    fieldset({legend: t("Albums")},
+            tbar({}, "->", btn({
+                icon: "add", cls: "primary", text: t("Add"), handler: () => {
+                    const w = new AlbumWindow(this.entity!);
+                    w.on("close", async () => {
+                        this.load(this.entity!.id)
+                    });
+                    w.show();
+                }
+            })),
+
+    /* (...) */
+    column({
+        resizable: false,
+        width: 32,
+        id: "btn",
+        renderer: (columnValue: any, record, td, table, rowIndex) => {
+            return btn({
+                icon: "more_vert", menu: menu({}, btn({
+                    icon: "edit", text: t("Edit"), handler: async (_btn) => {
+                        const dlg = new AlbumWindow(this.entity!);
+                        const album = table.store.get(rowIndex)!;
+                        dlg.load(album);
+                        dlg.show();
+                    }
+                })
+            })
+        }
+    })
+
+Next, create a new file named ``AlbumWindow.ts`` and copy or type the following code into it:
+
+.. code:: typescript
+
+    export class AlbumWindow extends Window {
+
+    	private entity: Artist;
+    	private albumId: EntityID | undefined;
+    	private readonly form: Form;
+    	constructor(artist: Artist) {
+    		super();
+    		this.entity = artist;
+    		Object.assign(this, {
+    				title: t("New album"),
+    				width: 800,
+    				height: 500,
+    				modal: true,
+    				resizable: false,
+    				maximizable: false
+    			}
+    		);
+    		this.form = form({
+    			flex: 1,
+    			cls: "vbox",
+    			handler: (albumfrm) => {
+    				const v = albumfrm.value;
+    				v.artistId = this.entity.id;
+    				if(this.albumId) {
+    					const curr = this.entity.albums.find((a) => a.id === this.albumId);
+    					Object.assign(curr!, v);
+    				} else {
+    					this.entity.albums.push(v as Album);
+    				}
+    				jmapds("Artist").update(this.entity.id, {albums: this.entity.albums})
+    					.then((result) => {console.log(result);this.close();})
+    					.catch((e) => Notifier.error(e))
+    			}
+    			},
+    			fieldset({
+    					cls: "flow scroll",
+    					flex: 1
+    				},
+
+    				comp({cls: "vbox gap"},
+
+    					textfield({
+    						label: t("Title"),
+    						name: "name",
+    						required: true,
+    					}),
+
+    					datefield({
+    						name: "releaseDate",
+    						required: true,
+    						label: t("Release date"),
+    					}),
+
+    					combobox({
+    						name: "genreId",
+    						label: t("Genre"),
+    						required: true,
+    						dataSource: jmapds("Genre"),
+    					})
+    				),
+
+    			),
+    			tbar({}, "->", btn({type: "submit", text: t("Save")}))
+    		);
+
+    		this.items.add(this.form);
+    	}
+
+    	public load(record: any) {
+    		this.title = record.name;
+    		this.albumId = record.id;
+    		this.form.value = record;
+    	}
+    }
+
+Some notable things about this script:
+
+- We just extend the default goui Window class. We are not editing an entity, but rather one of its properties.
+- The form has a combobox with that is based on the genre entity. Not bad for six lines of code.
+- In the constructor the entire artist entity is passed. This is needed, since we need to pass all the albums to the API upon saving.
+- In the save function, the current album is retrieved by its id if applicable. Otherwise, it is simply appended to the albums array.
+
+This concludes the first part of the series. Next part will be dedicated to the Acl Entity named reviews.
