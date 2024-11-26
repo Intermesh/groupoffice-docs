@@ -132,6 +132,10 @@ Next, create an ``Index.ts`` file and paste the following code into it:
     modules.register(  {
     	package: "tutorial",
     	name: "music",
+    	entities: [
+    	    "Genre",
+    	    "Artist"
+    	]
     	async init () {
     		client.on("authenticated",  (client, session) => {
     			if(!session.capabilities["go:tutorial:music"]) {
