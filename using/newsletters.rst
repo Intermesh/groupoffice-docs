@@ -30,9 +30,9 @@ Then click the add button from the "Contents" toolbar in the middle to add
 contacts.
 
 You can add contacts one by one but you can also add entire search results using
-filters.
+filters. You can also include entire lists into a new distribution list by selecting them from their respective tabs.
 
-.. note:: Individual newsletters inherit their permissions from the parent distribution list. In practice this means that users can only manage newsletters
+.. note:: Individual newsletters inherit their permissions from the parent distribution list. In practice this means that users can only manage newsletters for distirbution lists that users have actual permissions to.
 
 Compose
 -------

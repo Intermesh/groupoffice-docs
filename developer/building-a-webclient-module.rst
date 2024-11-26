@@ -1,5 +1,6 @@
 .. _webclient_module:
 
+.. warning:: This tutorial is deprecated. As we move away from ExtJS, we would advise you to use :ref:`GOUI <goui_module>` instead.
 
 Building a webclient module
 ===========================
@@ -29,10 +30,6 @@ The code generator already created these files:
 
 When opening Group-Office you should see "Music" in the start menu. When opening it shows "Hello world".
 
-GOUI
-----
-In the future, this guide will be rewritten for the :ref:`GOUI framework <goui>`. In the meantime, you can visit our
-goui documentation site on https://goui.io/ .
 
 Entities
 --------

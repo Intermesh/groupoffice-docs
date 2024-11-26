@@ -95,66 +95,128 @@ Create the tables by importing this SQL into your database:
 
 .. code-block:: sql
 
-  CREATE TABLE `tutorial_music_album` (
-    `id` int(11) NOT NULL,
-    `artistId` int(11) NOT NULL,
-    `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `releaseDate` date NOT NULL,
-    `genreId` int(11) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  --
+  -- Table structure for table `tutorial_music_artist`
+  --
 
-  CREATE TABLE `tutorial_music_artist` (
-    `id` int(11) NOT NULL,
-    `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `photo` binary(40) DEFAULT NULL,
-    `createdAt` datetime NOT NULL,
-    `modifiedAt` datetime NOT NULL,
-    `createdBy` int(11) NOT NULL,
-    `modifiedBy` int(11) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CREATE TABLE IF NOT EXISTS `tutorial_music_artist`
+  (
+      `id`         int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `name`       varchar(190)     NOT NULL,
+      `photo`      binary(40)                DEFAULT NULL,
+      `createdAt`  datetime         NOT NULL,
+      `modifiedAt` datetime         NOT NULL,
+      `createdBy`  int(11)          NOT NULL,
+      `modifiedBy` int(11)          NOT NULL,
+      `active`     tinyint(1)       NOT NULL DEFAULT 1,
+      `bio`        text                      DEFAULT NULL,
+      PRIMARY KEY (`id`),
+      KEY `photo` (`photo`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
 
-  
-  CREATE TABLE `tutorial_music_genre` (
-    `id` int(11) NOT NULL,
-    `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-  INSERT INTO `tutorial_music_genre` (`id`, `name`) VALUES
-  (1, 'Pop'),
-  (2, 'Rock'),
-  (3, 'Blues'),
-  (4, 'Jazz');
+  --
+  -- Table structure for table `music_album`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_album`
+  (
+      `id`          int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `artistId`    int(11) UNSIGNED NOT NULL,
+      `name`        varchar(190)     NOT NULL,
+      `releaseDate` date             NOT NULL,
+      `genreId`     int(11) UNSIGNED NOT NULL,
+      PRIMARY KEY (`id`),
+      KEY `artistId` (`artistId`),
+      KEY `genreId` (`genreId`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  -- --------------------------------------------------------
+
+  --
+  -- Table structure for table `music_artist_custom_fields`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_artist_custom_fields`
+  (
+      `id` int(11) UNSIGNED NOT NULL,
+      PRIMARY KEY (`id`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  -- --------------------------------------------------------
+
+  --
+  -- Table structure for table `music_genre`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_genre`
+  (
+      `id`   int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `name` varchar(190)     NOT NULL,
+      PRIMARY KEY (`id`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  -- --------------------------------------------------------
+
+  --
+  -- Table structure for table `music_review`
+  --
+
+  CREATE TABLE IF NOT EXISTS `tutorial_music_review`
+  (
+      `id`         int(11) UNSIGNED     NOT NULL AUTO_INCREMENT,
+      `albumId`    int(11) UNSIGNED     NOT NULL,
+      `aclId`      int(11)              NOT NULL,
+      `createdBy`  int(11)              NOT NULL,
+      `modifiedBy` int(11)              NOT NULL,
+      `rating`     smallint(5) UNSIGNED NOT NULL,
+      `title`      varchar(190)         NOT NULL,
+      `body`       text                 NOT NULL,
+      PRIMARY KEY (`id`),
+      KEY `aclId` (`aclId`),
+      KEY `albumId` (`albumId`)
+  ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+  --
+  -- Constraints for table `music_review`
+  --
+  ALTER TABLE `tutorial_music_review`
+      ADD CONSTRAINT `music_review_fk1` FOREIGN KEY (`albumId`) REFERENCES `tutorial_music_album` (`id`) ON DELETE CASCADE,
+      ADD CONSTRAINT `music_review_fk2` FOREIGN KEY (`aclId`) REFERENCES `core_acl` (`id`);
 
 
   ALTER TABLE `tutorial_music_album`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `artistId` (`artistId`),
-    ADD KEY `genreId` (`genreId`);
+      ADD CONSTRAINT `music_album_ibfk_1` FOREIGN KEY (`artistId`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE,
+      ADD CONSTRAINT `music_album_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `tutorial_music_genre` (`id`);
 
   ALTER TABLE `tutorial_music_artist`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `photo` (`photo`);
+      ADD CONSTRAINT `tutorial_music_artist_ibfk_1` FOREIGN KEY (`photo`) REFERENCES `core_blob` (`id`);
 
-  ALTER TABLE `tutorial_music_genre`
-    ADD PRIMARY KEY (`id`);
-
-
-  ALTER TABLE `tutorial_music_album`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
-  ALTER TABLE `tutorial_music_artist`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-  ALTER TABLE `tutorial_music_genre`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  --
+  -- Constraints for table `music_artist_custom_fields`
+  --
+  ALTER TABLE `tutorial_music_artist_custom_fields`
+      ADD CONSTRAINT `music_artist_cf_ibfk_1` FOREIGN KEY (`id`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE;
 
 
-  ALTER TABLE `tutorial_music_album`
-    ADD CONSTRAINT `tutorial_music_album_ibfk_1` FOREIGN KEY (`artistId`) REFERENCES `tutorial_music_artist` (`id`) ON DELETE CASCADE,
-    ADD CONSTRAINT `tutorial_music_album_ibfk_2` FOREIGN KEY (`genreId`) REFERENCES `tutorial_music_genre` (`id`);
+  INSERT INTO `tutorial_music_genre` (`id`, `name`)
+  VALUES (1, 'Pop'),
+         (2, 'Rock'),
+         (3, 'Blues'),
+         (4, 'Jazz'),
+         (5, 'Metal'),
+         (7, 'Industrial');
 
-  ALTER TABLE `tutorial_music_artist`
-    ADD CONSTRAINT `tutorial_music_artist_ibfk_1` FOREIGN KEY (`photo`) REFERENCES `core_blob` (`id`);
 
 
 Database rules
@@ -172,24 +234,15 @@ Database rules
 Property and Entity models
 --------------------------
 
-You can read more about entities and properties :ref:`here <orm>`.
-By default, the tool generates only "Property" models. It doesn't know which models
-should be "Entities". An entity can be modified by the API directly and a property
-is only modifiable through an entity. For example an email address of a contact 
-is a property of the entity contact.
+It is up to you as the developer to determine which database tables should be treated as entities and which as properties.
+You can read more about entities and properties :ref:`here <orm>`, but a general rule of thumb is that entities can
+exist independently. An entity can be modified by the API directly and a property is only modifiable through an entity.
+For example an email address of a contact is a property of the entity contact.
 
 So the first step is to change some properties into JMAP entities. In this example
 Artist and Genre are entities.
 
-So in ``model/Artist.php`` change:
-
-.. code:: php
-   
-   use go\core\orm\Property;
-
-   class Artist extends Property {
-
-Into:
+So the ``model/Artist.php`` model class should be defined as an entity:
 
 .. code:: php
 
@@ -197,15 +250,61 @@ Into:
 
    class Artist extends Entity {
 
+If you were to define a Property instead, like for instance an album, you would do it like this:
 
-Do the same for Genre.
+.. code:: php
+   
+   use go\core\orm\Property;
 
-Now run the code generator tool again and it will generate controllers for these 
-entities. It should output::
+   class Artist extends Property {
 
-  Generating controller/Artist.php
-  Generating controller/Genre.php
-  Done
+Controllers
+-----------
+
+In the old days, controller classes were separated automatically based on the defined entity models. However, this tool
+has been replaced by something completely different. Instead, we write our own controller class like so:
+
+.. code:: php
+
+    namespace go\modules\tutorial\music\controller;
+
+    use Exception;
+    use go\core\jmap\EntityController;
+    use go\core\jmap\exception\InvalidArguments;
+    use go\core\util\ArrayObject;
+    use go\core\jmap\exception\StateMismatch;
+    use go\modules\tutorial\music\model;
+
+    class Artist extends EntityController
+    {
+
+    	protected function entityClass(): string
+    	{
+    		return model\Artist::class;
+    	}
+
+    	public function query(array $params): ArrayObject
+    	{
+    		return $this->defaultQuery($params);
+    	}
+
+    	public function get(array $params): ArrayObject
+    	{
+    		return $this->defaultGet($params);
+    	}
+
+     	public function set(array $params): ArrayObject
+    	{
+    		return $this->defaultSet($params);
+    	}
+
+      	public function changes(array $params): ArrayObject
+    	{
+    		return $this->defaultChanges($params);
+    	}
+    }
+
+Do the same for the Genre and Review controllers.
 
 Relations
 `````````
@@ -224,7 +323,7 @@ And then change the mapping:
 
 .. code:: php
 
-   protected static function defineMapping() {
+   protected static function defineMapping(): Mapping {
        return parent::defineMapping()
                ->addTable("tutorial_music_artist", "artist")
                ->addArray('albums', Album::class, ['id' => 'artistId']);
@@ -256,12 +355,13 @@ The next step is to update the ``defineMapping`` method, to actually count the a
 
 .. code:: php
 
-  protected static function defineMapping() {
-		return parent::defineMapping()
-						->addTable("tutorial_music_artist", "artist")
-						->addMap('albums', Album::class, ['id' => 'artistId']);
-						->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
-							->join('music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
+  	protected static function defineMapping(): Mapping
+  	{
+  		return parent::defineMapping()
+  			->addTable("tutorial_music_artist", "artist")
+  			->addMap('albums', Album::class, ['id' => 'artistId']);
+            ->addQuery((new Query())->select('COUNT(alb.id) AS albumCount')
+                ->join('tutorial_music_album', 'alb','artist.id=alb.artistId')->groupBy(['alb.artistId']) );
 	}
 
 The ``albumCount`` property is simply retrieved by counting the albums that are related to the current artist.

@@ -91,7 +91,8 @@ In the template you can use the new :ref:`template syntax <templates>` that's al
 Groups
 ------
 
-Each address books can have groups. They're useful for organizing your address book.
+Each address books can have groups. They're useful for organizing your address book. You can add a contact to a group by
+dragging that contact onto a group in the contact list.
 
 Advanced search syntax
 ----------------------
