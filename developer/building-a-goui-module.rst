@@ -951,4 +951,5 @@ album list by release date:
         this.albumsTable.store.loadData(entity.albums, false);
     });
 
-This concludes the first part of the series. Next part will be dedicated to the Acl Entity named reviews.
+This concludes the first part of the series. :ref:`The next part <extend_goui_module>` will be dedicated to the Acl
+Entity named reviews.

@@ -1,6 +1,6 @@
 .. _extend_goui_module:
 
-Extending a goui webclient module
+Extending a GOUI webclient module
 =================================
 
 In which we build access control into the web client.
@@ -13,8 +13,7 @@ For the sake of this tutorial, we made it possible for reviews to be shared with
 hidden since nobody needs to know about your guilty pleasures. :-)
 
 We will be creating a modal in which to add or edit reviews. Furthermore, there will be a window, in which
-shared reviews are displayed. In order to be a bit flashy, we borrow some code from the comments module
-and display the reviews in a somewhat playful manner.
+shared reviews are displayed. In order to be a bit flashy, we display the reviews in a somewhat playful manner.
 
 Some specifications
 -------------------
@@ -35,6 +34,7 @@ model named ``Review`` in the models subdirectory:
 
 .. code:: php
 
+    <?php
     final class Review extends AclOwnerEntity
     {
     	/** @var int */
@@ -109,6 +109,9 @@ creator is the current user.
             break;
         }
     }
+
+Add or Edit a Review
+--------------------
 
 Now we create a new file named ``ReviewWindow``. As we edit an entity, we can use the built-in ``FormWindow``. We make
 sure to pass the data of the current album to the window, as we can dynamically create a title and pass the albumId in
@@ -191,3 +194,89 @@ The line ``this.addSharePanel();`` makes sure that the ``AclOwnerEntity`` can ac
 opening the review window, an extra tab is displayed that allows you to configure which users and groups have access
 to your record.
 
+Display all reviews
+-------------------
+
+Now that one can add, edit or share a review, all that remains, is to list them. As long as a user has access to the
+music module, all reviews for the currently selected album are retrieved as long as the user has access to them. All
+we need to do, is open a new window in which reviews are opened. Create a new file named `ReviewsWindow` and type or
+paste the following code:
+
+.. code:: typescript
+
+    export class ReviewsWindow extends Window {
+
+    	constructor(data: Album) {
+    		super();
+    		this.title = `${t("Reviews")} ${t("for")}: ${data.name}`;
+
+    		this.stateId = "reviews-dialog";
+    		this.maximizable = true;
+    		this.resizable = true;
+    		this.modal = true;
+    		this.width = 640;
+    		this.height = 768;
+    		this.cls = "vbox gap";
+
+    		const scrollCmp = comp({cls: "scroll", flex: 1});
+
+    		jmapds("Review").get(data.reviews).then(async (result) => {
+    			for (const review of result.list) {
+    				const user = await jmapds("User").single(review!.createdBy);
+    				const avatarCnt = comp({
+    						cls: "go-detail-view-avatar pad",
+    						itemId: "avatar-container"
+    					});
+    				if(user!.avatarId) {
+    					avatarCnt.items.replace(
+    						img({
+    							cls: "goui-avatar",
+    							blobId: user!.avatarId,
+    							title: user!.displayName
+    						})
+    					);
+    				} else {
+    					avatarCnt.items.replace(avatar({cls: "goui-avatar", displayName: user!.name}));
+    				}
+
+    				scrollCmp.items.add(comp({cls: "card pad"},
+    					comp({cls: "hbox",},avatarCnt,
+    						comp({cls: "vbox"},
+    							h3(review!.title),
+    							h4(t("By")+ " " +user!.displayName),
+    						)),
+    					this.addRating(review.rating),
+    					comp({cls: "border-bottom", html: review!.body})
+    				));
+    			}
+    		}).finally(() => {
+    			this.items.add(scrollCmp, tbar({}, "->", btn({
+    				icon: "close",
+    				text: t("Close"),
+    				handler: () => this.close()
+    			})))
+    		});
+
+    	}
+
+    	private addRating(rating: 1 | 2 | 3 | 4 | 5): Component {
+    		const cmp = comp({cls: "hbox"});
+    		for (let r = 1; r <= rating; r++) {
+    			cmp.items.add(comp({cls: "icon", tagName: "i", text: "star"}))
+    		}
+    		return cmp;
+    	}
+    }
+
+The code is pretty simple. In the constructor, the album data is already passed. We know the ideas of the reviews,
+so we retrieve them from the data store. As the data store knows who has access, we do not have to bother with that.
+When these are loaded, a new card is rendered for each review. Having done that, a bottom toolbar is rendered with a
+button to close the reviews. In order to create some eye-candy, the ratings are displayed with stars (one is bad, five
+is good). Finally, the user is displayed with their avatar (if available).
+
+Conclusion
+----------
+
+That's it. You have just created a Group-Office module in our lightweight GOUI framework. You have been taught the
+concepts of Entities and Properties, you learnt how to make certain entities shareable and you have learnt how to create
+a fancy frontend with relatively little code.
