@@ -64,8 +64,25 @@ model named ``Review`` in the models subdirectory:
     				->join('tutorial_music_album', 'a', 'a.id=tutorial_music_review.albumId'));
     	}
 
+Update the ``Album`` model to retrieve reviews (when available):
 
+.. code:: php
 
+    <?php
+    //(...)
+    public array $reviews;
+
+    protected static function defineMapping(): Mapping
+    {
+        return parent::defineMapping()
+            ->addTable("tutorial_music_album", "album")
+            ->addScalar('reviews', 'tutorial_music_review', ['id' => 'albumId']);
+    }
+
+.. note:: The ``addScalar`` function is commonly used to define relations between entities.
+
+Also, make sure that the ``Review`` controller class exists. Copy / paste it from one of the other controllers and make
+sure that the ``Rewiew`` model is used as its model.
 
 In the ``ArtistDetail`` class, add two buttons to the menu at the end of each album row:
 
