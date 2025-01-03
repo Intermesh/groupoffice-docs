@@ -42,7 +42,7 @@ It works by monitoring the apache access log for invalid logins.
       enabled = true
       port = http,https
       logpath = /var/log/apache2/error.log
-      maxretry = 100
+      maxretry = 20
 
    .. note:: Make sure the "logpath" value is set to the error log of the webserver.
 
@@ -50,7 +50,20 @@ For more information about Fail2ban and the configuration of it visit https://ww
 
 .. note:: These filters work from version 6.8.40 and up
 
-.. note:: If you use the Group-Office mailserver then also enable the postfix-sasl, postfix, dovecot, sieve filters.
+4. If you use the Group-Office mailserver then also enable these filters  in /etc/fail2ban/jail.d/groupoffice-mailserver.conf::
+
+        [postfix]
+        enabled = true
+
+        [postfix-sasl]
+        enabled = true
+
+        [dovecot]
+        enabled = true
+
+        [sieve]
+        enabled = true
+
 
 
 
