@@ -84,6 +84,8 @@ By default some variables are already present:
  - ``{{now|date:Y-m-d}}`` The current date time object. In this example a date filter is used.
  - ``{{system.title}}`` The title configured at System Settings -> General
  - ``{{system.url}}`` The URL to Group-Office configured at System Settings -> General
+ - ``{{:pnp:}}`` The current page number
+ - ``{{:ptp:}}`` The total number of pages
 
 
 A variable is written like this::

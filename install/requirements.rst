@@ -14,7 +14,7 @@ Group-Office 6.8 has the following requirements in order to be officially suppor
    Operating System      Linux / Docker
    Webserver             Apache 2.4.x+ / php-fpm or fastcgi
    Database              MySQL 5.7+ / MariaDB 10.0.5+
-   Programming language	 PHP 8.1 or 8.2
+   Programming language	 PHP 8.1+
    ====================  ===========================================================
 
 .. note:: Group-Office will run on Nginx + fpm, but we currently have no documentation on this.
