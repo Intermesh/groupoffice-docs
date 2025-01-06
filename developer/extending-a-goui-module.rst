@@ -88,27 +88,26 @@ In the ``ArtistDetail`` class, add two buttons to the menu at the end of each al
 
 .. code:: typescript
 
-
-        btn({
-            icon: "reviews",
-            text: t("Show reviews"),
-            hidden: !record.reviews.length,
-            handler: (btn) => {
-                const w = new ReviewsWindow(record);
-                w.show();
+    btn({
+        icon: "reviews",
+        text: t("Show reviews"),
+        hidden: !record.reviews.length,
+        handler: (btn) => {
+            const w = new ReviewsWindow(record);
+            w.show();
+        }
+    }),
+    btn({
+        icon: "rate_review",
+        text: hasReviewed ? t ("Update review"): t("Write review"),
+        handler: (_btn) => {
+            const w = new ReviewWindow(record);
+            if(hasReviewed) {
+                w.load(reviewId);
             }
-        }),
-        btn({
-            icon: "rate_review",
-            text: hasReviewed ? t ("Update review"): t("Write review"),
-            handler: (_btn) => {
-                const w = new ReviewWindow(record);
-                if(hasReviewed) {
-                    w.load(reviewId);
-                }
-                w.show();
-            }
-        }),
+            w.show();
+        }
+    })
 
 In the same renderer function, we also need to make sure that the system knows which reviews are written by the current
 user. A quick hack (but inefficient implementation) would be to check all reviews for the album and see whether the
@@ -285,7 +284,7 @@ paste the following code:
     	}
     }
 
-The code is pretty simple. In the constructor, the album data is already passed. We know the ideas of the reviews,
+The code is pretty simple. In the constructor, the album data is already passed. We know the IDs of the reviews,
 so we retrieve them from the data store. As the data store knows who has access, we do not have to bother with that.
 When these are loaded, a new card is rendered for each review. Having done that, a bottom toolbar is rendered with a
 button to close the reviews. In order to create some eye-candy, the ratings are displayed with stars (one is bad, five
