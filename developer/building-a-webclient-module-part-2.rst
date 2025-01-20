@@ -1,6 +1,8 @@
 Building a webclient module, part 2
 ===================================
 
+.. warning:: This tutorial is deprecated. As we move away from ExtJS, we would advise you to use :ref:`GOUI <goui_module>` instead.
+
 In which we build access control into the web client.
 
 In :ref:`the server module tutorial <building-a-server-module>` we built one ``AclOwnerEntity`` model, being Review. The web
