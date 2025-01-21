@@ -26,7 +26,7 @@ and subfolders by default:
 4. ``tsconfig.json``: Typescript config.
 
 
-.. note:: This tutorial was written against Group-Office 6.9.
+.. note:: This tutorial was written against Group-Office 25.X.
 
 Getting started
 ---------------

@@ -145,10 +145,10 @@ There is a new billing module but the old one can still be used or uninstalled
 This release was focussed to support latest PHP version. There were no database tables obsoleted.
 
 
-6.9 or higher
+25.1 or higher
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Calendar module was replace with a new version. 
+The Calendar module was replaced with a new version.
 
 .. code:: sql
 
