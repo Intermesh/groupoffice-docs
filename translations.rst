@@ -45,11 +45,18 @@ At the moment we have the following:
 Contribute
 ----------
 
-We've made it easy for you to contribute to translations. You can download all language as a spreadsheet. 
-Make the translations and send it to support@intermesh.nl. Then we can import it into the project and 
+We've made it easy for you to contribute to translations. We can export and import them using a CSV spreadsheet file._customize
+You can make the translations and send it to support@intermesh.nl. Then we can import it into the project and
 include it in the next release.
 
-You can find the **download spreadsheet** button next to the language selection in **System Settings -> General**.
+There are 3 options to obtain the spreadsheet:
+
+1. You can find the **download spreadsheet** button next to the language selection in **System Settings -> General**.
+
+2. You can request a spreadsheet from us at support@intermesh.nl with the missing translations. We use `LibreTransate <https://libretranslate.com>`_ to translate the missing entries. We ask you to verify these machine translations.
+
+3. You can generate the spreadsheet with machine translations yourself using our `Docker development environment <https://github.com/Intermesh/docker-groupoffice-development>`_. See the "Translation" section.
+
 
 .. note:: If you want to import the language CSV file yourself then install the Community / Developer tools module you
     and run the following command in a terminal:
