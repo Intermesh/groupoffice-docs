@@ -1,8 +1,8 @@
 Cleanup database
 -------------------------------
 
-After deprecated modules get deleted from the source they are no longer uninstallable
-If you haven't uninstalled the deleted module before upgrading there might be tables
+After deprecated modules get deleted from the source, they are no longer uninstallable.
+If you haven't uninstalled the deleted module before upgrading, there might be tables
 in the database that remain there forever but are no longer used.
 
 Older Group-Office instances that have gone through several version upgrades have lots of old data stored in their 

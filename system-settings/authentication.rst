@@ -7,8 +7,10 @@ On the authentication page you can manage:
 2. Logout users automatically if they are inactive and disable the "Remember my login until I press logout on this computer".
 3. Two factor authentication using an OTP client or for ActiveSync devices
 4. Restrict access based on IP addresses
-5. LDAP Authentication
-6. IMAP Authentication
+5. Enable or disable whether passwords were hacked earlier
+6. LDAP Authentication
+7. IMAP Authentication
+8. Allow Cross Origin Requests from certain origins.
 
 .. note:: 
 
