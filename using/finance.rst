@@ -476,6 +476,7 @@ The user who created the document.
 
 - creator.displayName
 - creator.username
+- creator.profile (Contact from address book)
 
 
 Examples

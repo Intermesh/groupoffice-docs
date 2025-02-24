@@ -187,8 +187,9 @@ A simple example template::
    Best regards,
 
    {{creator.displayName}}
+   {{creator.profile.jobTitle}}
    {{creator.profile.organizations[0].name}}
-   {{creator.profile.phoneNumbers[0].number}}
+   {{creator.profile.phoneNumbers | first | prop:number}}
 
 
 Attachment field with photo's in e-mail template::
