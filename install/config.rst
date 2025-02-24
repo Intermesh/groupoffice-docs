@@ -46,7 +46,8 @@ Here's a list of config options:
    theme                         bool    Default theme ("Paper")
    checkForUpdates               bool    Check if there's a new version available. Enabled by default.
    nav_page_size                 int     The number of items displayed in the navigation panels in legacy modules (Calendar for example). Don't set this number too high because it may slow the browser and server down.
-   max_attachment_size           int     52428800 (50mb)
+   max_attachment_size           int     52428800 (50MB in bytes)
+   fileindex_maxsize             int     Used by document search module. Is to be saved in bytes, e.g. 52428800 for 50MB)
    ============================  ======  ===========
 
 
