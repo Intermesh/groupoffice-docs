@@ -144,8 +144,17 @@ Migration of tickets
 The migration from the :ref:`tickets` module is easy. Log into the command line on the Group-Office server, navigate to the
 source subdirectory (normally ``/usr/share/groupoffice/``) and run the following command:
 
-``sudo -u www-data php cli.php business/support/Tools/migrate  --userId=1 -c=/etc/groupoffice/config.php``
+``sudo -u www-data php /usr/share/groupoffice/cli.php business/support/Tools/migrate  --userId=1 -c=/etc/groupoffice/config.php``
 
 Any ticket that has not been previously imported into the support module will be imported. Any imported support request
 will have a custom field that refers to the old ticket ID for archival purposes. This will enable the administrator to
 run the import script multiple times without risking duplicate support requests.
+
+
+Troubleshooting incoming e-mail
+````````````````````````````````
+
+If you mapped an e-mail account to a tasklist and it's somehow not working you can run this command
+on the command line to get verbose debug output::
+
+    sudo -u www-data /usr/share/groupoffice/cli.php core/System/runCron --name=ImapImport --module=support --package=business --debug
