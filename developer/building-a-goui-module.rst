@@ -25,6 +25,9 @@ and subfolders by default:
 3. ``package.json``: has dependencies that are required to run this module, both in terms of own packages and third party packages.
 4. ``tsconfig.json``: Typescript config.
 
+
+.. note:: This tutorial was written against Group-Office 25.X.
+
 Getting started
 ---------------
 
@@ -49,12 +52,15 @@ First we create a ``package.json``` file in which you define your build and watc
 
       "scripts": {
         "start": "concurrently --kill-others \"npm run start:ts\"  \"npm run start:sass\"",
-        "start:ts": "npx esbuild script/Index.ts --external:../../../../../../views/goui/* --bundle --watch --sourcemap --format=esm --target=esnext --outdir=dist",
+        "start:ts": "node ../../../../../../views/goui/esbuild-module.mjs watch",
         "start:sass": "npx sass --watch style:dist",
 
         "build": "npm run build:sass && npm run build:ts",
-        "build:ts": "npx esbuild script/Index.ts --external:../../../../../../views/goui/* --bundle --minify --sourcemap --format=esm --target=esnext --outdir=dist",
-        "build:sass": "npx sass --style=compressed style:dist"
+        "build:ts": "node ../../../../../../views/goui/esbuild-module.mjs",
+        "build:sass": "npx sass --style=compressed style:dist",
+        "build:dts": "npx tsc --emitDeclarationOnly --declaration",
+
+        "test": "npx tsc --noEmit"
       }
     }
 
@@ -63,11 +69,11 @@ Now we tell Typescript how to behave by creating the ``tsconfig.json`` file:
 .. code:: json
 
     {
-      "extends": "../../../../../../views/goui/tsconfig.module.json",
-      "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "./dist"
-      }
+        "extends": "../../../../../../views/goui/tsconfig.module.json",
+        "compilerOptions": {
+          "baseUrl": ".",
+          "outDir": "./dist"
+        }
     }
 
 Install all dependencies by running ``npm install``. A new subfolder ``node_modules`` should be created in your root
@@ -77,7 +83,7 @@ against.
 
 When developing your module, you need to have npm monitor your code, so that it can compile it into
 javascript and css. In order to do this, you run the command ``npm run start``. If there's anything to compile, a new
-subdirectory named ``dist`` will be created.tutorial
+subdirectory named ``dist`` will be created.
 
 Anatomy of a GOUI module
 ------------------------
@@ -127,40 +133,42 @@ Next, create an ``Index.ts`` file and paste the following code into it:
 
     import {client, modules, router} from "@intermesh/groupoffice-core";
     import {Main} from "./Main.js";
-    import {t, translate} from "@intermesh/goui";
+    import {t, translate, EntityID} from "@intermesh/goui";
 
     modules.register(  {
-    	package: "tutorial",
-    	name: "music",
-    	entities: [
-    	    "Genre",
-    	    "Artist"
-    	]
-    	async init () {
-    		client.on("authenticated",  (client, session) => {
-    			if(!session.capabilities["go:tutorial:music"]) {
-    				// User has no access to this module
-    				return;
-    			}
+        package: "tutorial",
+        name: "music",
+        entities: [
+            "Genre",
+            "Artist",
+            "Review"
+        ],
+        async init () {
+            client.on("authenticated",  (client, session) => {
+                if(!session.capabilities["go:tutorial:music"]) {
+                    // User has no access to this module
+                    return;
+                }
 
-    			translate.load(GO.lang.core.core, "core", "core");
-    			translate.load(GO.lang.tutorial.music, "tutorial", "music");
+                translate.load(GO.lang.core.core, "core", "core");
+                translate.load(GO.lang.tutorial.music, "tutorial", "music");
 
-    			const mainPanel = new Main();
+                const mainPanel = new Main();
 
-    			router.add(/^music\/(\d+)$/, (taskId) => {
-    				modules.openMainPanel("music");
-    			});
+                router.add(/^music\/(\d+)$/, (id: EntityID) => {
+                    modules.openMainPanel("music");
+                    mainPanel.setArtistId(id);
+                });
 
-    			router.add(/^music$/, () => {
-    				modules.openMainPanel("music");
-    			});
+                router.add(/^music$/, () => {
+                    modules.openMainPanel("music");
+                });
 
-    			modules.addMainPanel( "tutorial", "music", "music", t("Music"), () => {
-    				return mainPanel;
-    			});
-    		});
-    	}
+                modules.addMainPanel( "tutorial", "music", "music", t("Music"), () => {
+                    return mainPanel;
+                });
+            });
+        }
     });
 
 What happens, is actually pretty simple: a module is registered inside the `tutorial` package, named `music`. If
@@ -179,99 +187,97 @@ Main.ts
 -------
 
 A common layout is the three panel layout. In the left ("west") panel one renders filters, the center panel has the list
-of entities and in the right panel, details are shown for a selected entity.
+of entities and in the right panel ("east"), details are shown for a selected entity. In Group-Office, a separate layout
+class has been created, so we recreate the ```Main.ts``` file to use this class:
 
 .. code:: typescript
 
-    export class Main extends Component {
-    	private west: Component;
-    	private center: Component;
-    	private east: Component;
+    export class Main extends MainThreeColumnPanel {
+        protected east!: ArtistDetail;
+        private artistTable!: ArtistTable;
 
-    	constructor() {
-    		super("section");
+        private genreTable!: GenreTable;
 
-    		this.id = "music";
-    		this.cls = "vbox fit";
+        constructor() {
+            super("music");
 
-    		this.west = comp({html: "west");
-	    	this.center = comp({html: "center");
-		    this.east = comp({html: "east");
-		    this.items.add(
-                comp({
-                    flex: 1, cls: "hbox mobile-cards"
-                },
+            this.on("render", async () => {
+                try {
+                    await authManager.requireLogin();
+                } catch (e) {
+                    console.warn(e);
+                    Notifier.error(t("Login is required on this page"));
+                }
 
-                this.west,
+                await this.genreTable.store.load();
+                await this.artistTable!.store.load();
+            });
+        }
 
-                splitter({
-                    stateId: "music-splitter-west",
-                    resizeComponentPredicate: this.west
-                }),
+        protected createWest(): Component {
+            return comp({html: "<h1>West</h1>"});
+        }
 
-                this.center,
+        protected createCenter(): Component {
+            return comp({html: "<h1>Center</h1>"});
+        }
 
-                splitter({
-                    stateId: "music-splitter",
-                    resizeComponentPredicate: "table-container"
-                }),
-
-                this.east)
-            );
+        protected createEast(): Component {
+            return comp({html: "<h1>East</h1>"});
         }
     }
 
-The code snippet above will generate a three panel horizontal layout with three content blocks. Each block is separated
-by a splitter, which allows the user to resize each block at will. Neat!
+The code snippet above will generate a three panel horizontal layout with three content blocks, which can be resized at
+will. Neat! For now, a placeholder string is rendered in each block.
 
 
 Creating a filter panel
 -----------------------
 
-Next, we will create the filters in the west panel. This is a vertical box with one or more possible filters and possible
+Next, we will create the filters in the west panel. This is a vertical box with one or more possible filters and possibly
 some toolbars as well:
 
-In the ``Main.ts`` file, we will create a function to make such a component:
+In the ``Main.ts`` file, we will update the ``createWest`` function to make such a component:
 
 .. code:: typescript
 
     private createWest(): Component {
-        this.genreTable = new GenreTable();
-        this.genreTable.rowSelectionConfig = {
-            multiSelect: true,
-            listeners: {
-                selectionchange: (tableRowSelect) => {
-                    const genreIds = tableRowSelect.selected.map((index: number) => tableRowSelect.list.store.get(index)!.id);
-                    (this.artistTable.store.queryParams.filter as FilterCondition).genres = genreIds;
-                    this.artistTable.store.load();
-                }
-            }
-        }
+		this.genreTable = new GenreTable();
+		this.genreTable.rowSelectionConfig = {
+			multiSelect: true,
+			listeners: {
+				selectionchange: (tableRowSelect) => {
+					const genreIds = tableRowSelect.selected.map((index: number) => tableRowSelect.list.store.get(index)!.id);
+					this.artistTable.store.queryParams.filter!.genres = genreIds;
+					this.artistTable.store.load();
+				}
+			}
+		}
 
-        return comp({
-                cls: "vbox scroll",
-                width: 300
-            },
-            tbar({
-                    cls: "border-bottom"
-                },
-                comp({
-                    tagName: "h3",
-                    text: t("Genre"),
-                    flex: 1
-                }),
-                '->',
-                btn({
-                    cls: "for-small-device",
-                    title: t("Close"),
-                    icon: "close",
-                    handler: (button, ev) => {
-                        this.activatePanel(this.center);
-                    }
-                })
-            ),
-            this.genreTable
-        );
+		return comp({
+				cls: "vbox scroll",
+				width: 300
+			},
+			tbar({
+					cls: "border-bottom"
+				},
+				comp({
+					tagName: "h3",
+					text: t("Genre"),
+					flex: 1
+				}),
+				'->',
+				btn({
+					cls: "for-small-device",
+					title: t("Close"),
+					icon: "close",
+					handler: (button, ev) => {
+						this.activatePanel(this.center);
+					}
+				})
+			),
+			this.genreTable
+		);
     }
 
 Also, create a new file named ``GenreTable.ts`` and type or paste the following code
@@ -317,7 +323,7 @@ into it:
     }
 
 First, an interface is defined that outlines the structure as a record as a Typescript class. We need this when defining
-a table based on a store record. The actual table is definad as a class that extends the ``Table`` class that uses a
+a table based on a store record. The actual table is defined as a class that extends the ``Table`` class that uses a
 ``DataSourceStore`` as a generic. This tells us that we need to use a builtin datasource when defining a table and that's
 exactly what happens in the first line of the ``constructor()``.
 
@@ -339,172 +345,68 @@ sure that the center component renders a proper table:
 
 .. code:: typescript
 
-    constructor() {
-		super("section");
+    protected createCenter(): Component {
+        this.artistTable = new ArtistTable();
+        this.artistTable.on("navigate", async (table: ArtistTable, rowIndex: number) => {
+            await router.goto("music/" + table.store.get(rowIndex)!.id);
+        });
 
-		this.id = "music";
-		this.cls = "vbox fit";
-		this.on("render", async () => {
-			try {
-				await authManager.requireLogin();
-			} catch (e) {
-				console.warn(e);
-				Notifier.error(t("Login is required on this page"));
-			}
+        return comp({
+                cls: 'active vbox',
+                itemId: 'table-container',
+                flex: 1
+            },
 
-			await this.genreTable.store.load();
-			await this.artistTable.store.load();
-		});
+            tbar({},
+                btn({
+                    cls: "for-small-device",
+                    title: t("Menu"),
+                    icon: "menu",
+                    handler: (button, ev) => {
+                        this.activatePanel(this.west);
+                    }
+                }),
 
+                '->',
 
-		this.artistTable = new ArtistTable();
-		this.artistTable.on("navigate", async (table: ArtistTable, rowIndex: number) => {
-			await router.goto("music/" + table.store.get(rowIndex)!.id);
-		});
+                searchbtn({
+                    listeners: {
+                        input: (sender, text) => {
+                            this.artistTable.store.queryParams.filter!.text = text;
+                            this.artistTable.store.load();
+                        }
+                    }
+                }),
 
-		this.west = this.createWest();
-		this.items.add(
-			comp({
-					flex: 1, cls: "hbox mobile-cards"
-				},
+                mstbar({table: this.artistTable}),
 
-				this.west,
+                btn({
+                    itemId: "add",
+                    icon: "add",
+                    cls: "filled primary",
+                    handler: async () => {
+                        const w = new ArtistWindow();
+                        w.on("close", async () => {});
+                        w.show();
 
-				splitter({
-					stateId: "music-splitter-west",
-					resizeComponentPredicate: this.west
-				}),
+                    }
+                })
+            ),
 
-				this.center = comp({
-						cls: 'active vbox',
-						itemId: 'table-container',
-						flex: 1,
-						style: {
-							minWidth: "365px", //for the resizer's boundaries
-							maxWidth: "850px"
-						}
-					},
-
-					tbar({},
-						btn({
-							cls: "for-small-device",
-							title: t("Menu"),
-							icon: "menu",
-							handler: (button, ev) => {
-								this.activatePanel(this.west);
-							}
-						}),
-
-						'->',
-
-						searchbtn({
-							listeners: {
-								input: (sender, text) => {
-
-									(this.artistTable.store.queryParams.filter as FilterCondition).text = text;
-									this.artistTable.store.load();
-
-								}
-							}
-						}),
-
-						mstbar({table: this.artistTable}),
-
-						btn({
-							itemId: "add",
-							icon: "add",
-							cls: "filled primary",
-							handler: async () => {
-								const w = new ArtistWindow();
-								w.on("close", async () => {
-									debugger;
-								});
-								w.show();
-
-							}
-						})
-					),
-
-					comp({
-							flex: 1,
-							stateId: "music",
-							cls: "scroll border-top main"
-						},
-						this.artistTable
-					),
+            comp({
+                    flex: 1,
+                    stateId: "music",
+                    cls: "scroll border-top main"
+                },
+                this.artistTable
+            ),
 
 
-					paginator({
-						store: this.artistTable.store
-					})
-				),
-
-
-				splitter({
-					stateId: "music-splitter",
-					resizeComponentPredicate: "table-container"
-				}),
-
-				this.east = new ArtistDetail()
-			)
-		);
-	}
-
-	private activatePanel(active: Component) {
-		this.center.el.classList.remove("active");
-		this.east.el.classList.remove("active");
-		this.west.el.classList.remove("active");
-
-		active.el.classList.add("active");
-	}
-
-	private createWest(): Component {
-		this.genreTable = new GenreTable();
-		this.genreTable.rowSelectionConfig = {
-			multiSelect: true,
-			listeners: {
-				selectionchange: (tableRowSelect) => {
-					const genreIds = tableRowSelect.selected.map((index: number) => tableRowSelect.list.store.get(index)!.id);
-					(this.artistTable.store.queryParams.filter as FilterCondition).genres = genreIds;
-					this.artistTable.store.load();
-				}
-			}
-		}
-
-		return comp({
-				cls: "vbox scroll",
-				width: 300
-			},
-			tbar({
-					cls: "border-bottom"
-				},
-				comp({
-					tagName: "h3",
-					text: t("Genre"),
-					flex: 1
-				}),
-				'->',
-				btn({
-					cls: "for-small-device",
-					title: t("Close"),
-					icon: "close",
-					handler: (button, ev) => {
-						this.activatePanel(this.center);
-					}
-				})
-			),
-			this.genreTable
-		);
-	}
-
-	async load(id?: EntityID) {
-		if(id) {
-			void this.east.load(id);
-			this.activatePanel(this.east);
-		} else {
-			this.activatePanel(this.center);
-		}
-	}
+            paginator({
+                store: this.artistTable.store
+            })
+        );
+    }
 
 A number of interesting things are created here:
 
@@ -513,7 +415,7 @@ A number of interesting things are created here:
 - A search button is created that tells the entity store what to do with its input
 - The grid is rendered in a scrollable component. The ``flex`` attribute makes sure that this component takes up as much space as possible.
 - A paginator is rendered that interacts with the store as defined in the artist table.
-- A loader function will load a single entity in the east panel and activate it.
+- Upon clicking a row, the selected artist is loaded in the east panel.
 
 Our next step is to create a table that renders the artist entities! As per our convention, create a new file named ``ArtistTable.ts``
 and type or paste the following code into it:
@@ -521,63 +423,72 @@ and type or paste the following code into it:
 .. code:: typescript
 
     interface Artist extends BaseEntity {
-    	name: string,
+        name: string,
+        active: boolean,
+        photo: string
     }
 
     export class ArtistTable extends Table<DataSourceStore> {
-    	constructor() {
-    		const store = datasourcestore<JmapDataSource<Artist>, Artist>({
-    			dataSource: jmapds("Artist"),
-    			queryParams: {
-    				limit: 0,
-    				filter: {
-    					permissionLevel: 5
-    				}
-    			},
-    			sort: [{property: "name", isAscending: true}]
-    		});
-
-    		const columns = [
-    			column({
-    				id: "id",
-    				hidden: true,
-    				sortable: true,
-    			}),
-    			column({
-    				header: t("Photo"),
-    				id: "photo",
-    				resizable: false,
-    				width: 80,
-    				renderer: (v, record) => {
-    					const c = comp({
-    						itemId: "avatar-container"
-    					});
-    					if (v) {
-    						c.items.add(img({
-    							cls: "goui-avatar",
-    							blobId: v,
-    							title: record.name
-    						}))
-    					}  else {
-    						c.items.add(avatar({displayName: record.name}));
-    					}
-    					return c;
-    				}
-    			}),
-    			column({
-    				header: t("Name"),
-    				id: "name",
-    				resizable: true,
-    				sortable: true
-    			})
-    		];
-
-    		super(store, columns);
-    		this.fitParent = true;
-    		this.rowSelectionConfig = {
-    			multiSelect: true
-    		};
-    	}
+        constructor() {
+            const store = datasourcestore<JmapDataSource<Artist>, Artist>({
+                dataSource: jmapds("Artist"),
+                queryParams: {
+                    limit: 0,
+                    filter: {
+                        permissionLevel: 5
+                    }
+                },
+                sort: [{property: "name", isAscending: true}]
+            });
+            const columns = [
+                column({
+                    id: "id",
+                    hidden: true,
+                    sortable: true,
+                }),
+                column({
+                    header: t("Photo"),
+                    id: "photo",
+                    resizable: false,
+                    width: 80,
+                    renderer: (v, record) => {
+                        const c = comp({
+                            itemId: "avatar-container"
+                        });
+                        if (v) {
+                            c.items.add(img({
+                                cls: "goui-avatar",
+                                blobId: v,
+                                title: record.name
+                            }))
+                        }  else {
+                            c.items.add(avatar({displayName: record.name}));
+                        }
+                        return c;
+                    }
+                }),
+                column({
+                    header: t("Name"),
+                    id: "name",
+                    resizable: true,
+                    sortable: true
+                }),
+                column({
+                    width: 80,
+                    resizable: false,
+                    id: "active",
+                    header: t("Active"),
+                    renderer: (v, record) => {
+                        return comp({cls: "icon", html: v ? "check": "cancel"});
+                    }
+                })
+            ];
+            super(store, columns);
+            this.fitParent = true;
+            this.rowSelectionConfig = {
+                multiSelect: true
+            };
+        }
     }
 
 Compared to the earlier genres table, not much has changed. The first visible column has a nice avatar when the user has
@@ -591,150 +502,161 @@ data:
 
 .. code:: typescript
 
-	async load(id?: EntityID) {
-		if(id) {
-			void this.east.load(id);
-			this.activatePanel(this.east);
-		} else {
-			this.activatePanel(this.center);
-		}
-	}
+    async setArtistId(id: EntityID) {
+        void this.east.load(id);
+        this.activatePanel(this.east);
+    }
 
 We also directly define the east panel in the constructor:
 
 .. code:: typescript
 
-    this.east = new ArtistDetail()
+    protected createEast(): ArtistDetail {
+        const detail = new ArtistDetail();
+        detail.itemId = "artistDetail";
+        detail.stateId = "artist-detail";
+        detail.toolbar.items.insert(0,this.showCenterButton());
+        return detail;
+	}
 
-Time to spin up a detail panel! Create a new Typescript file named ``ArtistDetail.ts``. `
+Time to spin up a detail panel! Create a new Typescript file named ``ArtistDetail.ts``.
 
 .. code:: typescript
 
     export class ArtistDetail extends DetailPanel<Artist> {
-    	private form: DataSourceForm<Artist>;
-    	private avatarContainer: Component;
-    	private albumsTable: Table;
+        private form: DataSourceForm<Artist>;
+        private avatarContainer: Component;
+        private albumsTable: Table;
 
-    	constructor() {
-    		super("Artist");
-    		this.width = 500;
-    		this.itemId = "detail";
-    		this.stateId = "music-detail";
+        constructor() {
+            super("Artist");
+            this.width = 500;
+            this.itemId = "detail";
+            this.stateId = "music-detail";
 
-    		this.scroller.items.add(
-    			this.form = datasourceform({
-    					dataSource: jmapds("Artist")
-    				},
+            this.scroller.items.add(
+                this.form = datasourceform({
+                        dataSource: jmapds("Artist")
+                    },
 
-    				comp({cls: "card"},
-    					tbar({},
-    						this.titleCmp = comp({tagName: "h3", flex: 1}),
-    					),
-    					comp({cls: "hflow", flex: 1},
-    						this.avatarContainer = comp({
-    							cls: "go-detail-view-avatar pad",
-    							itemId: "avatar-container"
-    						}),
-    					),
-    				)
-    			),
+                    comp({cls: "card"},
+                        tbar({},
+                            this.titleCmp = comp({tagName: "h3", flex: 1}),
+                        ),
+                        comp({cls: "hbox", flex: 1},
+                            this.avatarContainer = comp({
+                                cls: "go-detail-view-avatar pad",
+                                itemId: "avatar-container"
+                            }),
+                        ),
+                        comp({cls: "pad flow"},
+                            fieldset({},
+                                comp({cls: "vbox", flex: 1},
+                                    displayfield({
+                                        icon: "person_alert",
+                                        name: "active",
+                                        label: t("Active"),
+                                        renderer: (v) => {
+                                            return v ? t("Yes") : t("No");
+                                        }
+                                    }),
+                                    displayfield({
+                                        icon: "book",
+                                        name: "bio",
+                                        label: t("Biography"),
+                                    })
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
 
-    			fieldset({legend: t("Albums")},
-    				tbar({}, "->", btn({icon: "add", cls: "primary", text: t("Add"), handler:() => {
-    					// TODO
-    				}})),
-    			this.albumsTable = table({
-    				fitParent: true,
-    				// headers: false,
-    				store: store({
-    					data: []
-    				}),
-    				columns: [
-    					column({
-    						id: "id",
-    						hidden: true,
-    					}),
-    					column({
-    						id: "name",
-    						header: t("Title"),
-    						resizable: true,
-    						sortable: true
-    					}),
-    					datecolumn({
-    						id: "releaseDate",
-    						header: t("Release date"),
-    						sortable: true
-    					}),
-    					column({
-    						resizable: true,
-    						id: "genreId",
-    						header: t("Genre"),
-    						renderer: async (v) => {
-    							const g = await jmapds("Genre").single(v);
-    							return g!.name;
-    						}
-    					}),
-    					column({
-    						resizable: false,
-    						// sticky: true,
-    						width: 32,
-    						id: "btn",
-    						renderer: (columnValue: any, record, td, table, rowIndex) => {
+                comp({cls:"card"},
+                    fieldset({},
+                        tbar({}, h4(t("Albums")), "->", btn({
+                            icon: "add", cls: "primary", text: t("Add"), handler: () => {
+                                // TODO
+                            }
+                        })),
+                        this.albumsTable = table({
+                            fitParent: true,
+                            store: store({
+                                data: []
+                            }),
+                            columns: [
+                                column({
+                                    id: "id",
+                                    hidden: true,
+                                }),
+                                column({
+                                    id: "name",
+                                    header: t("Title"),
+                                    resizable: true,
+                                    sortable: false
+                                }),
+                                datecolumn({
+                                    id: "releaseDate",
+                                    header: t("Release date"),
+                                    sortable: false
+                                }),
+                                column({
+                                    resizable: true,
+                                    id: "genreId",
+                                    header: t("Genre"),
+                                    renderer: async (v) => {
+                                        const g = await jmapds("Genre").single(v);
+                                        return g!.name;
+                                    }
+                                })
+                            ]
+                        })
+                    )
+                )
+            );
 
-    							return btn({
-    								icon: "more_vert", menu: menu({}, btn({
-    									icon: "edit", text: t("Edit"), handler: async (_btn) => {
-    										// TODO...
-    									}
-    								}), hr(), btn({
-    									icon: "delete", text: t("Delete"), handler: async (btn) => {
-    										// TODO...
-    									}
-    								}))
-    							})
-    						}
-    					})
-    				]
-    			})
-    			)
-    		);
+            this.addCustomFields();
 
-    		this.addCustomFields();
+            this.toolbar.items.add(
+                btn({
+                    icon: "edit",
+                    title: t("Edit"),
+                    handler: (button, ev) => {
+                        const dlg = new ArtistWindow();
+                        void dlg.load(this.entity!.id);
+                        dlg.show();
+                    }
+                }),
+                btn({
+                    icon: "delete",
+                    title: t("Delete"),
+                    handler: () => {
+                        jmapds("Artist").destroy(this.entity!.id).then(() => {
+                            router.goto("music");
+                        })
+                    }
+                })
+            )
+            this.on("load", (pnl, entity) => {
+                this.title = entity.name;
+                void this.form.load(entity.id);
+                if (entity!.photo) {
+                    pnl.avatarContainer.items.replace(img({
+                        cls: "goui-avatar-detail",
+                        blobId: entity.photo,
+                        title: entity.name
+                    }));
+                } else {
+                    pnl.avatarContainer.items.replace(avatar({cls: "goui-avatar", displayName: entity.name}));
+                }
+                entity.albums.sort((a: Album, b: Album) => {
+                    const ra: string = <string>a.releaseDate, rb: string = <string>b.releaseDate;
 
-    		this.toolbar.items.add(
-    			btn({
-    				icon: "edit",
-    				title: t("Edit"),
-    				handler: (button, ev) => {
-    					const dlg = new ArtistWindow();
-    					void dlg.load(this.entity!.id);
-    					dlg.show();
-    				}
-    			}),
-    			 btn({
-    				icon: "delete",
-    				title: t("Delete"),
-    				handler: () => {
-    					jmapds("Artist").destroy(this.entity!.id).then(() => {
-    						router.goto("music");
-    					})
-    				}
-    			})
-    		)
-    		this.on("load", (pnl, entity) => {
-    			this.title = entity.name
-    			if (entity!.photo) {
-    				pnl.avatarContainer.items.replace(img({
-    					cls: "goui-avatar",
-    					blobId: entity.photo,
-    					title: entity.name
-    				}));
-    			} else {
-    				pnl.avatarContainer.items.replace(avatar({cls: "goui-avatar", displayName: entity.name}));
-    			}
-    			this.albumsTable.store.loadData(entity.albums, false);
-    		})
-    	}
+                    return DateTime.createFromFormat(ra, "Y-m-d")!.compare(DateTime.createFromFormat(rb, "Y-m-d")!);
+                });
+                this.albumsTable.store.loadData(entity.albums, false);
+            });
+        }
+    }
 
 What happens here? The detail panel is defined as an extension to the built-in ``DetailPanel`` class  which expects to
 load an entity of type ``Artist``. A JMAP data source is defined and in the background, the data is loaded with the
@@ -799,6 +721,8 @@ If you defined any custom fields, they are to be rendered below the main form.
 Before concluding this tutorial, the last dialog that needs to be built, is the album dialog. There is a challenge here:
 since Albums are properties, they cannot be saved separately. Therefore, upon submitting, the full album list is to be
 sent to the API, which will update add or delete albums as desired.
+
+.. important:: Note that an avatar upload is still to be added!
 
 First, we update the detail panel to open an album window on clicking the add and edit buttons respectively and load the
 artist and album data:

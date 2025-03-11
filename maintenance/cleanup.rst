@@ -1,8 +1,8 @@
 Cleanup database
 -------------------------------
 
-After deprecated modules get deleted from the source they are no longer uninstallable
-If you haven't uninstalled the deleted module before upgrading there might be tables
+After deprecated modules get deleted from the source, they are no longer uninstallable.
+If you haven't uninstalled the deleted module before upgrading, there might be tables
 in the database that remain there forever but are no longer used.
 
 Older Group-Office instances that have gone through several version upgrades have lots of old data stored in their 
@@ -145,10 +145,10 @@ There is a new billing module but the old one can still be used or uninstalled
 This release was focussed to support latest PHP version. There were no database tables obsoleted.
 
 
-6.9 or higher
+25.1 or higher
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Calendar module was replace with a new version. 
+The Calendar module was replaced with a new version.
 
 .. code:: sql
 

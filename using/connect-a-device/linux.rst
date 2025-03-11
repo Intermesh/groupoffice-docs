@@ -1,3 +1,6 @@
+.. _connect-to-linux:
+
+
 Linux
 =====
 
@@ -55,7 +58,10 @@ On Debian based distributions you can install the Group Office Assistant.
 
 WebDAV
 ------
-You can use WebDAV to mount Group-Office as a network drive. Linux Desktops have WebDAV built in. For GNOME users you can launch the file explorer and choose "Connect to server" from the menu.
+You can use WebDAV to mount Group-Office as a network drive. Linux Desktops have WebDAV built in. GNOME users you can
+launch the file explorer and choose "Connect to server" from the menu. KDE/Plasma users can use the Dolphin file
+manager to connect to WebDAV.
+
 Connect the client to:
 
 https://[Server hostname]/webdav

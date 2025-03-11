@@ -17,9 +17,9 @@ You can create custom fields via System settings at:
 
 - Notes
 - Address book
-- Billing
+- Finance
 - Projects
-- Tickets
+- Support
 - Calendar
 - Tasks
 - Files
