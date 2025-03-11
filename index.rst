@@ -37,6 +37,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/comments
    using/sharing
    using/filters
+   using/webdav/webdav
 
 .. toctree::
    :maxdepth: 2
