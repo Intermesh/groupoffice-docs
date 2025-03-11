@@ -22,6 +22,13 @@ Then visit System settings -> API Keys and add a token.
 
 Obtain the token via the more menu and choose "View token".
 
+API Methods
+-----------
+
+From v25 you can view the methods on your API on https://your.host/api/doc.php
+
+For example: https://demo.groupoffice.net/api/doc.php
+
 Example script
 --------------
 
