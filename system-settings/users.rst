@@ -14,9 +14,7 @@ menu in the record you can:
    all data and references to the user but the user can't login or used for new items. To deactivate a
    user you must "Edit" it and toggle "Login enabled" on the account page.
 
-.. warning:: Archiving a user will not only disable the user. It will also hide any calendars, note books
-   task lists and address books from other non-admin users. If for a user is re-enabled, these shares have to be
-   restored manually by either the user or the administrator.
+.. warning::
 
 .. figure:: /_static/system-settings/users.png
    :alt: User list
@@ -77,8 +75,8 @@ a strong password.
 
 Finally, add the user to the right :ref:`user-groups` andf click 'Finish'.
 
-Edit user
----------
+Edit a user
+-----------
 
 To edit a user double click or use the more menu. 
 The edit dialog is identical to the ':ref:`my-account`' page but adds some administrative features:
@@ -86,6 +84,23 @@ The edit dialog is identical to the ':ref:`my-account`' page but adds some admin
 - Group management
 - Disable / enable login
 - Set disk quota
+
+Archiving a user
+----------------
+
+Archiving a user will not only disable the user. It will also hide any calendars, note books task lists and address books
+from other non-admin users. If a user has updated their user profile, it is moved to a separate address book named 'Archived users'.
+Additionally, all group memberships are revoked.
+
+Although there is no explicit way to restore a user from the archive, an administrator can do this manually by performing the
+following steps:
+
+1. Re-enable the user by checking the 'Login enabled' checkbox.
+2. Add the user to their relevant groups and save the user.
+3. Move the user profile from the 'Archived' address to a more accessible one, e.g. 'Users'. This should be done from within the address book module.
+4. Restore access to the user to their default address book, task list and note book.
+5. If the projects-module is in use, you may need to re-add the user to the default resources for project templates.
+
 
 Disk quota
 ``````````
