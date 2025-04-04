@@ -13,9 +13,11 @@ tarball. But if you really want use it then follow these steps:
 3. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
 4. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 
    will become part of the Group-Office core.
-5. If you have the pro version then install the latest license key via the main menu or via CLI::
+5. Make sure to install the latest license key from your group-office.com account in the
+   contracts section (https://www.group-office.com/account#account/contracts) if you run
+   the professional version. This can be done via the browser GUI in the main menu -> register or via CLI::
 
-      sudo -u www-data php ./cli.php core/System/setLicense --key=YOURKEY
+      sudo -u www-data php ./cli.php core/System/setLicense --key=<YOURKEY>
 
 6. If you are coming from version 5.0 or lower. Then you must install the projects2 module in 6.2 to migrate your existing data. This can't be done in a later version!
 7. Move away your old source files to a backup location.
