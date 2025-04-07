@@ -65,6 +65,16 @@ to make it the default. Then choose your preferred action.
   :alt: Change default open file action
   :width: 100%
 
+Moving to trash versus deleting
+-------------------------------
+
+As of versions 6.8.113 and 25.0.12, you can either delete a file entirely or move it to a trash folder. By moving files and folders into trash,
+the user can restore it to its original location if need be. The DEL key is mapped to moving a file to trash, whereas Ctrl+DEL
+will fully delete a file or folder.
+
+When an item is moved to trash, its original permissions are kept. In other words, a user can only see a trashed item if they have permissions
+to its original parent folder.
+
 Integrations
 ------------
 
