@@ -54,9 +54,11 @@ When upgrading to the next major release follow these steps prior to the above:
 Mailserver
 ----------
 
-If you're upgrading from 6.3.x or higher version simply run::
+If you're upgrading from 6.3.x or higher version run::
 
    apt-get install groupoffice-mailserver
+
+.. note:: When upgrading from 6.8 to 25.0 it will ask to replace modified configuration files for Postfix mysql (/etc/postfix/mysql_*). Answer YES here as the database tables changed.
 
 Or if you also installed the anti spam and virus package:
 
