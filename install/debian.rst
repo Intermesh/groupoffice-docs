@@ -12,43 +12,48 @@ Our preferred way of installing is using our Debian packages:
 
       sudo -s
 
-2. First add our repository to the package management system::
+2. Make sure these required packages are installed::
+
+    apt-get update
+    apt-get install gpg wget
+
+3. First add our repository to the package management system::
 
      echo "deb http://repo.group-office.com/ twentyfivezero main" > /etc/apt/sources.list.d/groupoffice.list
 
-3. Add our public key::
+4. Add our public key::
 
       wget -qO - https://repo.group-office.com/downloads/groupoffice.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/groupoffice.gpg
       
-4. Update APT::
+5. Update APT::
 
       apt-get update
 
-5. Then install Group-Office by running::
+6. Then install Group-Office by running::
 
       apt-get install groupoffice --install-recommends
 
    .. note:: When recommended packages are installed it will install apache2 and the default database server mariadb or mysql. If you don't want this you can use --no-install-recommends instead.
       
       
-6. Optionally you can install php-acpu for better performance of the cache::
+7. Optionally you can install php-acpu for better performance of the cache::
 
       apt-get install php-apcu
 
-7. If you purchased **Group-Office Professional licenses** then make sure the
+8. If you purchased **Group-Office Professional licenses** then make sure the
    `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
    You can run this command to do all the work::
 
       curl -s https://raw.githubusercontent.com/Intermesh/groupoffice/master/scripts/sg_install.sh | bash
 
-8. Then visit http://yourserver/groupoffice and the installer should appear:
+9. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-9. Follow the instructions on screen and enjoy Group-Office!
+10. Follow the instructions on screen and enjoy Group-Office!
 
 .. note:: The package installs the apache configuration in /etc/apache2/conf-available/groupoffice.conf.
 
@@ -66,7 +71,7 @@ You can also use Group-Office as a complete e-mail platform. It's based on:
 
 At the moment this is only possible with the Debian / Ubuntu packages.
 
-When Group-Office is already installed you can run::
+First install Group-Office and run the web installer. Then you can run::
 
    apt-get install groupoffice-mailserver
 
