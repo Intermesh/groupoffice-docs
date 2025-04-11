@@ -171,4 +171,4 @@ Purging old appointments
 
 To remove old appointments before a certain date you can run this command on the command line::
 
-   ./groupofficecli.php -c=/etc/groupoffice/config.php -r=calendar/event/deleteOld --date="2015-01-01" -u=admin
+   /usr/share/groupoffice/groupofficecli.php -c=/etc/groupoffice/config.php -r=calendar/event/deleteOld --date="2015-01-01" -u=admin
