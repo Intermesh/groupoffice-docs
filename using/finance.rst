@@ -764,6 +764,22 @@ Example quote
     </p>
 
 
+Example with article
+~~~~~~~~~~~~~~~~~~~~
+
+Within the items block::
+
+    [each item in itemGroup.items]
+
+Add::
+    [assign article = item.articleId | entity:Article]
+
+Then you could print::
+
+    {{article.number}}
+
+
+
 Example statement
 ~~~~~~~~~~~~~~~~~
 
