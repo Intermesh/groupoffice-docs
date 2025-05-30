@@ -219,6 +219,11 @@ You can use filters to format or manipulate data. They can be used with a pipe s
   {{contact.dates[0].date|date:d-m-Y}}
 
 
+- dateAdd(interval) (See https://en.wikipedia.org/wiki/ISO_8601#Durations)::
+
+  {{document.date|dateAdd:P1M|date:d-m-Y}}
+
+
 - number(decimals,decimal separator,thousands separator::
 
    {{contact.customFields.number|number:2:,:.}}
@@ -243,8 +248,12 @@ You can use filters to format or manipulate data. They can be used with a pipe s
 
       [assign formattedAddress = contact.addresses | sort:type:"postal" | first | prop:formatted]
 
+- substr(start, length) Get a substring. For example to obscure a customer IBAN: {{customer.IBAN|substr:0:6}}xxxxxxxx{{customer.IBAN|substr:-3}}
+
 - nl2br: Change line breaks to HTML <br> tags
+
 - empty: returns true if empty or false if not
+
 - dump: For debugging only. Dumps the variable type and value.
 
 Arrays
