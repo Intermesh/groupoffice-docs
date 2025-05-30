@@ -401,6 +401,7 @@ The invoice, quote, order, po.
 
 - document.number
 - document.date
+- document.nextContractDate (If the invoice belongs to a contract this will be set to the next contract date)
 - document.sentAt
 - document.expiresAt
 - document.acceptedAt
