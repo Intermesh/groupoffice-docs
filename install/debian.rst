@@ -175,7 +175,7 @@ properly. So obtain an SSL certificate and take these steps:
 Letsencrypt
 ~~~~~~~~~~~
 
-Letsencrypt generates eliptic curve (ecdsa) keys by default. While these are more efficient there are lots of mailservers
+Letsencrypt generates elliptic curve (ecdsa) keys by default. While these are more efficient there are lots of mailservers
 that do not support this key type yet. Therefore you should use RSA keys instead. See:
 
 https://eff-certbot.readthedocs.io/en/stable/using.html#rsa-and-ecdsa-keys
