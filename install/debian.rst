@@ -149,8 +149,6 @@ properly. So obtain an SSL certificate and take these steps:
       ssl = yes
       ssl_cert = </etc/letsencrypt/live/YOURHOSTNAME/fullchain.pem
       ssl_key = </etc/letsencrypt/live/YOURHOSTNAME/privkey.pem
-      
-      
 
 
 2. Restart dovecot::
@@ -177,6 +175,11 @@ properly. So obtain an SSL certificate and take these steps:
 Letsencrypt
 ~~~~~~~~~~~
 
+Letsencrypt generates eliptic curve (ecdsa) keys by default. While these are more efficient there are lots of mailservers
+that do not support this key type yet. Therefore you should use RSA keys instead. See:
+
+https://eff-certbot.readthedocs.io/en/stable/using.html#rsa-and-ecdsa-keys
+
 When using Letsencrypt you'll need a renewal hook to reload dovecot and postix on renewal of the certificates.
 
 Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content::
@@ -184,6 +187,7 @@ Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content
    #!/bin/sh
    systemctl reload postfix
    systemctl reload dovecot
+
 
 External IMAP access
 ````````````````````
@@ -279,6 +283,10 @@ You can purge that by running this command::
 
     /usr/share/groupoffice/groupofficecli.php -r=postfixadmin/maildir/cleanup --dryRyn=0
 
+
+Fail2ban
+````````
+It's advised to install and configure fail2ban for the mailserver. :ref:`Read More about fail2ban here <fail2ban_mailserver>`.
 
 .. _install-documents:
 
