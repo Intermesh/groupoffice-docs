@@ -294,7 +294,7 @@ Invite people / Booking a resource
 
 The invitation field in the event form will show a list of Principals. A principal is an individual or a resource. 
 
-When an principal is added the current user is also added as organizer. Organizers are recognized by the icon in front.
+When a principal is added the current user is also added as organizer. Organizers are recognized by the icon in front.
 When searching for participants some individuals are shown in bold. This indecates they are local GroupOffice users 
 instead of external contacts. Local users, for example, can grant others free/busy access to their calendar.
 
