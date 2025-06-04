@@ -139,7 +139,9 @@ Selections of 2 till 7 days will show the columns view. Selections of over 8 day
 If the user is looking at the split view selection up to 7 days will remain visible.
 
 There is a trick to create a larger split view, The address bar will show something like:
+
 `#calendar/split-5/2025-06-15`
+
 The number 5 is the amount of days to show starting at 15 June 2026. You can replace this in any view with any number
 Because larger numbers will likely not fit on your screen in a usable manner, this is not part of the user interface.
 
