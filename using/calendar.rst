@@ -20,9 +20,11 @@ The user can be given the following permissions on the module
 +-------------------+---------------------------------------------------------+
 | Type              | Description                                             |
 +===================+=========================================================+
-| Change calendars  | Ability to create new calendars. While still following ACLs for existing calendars. |
+| Change calendars  | Ability to create new calendars. While still following  |
+|                   | ACLs for existing calendars.                            |
 +-------------------+---------------------------------------------------------+
-| Change categories | Ability to create new categories. Global categories can only be created by the System Administrator. |
+| Change categories | Ability to create new categories. Global categories can |
+|                   | only be created by the System Administrator.            |
 +-------------------+---------------------------------------------------------+
 | Change resources  | Ability to manage resources and resource groups.        |
 +-------------------+---------------------------------------------------------+
@@ -35,10 +37,12 @@ Sharing calendars works similar to the :ref:`default procedure <sharing>`. By de
 the calendar owner. You can change that at the :ref:`default-permissions`.
 
 After sharing a calendar the sharee is then able to subscribe to the calendar and see it in its list.
+
 .. figure:: /_static/using/calendar/subscribe-to-calendar.png
    :width: 50%
 
 Calendars have the following permission levels
+
 +-------------------+---------------------------------------------------------+
 | Level             | Description                                             |
 +===================+=========================================================+
