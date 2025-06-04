@@ -223,7 +223,7 @@ Enter a name and click on "Save".
 After at least one resource is created users can subscribe to the corresponding resource calendar.
 
 .. figure:: /_static/using/calendar/resources.png
-   :width: 50%
+   :width: 100%
 
    Resources
 
@@ -259,20 +259,29 @@ Creating appointments
 When creating a new appointment, users can click and drag on any of the calendar views to select a time period.
 The default calendar is the calendar selected in the list of calendars on the left. This is indicated by a background
 color. The checkbox is to show/hide the event on the calendar. The above form window is shown when a time period is selected.
-Title: Title of the event
-Calendar: Calendar this event is saved into. Only calendars the user is allowed to write into are shown.
-Location: Can be a physical location of a meeting link
-All day: When active the event only has a date and time will span the full day independent of the timezone.
-Recurring: This will show a list of common recurring rules. It will take the start value as first occurrence. 
+
+**Title**: Title of the event
+
+**Calendar**: Calendar this event is saved into. Only calendars the user is allowed to write into are shown.
+
+**Location**: Can be a physical location of a meeting link
+
+**All day**: When active the event only has a date and time will span the full day independent of the timezone.
+
+**Recurring**: This will show a list of common recurring rules. It will take the start value as first occurrence. 
 If the needed rule is not in the list or the user would like to specify an end time, click Customize for more options
 Invite people / Add resources: see below
-Reminder: available options would depend in the chosen calendar and whether the event is all day or not.
+
+**Reminder**: available options would depend in the chosen calendar and whether the event is all day or not.
 The calendar default is the default for new events. Users can set this to None (no reminder) or pick a different time.
 Reminders are set per user. Another user with access to the event will not have the reminder set but they can choice to
 set a reminder for themselves.
-Categories: Users can add 1 or more categories to the event. The category's color will be displayed in the calendar view.
-Free/Busy: This is set per user. Each user can indicate whether they are shown busy or free in the schedule during this event.
-Visibiltity: there are 3 options.
+
+**Categories**: Users can add 1 or more categories to the event. The category's color will be displayed in the calendar view.
+
+**Free/Busy**: This is set per user. Each user can indicate whether they are shown busy or free in the schedule during this event.
+
+**Visibiltity**: there are 3 options.
 - Public: users with read access to the calendar can see the content of the event.
 - Private: users up until write own access can not see the content but do see you are busy.
 - Secret: the event is only every shown to the owner of the calendar.
@@ -321,7 +330,7 @@ above, you can click on the link to open the booking or you can subscribe to the
 and accept the request from there.
 
 
-You can change the status to "Accepted" or "Declined" in the dialog. After 
+You can change the status to **Accepted** or **Declined** in the dialog. After 
 saving it, an e-mail will go out to the user.
 
 Notifications
@@ -330,26 +339,26 @@ Notifications
 Event reminders include five distinct alert types:
 
 1. Invited
-   Shown when: An event is created via automatic email invitation import.
-   Removed when: The user changes their participation status or the event is canceled.
-   Stale when: The event has started.
+   - **Shown when: An event is created via automatic email invitation import.
+   - **Removed when: The user changes their participation status or the event is canceled.
+   - **Stale when: The event has started.
 
 2. Updated/Cancelled by Organizer
-   Shown when: An event is updated via automatic email import.
-   Removed when: The event is changed or removed by the user.
-   Stale when: The event has started.
+   - **Shown when**: An event is updated via automatic email import.
+   - **Removed when**: The event is changed or removed by the user.
+   - **Stale when**: The event has started.
 
 3. Created for You
-   Shown when: Another user adds an event to your calendar.
-   Removed when: Only manually.
-   Stale when: The event has ended.
+   - **Shown when**: Another user adds an event to your calendar.
+   - **Removed when**: Only manually.
+   - **Stale when**: The event has ended.
 
 4. Alarm
-   Shown when: At a predefined alert time.
-   Removed when: The user acknowledges the notification.
-   Stale when: If the event has ended.
+   - **Shown when**: At a predefined alert time.
+   - **Removed when**: The user acknowledges the notification.
+   - **Stale when**: If the event has ended.
 
 5. Alarm per Instance
-   Shown when: The user sets an alarm for a specific instance of a recurring event.
-   Removed when: Only manually.
-   Stale when: After the instance has ended.
+   - **Shown when**: The user sets an alarm for a specific instance of a recurring event.
+   - **Removed when**: Only manually.
+   - **Stale when**: After the instance has ended.
