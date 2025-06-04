@@ -339,26 +339,31 @@ Notifications
 Event reminders include five distinct alert types:
 
 1. Invited
-   - **Shown when: An event is created via automatic email invitation import.
-   - **Removed when: The user changes their participation status or the event is canceled.
-   - **Stale when: The event has started.
+
+   - **Shown when**: An event is created via automatic email invitation import.
+   - **Removed when**: The user changes their participation status or the event is canceled.
+   - **Stale when**: The event has started.
 
 2. Updated/Cancelled by Organizer
+
    - **Shown when**: An event is updated via automatic email import.
    - **Removed when**: The event is changed or removed by the user.
    - **Stale when**: The event has started.
 
 3. Created for You
+
    - **Shown when**: Another user adds an event to your calendar.
    - **Removed when**: Only manually.
    - **Stale when**: The event has ended.
 
 4. Alarm
+
    - **Shown when**: At a predefined alert time.
    - **Removed when**: The user acknowledges the notification.
    - **Stale when**: If the event has ended.
 
 5. Alarm per Instance
+
    - **Shown when**: The user sets an alarm for a specific instance of a recurring event.
    - **Removed when**: Only manually.
    - **Stale when**: After the instance has ended.
