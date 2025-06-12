@@ -45,6 +45,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
 
    using/email
    using/calendar
+   using/davclient
    using/address-book
    using/files
    using/notes
