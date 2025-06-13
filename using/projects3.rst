@@ -1,8 +1,7 @@
 Projects and time tracking
 ==========================
 
-With the projects module you can easily manage project information in one place and keep track of worked hours, tasks,
- costs and billing.
+With the projects module you can easily manage project information in one place and keep track of worked hours, tasks, costs and billing.
 
 .. figure:: /_static/using/projects3/projects3.png
    :width: 100%
