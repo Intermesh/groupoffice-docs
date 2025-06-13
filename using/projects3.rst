@@ -148,3 +148,48 @@ Completing the project
 ----------------------
 
 When the project is done you can change the status to completed by clicking the status in the detail or the grid.
+
+
+Quoted fixed price
+------------------
+
+In the workflow above we bill the time spent. But you might want to follow another workflow where you send a quote to
+the client first and complete the project based on a fixed price. We also have this scenario covered.
+When you create a project you don't enable "Time regitrations are billable by default".
+After creating the project you can create a quote (or link an existing one). From the "Add link" menu choose "Finance":
+
+.. figure:: /_static/using/projects3/17-create-quote-from-project.png
+    :width: 100%
+
+    Create quote from project
+
+For more information about creating quotes visit the :ref:`finance documentation <finance>`.
+
+Create fixed price invoice
+``````````````````````````
+
+When the quote is added the quoted amount will show up in the finance section. When creating an invoice from there you
+can choose the percentage of the quote you'd like to invoice:
+
+.. figure:: /_static/using/projects3/18-create-invoice-for-fixed-price-project.png
+    :width: 100%
+
+    Create fixed price invoice
+
+Click create invoice to continue.
+
+
+
+Books
+-----
+
+A default book has been created at the installation. When editing the book you can add more statuses and change permissions.
+You can also select the tasklist where project tasks should be created in.
+
+
+Final words
+-----------
+
+This page covers two common workflows but the system is flexible to allow you to find your own ways. You can also add
+custom fields, custom filters, files and links. You should have learned the basics now to get you started. If not then
+we're here to help.
