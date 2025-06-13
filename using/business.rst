@@ -9,8 +9,6 @@ employees, fees and managers. You can also assign work schedules and fees for yo
 These resources are shared among several other professional modules like :ref:`projects <projects>` and time
 registration.
 
-.. note:: The business module is supported by Group Office 6.5 and up.
-
 Administration
 --------------
 
@@ -87,7 +85,7 @@ There's also a number of settings available for each activity type:
 Employee management
 -------------------
 
-In order for your Group Office users to use the professional modules, they need to be defined as employees. This is done
+In order for your Group Office users to use the business modules like projects, time tracking and finance, they need to be defined as employees. This is done
 from the user management screen. When editing a user, select the tab 'Employee'.
 
 .. figure:: /_static/using/business/edit-employee.png
@@ -100,6 +98,14 @@ It is possible to assign a manager, income and expense rates and if an employee 
 quitting date can be defined as well.
 
 .. note:: It is not possible to assign an employee to more than one business.
+
+
+Rates
+`````
+
+For projects and time tracking it's important to enter the hourly rates. The external fee is what should be charged to
+clients and the internal fee is what the employee costs per hour.
+When you work with multiple activity types you can also setup different rates per activity.
 
 Last but not least, defining a work schedule for employees is easy. Above the 'Employee agreements' grid, click on the
 Plus sign and fill in the hours for each week day.
