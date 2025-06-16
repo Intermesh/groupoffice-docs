@@ -11,7 +11,7 @@ CalDAV servers GroupOffice is connected to. The list will be empty initially.
 
 Press the **+** button at the top to add your first account:
 
-.. figure:: _static/using/davclient/dav_account.png
+.. figure:: /_static/using/davclient/dav_accounts.png
    :width: 100%
 
 At this time, the DAV Client only supports calendar synchronization.
@@ -120,7 +120,7 @@ module, which can be used to manually sync a single calendar.
 Delete an Account
 -----------------
 
-.. figure:: _static/using/davclient/on_delete.png
+.. figure:: /_static/using/davclient/on_delete.png
    :width: 50%
 
 When deleting an account from the list, GroupOffice will ask if you want to
