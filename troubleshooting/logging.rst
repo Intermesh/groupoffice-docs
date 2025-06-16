@@ -1,3 +1,5 @@
+.. _logging:
+
 Logging
 =======
 
@@ -16,7 +18,9 @@ Debugging
 When $config['debug'] = true; is set in :ref:`config.php <configuration>`. Then debug info will be logged into::
 
    <file_storage_path>/log/debug.log
-   
+
+.. _logging_activesync:
+
 Z-Push / Microsoft ActiveSync
 -----------------------------
    

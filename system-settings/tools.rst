@@ -13,7 +13,7 @@ Checks your database for errors and fixes them if possible.
 
 You can also run this on the command line::
 
-   sudo -u www-data groupofficecli.php -r=maintenance/checkDatabase
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/checkDatabase
 
 Update search index
 -------------------
@@ -21,11 +21,11 @@ Update search index
 Checks the search index for missing entries and adds them.
 You can also run this on the command line::
 
-   sudo -u www-data groupofficecli.php -r=maintenance/buildSearchCache
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildSearchCache
 
 For a specific module::
 
-   sudo -u www-data groupofficecli.php -r=maintenance/buildSearchCache --module=projects2
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildSearchCache --module=projects2
 
 Update search index (Complete rebuild)
 --------------------------------------
@@ -35,7 +35,7 @@ The same as above but it first removes all cached entries.
 
 On the command line::
 
-   sudo -u www-data groupofficecli.php -r=maintenance/buildSearchCache --reset=1
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildSearchCache --reset=1
 
 Remove duplicate contacts and events
 ------------------------------------
@@ -49,11 +49,11 @@ Checks if the filesystem is in sync with the database. Adds and removes missing 
 
 You can run it on the command line too::
 
-   sudo -u www-data groupofficecli.php -r=files/folder/syncFilesystem
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/syncFilesystem
    
 Or specify a path::
 
-   sudo -u www-data groupofficecli.php -r=files/folder/syncFilesystem --path=projects2
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/syncFilesystem --path=projects2
 
 
 Update file search index
@@ -63,7 +63,7 @@ Indexes the filesearch module if installed.
 
 You can run it on the command line too::
 
-   sudo -u www-data groupofficecli.php -r=filesearch/filesearch/sync
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=filesearch/filesearch/sync
 
 
 Clear calendar holiday cache
@@ -78,9 +78,9 @@ Reset JMAP sync state
 It's recommended to use the JMAP API but when making changes to the database directly it could be
 useful to make clients resynchronize an entity::
 
-    sudo -u www-data cli.php core/System/resetSyncState --entity=Contact
+    sudo -u www-data /usr/share/groupoffice/cli.php core/System/resetSyncState --entity=Contact
 
 or to resynchronize everything::
 
-    sudo -u www-data cli.php core/System/resetSyncState
+    sudo -u www-data /usr/share/groupoffice/cli.php core/System/resetSyncState
 

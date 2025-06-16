@@ -54,11 +54,11 @@ server.
 Log entries can normally be found in the log files of the web server. The exact location of the error log depends on your
 configuration, but ``/var/log/apache2`` is the default location for apache in many Linux distributions.
 
-`Read More about logging here <https://groupoffice.readthedocs.io/en/latest/logging.html>`__.
+:ref:`Read More about logging here <logging>`.
 
 ActiveSync
 ``````````
-When you're having issues with synchronisation there are some additional log files you can inspect. Read more about that `here <https://groupoffice.readthedocs.io/en/latest/logging.html#z-push>`__.
+When you're having issues with synchronisation there are some additional log files you can inspect. Read more about that :ref:`here <logging_activesync>`.
 
 Also check if https://yourhostname.com/Microsoft-Server-ActiveSync is presenting a login dialog and is not displaying errors. If this page is not working then please check step 3 of the install instructions: https://groupoffice.readthedocs.io/en/latest/install/tarball.html#instructions
 

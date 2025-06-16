@@ -195,16 +195,17 @@ choose "Merge selected".
 All links, comments, files etc. will be merged into the first selected record. The other records will be removed.
 
 
-Settings
---------
+System settings
+---------------
 
-In the System Settings dialog, you are allowed to set the following parameters:
+In the System Settings dialog, you can set the following parameters:
 
--  Create a personal address book for each user;
--  Automatically :ref:`link<links>` email conversations to users in selected address books.
-  
-You can blacklist or whitelist certain address books from automatically linking emails to the contacts. Please note 
-that this will eat a lot of disk space over time.
+-  Create a personal address book for each user, by default each user will get his own private address book. For some
+   organizations this is not desirable. You can disable it and delete the private address books afterwards.
+-  Automatically :ref:`link<links>` email conversations to users in selected address books. Only available if the
+   "Save mail as" professional module is installed. Note that this will create a copy of each mail from the IMAP server
+   to the Group-Office storage. You can blacklist or whitelist certain address books from automatically linking emails to the contacts. Please note
+   that this will eat a lot of disk space over time.
 
 User profile
 ````````````

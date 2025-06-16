@@ -50,7 +50,12 @@ For more information about Fail2ban and the configuration of it visit https://ww
 
 .. note:: These filters work from version 6.8.40 and up
 
-4. If you use the Group-Office mailserver then also enable these filters  in /etc/fail2ban/jail.d/groupoffice-mailserver.conf::
+.. _fail2ban_mailserver:
+
+Mailserver
+----------
+
+If you use the Group-Office mailserver then also enable these filters  in /etc/fail2ban/jail.d/groupoffice-mailserver.conf::
 
         [postfix]
         enabled = true

@@ -401,6 +401,7 @@ The invoice, quote, order, po.
 
 - document.number
 - document.date
+- document.nextContractDate (If the invoice belongs to a contract this will be set to the next contract date)
 - document.sentAt
 - document.expiresAt
 - document.acceptedAt
@@ -761,6 +762,23 @@ Example quote
     <hr width="30%" />
 
     </p>
+
+
+Example with article
+~~~~~~~~~~~~~~~~~~~~
+
+Within the items block::
+
+    [each item in itemGroup.items]
+
+Add::
+
+    [assign article = item.articleId | entity:Article]
+
+Then you could print::
+
+    {{article.number}}
+
 
 
 Example statement

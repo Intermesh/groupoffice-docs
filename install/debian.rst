@@ -12,47 +12,48 @@ Our preferred way of installing is using our Debian packages:
 
       sudo -s
 
-2. First add our repository to the package management system::
+2. Make sure these required packages are installed::
 
-     echo "deb http://repo.group-office.com/ sixeight main" > /etc/apt/sources.list.d/groupoffice.list
-     
-   Or if you want to try our bleeding edge development then add::
-   
-     echo "deb http://repo.group-office.com/ testing main" > /etc/apt/sources.list.d/groupoffice.list
+    apt-get update
+    apt-get install gpg wget
 
-3. Add our public key::
+3. First add our repository to the package management system::
+
+     echo "deb http://repo.group-office.com/ twentyfivezero main" > /etc/apt/sources.list.d/groupoffice.list
+
+4. Add our public key::
 
       wget -qO - https://repo.group-office.com/downloads/groupoffice.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/groupoffice.gpg
       
-4. Update APT::
+5. Update APT::
 
       apt-get update
 
-5. Then install Group-Office by running::
+6. Then install Group-Office by running::
 
       apt-get install groupoffice --install-recommends
 
    .. note:: When recommended packages are installed it will install apache2 and the default database server mariadb or mysql. If you don't want this you can use --no-install-recommends instead.
       
       
-6. Optionally you can install php-acpu for better performance of the cache::
+7. Optionally you can install php-acpu for better performance of the cache::
 
       apt-get install php-apcu
 
-7. If you purchased **Group-Office Professional licenses** then make sure the
+8. If you purchased **Group-Office Professional licenses** then make sure the
    `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
    You can run this command to do all the work::
 
       curl -s https://raw.githubusercontent.com/Intermesh/groupoffice/master/scripts/sg_install.sh | bash
 
-8. Then visit http://yourserver/groupoffice and the installer should appear:
+9. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: /_static/installer.png
       :alt: The Group-Office installer
 
       The Group-Office installer     
 
-9. Follow the instructions on screen and enjoy Group-Office!
+10. Follow the instructions on screen and enjoy Group-Office!
 
 .. note:: The package installs the apache configuration in /etc/apache2/conf-available/groupoffice.conf.
 
@@ -70,7 +71,7 @@ You can also use Group-Office as a complete e-mail platform. It's based on:
 
 At the moment this is only possible with the Debian / Ubuntu packages.
 
-When Group-Office is already installed you can run::
+First install Group-Office and run the web installer. Then you can run::
 
    apt-get install groupoffice-mailserver
 
@@ -83,6 +84,8 @@ and aliases.
 
    Manage e-mail domains in Group-Office
 
+.. note:: There is an issue with special characters in the mysql password. Make sure you don't have ':', '/', '@', '+', '?', '.', and '=' in it if you use the
+   mailserver. See https://github.com/trusteddomainproject/OpenDKIM/issues/248#issuecomment-2828125266
 
 Serverclient module
 ```````````````````
@@ -146,8 +149,6 @@ properly. So obtain an SSL certificate and take these steps:
       ssl = yes
       ssl_cert = </etc/letsencrypt/live/YOURHOSTNAME/fullchain.pem
       ssl_key = </etc/letsencrypt/live/YOURHOSTNAME/privkey.pem
-      
-      
 
 
 2. Restart dovecot::
@@ -174,6 +175,11 @@ properly. So obtain an SSL certificate and take these steps:
 Letsencrypt
 ~~~~~~~~~~~
 
+Letsencrypt generates elliptic curve (ecdsa) keys by default. While these are more efficient there are lots of mailservers
+that do not support this key type yet. Therefore you should use RSA keys instead. See:
+
+https://eff-certbot.readthedocs.io/en/stable/using.html#rsa-and-ecdsa-keys
+
 When using Letsencrypt you'll need a renewal hook to reload dovecot and postix on renewal of the certificates.
 
 Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content::
@@ -181,6 +187,7 @@ Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content
    #!/bin/sh
    systemctl reload postfix
    systemctl reload dovecot
+
 
 External IMAP access
 ````````````````````
@@ -276,6 +283,10 @@ You can purge that by running this command::
 
     /usr/share/groupoffice/groupofficecli.php -r=postfixadmin/maildir/cleanup --dryRyn=0
 
+
+Fail2ban
+````````
+It's advised to install and configure fail2ban for the mailserver. :ref:`Read More about fail2ban here <fail2ban_mailserver>`.
 
 .. _install-documents:
 

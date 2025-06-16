@@ -538,7 +538,9 @@ Also check the comments at the bottom of the article because there's something m
 Searching in message bodies
 ---------------------------
 As of Group Office 6.6.103, searching in email bodies has been disabled by default. Full body search is quite a resource
-hog. If you do wish to enable email body search, please add the following configuration option to your Group Office
+hog. If you want to search the bodies you should implement Full Text Search indexing on the server.
+The Group-Office mailserver supports FTS and advertises this so it's enabled automatically. If you do wish to enable
+email body search for other IMAP servers, please add the following configuration option to your Group Office
 :ref:`configuration file <configuration>`:
 
 .. code-block:: php

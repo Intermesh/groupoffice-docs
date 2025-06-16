@@ -13,7 +13,8 @@ See for more information:
 
 
 504 Gateway Time-out
-````````````````````
+--------------------
+
 Some requests to Group-Office live for a long time:
 
 - sse.php: Used for server sent events to update changes with a push notification. It lives for 120s
@@ -22,3 +23,30 @@ Some requests to Group-Office live for a long time:
 In your Apache Proxy configuration you could use::
 
     ProxyTimeout 1800
+
+
+Nginx example
+-------------
+
+Here's an example for nginx with docker.
+
+```
+server {
+    listen 443 ssl;
+    server_name groupoffice.example.com;
+
+    ssl_certificate /etc/letsencrypt/live/groupoffice.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/groupoffice.example.com/privkey.pem;
+
+    # for large file uploads
+    client_max_body_size 5G;
+
+     location / {
+         proxy_pass http://localhost:9090;
+         proxy_set_header Host $host;
+         proxy_set_header X-Real-IP $remote_addr;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header X-Forwarded-Proto https;
+     }
+}
+```
