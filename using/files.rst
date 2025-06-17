@@ -65,6 +65,39 @@ to make it the default. Then choose your preferred action.
   :alt: Change default open file action
   :width: 100%
 
+Sharing individual files
+------------------------
+
+.. figure:: /_static/using/files/share-a-file.png
+    :alt: Share a file
+    :width: 50%
+
+Depending on the file type and access to email, a user can share their files in the following ways:
+
+
+1. **Copy direct link**: ill copy a direct link to the file to the clipboard. In order to use a direct link as copied to
+the clipboard, one should be logged into Group-Office and have access to the file's parent folder. Otherwise, they will
+be redicerted to the front page.
+
+2. **Create download link**: will generate a token and create a link for that. You can copy/paste that link from the
+file panel. The recipient of that link does not need to be logged in, as they access the file through the generated
+token. You can optionally expire the token on a certain date.
+
+3. **Email download link**: Does the same as (2), but sends the link directly by email.
+
+4. **Email files**: will attach the selected file(s) to a new email message as with any other email client.
+
+
+Moving to trash versus deleting
+-------------------------------
+
+As of versions 6.8.113 and 25.0.12, you can either delete a file entirely or move it to a trash folder. By moving files and folders into trash,
+the user can restore it to its original location if need be. The DEL key is mapped to moving a file to trash, whereas Ctrl+DEL
+will fully delete a file or folder.
+
+When an item is moved to trash, its original permissions are kept. In other words, a user can only see a trashed item if they have permissions
+to its original parent folder.
+
 Integrations
 ------------
 
