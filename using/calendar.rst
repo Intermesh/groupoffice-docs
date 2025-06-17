@@ -30,6 +30,30 @@ The user can be given the following permissions on the module
 +-------------------+---------------------------------------------------------+
 
 
+Calendars
+---------
+When you launch the calendar for the first time there might be no calendar for you yet. But when you add your first appointment
+it will ask to add a personal calendar for you.
+
+Subscribing
+-----------
+
+You can subscribe to shared calendars via the more options menu button next to calendars:
+
+.. figure:: /_static/using/calendar/subscribe-to-calendar.png
+   :width: 50%
+
+You can unsubscribe at any time via the more options menu next to the calendar.
+
+Add remote calendar
+-------------------
+
+In the more options menu shown above you also find the "Add calendar from link" option. That option allows you to add
+a remote public calendar published in vCalendar (*.ics) format.
+
+.. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
+    Nextcloud or iCloud) that synchronizes bi directional.
+
 Sharing
 -------
 
@@ -37,9 +61,6 @@ Sharing calendars works similar to the :ref:`default procedure <sharing>`. By de
 the calendar owner. You can change that at the :ref:`default-permissions`.
 
 After sharing a calendar the sharee is then able to subscribe to the calendar and see it in its list.
-
-.. figure:: /_static/using/calendar/subscribe-to-calendar.png
-   :width: 50%
 
 Calendars have the following permission levels
 

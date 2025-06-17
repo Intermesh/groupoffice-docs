@@ -1,3 +1,5 @@
+.. _davclient:
+
 CalDAV Client
 =============
 
