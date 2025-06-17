@@ -61,7 +61,7 @@ post calculate our fees. We also set a start and due date and we'll add an emplo
 Milestones and tasks
 --------------------
 
-From the project detail view you can add milestones and tasks:
+From the project detail view you can add milestones and tasks in the tasks section:
 
 .. figure:: /_static/using/projects3/8-add-milestone.png
     :width: 100%
