@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Group-Office'
-copyright = '2024, Intermesh BV'
+copyright = '2025, Intermesh BV'
 author = 'Intermesh BV'
 
 # The short X.Y version
@@ -152,3 +152,12 @@ texinfo_documents = [
      author, 'Group-Office', 'Your online office',
      'Miscellaneous'),
 ]
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "intermesh", # Username
+    "github_repo": "groupoffice-docs", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/", # Path in the checkout to the docs root
+}
+
