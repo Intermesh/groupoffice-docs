@@ -27,8 +27,9 @@ up you can't add project resources and they can't track time.
 Creating a project
 ------------------
 
-If for example an e-mail comes in from a client requesting to start a project you can create a project from the e-mail
-right away:
+You can of course add a project by clicking the "+ Add" button from the projects module. But you can also create it from
+an e-mail. If for example an e-mail comes in from a client requesting to start a project you can create a project from
+the e-mail right away:
 
 .. figure:: /_static/using/projects3/4-project-request-email.png
    :width: 100%
@@ -61,7 +62,7 @@ post calculate our fees. We also set a start and due date and we'll add an emplo
 Milestones and tasks
 --------------------
 
-From the project detail view you can add milestones and tasks:
+From the project detail view you can add milestones and tasks in the tasks section:
 
 .. figure:: /_static/using/projects3/8-add-milestone.png
     :width: 100%
@@ -110,12 +111,11 @@ Now that we have some time entries to bill we can head back to the project detai
 
 Here you can see all financial info about the project:
 
-- Quote amount: In this case 0 as we didn't add a quote to the project. But if you link a quote it will add up here.
-- Billable fee: The amount of billable fee coming from the time entries
+- Additional hours: The amount of billable fee coming from the time entries. It's called "Additional" because you can also have budgeted hours based on a fixed price.
+- Outstanding billable hours: The hours that need to be billed.
 - Invoiced: The amount already invoiced.
 - Outstanding: The amount to be invoiced.
-- Profit: The profit diagram and information shows what's left after taking off the costs. The costs come form the
-linked quotes and the hourly costs form the employees.
+- Profit: The profit diagram and information shows what's left after taking off the costs. The costs come form the linked purchase invoices and the hourly costs form the employees.
 
 Create invoice
 --------------
@@ -154,7 +154,7 @@ Quoted fixed price
 
 In the workflow above we bill the time spent. But you might want to follow another workflow where you send a quote to
 the client first and complete the project based on a fixed price. We also have this scenario covered.
-When you create a project you don't enable "Time regitrations are billable by default".
+When you create a project you don't enable "Time registrations are billable by default".
 After creating the project you can create a quote (or link an existing one). From the "Add link" menu choose "Finance":
 
 .. figure:: /_static/using/projects3/17-create-quote-from-project.png
@@ -163,6 +163,14 @@ After creating the project you can create a quote (or link an existing one). Fro
     Create quote from project
 
 For more information about creating quotes visit the :ref:`finance documentation <finance>`.
+
+After creating the quote the project finance will be updated with the quote information. Note that I also edited the
+project resources and added a budget for the hours:
+
+.. figure:: /_static/using/projects3/17-1-finance-with-quote.png
+    :width: 100%
+
+    Project finance with quote
 
 Create fixed price invoice
 ``````````````````````````
@@ -176,6 +184,19 @@ can choose the percentage of the quote you'd like to invoice:
     Create fixed price invoice
 
 Click create invoice to continue.
+
+
+Purchases
+---------
+When purchases are made you can create a purchase invoice from the project via the "Add link" menu. Choose "Purchase invoice".
+If it's not available then please add a "Purchase invoice" book to the finance module first.
+
+After creating a purchase invoice it will show up on the "Profit" section as "Purchases":
+
+.. figure:: /_static/using/projects3/19-project-finance-with-purchases.png
+    :width: 100%
+
+    Project purchases
 
 
 
