@@ -61,6 +61,10 @@ You can run it like this::
 
     ./update_groupoffice.sh <DIR_OF GROUPOFFICE>
 
+That will automatically download the latest version. If you're on an older major release you will have to supply the version manually::
+
+   ./update_groupoffice.sh <DIR_OF GROUPOFFICE> <VERSION>
+
 
 .. warning:: Please backup before using!
 
