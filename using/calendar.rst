@@ -256,9 +256,10 @@ Video meetings
 To plan a video meeting, users can insert a link to the video meeting in the location field
 When configured, there will be a button with a video camera and plus sign next to the field.
 
-To configure the video meetings you need to enter the base URI to the video meeting server 
-and optionally an app secret and ID for JWT authentication. If enabled, the token will be added to
-the URI of every created video link.
+Group-Office currently has two modules providing video meeting links:
+
+- :ref:`jitsimeet`
+- :ref:`msteams`
 
 Creating categories
 -------------------

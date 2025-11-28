@@ -45,6 +45,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
 
    using/email
    using/calendar
+   using/jitsimeet
    using/davclient
    using/address-book
    using/files
@@ -69,6 +70,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/holidays
    using/studio
    using/gdpr
+   using/msteams
 
 .. toctree::
    :maxdepth: 2
