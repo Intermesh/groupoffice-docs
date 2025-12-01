@@ -3,20 +3,19 @@
 OpenID Connect
 ==============
 
-Group-Office can be configured as client to use an external OpenID connect server for **single sign on**. But Group-Office can also
+Group-Office can be configured as client to use an external OpenID connect server for **Single Sign On**. But Group-Office can also
 be configured as the OpenID connect server.
-
 
 OpenID Connect client
 ---------------------
 
-To configure an external OpenID connect server for Single Sign on you must install the OIDC module. Then you can
+To configure an external OpenID connect server for **Single Sign On** you must install the **OIDC module**. Then you can
 configure openID compliant providers such as:
 
-- Microsoft Azure
-- Google
-- Authentik
-- Keycloak
+- `Microsoft Azure <https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc>`_
+- `Google <https://developers.google.com/identity/openid-connect/openid-connect>`_
+- `Authentik <https://docs.goauthentik.io/add-secure-apps/providers/oauth2/create-oauth2-provider/>`_
+- `Keycloak <https://www.keycloak.org/securing-apps/oidc-layers>`_
 - Another Group-Office installation
 
 Once installed a button "Sign up with <MYPROVIDER>" will show on the login page of Group-Office
@@ -24,10 +23,21 @@ Once installed a button "Sign up with <MYPROVIDER>" will show on the login page 
 Get started
 ```````````
 
-1. Configure the OpenID provider so you have an URL, Client ID and Client secret. You will need to add a redirect URL. That is **https://yourgroupoffice.com/api/page.php/go/community/oidc/auth**
-2. Install the OIDC module at System Settings -> Modules
-3. Create the new client at System Settings -> OIDC. You will the URL, Client ID and Client secret from step 1 here.
+1. Configure the OpenID provider so you have an **Authority URL**, **Client ID** and **Client secret***.
+   You will need to add a **redirect URL**. That is **https://yourgroupoffice.com/api/page.php/go/community/oidc/auth**
+   Consult the provider's documentation on how to do that.
+2. Install the OIDC module at **System Settings** -> **Modules**
+3. Create the new client at **System Settings** -> **OIDC**. You will the **Authority URL**, **Client ID** and **Client secret** from step 1 here.
+
+   .. figure:: /_static/system-settings/oidc-client.png
+      :alt: Add OIDC Client
+      :width: 100%
+
 4. Logout and find the new button to use the single sign on.
+
+   .. figure:: /_static/system-settings/oidc-login.png
+         :alt: Login with OIDC
+         :width: 100%
 
 .. _openid:
 
