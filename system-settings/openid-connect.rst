@@ -23,9 +23,13 @@ Once installed a button "Sign up with <MYPROVIDER>" will show on the login page 
 Get started
 ```````````
 
-1. Configure the OpenID provider so you have an **Authority URL**, **Client ID** and **Client secret***.
-   You will need to add a **redirect URL**. That is **https://yourgroupoffice.com/api/page.php/go/community/oidc/auth**
-   Consult the provider's documentation on how to do that.
+1. Configure the OpenID App registration at the provider so you have an **Authority URL**, **Client ID** and **Client secret***.
+   You will need to add a **redirect URL**.
+
+   That is: **https://yourgroupoffice.com/api/page.php/go/community/oidc/auth**
+
+   You can get that from the OIDC module too at **System Settings** -> **OIDC** -> **Add**
+
 2. Install the OIDC module at **System Settings** -> **Modules**
 3. Create the new client at **System Settings** -> **OIDC**. You will the **Authority URL**, **Client ID** and **Client secret** from step 1 here.
 
