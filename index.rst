@@ -52,7 +52,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
    using/notes
    using/tasks
    using/chat
-   using/openid-connect
+   using/oauth2
    using/dokuwiki
    using/templates
    using/bookmarks

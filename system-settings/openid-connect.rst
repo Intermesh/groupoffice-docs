@@ -49,7 +49,7 @@ allows Clients to verify the identity of the End-User based on the authenticatio
 Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and
 REST-like manner.
 
-You can add clients at System Settings -> OAuth 2.0.
+You can add clients at **System Settings** -> **OAuth 2.0.**
 
 We've used this to integrate:
 

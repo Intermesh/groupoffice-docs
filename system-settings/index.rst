@@ -28,5 +28,5 @@ the place to configure everything for Group-Office.
    system-tasks
    document-templates
    rocket-chat
-   oauth2
+   openid-connect
    tools
