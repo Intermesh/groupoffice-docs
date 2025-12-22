@@ -1,5 +1,5 @@
-Migrate
-=======
+Migrate Group-Office to a new server
+====================================
 
 To migrate Group-Office to another server you need to backup all data files and 
 the database.
@@ -50,8 +50,8 @@ Create the backup
       
             rsync -av /var/lib/groupoffice user@newserver.com:/tmp
 
-Installing the backup on the new server
----------------------------------------
+Installing the Group-Office backup on the new server
+----------------------------------------------------
 
 1. Install a clean :ref:`install` following this manual. You can install a newer version. Pick a version that can upgrade your current version. Please refer to the :ref:`upgrade` page.
 2. If you created the archive then copy it to the new server in /tmp

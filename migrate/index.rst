@@ -11,5 +11,7 @@ There is also documentation to migrate your email server to a Postfix+Dovecot se
 .. toctree::
    :maxdepth: 2
 
-   Group-Office <group-office>
+   Group-Office to a new server <group-office>
    Mail server <mail-server>
+   Switch from Google Workspace to Group-Office <google-workspace>
+   Switch from Microsoft Office 365 to Group-Office <microsoft-office-365>

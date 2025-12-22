@@ -54,6 +54,17 @@ a remote public calendar published in vCalendar (*.ics) format.
 .. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
     Nextcloud or iCloud) that synchronizes bi directional.
 
+.. _calendar-import-export:
+
+Import and export
+-----------------
+
+You can import and export vcalendar (*.ics) files via the more menu:
+
+.. figure:: /_static/using/calendar/calendar-import-export.png
+   :width: 100%
+   :alt: Calendar import and export
+
 Sharing
 -------
 
