@@ -13,7 +13,15 @@ possible to customize Group-Office with your own custom modules.
 
 Visit https://www.group-office.com for more information. Source code can be found at https://github.com/Intermesh.
 
+This site contains 4 manuals:
 
+1. :ref:`User manual <user-manual>`
+2. :ref:`Administrator manual <getting-started>`
+3. :ref:`Self hosting manual <install>`
+4. :ref:`Developer manual <developer>`
+
+Table of contents
+=================
 
 .. toctree::
    :maxdepth: 2
@@ -29,7 +37,7 @@ Visit https://www.group-office.com for more information. Source code can be foun
 
 .. toctree::
    :maxdepth: 2
-   :caption: Administration
+   :caption: Administrator Manual
 
    getting-started.rst
    migrate/switch
@@ -38,9 +46,8 @@ Visit https://www.group-office.com for more information. Source code can be foun
 
 .. toctree::
    :maxdepth: 2
-   :caption: Using Group-Office
+   :caption: User Manual
 
-   using/my-account
    using/connect-a-device/connect-a-device
    using/links
    using/search
