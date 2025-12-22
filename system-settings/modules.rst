@@ -10,8 +10,8 @@ In this screen you can install modules and configure module access.
 
    Modules
 
-As of version 6.6, the modules screen is a bit more modern. The modules are grouped by package and they can be filtered
-by status. It is also possible to search a module by name or description.
+The modules are grouped by package and they can be filtered by status. It is also possible to search a module by name
+or description.
 
 For each module, you can perform the following actions:
 
@@ -30,10 +30,7 @@ grant access. To change permissions later, please click on the 'share' icon.
 Permissions
 -----------
 
-The Current Way
-```````````````
-
-Since version 6.6, the module permissions have gotten an overhaul:
+Click the permission icon to open the permissions dialog:
 
 .. figure:: /_static/system-settings/module-permissions-66.png
    :alt: Module permissions
@@ -54,18 +51,3 @@ to the core module, they cannot use Group-Office. Use with care.
 A big difference between the old permissions system and the new system, is that it is easier to define custom permissions.
 In the example above, you can define which users or groups are allowed to manage task lists or task categories. This
 is obviously only relevant to the tasks module, so this custom permission type will not be offered for other modules.
-
-
-
-The Old Way
-```````````
-In the permissions window you can double click the level. You can choose "Use"
-which grants basic access or "Manage" for users that need administrative functions
-in the module.
-
-You can also manage this at :ref:`group level <user-group-modules>`.
-
-.. figure:: /_static/system-settings/module-permissions.png
-   :alt: Module permissions
-
-   Module permissions

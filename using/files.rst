@@ -19,6 +19,9 @@ The files module supports:
 - :ref:`comments`
 - :ref:`sharing`
 
+
+.. _share-folders:
+
 Share folders
 -------------
 It's easy to share folders in Group-Office. Any user can do it. If you want to create a shared folder for the whole

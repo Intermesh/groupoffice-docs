@@ -18,6 +18,8 @@ The address book module supports:
 - :ref:`sharing`
 - :ref:`files`
 
+.. _sharing-addressbook:
+
 Sharing an address book
 -----------------------
 

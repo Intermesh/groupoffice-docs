@@ -1,29 +1,39 @@
 Group-Office manual
 ===================
 
-Group-Office is an open-source groupware and CRM application. It's our mission to simplify your daily office tasks.
-Easy to use modules such as the Calendar, Address Book, Projects and time tracking come by default. But it's also 
+.. figure:: _static/using/calendar/calendar-light.png
+   :alt: The Group Office calendar
+
+
+Group-Office is an open-source groupware and CRM application. It's our mission to simplify your daily office tasks and
+keep your data private and under your control.
+
+Easy to use modules such as the Calendar, Address Book, Projects and time tracking come by default. But it's also
 possible to customize Group-Office with your own custom modules.
 
 Visit https://www.group-office.com for more information. Source code can be found at https://github.com/Intermesh.
 
-.. figure:: _static/groupoffice-start-page.png
-   :alt: The Group Office start page
-   
-   The Group Office start page
+
 
 .. toctree::
    :maxdepth: 2
-   :caption: Administration
+   :caption: Self hosting
 
    install/install
    upgrade/upgrade
    maintenance/backup
    maintenance/cleanup
    migrate/index
-   system-settings/index
    troubleshooting/index
    troubleshooting/logging
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Administration
+
+   getting-started.rst
+   migrate/switch
+   system-settings/index
 
 
 .. toctree::
