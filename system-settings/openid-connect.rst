@@ -43,6 +43,14 @@ Get started
          :alt: Login with OIDC
          :width: 100%
 
+
+Password authentication
+```````````````````````
+The SSO method above does not store a password in Group-Office. That enhances the security. But because of this services
+like WebDAV, CalDAV and Microsoft ActiveSync can't work.
+If your authentication backend supports LDAP too you can also setup LDAP authentication so it can offer password authentication for these
+services.
+
 .. _openid:
 
 OpenID Connect server
