@@ -1,7 +1,7 @@
-Switch from Microsoft Office 365 to Group-Office
-================================================
+Switch from Nextcloud to Group-Office
+=====================================
 
-You can take the following steps to migrate all your data from Microsoft Office 365 to Group-Office.
+You can take the following steps to migrate all your data from Nextcloud to Group-Office.
 
 Assessment & Prerequisites
 -----------------------------
@@ -9,15 +9,15 @@ Assessment & Prerequisites
 Determine what you need to migrate. The data can be mapped like this:
 
 ====================  ============
-Microsoft Office 365  Group-Office
+Nextcloud             Group-Office
 ====================  ============
 Mail                  E-mail (You need to install the Group-Office mailserver or another IMAP server)
-OneDrive              Files
+Files                 Files
 Calendar              Calendar
 Contacts              Addressbook
 ====================  ============
 
-Make sure you have the required modules installed. To replace the office apps you can install :ref:`Collabora office <collabora-office>`.
+Make sure you have the required modules installed. To replace the Nextcloud office you can install :ref:`Collabora office <collabora-office>`.
 
 Sign up or install
 ------------------
@@ -31,13 +31,16 @@ Users
 Before creating users, :ref:`setup groups and module permissions <user-groups>`.
 
 Start by creating users manually or :ref:`import them via a csv or file <user-import-export>` in Group-Office.
-`Here you can find how to export Microsoft Office 365 users <https://learn.microsoft.com/en-us/answers/questions/4910422/how-do-i-create-a-report-of-365-users-with-their-e>`_.
+`Here you can find how to export Nextcloud users <https://apps.nextcloud.com/apps/user_migration>`_.
 
 .. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <map-authentication>` or or :ref:`LDAP authentication <ldap>`.
 
 
 E-mail
 ------
+
+Nextcloud uses similar technology for the mailserver. You could let Group-Office connect to the same IMAP server. Alternatively
+you can migrate the mail using imapsync.
 
 When migrating mail we use `imapsync <https://imapsync.lamiral.info/>`.
 
@@ -52,13 +55,13 @@ The steps to take are:
 
 3. Create all the mailboxes on the Group-Office mailserver
 
-4. Create a list of imapsync commands using the `imapsync documentation <https://imapsync.lamiral.info/>`_. Also read the Microsoft specific parts.
+4. Create a list of imapsync commands using the `imapsync documentation <https://imapsync.lamiral.info/>`_.
 
 5. Run the sync and test. You can repeat the sync at any time to update the new mailserver.
 
 6. Put the migration live by setting the DNS domains.
 
-7. Finally, run the sync again after 24 hours because some mail might still have arrived at Microsoft.
+7. Finally, run the sync again after 24 hours because some mail might still have arrived at the old mailserver.
 
 
 Calendar
@@ -66,7 +69,7 @@ Calendar
 
 Migrating calendars goes via export and import of vcalendar (*.ics) files.
 
-To get an ics file from Microsoft Office 365 you need to `publish your calendar <https://support.microsoft.com/en-us/office/share-your-calendar-in-outlook-com-0fc1cb48-569d-4d1e-ac20-5a9b3f5e6ff2>`_
+To get an ics file from Nextcloud you need to `publish your calendar <https://docs.nextcloud.com/server/latest/user_manual/en/groupware/calendar.html#publishing-a-calendar>`_
  and download that link. Afterwards you can unpublish it.
 
 Take these steps:
@@ -79,22 +82,23 @@ Take these steps:
 Contacts
 --------
 
-Migrating contacts goes via export and import of vCard (*.vcf) files. `Learn how to export your Outlook Contacts here.
-<https://support.microsoft.com/en-us/office/import-or-export-contacts-in-outlook-using-a-csv-file-bb796340-b58a-46c1-90c7-b549b8f3c5f8>`_ and take these steps:
+Migrating contacts goes via export and import of vCard (*.vcf) files. To download your contacts from the Nextcloud Contacts apps
+ click on the **settings** (gear icon) and go to **Address books** in the settings screen. `From the more options menu choose
+ **Download** <https://docs.nextcloud.com/server/25/user_manual/en/groupware/contacts.html#adding-and-managing-address-books>`_. and take these steps:
 
 1. Export all contacts to vCard (*.vcf) file
-2. Create all required addressbooks in Group-Office.
+2. Create all required address books in Group-Office.
 3. :ref:`Import all vCard files <addressbook-import-export>`.
 
 
-OneDrive
---------
+Files
+-----
 
-Files can be migrated by uploading them manually or you could use `rclone <https://rclone.org>`_` to migrate from Microsoft OneDrive to Group-Office Webdav.
+Files can be migrated by uploading them manually or you could use `rclone <https://rclone.org>`_` to migrate from Nextcloud to Webdav.
 Please consult the rclone documentation and take these steps:
 
 1. Setup Group-Office Webdav by installing the module.
 2. Install rclone
-3. Add the Microsoft OneDrive remote
-4. Add the Webdav remote
+3. Add the Nextcloud webdav remote
+4. Add the Group-Office Webdav remote
 5. Use the rclone sync command

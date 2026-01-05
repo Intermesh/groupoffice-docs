@@ -1,7 +1,7 @@
 Switch from Google Workspace to Group-Office
 ============================================
 
-You can take the following steps to move all your data from Google Workspace to Group-Office.
+You can take the following steps to migrate all your data from Google Workspace to Group-Office.
 
 Assessment & Prerequisites
 -----------------------------
@@ -54,11 +54,11 @@ The steps to take are:
 
 4. Create a list of imapsync commands using the `imapsync documentation <https://imapsync.lamiral.info/>`_. Also read the google specific parts.
 
-5. Run the sync and test. You can repeat the sync at any time to update the new mailserver.Gmail
+5. Run the sync and test. You can repeat the sync at any time to update the new mailserver.
 
 6. Put the migration live by setting the DNS domains.
 
-7. Run the sync again after 24 hours because some mail might still have arrived at Google and it's done!
+7. Finally, run the sync again after 24 hours because some mail might still have arrived at Google.
 
 
 Calendar
