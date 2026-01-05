@@ -47,9 +47,11 @@ When migrating mail we use `imapsync <https://imapsync.lamiral.info/>`.
 The steps to take are:
 
 1. Setup mailserver
+
    a. When self hosting then install the :ref:`Group-Office mailserver <mailserver>` or use any IMAP compliant server.
    b. When using our cloud service and you have signed up for a mail domain you will get access to the management where you
       can create mailboxes
+
 2. Prepare your domain. Do not switch yet but determine all DNS records (MX, SPF, DMARC and DKIM) to set after migrating mail. For our cloud service we will
    provide them to you.
 
