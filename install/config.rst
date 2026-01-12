@@ -49,20 +49,23 @@ Here's a list of config options:
    max_attachment_size           int     52428800 (50MB in bytes)
    fileindex_maxsize             int     Used by document search module. Is to be saved in bytes, e.g. 52428800 for 50MB)
    caldav_max_months_old         int     Used by CalDAV to set the period for the synchronization of calendars.
+   checker_interval              int     Number of seconds between automatic checks (e.g. email). Default is 120.
+   cmd_zip / cmd_unzip           string  default commands for the zip and unzip programs respectively. Please do not change unless both utils are in a custom install location.
    ============================  ======  ===========
 
 
 Global configuration
 --------------------
 
-You can also create a file called::
+If you work with :ref:`multiple instances <multi-instance>` or you use the :ref:`server client <serverclient>` module,
+you should create a file called::
 
    /etc/groupoffice/globalconfig.inc.php
 
-this file supports the same properties as the regular file but applies to all Group-Office instances on the server when
-running :ref:`multiple instances <multi-instance>`.
+This file supports the same properties as the regular file but applies to all Group-Office instances. Individual
+configuration options for each instance are saved in the `config.php` files for each instance.
 
-You can also preconfigure module settings that are normallly set in the user interface. For example you can set
+You can also preconfigure module settings that are normally set in the user interface. For example you can set
 the OnlyOffice server URL for all instances::
 
     $config['business'] = [
@@ -73,6 +76,9 @@ the OnlyOffice server URL for all instances::
         ]
 
     ];
+
+If you use the :ref:`server client <serverclient>` module, any configuration settings for the server client should be
+included in this file.
 
 Recommended PHP settings
 ------------------------
