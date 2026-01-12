@@ -1,3 +1,5 @@
+.. _users:
+
 Users
 =====
 
@@ -37,7 +39,7 @@ Click the settings icon to change default values and manage custom fields.
 Adding a user
 -------------
 
-.. note:: Before adding users make sure you've setup :ref:`user-groups` with the right
+.. tip:: Before adding users make sure you've setup :ref:`user-groups` with the right
    module access. So setting up the user permissions is a simple matter of adding
    it to the right user group.
 
@@ -74,6 +76,28 @@ a strong password.
    Create step 3
 
 Finally, add the user to the right :ref:`user-groups` andf click 'Finish'.
+
+.. _user-import-export:
+
+Importing and exporting users
+-----------------------------
+
+You can also import users via a CSV or Microsoft Excel file. After uploading your file you can map the right columns.
+
+.. tip:: You can also use the Export function to get an example file. The columns will map automatically when these
+   column names are used.
+
+You can find the import and export option in the more menu at **System settings** -> **Users**
+
+.. figure:: /_static/system-settings/import-export-users.png
+   :alt: Import and export users
+   :width: 100%
+
+After selecting the file you can map the columns:
+
+.. figure:: /_static/system-settings/import-users.png
+   :alt: Import users
+   :width: 100%
 
 Edit a user
 -----------

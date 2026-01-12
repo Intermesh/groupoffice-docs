@@ -36,6 +36,8 @@ you delete mail from the mail server the linked e-mails will be preserved.
    to.
 
 
+.. _create-imap-accounts:
+
 Creating accounts
 -----------------
 

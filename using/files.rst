@@ -19,6 +19,9 @@ The files module supports:
 - :ref:`comments`
 - :ref:`sharing`
 
+
+.. _share-folders:
+
 Share folders
 -------------
 It's easy to share folders in Group-Office. Any user can do it. If you want to create a shared folder for the whole
@@ -139,18 +142,15 @@ You can also host Office Online yourself and integrate it with Group-Office. Rea
 
 https://docs.microsoft.com/en-us/officeonlineserver/office-online-server
 
-LibreOffice Online
-~~~~~~~~~~~~~~~~~~
+Collabora Office
+~~~~~~~~~~~~~~~~
 
 .. figure:: /_static/using/files/collabora-online.png
-   :alt: LibreOffice Online
+   :alt: Collabora Office
 
-   LibreOffice Online
+   Collabora Office
 
-With LibreOffice Online you can edit office documents in your browser. You need a working
-LibreOffice Online server. More info on https://www.libreoffice.org/download/libreoffice-online/
-
-For installing read the :ref:`LibreOffice online installation page. <libreoffice-online>`
+With Collabora Online you can edit office documents in your browser. For installing read the :ref:`Collabora Office installation page. <collabora-office>`
 
 .. _onlyoffice:
 

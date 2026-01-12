@@ -21,13 +21,13 @@ Business setup
 
 When you start using the projects module and you want to track time you must setup the business and employees.
 
-Go to System setting -> Business and configure using the :ref:`business documentation <business>`. If you don't set this
-up you can't add project resources and they can't track time.
+Go to **System setting** -> **Business** and configure using the :ref:`business documentation <business>`. If you don't set this
+up you can't add project resources and **they can't track time**.
 
 Creating a project
 ------------------
 
-You can of course add a project by clicking the "+ Add" button from the projects module. But you can also create it from
+You can of course add a project by clicking the "**+ Add**" button from the projects module. But you can also create it from
 an e-mail. If for example an e-mail comes in from a client requesting to start a project you can create a project from
 the e-mail right away:
 
@@ -37,7 +37,7 @@ the e-mail right away:
    Project request e-mail
 
 
-From the e-mail view click the "Save as" --> "Project" button:
+From the e-mail view click the **Save as** -> **Project** button:
 
 .. figure:: /_static/using/projects3/5-create-project-from-email.png
     :width: 100%
@@ -111,11 +111,12 @@ Now that we have some time entries to bill we can head back to the project detai
 
 Here you can see all financial info about the project:
 
-- Additional hours: The amount of billable fee coming from the time entries. It's called "Additional" because you can also have budgeted hours based on a fixed price.
-- Outstanding billable hours: The hours that need to be billed.
-- Invoiced: The amount already invoiced.
-- Outstanding: The amount to be invoiced.
-- Profit: The profit diagram and information shows what's left after taking off the costs. The costs come form the linked purchase invoices and the hourly costs form the employees.
+- **Actual hours**: The amount of hours spent from the budget. These are not billable and part of a fixed price project.
+- **Billable hours**: The amount of billable hours coming from the time entries. These hours come on top off the budgeted hours based on a fixed price.
+- **Outstanding (billable hours)**: The hours that need to be billed.
+- **Invoiced**: The amount already invoiced.
+- **Outstanding (For invoice)**: The amount to be invoiced.
+- **Profit**: The profit diagram and information shows what's left after taking off the costs. The costs come form the linked purchase invoices and the hourly costs form the employees.
 
 Create invoice
 --------------
@@ -199,6 +200,55 @@ After creating a purchase invoice it will show up on the "Profit" section as "Pu
     Project purchases
 
 
+Reporting
+---------
+
+The projects comes with time reports and financial reports.client
+
+Time report
+```````````
+
+It's easy to view the time spent on projects. Go to a project and click the **View time entries** button from the finance
+section:
+
+.. figure:: /_static/using/projects3/project-view-time-entries.png
+    :width: 100%
+
+    Project finance section
+
+
+This will take you to the time registration list view:
+
+.. figure:: /_static/using/projects3/time-entries-list.png
+    :width: 100%
+
+    Time entries list
+
+
+Coming from the project finance it will automatically filter on billable hours only and on the project. You can change
+the filters from the left.
+
+You can export the list to **CSV** or **Microsoft Excel** using the more menu.
+
+
+Finance report
+``````````````
+
+From the main projects view you can access the Finance report from the more menu:
+
+.. figure:: /_static/using/projects3/projects3-more-menu-finance-report.png
+
+    Open finance report
+
+.. figure:: /_static/using/projects3/projects3-finance-report.png
+    :width: 100%
+
+    Project finance report
+
+
+This report shows an overview of all projects with their financial data like **profit**, **outstanding hours and invoices** and **time spent**.
+
+You can also filter on project status and employees.
 
 Books
 -----

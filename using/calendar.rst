@@ -54,6 +54,17 @@ a remote public calendar published in vCalendar (*.ics) format.
 .. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
     Nextcloud or iCloud) that synchronizes bi directional.
 
+.. _calendar-import-export:
+
+Import and export
+-----------------
+
+You can import and export vcalendar (*.ics) files via the more menu:
+
+.. figure:: /_static/using/calendar/calendar-import-export.png
+   :width: 100%
+   :alt: Calendar import and export
+
 Sharing
 -------
 
@@ -256,9 +267,10 @@ Video meetings
 To plan a video meeting, users can insert a link to the video meeting in the location field
 When configured, there will be a button with a video camera and plus sign next to the field.
 
-To configure the video meetings you need to enter the base URI to the video meeting server 
-and optionally an app secret and ID for JWT authentication. If enabled, the token will be added to
-the URI of every created video link.
+Group-Office currently has two modules providing video meeting links:
+
+- :ref:`jitsimeet`
+- :ref:`msteams`
 
 Creating categories
 -------------------

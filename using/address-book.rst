@@ -18,10 +18,14 @@ The address book module supports:
 - :ref:`sharing`
 - :ref:`files`
 
+.. _sharing-addressbook:
+
 Sharing an address book
 -----------------------
 
 Via the more menu you in the tree you can edit an address book. Read more about :ref:`sharing here <sharing>`.
+
+.. _addressbook-import-export:
 
 Import and export
 -----------------
@@ -72,6 +76,7 @@ The best approach for importing would be:
 
 Updating existing contacts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 It's possible to bulk update your Group-Office contacts with a CSV file. After uploading your CSV you'll get a mapping
 dialog. In the first combo box you can select: "Update existing items by" where you can select "ID" or "E-mail". When
 selecting the "ID" for example it will update all Group-Office contacts with a matching "ID" in the CSV record.
@@ -184,7 +189,7 @@ In the more menu choose "Look for duplicates":
 The following dialog will open:
 
 .. figure:: /_static/using/address-book/look-for-duplicates-dialog.png
-   :alt: Import CSV dialog
+   :alt: Look for duplicates dialog
    :width: 100%
 
    Look for duplicates dialog

@@ -87,6 +87,8 @@ and aliases.
 .. note:: There is an issue with special characters in the mysql password. Make sure you don't have ':', '/', '@', '+', '?', '.', and '=' in it if you use the
    mailserver. See https://github.com/trusteddomainproject/OpenDKIM/issues/248#issuecomment-2828125266
 
+.. _serverclient:
+
 Serverclient module
 ```````````````````
 The server client allows you to:

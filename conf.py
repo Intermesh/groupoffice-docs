@@ -161,3 +161,4 @@ html_context = {
     "conf_py_path": "/", # Path in the checkout to the docs root
 }
 
+html_js_files = ['analytics.js']

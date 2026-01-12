@@ -11,5 +11,6 @@ There is also documentation to migrate your email server to a Postfix+Dovecot se
 .. toctree::
    :maxdepth: 2
 
-   Group-Office <group-office>
+   Group-Office to a new server <group-office>
    Mail server <mail-server>
+
