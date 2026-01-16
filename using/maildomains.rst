@@ -10,11 +10,13 @@ Mail domain management
    Mail domains
 
 In the maildomains module the administrator can manage their dovecot domain configurations. It replaces the venerable
-postfix_admin module.
+postfix_admin module. This module was developed mith the groupoffice_mailserver debian package in mind.
 
 Domains
 -------
 
+You can add or edit mail domains, as well as certain settings for those domains like quota, maximum number of mail mailboxes
+et cetera. 
 
 DNS Checks
 ``````````
