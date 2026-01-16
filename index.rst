@@ -61,6 +61,7 @@ Table of contents
    :caption: Community Modules
 
    using/email
+   using/maildomains
    using/calendar
    using/jitsimeet
    using/davclient
