@@ -51,6 +51,8 @@ Here's a list of config options:
    caldav_max_months_old         int     Used by CalDAV to set the period for the synchronization of calendars.
    checker_interval              int     Number of seconds between automatic checks (e.g. email). Default is 120.
    cmd_zip / cmd_unzip           string  default commands for the zip and unzip programs respectively. Please do not change unless both utils are in a custom install location.
+   mailing_messages_per_minute   int     limits the number of messages sent through SMTP in the newsletters module
+   limit_usersearch              bool    vestigial - sets a limit of users to be returned to non-admin users
    ============================  ======  ===========
 
 

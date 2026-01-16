@@ -20,7 +20,7 @@ If you have manage permissions for the newsletters module, you can manage SMTP a
 
    Account management
 
-.. tip:: If you need to prevent your SMTP server to end up on a spam blacklist, you can maximize the number of messages sent per minute.
+.. tip:: If you need to prevent your SMTP server to end up on a spam blacklist, you can maximize the number of messages sent per minute by adding the ``mailing_messages_per_minute`` option to your ``config.php`` file.
 
 Create lists
 ------------
