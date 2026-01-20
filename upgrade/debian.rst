@@ -40,12 +40,13 @@ When upgrading to the next major release follow these steps prior to the above:
 4. Major release upgrades can't be skipped so you need to do them step by step.
    Adjust the repository to the next major release in '/etc/apt/sources.list.d/groupoffice.list':
 
-    - For 25.0 change it to:
+    - For 26.0 change it to:
 
-        deb http://repo.group-office.com/ twentyfivezero main
+        deb http://repo.group-office.com/ twentysixzero main
 
     For older versions switch to the older manuals:
 
+        https://groupoffice.readthedocs.io/en/25.0/
         https://groupoffice.readthedocs.io/en/6.8/
         https://groupoffice.readthedocs.io/en/6.7/
         https://groupoffice.readthedocs.io/en/6.6/
