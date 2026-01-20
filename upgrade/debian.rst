@@ -27,7 +27,7 @@ Major release upgrade
 When the second digit increases in the version number we call this a major release. For example when upgrading to 6.4 from 6.3.
 When upgrading to the next major release follow these steps prior to the above:
 
-1. Run the above command first to upgrade to the latest 6.x
+1. Run the above command first to upgrade to the latest of your current major version. eg. 25.0.1 -> 25.0.2.
 
 2. Then open your browser to update the database.
 
