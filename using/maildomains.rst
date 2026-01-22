@@ -16,7 +16,7 @@ Domains
 -------
 
 You can add or edit mail domains, as well as certain settings for those domains like quota, maximum number of mail mailboxes
-et cetera. 
+et cetera.
 
 DNS Checks
 ``````````
