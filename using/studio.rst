@@ -61,28 +61,35 @@ correct data:
 +-------------+---------------------------------------------------------------------------------+
 | Property    | Description                                                                     |
 +=============+=================================================================================+
-| Name        | The name of the module                                                          |
+| Module      | The name of the module                                                          |
 +-------------+---------------------------------------------------------------------------------+
 | Package     | The package name. This allows you to group your modules, e.g. by customer name. |
 +-------------+---------------------------------------------------------------------------------+
 | Description | A description to be displayed in the modules manager                            |
 +-------------+---------------------------------------------------------------------------------+
-| Sort order  | Makes modules sortable by your own preference                                   |
-+-------------+---------------------------------------------------------------------------------+
 + Entity name | The name of the database object.                                                |
 +-------------+---------------------------------------------------------------------------------+
-| ACL Entity  | Enables access control for your entities                                        |
+| Module type | Define the permission level of the module.                                      |
 +-------------+---------------------------------------------------------------------------------+
 
 Upon finishing this step, a database migration script will be generated for the module, a number of PHP files is
 generated and the module is saved into the ``www/go/modules/PACKAGE/NAME/`` subdirectory. Subsequently, the module is
 installed directly.
 
-.. note:: As a rule of thumb, you should enable access control if your end users are going to use your generated module.
-
 .. warning:: Trying to install a studio module into business or community generates an error message.
 
 .. warning:: It is not possible to save two different entities with the same name.
+
+Access control by Module type
++++++++++++++++++++++++++++++
+
+There are three types of modules, defined by their level of access control:
+
+1. **Collections**: This is probably the most common use case. You can define collection type entities (i.e. AclOwnerEntities) which have items that inherit the permissions from their parent.description
+2. **Items**: Permissions are defined by item level and permissions are not inherited.
+3. **Module**: Permissions are defined on a module level. As long as a user has permissions for the module, its types can be managed without restriction.description
+
+As a rule of thumb, you should enable permission control on collection or item level if you wish your end users to have access to your generated module.
 
 Add Custom Fields
 `````````````````
@@ -93,6 +100,13 @@ Add Custom Fields
 
 A feature of studio is that almost every field is stored as a :ref:`custom field<custom-fields>`. After all, the entire module is custom!
 This works in exactly the same way as for standard modules.
+
+It is recommended to have at least one custom field with the following database names as this allows the API to display a generic title field:
+
+- name
+- title
+- description
+- subject
 
 .. note:: If you want to present data of a linked item. Read the template field section on the :ref:`custom fields<custom-fields>` page.
 
@@ -160,9 +174,9 @@ This step enables you to generate the actual screens and is arguably the most in
 | Display modification info | Toggles creation and modification date in the detail panel               |
 +---------------------------+--------------------------------------------------------------------------+
 
-.. note:: Frontend options are saved in a separate Javascript file: ``www/go/modules/PACKAGE/MODULE/views/extjs3/ModuleConfig.js``
-   If you want to toggle certain frontend options, you can directly edit this file, thereby preventing any overwrites
-   of custom code.
+Frontend options are saved in a separate Javascript file: ``www/go/modules/PACKAGE/MODULE/views/extjs3/ModuleConfig.js``
+If you want to toggle certain frontend options, you can directly edit this file, thereby preventing any overwrites
+of custom code.
 
 Confirmation
 ````````````
@@ -180,8 +194,8 @@ custom editing. In that case, you can re-enable it from the System Settings.
 In order to finish the workflow, you **must** check the 'Overwrite existing code' checkbox. This will re-generate all
 code and throw away any and all manual additions to the code. By clicking finish, code generation will be initialized.
 
-.. note:: Removing a studio record manually will **not** delete the module. It will merely disable the regeneration of
-   code in a very thorough way.
+Removing a studio record manually will **not** delete the module. It will merely disable the regeneration of
+code in a very thorough way.
 
 The Generated Screens
 ---------------------
