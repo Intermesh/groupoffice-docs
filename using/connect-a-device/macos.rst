@@ -17,7 +17,10 @@ The Group-Office Assistant is a small program that you can install on your Windo
 Linux computer. It will automatically download files opened from Group-Office and monitor
 it for changes. When the file is saved it automatically uploads it back to Group-Office.
 
-`Click here to download Group-Office Assistant for MacOS <https://repo.group-office.com/downloads/group-office-assistant-macos.dmg>`_.
+Download the Group-Office Assistant for:
+
+- `MacOS (Sillicon) <https://repo.group-office.com/downloads/group-office-assistant-macos-aarch64.dmg>`_.
+- `MacOS (Intel) <https://repo.group-office.com/downloads/group-office-assistant-macos-x64.dmg>`_.
 
 After downloading take the following steps to install:
 
