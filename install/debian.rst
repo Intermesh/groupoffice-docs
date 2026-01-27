@@ -96,9 +96,11 @@ The server client allows you to:
 1. Create mailboxes when you create a new user
 2. Synchronize mailbox passwords when you set a new Group-Office password.
 
-Install the module at Start menu -> modules
+To configure you must:
 
-Then edit ``/etc/groupoffice/globalconfig.inc.php`` or create it if it doesn't exist:
+1. Install the **Serverclient** and **API Keys** module at **System Settings** -> **Modules**
+2. Create an API key for a user that has write access to all required mail domains. See `API keys <https://groupoffice.readthedocs.io/en/latest/developer/jmap.html#api-key>`_ for more information.
+3. Then edit ``/etc/groupoffice/globalconfig.inc.php`` or create it if it doesn't exist:
 
 .. code:: php
 
@@ -106,8 +108,8 @@ Then edit ``/etc/groupoffice/globalconfig.inc.php`` or create it if it doesn't e
 	$config = [
 		// GO will connect to this installation to add a mailbox. It is the full url to the Group-Office installation with the postfixadmin module installed.   
 		'serverclient_server_url' => 'http://localhost/groupoffice/',
-		// A token to authenticate. The token has to be identical on the web and mail server. By default they are the same server so you can just set anything here.
 
+		// An API token for authentication. Create it using the API keys module. Make sure it's owned by a user that can edit all domains listed below.
 		'serverclient_token' => 'someSecureTokenOfyourChoice',
 
 		// Comma separated list of mailbox domains
@@ -133,12 +135,13 @@ Now when you create a new user you have the option to create::
 
 And when you set your password this account will be updated too.
 
-   .. figure:: /_static/install/create-user-serverclient.png
-      :width: 50%
+.. figure:: /_static/install/create-user-serverclient.png
+  :width: 50%
 
-      Option to create mailbox when creating new users
+  Option to create mailbox when creating new users
 
-  .. note:: This file must be writable by the www-data user.
+
+.. note:: This file must be readable by the www-data user.
 
 TLS / SSL
 `````````
