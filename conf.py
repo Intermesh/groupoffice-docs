@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Group-Office'
-copyright = '2025, Intermesh BV'
+copyright = '2026, Intermesh BV'
 author = 'Intermesh BV'
 
 # The short X.Y version
