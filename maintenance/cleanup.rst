@@ -169,8 +169,8 @@ The Calendar module was replaced with a new version.
 
 	DROP TABLE IF EXISTS `cf_cal_calendars`;
 	DROP TABLE IF EXISTS `cf_cal_events`;
-	DROP TABLE ID EXISTS `calcom_event_company`;
-	DROP TABLE ID EXISTS `caltt_time_entry`;
+	DROP TABLE IF EXISTS `calcom_event_company`;
+	DROP TABLE IF EXISTS `caltt_time_entry`;
 
 
 

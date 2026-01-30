@@ -34,6 +34,8 @@ Here's a list of config options:
    debug_usernames               array   Debug only for these usernames. eg. ['demo', 'foo']
    debugEmail                    string  Set to an e-mail address to redirect all mail to for testing purposes.
    mailerDebugLevel              int     Saves debug messages from the mailer to ``debug.log``. The number of logs depends on the level. 0 disables this, whereas 4 is the maximum.
+   mailerDebugHost               string  If set all mail will go to this host. Useful for debugging with "maildev" for example.
+   mailerDebugPort               int     Port to use if mailerDebugHost is set
    email_allow_body_search       bool    Enable searching in email bodies. Disabled by default as per version 6.6.103 .
    sieve_rewrite_hosts           string  When using an IMAP proxy then configure the real mail host for sieve calls here. eg. "localhost=mail.example.com";
    servermanager                 bool    Set by multi_instance module. This will copy system settings and create welcome message on install.
