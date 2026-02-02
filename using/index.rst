@@ -50,3 +50,4 @@ This part is for the end users.
   studio
   gdpr
   msteams
+  kanban

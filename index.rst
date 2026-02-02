@@ -89,6 +89,7 @@ Table of contents
    using/studio
    using/gdpr
    using/msteams
+   using/kanban
 
 .. toctree::
    :maxdepth: 2
