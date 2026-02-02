@@ -31,7 +31,10 @@ it for changes. When the file is saved it automatically uploads it back to Group
    .. figure:: /_static/linux-assistant/1-groupoffice-assistant.png
 
 
-On Debian based distributions you can install the Group Office Assistant.
+Debian / Ubuntu / Mint
+~~~~~~~~~~~~~~~~~~~~~~
+
+On Debian based distributions you can install the Group Office Assistant via our APT repository. Take the following steps:
 
 1. First add our APT repository::
 
@@ -54,6 +57,18 @@ On Debian based distributions you can install the Group Office Assistant.
 
 .. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
+
+Fedora RPM
+~~~~~~~~~~
+
+We also have an RPM package available here:
+
+https://repo.group-office.com/downloads/groupoffice-assistant-1.1.36-1.x86_64.rpm
+
+You can run this in the terminal to first download and then install it::
+
+    wget https://repo.group-office.com/downloads/groupoffice-assistant-1.1.36-1.x86_64.rpm
+    sudo rpm -i groupoffice-assistant-1.1.36-1.x86_64.rpm
 
 
 WebDAV
