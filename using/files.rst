@@ -4,7 +4,7 @@ Files
 =====
 
 Managing and editing documents is one of the core functions of Group-Office. Document management is integrated across
-all modules such as contact management, projects, email, and of course the files module. Collaborating on documents in
+all modules such as contact management, projects, email and the files module. Collaborating on documents in
 the browser using :ref:`Collabora Online <collabora_online>`, :ref:`Microsoft Office Online <officeonline>` or
 :ref:`Only Office <onlyoffice>` is an essential feature in the daily workflow of Group-Office users. Create or edit
 files directly in Group-Office and collaborate with your colleagues on spreadsheets or text documents.
