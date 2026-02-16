@@ -3,6 +3,15 @@
 Files
 =====
 
+Managing and editing documents is one of the core functions of Group-Office. Document management is integrated across
+all modules such as contact management, projects, email, and of course the files module. Collaborating on documents in
+the browser using :ref:`Collabora Online <collabora_online>`, :ref:`Microsoft Office Online <officeonline>` or
+:ref:`Only Office <onlyoffice>` is an essential feature in the daily workflow of Group-Office users. Create or edit
+files directly in Group-Office and collaborate with your colleagues on spreadsheets or text documents.
+
+Group-Office stands out by combining powerful document management, seamless module integration, and secure real-time
+ collaboration in one unified platform.
+
 In the "Files" tab you can manage your personal files and share folders with other users. The files module is
 integrated in most other modules as well. So you can add files to Contacts, Projects, Tasks, Appointments etc.
 
@@ -58,7 +67,7 @@ The folder will show up under shared for other users. Not for the user that shar
 Opening files
 -------------
 Opening files is as easy as a double click on the file of course. But you can also change the default
-action. For example you might want to edit text documents with :ref:`Only Office <onlyoffice>`,
+action. For example you might want to edit text documents with :ref:`Collabora Online <collabora_online>`, :ref:`Only Office <onlyoffice>`,
 :ref:`Microsoft Office Online <officeonline>` or your :ref:`own desktop application <assistant>`.
 You can view images in the online viewer or in a browser tab. To change this
 right click on a file and choose "Open with...". Check the box "Remember my decision for this file type"
@@ -121,6 +130,19 @@ Download it for:
 - :ref:`MacOS <assistant-for-macos>`
 - :ref:`Linux <assistant-for-linux>`
 
+.. _collabora_online:
+
+Collabora Online
+~~~~~~~~~~~~~~~~
+
+.. figure:: /_static/using/files/collabora-online.png
+   :alt: Collabora Online
+
+   Collabora Online
+
+Group-Office offers seamless integration with Collabora Online. Create or edit files directly in Group-Office and
+ collaborate with your colleagues on spreadsheets or text documents. For installing read the :ref:`Collabora Office installation page. <collabora-office>`
+
 .. _officeonline:
 
 Microsoft Office Online
@@ -142,15 +164,6 @@ You can also host Office Online yourself and integrate it with Group-Office. Rea
 
 https://docs.microsoft.com/en-us/officeonlineserver/office-online-server
 
-Collabora Office
-~~~~~~~~~~~~~~~~
-
-.. figure:: /_static/using/files/collabora-online.png
-   :alt: Collabora Office
-
-   Collabora Office
-
-With Collabora Online you can edit office documents in your browser. For installing read the :ref:`Collabora Office installation page. <collabora-office>`
 
 .. _onlyoffice:
 
