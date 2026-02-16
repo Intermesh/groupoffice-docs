@@ -9,8 +9,7 @@ the browser using :ref:`Collabora Online <collabora_online>`, :ref:`Microsoft Of
 :ref:`Only Office <onlyoffice>` is an essential feature in the daily workflow of Group-Office users. Create or edit
 files directly in Group-Office and collaborate with your colleagues on spreadsheets or text documents.
 
-Group-Office stands out by combining powerful document management, seamless module integration, and secure real-time
- collaboration in one unified platform.
+Group-Office stands out by combining powerful document management, seamless module integration, and secure real-time collaboration in one unified platform.
 
 In the "Files" tab you can manage your personal files and share folders with other users. The files module is
 integrated in most other modules as well. So you can add files to Contacts, Projects, Tasks, Appointments etc.
@@ -66,6 +65,7 @@ The folder will show up under shared for other users. Not for the user that shar
 
 Opening files
 -------------
+
 Opening files is as easy as a double click on the file of course. But you can also change the default
 action. For example you might want to edit text documents with :ref:`Collabora Online <collabora_online>`, :ref:`Only Office <onlyoffice>`,
 :ref:`Microsoft Office Online <officeonline>` or your :ref:`own desktop application <assistant>`.
@@ -140,8 +140,7 @@ Collabora Online
 
    Collabora Online
 
-Group-Office offers seamless integration with Collabora Online. Create or edit files directly in Group-Office and
- collaborate with your colleagues on spreadsheets or text documents. For installing read the :ref:`Collabora Office installation page. <collabora-office>`
+Group-Office offers seamless integration with `Collabora Online <https://www.collaboraonline.com/>`_. Create or edit files directly in Group-Office and collaborate with your colleagues on spreadsheets or text documents. For installing read the :ref:`Collabora Online installation page<collabora-online-install>`.
 
 .. _officeonline:
 

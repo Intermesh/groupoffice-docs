@@ -5,7 +5,7 @@ Extras
    :maxdepth: 2
 
    multi_instance
-   collabora-office
+   collabora-online
    onlyoffice
    mediawiki
    fail2ban
