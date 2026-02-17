@@ -25,8 +25,13 @@ Register your AAD application
 
 As with :ref:`Gmail<gmail>`, you need to set up an application first. This happens in the Azure environment and is documented `on this
 page <https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app>`_. Make sure that the app is
-configured as a web application. You need to add the following redirect URI: `https://yourhost/go/modules/community/oauth2client/gauth.php/callback`.
-Of course, 'yourhost' refers to the URL of your Group Office instance.
+configured as a web application. 
+
+You need to add the following **redirect URI**::
+ 
+	https://<YOURDOMAIN>/go/modules/community/oauth2client/gauth.php/callback
+
+Of course, '<YOURDOMAIN>' refers to the domain of your Group Office instance.
 
 After saving, you can find your application in Active Directory > App registrations.
 
