@@ -109,8 +109,11 @@ To configure you must:
 		// GO will connect to this installation to add a mailbox. It is the full url to the Group-Office installation with the postfixadmin module installed.   
 		'serverclient_server_url' => 'http://localhost/groupoffice/',
 
+		//unless your're still using the old postfixadmin module this should be true
+		'serverclient_jmap' =>  true,
+
 		// An API token for authentication. Create it using the API keys module. Make sure it's owned by a user that can edit all domains listed below.
-		'serverclient_token' => 'someSecureTokenOfyourChoice',
+		'serverclient_token' => 'YOURAPITOKEN',
 
 		// Comma separated list of mailbox domains
 		'serverclient_domains' => 'intermeshdev.nl',
