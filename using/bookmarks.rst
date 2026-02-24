@@ -1,5 +1,5 @@
 Bookmarks
-=====
+=========
 
 .. figure:: /_static/using/bookmarks/bookmarks.png
    :alt: Bookmarks module

@@ -19,7 +19,7 @@ Our preferred way of installing is using our Debian packages:
 
 3. First add our repository to the package management system::
 
-     echo "deb http://repo.group-office.com/ twentyfivezero main" > /etc/apt/sources.list.d/groupoffice.list
+    echo "deb http://repo.group-office.com/ twentyfivezero main" > /etc/apt/sources.list.d/groupoffice.list
 
 4. Add our public key::
 

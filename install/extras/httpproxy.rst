@@ -30,23 +30,23 @@ Nginx example
 
 Here's an example for nginx with docker.
 
-```
-server {
-    listen 443 ssl;
-    server_name groupoffice.example.com;
+.. code-block::
 
-    ssl_certificate /etc/letsencrypt/live/groupoffice.example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/groupoffice.example.com/privkey.pem;
+    server {
+        listen 443 ssl;
+        server_name groupoffice.example.com;
 
-    # for large file uploads
-    client_max_body_size 5G;
+        ssl_certificate /etc/letsencrypt/live/groupoffice.example.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/groupoffice.example.com/privkey.pem;
 
-     location / {
-         proxy_pass http://localhost:9090;
-         proxy_set_header Host $host;
-         proxy_set_header X-Real-IP $remote_addr;
-         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-         proxy_set_header X-Forwarded-Proto https;
-     }
-}
-```
+        # for large file uploads
+        client_max_body_size 5G;
+
+         location / {
+             proxy_pass http://localhost:9090;
+             proxy_set_header Host $host;
+             proxy_set_header X-Real-IP $remote_addr;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header X-Forwarded-Proto https;
+         }
+    }

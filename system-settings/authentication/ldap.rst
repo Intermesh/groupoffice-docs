@@ -168,7 +168,7 @@ Advanced
 When a user or group is synchronized. It fires an event. So it's possible
 to build a module that can customize the LDAP synchronization.
 
-If you want to test the sync on the terminal lookup the ID from your configuration in table 'ldapauth_server' and run::
+If you want to test the sync on the terminal lookup the ID from your configuration in table 'ldapauth_server' and use these commands:
 
 Test connectivity::
 

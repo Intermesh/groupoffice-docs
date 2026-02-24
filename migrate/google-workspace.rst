@@ -66,7 +66,7 @@ The steps to take are:
 Calendar
 --------
 
-Migrating calendars goes via export and import of vcalendar (*.ics) files. `Learn how to export your Google calendars here.
+Migrating calendars goes via export and import of vcalendar (\*.ics) files. `Learn how to export your Google calendars here.
 <https://support.google.com/calendar/answer/37111?hl=en>`_ and take these steps:
 
 1. Export all required calendars in Google Workpace
@@ -77,7 +77,7 @@ Migrating calendars goes via export and import of vcalendar (*.ics) files. `Lear
 Contacts
 --------
 
-Migrating contacts goes via export and import of vCard (*.vcf) files. `Learn how to export your Google Contacts here.
+Migrating contacts goes via export and import of vCard (\*.vcf) files. `Learn how to export your Google Contacts here.
 <https://support.google.com/contacts/answer/7199294>`_ and take these steps:
 
 1. Export all contacts to vCard (*.vcf) file

@@ -49,7 +49,7 @@ Add remote calendar
 -------------------
 
 In the more options menu shown above you also find the "Add calendar from link" option. That option allows you to add
-a remote public calendar published in vCalendar (*.ics) format.
+a remote public calendar published in vCalendar (\*.ics) format.
 
 .. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
     Nextcloud or iCloud) that synchronizes bi directional.
@@ -59,7 +59,7 @@ a remote public calendar published in vCalendar (*.ics) format.
 Import and export
 -----------------
 
-You can import and export vcalendar (*.ics) files via the more menu:
+You can import and export vcalendar (\*.ics) files via the more menu:
 
 .. figure:: /_static/using/calendar/calendar-import-export.png
    :width: 100%

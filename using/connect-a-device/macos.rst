@@ -100,7 +100,7 @@ Intermesh uses:
 +-----------------------------+-----------------------------------+
 | Username                    | E-mail address                    |
 +-----------------------------+-----------------------------------+
-| Password                    | GroupOffice password             |
+| Password                    | GroupOffice password              |
 +-----------------------------+-----------------------------------+
 | Incoming mail server (IMAP) | imap.group-office.com on port 143 |
 +-----------------------------+-----------------------------------+

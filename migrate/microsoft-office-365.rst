@@ -66,7 +66,7 @@ The steps to take are:
 Calendar
 --------
 
-Migrating calendars goes via export and import of vcalendar (*.ics) files.
+Migrating calendars goes via export and import of vcalendar (\*.ics) files.
 
 To get an ics file from Microsoft Office 365 you need to `publish your calendar <https://support.microsoft.com/en-us/office/share-your-calendar-in-outlook-com-0fc1cb48-569d-4d1e-ac20-5a9b3f5e6ff2>`_
  and download that link. Afterwards you can unpublish it.
@@ -81,10 +81,10 @@ Take these steps:
 Contacts
 --------
 
-Migrating contacts goes via export and import of vCard (*.vcf) files. `Learn how to export your Outlook Contacts here.
+Migrating contacts goes via export and import of vCard (\*.vcf) files. `Learn how to export your Outlook Contacts here.
 <https://support.microsoft.com/en-us/office/import-or-export-contacts-in-outlook-using-a-csv-file-bb796340-b58a-46c1-90c7-b549b8f3c5f8>`_ and take these steps:
 
-1. Export all contacts to vCard (*.vcf) file
+1. Export all contacts to vCard (\*.vcf) file
 2. Create all required addressbooks in GroupOffice.
 3. :ref:`Import all vCard files <addressbook-import-export>`.
 

@@ -17,4 +17,4 @@ On the login screen press the "Login with GroupOffice" button.
 .. figure:: /_static/system-settings/rocketchat/login-with-group-office.png
    :width: 100%
 
-    Rocket Chat login with GroupOffice button
+   Rocket Chat login with GroupOffice button

@@ -30,12 +30,12 @@ Login to Rocket.Chat as administrator and:
    .. figure:: /_static/system-settings/rocketchat/custom-oauth.png
       :width: 80%
 
-       Rocket Chat custom oauth settings
+      Rocket Chat custom oauth settings
 
    .. figure:: /_static/system-settings/rocketchat/custom-oauth-2.png
          :width: 80%
 
-          Rocket Chat custom oauth settings part 2
+         Rocket Chat custom oauth settings part 2
 
 7. Login to GroupOffice and go to System Settings -> Oauth 2.0
 8. Click "Add client" and fill in the fields:

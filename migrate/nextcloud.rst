@@ -69,7 +69,7 @@ The steps to take are:
 Calendar
 --------
 
-Migrating calendars goes via export and import of vcalendar (*.ics) files.
+Migrating calendars goes via export and import of vcalendar (\*.ics) files.
 
 To get an ics file from Nextcloud you need to `publish your calendar <https://docs.nextcloud.com/server/latest/user_manual/en/groupware/calendar.html#publishing-a-calendar>`_
  and download that link. Afterwards you can unpublish it.
@@ -84,11 +84,11 @@ Take these steps:
 Contacts
 --------
 
-Migrating contacts goes via export and import of vCard (*.vcf) files. To download your contacts from the Nextcloud Contacts apps
+Migrating contacts goes via export and import of vCard (\*.vcf) files. To download your contacts from the Nextcloud Contacts apps
  click on the **settings** (gear icon) and go to **Address books** in the settings screen. `From the more options menu choose
  **Download** <https://docs.nextcloud.com/server/25/user_manual/en/groupware/contacts.html#adding-and-managing-address-books>`_. and take these steps:
 
-1. Export all contacts to vCard (*.vcf) file
+1. Export all contacts to vCard (\*.vcf) file
 2. Create all required address books in GroupOffice.
 3. :ref:`Import all vCard files <addressbook-import-export>`.
 

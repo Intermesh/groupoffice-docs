@@ -43,6 +43,7 @@ template in their language. If not found it will fall back on the first language
 The template syntax and examples :ref:`are found below in the templates section<finance_templates>`.
 
 .. _Business finance:
+
 Business
 ````````
 After reloading navigate to System settings -> Business and double click your business. Make sure your business

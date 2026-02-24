@@ -10,7 +10,7 @@ message:
      :width: 400px
      :alt: 2-Factor authentication message
 
-	 2-Factor authentication message
+     2-Factor authentication message
 
 It informs you that the account setup must be completed by logging in to GroupOffice to
 allow the device to connect:

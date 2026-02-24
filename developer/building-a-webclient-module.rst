@@ -1510,10 +1510,10 @@ Now we have to define the custom filter:
 
 * Click the 'Add' button, next to the 'Filters' header in the left panel
 * In the new modal, enter the following parameters:
-** Enter a name that makes sense, e.g. 'Active'
-** Make sure that the option 'Match ALL conditions' is selected
-** Select the field 'Active'
-** Select the value 'Yes'
+    * Enter a name that makes sense, e.g. 'Active'
+    * Make sure that the option 'Match ALL conditions' is selected
+    * Select the field 'Active'
+    * Select the value 'Yes'
 * In the 'Permissions' tab, you can play around with permissions if you wish to
 * Click 'Save'
 

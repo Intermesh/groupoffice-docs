@@ -16,8 +16,6 @@ menu in the record you can:
    all data and references to the user but the user can't login or used for new items. To deactivate a
    user you must "Edit" it and toggle "Login enabled" on the account page.
 
-.. warning::
-
 .. figure:: /_static/system-settings/users.png
    :alt: User list
 
