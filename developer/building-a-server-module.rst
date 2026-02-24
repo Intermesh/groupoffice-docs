@@ -18,7 +18,7 @@ Development environment
 
 If you haven't got your development environment set up, then please do this first.
 
-You can install Group-Office like described in this manual and get started or use 
+You can install GroupOffice like described in this manual and get started or use
 our Docker compose project that installs our images for development:
 
 https://github.com/Intermesh/docker-groupoffice-development
@@ -387,7 +387,7 @@ To define a nice name for the module create ``language/en.php``::
 	<?php
 	return [
 			'name' => 'Music',
-			'description' => 'Simple module for the Group-Office tutorial'
+			'description' => 'Simple module for the GroupOffice tutorial'
 	];
 
 If you're interested you can read more about translating :ref:`here <translations>`.

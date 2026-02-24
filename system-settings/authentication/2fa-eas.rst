@@ -12,7 +12,7 @@ message:
 
 	 2-Factor authentication message
 
-It informs you that the account setup must be completed by logging in to Group-Office to
+It informs you that the account setup must be completed by logging in to GroupOffice to
 allow the device to connect:
 
 .. figure:: ../../_static/system-settings/2fa-eas-approve.png

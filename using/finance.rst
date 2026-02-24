@@ -32,7 +32,7 @@ Navigate to System settings -> modules and install the modules you need:
 
    Install modules
 
-Then reload Group-Office so the System settings page is updated with the new options.
+Then reload GroupOffice so the System settings page is updated with the new options.
 
 Languages
 `````````
@@ -354,7 +354,7 @@ Recurring payments
 ``````````````````
 It's also possible for customers to give mandates for recurring payments via direct debit. The process for customers is
 simple and user-friendly. They can now click the "Direct Debit" button instead of "Pay" and follow the same payment process to set
-up their first recurring payment. Once the next invoice is generated in Group-Office, a background payment will be
+up their first recurring payment. Once the next invoice is generated in GroupOffice, a background payment will be
 automatically created using the mandate provided by the customer.
 
 Our recurring payments feature is compatible with:
@@ -958,7 +958,7 @@ The setup for https://mollie.com is very similar to PayPal:
 - Go to Developers -> API keys
 - Copy the key
 
-Now in Group-Office install the Mollie module and enter the key in System Settings -> Mollie
+Now in GroupOffice install the Mollie module and enter the key in System Settings -> Mollie
 
 
 MultiSafePay
@@ -969,4 +969,4 @@ The setup for https://www.multisafepay.com is very similar to PayPal:
 - Go to Developers -> API keys
 - Copy the key
 
-Now in Group-Office install the MultiSafePay module and enter the key in System Settings -> MultiSafePay
+Now in GroupOffice install the MultiSafePay module and enter the key in System Settings -> MultiSafePay

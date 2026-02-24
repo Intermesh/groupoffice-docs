@@ -5,7 +5,7 @@ With the file search module you can deep search the contents of files. This
 module in combination with custom fields and the quick edit pane makes the
 perfect E-Discovery solution. 
 
-Group-Office can index the following file types:
+GroupOffice can index the following file types:
 
 - Microsoft Office Documents
 - Open Document format (Open Office, LibreOffice)

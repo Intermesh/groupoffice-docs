@@ -20,8 +20,8 @@ click on the "Enable OTP Authenticator" button.
 
 	 OTP Authenticator module
 
-You will be prompted for your Group-Office password. Next you will be asked to 
-scan the QR code with your app to register Group-Office. Enter the code from 
+You will be prompted for your GroupOffice password. Next you will be asked to
+scan the QR code with your app to register GroupOffice. Enter the code from
 the phone to confirm you've set it up and you're done.
 
 Enforce 2FA for user groups

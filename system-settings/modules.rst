@@ -41,7 +41,7 @@ In order to grant access to a group or user, just add them to the list above as 
 in the listed users or groups in this list, they have no access to the module.
 
 The core module permissions can be set by clicking the button labeled 'System Permissions'. If a user does not have access
-to the core module, they cannot use Group-Office. Use with care.
+to the core module, they cannot use GroupOffice. Use with care.
 
 .. figure:: /_static/system-settings/module-add-permissions-66.png
    :alt: Add a group to task permissions

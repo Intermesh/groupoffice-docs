@@ -26,7 +26,7 @@ and subfolders by default:
 4. ``tsconfig.json``: Typescript config.
 
 
-.. note:: This tutorial was written against Group-Office 25.X.
+.. note:: This tutorial was written against GroupOffice 25.X.
 
 Getting started
 ---------------
@@ -93,7 +93,7 @@ Typescript file letter should start with a capital and should be CamelCased, e.g
 
 Style overrides should be created in the ``style/style.scss`` or ``style/style.css`` file.
 
-By convention, a Group-Office module has at least the following files:
+By convention, a GroupOffice module has at least the following files:
 
 1. ``Index.ts``: in which the module is registered and routing is handled. It should also check whether the user has the right permissions for the module.
 2. ``Main.ts``: This is the main screen for the module. It is commonly divided in one to three columns, a filter panel, a list of entities and entity details.
@@ -172,13 +172,13 @@ Next, create an ``Index.ts`` file and paste the following code into it:
     });
 
 What happens, is actually pretty simple: a module is registered inside the `tutorial` package, named `music`. If
-Group-Office authentication is successful and the user is actually allowed to use the `music` module, the following things
+GroupOffice authentication is successful and the user is actually allowed to use the `music` module, the following things
 happen:
 
 1. Translations are loaded
 2. A main panel is defined
 3. Routing is added. There are two routes, one for the simple list and one for an individual artist.
-4. The main panel is added to the available modules in Group-Office.
+4. The main panel is added to the available modules in GroupOffice.
 
 Please note that there is no way yet to retrieve individual artists, so the routing is not done yet. That is a nice
 cliffhanger.
@@ -187,7 +187,7 @@ Main.ts
 -------
 
 A common layout is the three panel layout. In the left ("west") panel one renders filters, the center panel has the list
-of entities and in the right panel ("east"), details are shown for a selected entity. In Group-Office, a separate layout
+of entities and in the right panel ("east"), details are shown for a selected entity. In GroupOffice, a separate layout
 class has been created, so we recreate the ```Main.ts``` file to use this class:
 
 .. code:: typescript
@@ -714,7 +714,7 @@ code into it:
     	}
     }
 
-This is quite a simple form. It extends the built-in ``FormWindow`` class, that is part of the Group-Office core. It
+This is quite a simple form. It extends the built-in ``FormWindow`` class, that is part of the GroupOffice core. It
 expects the Artist entity store as a parameter. When the form is saved, the artist details are opened in the east panel.
 If you defined any custom fields, they are to be rendered below the main form.
 

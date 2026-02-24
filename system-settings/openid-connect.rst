@@ -3,7 +3,7 @@
 OpenID Connect
 ==============
 
-Group-Office can be configured as client to use an external OpenID connect server for **Single Sign On**. But Group-Office can also
+GroupOffice can be configured as client to use an external OpenID connect server for **Single Sign On**. But GroupOffice can also
 be configured as the OpenID connect server.
 
 OpenID Connect client
@@ -16,9 +16,9 @@ configure openID compliant providers such as:
 - `Google <https://developers.google.com/identity/openid-connect/openid-connect>`_
 - `Authentik <https://docs.goauthentik.io/add-secure-apps/providers/oauth2/create-oauth2-provider/>`_
 - `Keycloak <https://www.keycloak.org/securing-apps/oidc-layers>`_
-- Another Group-Office installation
+- Another GroupOffice installation
 
-Once installed a button "Sign up with <MYPROVIDER>" will show on the login page of Group-Office
+Once installed a button "Sign up with <MYPROVIDER>" will show on the login page of GroupOffice
 
 Get started
 ```````````
@@ -46,7 +46,7 @@ Get started
 
 Password authentication
 ```````````````````````
-The SSO method above does not store a password in Group-Office. That enhances the security. But because of this services
+The SSO method above does not store a password in GroupOffice. That enhances the security. But because of this services
 like WebDAV, CalDAV and Microsoft ActiveSync can't work.
 If your authentication backend supports LDAP too you can also setup LDAP authentication so it can offer password authentication for these
 services.
@@ -57,7 +57,7 @@ OpenID Connect server
 ---------------------
 
 `OpenID connect 1.0 <https://openid.net/connect/>`_. is a simple identity layer on top of the OAuth 2.0 protocol. It
-allows Clients to verify the identity of the End-User based on the authentication performed by Group-Office as an
+allows Clients to verify the identity of the End-User based on the authentication performed by GroupOffice as an
 Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and
 REST-like manner.
 

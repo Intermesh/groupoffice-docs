@@ -29,7 +29,7 @@ Our preferred way of installing is using our Debian packages:
 
       apt-get update
 
-6. Then install Group-Office by running::
+6. Then install GroupOffice by running::
 
       apt-get install groupoffice --install-recommends
 
@@ -40,7 +40,7 @@ Our preferred way of installing is using our Debian packages:
 
       apt-get install php-apcu
 
-8. If you purchased **Group-Office Professional licenses** then make sure the
+8. If you purchased **GroupOffice Professional licenses** then make sure the
    `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
    You can run this command to do all the work::
 
@@ -49,11 +49,11 @@ Our preferred way of installing is using our Debian packages:
 9. Then visit http://yourserver/groupoffice and the installer should appear:
 
    .. figure:: /_static/installer.png
-      :alt: The Group-Office installer
+      :alt: The GroupOffice installer
 
-      The Group-Office installer     
+      The GroupOffice installer
 
-10. Follow the instructions on screen and enjoy Group-Office!
+10. Follow the instructions on screen and enjoy GroupOffice!
 
 .. note:: The package installs the apache configuration in /etc/apache2/conf-available/groupoffice.conf.
 
@@ -63,26 +63,26 @@ Our preferred way of installing is using our Debian packages:
 Mailserver
 ----------
 
-You can also use Group-Office as a complete e-mail platform. It's based on:
+You can also use GroupOffice as a complete e-mail platform. It's based on:
 
 1. `Postfix <http://www.postfix.org>`_
 2. `Dovecot <https://www.dovecot.org>`_
-3. Group-Office module to manage mailboxes in the database
+3. GroupOffice module to manage mailboxes in the database
 
 At the moment this is only possible with the Debian / Ubuntu packages.
 
-First install Group-Office and run the web installer. Then you can run::
+First install GroupOffice and run the web installer. Then you can run::
 
    apt-get install groupoffice-mailserver
 
-When this command is finished login to Group-Office as admin and install the 
+When this command is finished login to GroupOffice as admin and install the
 "E-mail domains" module. In this module you can manage the domains, mailboxes
 and aliases.
 
 .. figure:: /_static/email-domains.png
-   :alt: Manage e-mail domains in Group-Office
+   :alt: Manage e-mail domains in GroupOffice
 
-   Manage e-mail domains in Group-Office
+   Manage e-mail domains in GroupOffice
 
 .. note:: There is an issue with special characters in the mysql password. Make sure you don't have ':', '/', '@', '+', '?', '.', and '=' in it if you use the
    mailserver. See https://github.com/trusteddomainproject/OpenDKIM/issues/248#issuecomment-2828125266
@@ -94,7 +94,7 @@ Serverclient module
 The server client allows you to:
 
 1. Create mailboxes when you create a new user
-2. Synchronize mailbox passwords when you set a new Group-Office password.
+2. Synchronize mailbox passwords when you set a new GroupOffice password.
 
 To configure you must:
 
@@ -106,7 +106,7 @@ To configure you must:
 
 	<?php
 	$config = [
-		// GO will connect to this installation to add a mailbox. It is the full url to the Group-Office installation with the postfixadmin module installed.   
+		// GO will connect to this installation to add a mailbox. It is the full url to the GroupOffice installation with the postfixadmin module installed.
 		'serverclient_server_url' => 'http://localhost/groupoffice/',
 
 		//unless your're still using the old postfixadmin module this should be true
@@ -199,7 +199,7 @@ Create a file /etc/letsencrypt/renewal-hooks/post/mailservices with this content
 
 External IMAP access
 ````````````````````
-By default only local connections are allowed. This means only Group-Office can connect. This is very secure but in some cases you want to allow IMAP access from the outside.
+By default only local connections are allowed. This means only GroupOffice can connect. This is very secure but in some cases you want to allow IMAP access from the outside.
 You'll have to configure your firewall or router to allow connections to the server on the necessary ports:
 
 - IMAP: 143
@@ -222,7 +222,7 @@ External SMTP access
 
 External access is possible when using TLS on the submission port (587) with authentication. 
 
-To avoid abuse SMTP access is disabled for accounts by default since version 6.6.139. You can enable external SMTP access in Group-Office at E-mail domains -> Domain -> Mailbox.
+To avoid abuse SMTP access is disabled for accounts by default since version 6.6.139. You can enable external SMTP access in GroupOffice at E-mail domains -> Domain -> Mailbox.
 
 If you want to enable it for all you can run this SQL command::
 

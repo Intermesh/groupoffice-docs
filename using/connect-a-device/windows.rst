@@ -36,7 +36,7 @@ To setup an ActiveSync account take the following steps:
 5. In the next screen you must adjust your server settings. It will prefill the 
    username with the e-mail address and the server name with the domain from 
    your e-mail address. This is most likely **incorrect**.
-   Please adjust to your Group-Office username and enter the :ref:`server-hostname`.
+   Please adjust to your GroupOffice username and enter the :ref:`server-hostname`.
    When done click "Next".
 
    .. figure:: /_static/windows-eas/4-server-settings.png
@@ -49,25 +49,25 @@ To setup an ActiveSync account take the following steps:
       :width: 400px
 
 7. Now you must give it some time to sync everything. Then check your contacts, 
-   e-mail and calendar for your Group-Office data!
+   e-mail and calendar for your GroupOffice data!
 
 .. _assistant-for-windows:
 
-Files - Group-Office assistant
+Files - GroupOffice assistant
 ------------------------------
 
-The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
-Linux computer. It will automatically download files opened from Group-Office and monitor
-it for changes. When the file is saved it automatically uploads it back to Group-Office.
+The GroupOffice Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from GroupOffice and monitor
+it for changes. When the file is saved it automatically uploads it back to GroupOffice.
 
 `Click here for a video of the installation proces <https://www.youtube.com/watch?v=6L7ZtvEAZEQ>`_
 
-`Click here to download Group-Office Assistant for Windows 
+`Click here to download GroupOffice Assistant for Windows
 <https://repo.group-office.com/downloads/group-office-assistant-windows.exe>`_.
 
 After installing it you can use it as follows:
 
-1. In Group-Office right click on a file and choose "Open with".
+1. In GroupOffice right click on a file and choose "Open with".
 
 2. Select the "Your desktop application" option to use the assistant.
 
@@ -92,11 +92,11 @@ Debug
 `````
 If you want to view debug output from the assistant for some reason. You can launch it from the command prompt with these flags::
 
-    "c:\Program Files (x86)\Group-Office Assistant\Group-Office Assistant.exe" -c --console
+    "c:\Program Files (x86)\GroupOffice Assistant\GroupOffice Assistant.exe" -c --console
 
 WebDAV
 ------
-Additionally you can map Group-Office as network drive using WebDAV. Connect your client to
+Additionally you can map GroupOffice as network drive using WebDAV. Connect your client to
 
 \https://[:ref:`server-hostname`]/webdav
 
@@ -106,11 +106,11 @@ Unfortunately there are some known issues with the native Windows WebDAV impleme
 
 1. Basic authentication is blocked since updates in 2023: https://learn.microsoft.com/en-us/deployoffice/security/basic-authentication-prompts-blocked . You can no longer use Microsoft's WebDAV implementation for third party services.
 2. When opening office files you have to re-authenticate: https://support.microsoft.com/en-us/help/2019105/authentication-requests-when-you-open-office-documents
-3. There's a path length limit in both windows and office. So long paths will fail. The URL of your Group-Office counts as path too.
+3. There's a path length limit in both windows and office. So long paths will fail. The URL of your GroupOffice counts as path too.
 
 We recommend to use a WebDAV client:
 
-1. The :ref:`Group-Office Assistant <assistant-for-windows>` if you don't need it mapped as a drive
+1. The :ref:`GroupOffice Assistant <assistant-for-windows>` if you don't need it mapped as a drive
 2. `Mountain Duck WebDAV client <https://mountainduck.io>`_, It offers excellent webdav speed and you can also sync your files offline. The downside is that it brings extra costs per user.
 3. `RaiDrive <https://www.raidrive.com/download>`_, A good client that is free to use but does not have offline synchronisation.
 

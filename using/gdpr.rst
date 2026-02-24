@@ -3,7 +3,7 @@
 Privacy tools
 =============
 
-Group-Office is written to be privacy-friendly. This module is a tool to ensure the privacy of our users' customer data.
+GroupOffice is written to be privacy-friendly. This module is a tool to ensure the privacy of our users' customer data.
 This will make it easier for our users to be GDPR compliant.
 
 GDPR
@@ -27,7 +27,7 @@ You can find the Privacy tools :ref:`module <modules>` in the Business package.
 Configuration
 -------------
 
-Upon installation, the following things are automatically added to Group-Office:
+Upon installation, the following things are automatically added to GroupOffice:
 
 1. A cron job that moves stale contacts to a 'Trash' address book;
 2. An 'Incoming' address book that is monitored by default;

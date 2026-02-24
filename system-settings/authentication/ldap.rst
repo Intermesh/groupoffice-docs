@@ -3,14 +3,14 @@
 LDAP
 ====
 
-You can use an LDAP server to authenticate and autocreate Group-Office users and
+You can use an LDAP server to authenticate and autocreate GroupOffice users and
 e-mail accounts. 
 
 Install
 -------
 
 1. Install the *ldapauthenticator* module at Start menu -> Modules
-2. Reload Group-Office
+2. Reload GroupOffice
 
 Configure
 ---------
@@ -38,7 +38,7 @@ to trigger the LDAP authenticator.
 
 A default domain can be set in the "Authentication" page. When that is set the user can also
 login without the domain. Make sure there's no local user with the same username because that will
-be preferred over the LDAP user. So if there's a user "admin" on Group-Office and a user "admin" on the
+be preferred over the LDAP user. So if there's a user "admin" on GroupOffice and a user "admin" on the
 LDAP server. You can't login without the domain.
 
 **Microsoft ActiveDirectory**
@@ -85,7 +85,7 @@ it will sync daily at midnight.
 Mapping
 -------
 
-When users are created from LDAP a mapping is made from LDAP attributes to the Group-Office user.
+When users are created from LDAP a mapping is made from LDAP attributes to the GroupOffice user.
 This is the default mapping which also contains some examples::
 
    $config['ldapMapping'] = [

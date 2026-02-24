@@ -26,4 +26,4 @@ Bookmarks
 When adding a new bookmark, you need to enter a full URL. Having done that, further information for that bookmark will
 be filled from the website metadata if available.
 
-.. tip:: You can render a bookmark as a module in Group-Office. The title of the bookmark will appear as a clickable tab in the main panel.
+.. tip:: You can render a bookmark as a module in GroupOffice. The title of the bookmark will appear as a clickable tab in the main panel.

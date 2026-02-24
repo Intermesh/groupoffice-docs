@@ -15,7 +15,7 @@ Install the **Office Online** module from the Business package at :ref:`System S
    :alt: Install Office Online
    :width: 400px
 
-Reload Group-Office and go to System Settings -> Office Online.
+Reload GroupOffice and go to System Settings -> Office Online.
 
 Then add your Collabora Online Service. The default port for Collabora Online is **9980**. But with the reverse proxy setup
 above we're using the standard SSL port so it's not necessary to specify it.
@@ -33,6 +33,6 @@ choose :ref:`'Open with...' <files-open-with>`.
 
 
 .. note:: If you get a 404 error when editing because /wopi is not found then you probably are missing the alias in your
-   webserver configuration. The Group-Office Debian and Docker packages automatically create this but with the tarball
+   webserver configuration. The GroupOffice Debian and Docker packages automatically create this but with the tarball
    package you have to do this manually.
    :ref:`Example configuration can be found here. <webserver-aliases>`

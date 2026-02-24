@@ -4,7 +4,7 @@ Users
 =====
 
 User management is available for administrators and any user who has permissions via System Settings -> Modules -> System permissions. 
-When clicking users you will see a list of all Group-Office users. Via the "more"
+When clicking users you will see a list of all GroupOffice users. Via the "more"
 menu in the record you can:
 
 1. Edit the user
@@ -54,9 +54,9 @@ To add a user click the plus icon. A short wizard opens with three steps.
 Supply the username, display name and e-mail address.
 
 - Username is case insensitive.
-- Display name is used in Group-Office
+- Display name is used in GroupOffice
 - Provide an account e-mail address. 
-- Because often Group-Office is used as primary e-mail service you must provide
+- Because often GroupOffice is used as primary e-mail service you must provide
   a secondary e-mail address for e-mail recovery. If not available just use
   your primary e-mail.
 

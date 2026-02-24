@@ -28,7 +28,7 @@ The code generator already created these files:
 3. ``scripts.txt``: All js files must be listed in the correct order here.
 4. ``themes/default/style.css``. Module specific style can be placed here. You can use our _base.scss file to use functions and variables from the main style.
 
-When opening Group-Office you should see "Music" in the start menu. When opening it shows "Hello world".
+When opening GroupOffice you should see "Music" in the start menu. When opening it shows "Hello world".
 
 
 Entities

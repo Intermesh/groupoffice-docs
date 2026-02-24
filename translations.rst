@@ -3,7 +3,7 @@
 Translations
 ============
 
-Group-Office comes in many languages thanks to our community!
+GroupOffice comes in many languages thanks to our community!
 
 At the moment we have the following:
 

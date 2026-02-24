@@ -3,7 +3,7 @@
 Connect a device
 ================
 
-It's possible to synchronize your phone, tablet or computer with Group-Office.
+It's possible to synchronize your phone, tablet or computer with GroupOffice.
 The following items can be synchronized:
 
 - Contacts
@@ -20,8 +20,8 @@ On desktop computers you can edit files directly with your desktop applications.
 Server hostname
 ---------------
 
-You can connect to Group-Office with various software and devices. For all 
-systems it's important to know the hostname of your Group-Office. You can find 
+You can connect to GroupOffice with various software and devices. For all
+systems it's important to know the hostname of your GroupOffice. You can find
 that in the browser as shown in the highlighted part in this figure:
 
 .. figure:: /_static/server-hostname.png

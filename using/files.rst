@@ -3,13 +3,13 @@
 Files
 =====
 
-Managing and editing documents is one of the core functions of Group-Office. Document management is integrated across
+Managing and editing documents is one of the core functions of GroupOffice. Document management is integrated across
 all modules such as contact management, projects, email and the files module. Collaborating on documents in
 the browser using :ref:`Collabora Online <collabora_online>`, :ref:`Microsoft Office Online <officeonline>` or
-:ref:`Only Office <onlyoffice>` is an essential feature in the daily workflow of Group-Office users. Create or edit
-files directly in Group-Office and collaborate with your colleagues on spreadsheets or text documents.
+:ref:`Only Office <onlyoffice>` is an essential feature in the daily workflow of GroupOffice users. Create or edit
+files directly in GroupOffice and collaborate with your colleagues on spreadsheets or text documents.
 
-Group-Office stands out by combining powerful document management, seamless module integration, and secure real-time collaboration in one unified platform.
+GroupOffice stands out by combining powerful document management, seamless module integration, and secure real-time collaboration in one unified platform.
 
 In the "Files" tab you can manage your personal files and share folders with other users. The files module is
 integrated in most other modules as well. So you can add files to Contacts, Projects, Tasks, Appointments etc.
@@ -32,7 +32,7 @@ The files module supports:
 
 Share folders
 -------------
-It's easy to share folders in Group-Office. Any user can do it. If you want to create a shared folder for the whole
+It's easy to share folders in GroupOffice. Any user can do it. If you want to create a shared folder for the whole
 organization it's recommended to do this as the "admin" user. Take the following steps:
 
 1. Right click on the folder that you want to share and click 'Properties'
@@ -88,7 +88,7 @@ Depending on the file type and access to email, a user can share their files in 
 
 
 1. **Copy direct link**: ill copy a direct link to the file to the clipboard. In order to use a direct link as copied to
-the clipboard, one should be logged into Group-Office and have access to the file's parent folder. Otherwise, they will
+the clipboard, one should be logged into GroupOffice and have access to the file's parent folder. Otherwise, they will
 be redicerted to the front page.
 
 2. **Create download link**: will generate a token and create a link for that. You can copy/paste that link from the
@@ -118,9 +118,9 @@ Integrations
 Assistant
 ~~~~~~~~~
 
-The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
-Linux computer. It will automatically download files opened from Group-Office and monitor
-it for changes. When the file is saved it automatically uploads it back to Group-Office.
+The GroupOffice Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from GroupOffice and monitor
+it for changes. When the file is saved it automatically uploads it back to GroupOffice.
 
 It also assists in mounting a network drive.
 
@@ -140,7 +140,7 @@ Collabora Online
 
    Collabora Online
 
-Group-Office offers seamless integration with `Collabora Online <https://www.collaboraonline.com/>`_. Create or edit files directly in Group-Office and collaborate with your colleagues on spreadsheets or text documents. For installing read the :ref:`Collabora Online installation page<collabora-online-install>`.
+GroupOffice offers seamless integration with `Collabora Online <https://www.collaboraonline.com/>`_. Create or edit files directly in GroupOffice and collaborate with your colleagues on spreadsheets or text documents. For installing read the :ref:`Collabora Online installation page<collabora-online-install>`.
 
 .. _officeonline:
 
@@ -159,7 +159,7 @@ open with "Office Online" and make it the default if you desire.
 n our cloud version it's already configured by default. Now you can open a document in the files module
 with Office 365 by right clicking on a file and choose :ref:`'Open with...' <files-open-with>`.
 
-You can also host Office Online yourself and integrate it with Group-Office. Read more about that here:
+You can also host Office Online yourself and integrate it with GroupOffice. Read more about that here:
 
 https://docs.microsoft.com/en-us/officeonlineserver/office-online-server
 
@@ -174,7 +174,7 @@ OnlyOffice
 
    OnlyOffice
 
-Run your private office with Group-Office and `OnlyOffice <https://www.onlyoffice.com>`__.
+Run your private office with GroupOffice and `OnlyOffice <https://www.onlyoffice.com>`__.
 
 Designed to make collaboration easy. A complete productivity suite to run your entire business with.
 
@@ -185,6 +185,6 @@ For installing read the :ref:`OnlyOffice installation page. <onlyoffice-install>
 WebDAV
 ~~~~~~
 
-You mount Group-Office as a network drive on your workstation.
+You mount GroupOffice as a network drive on your workstation.
 
 For more information read the page: :ref:`connect-a-device`.

@@ -4,7 +4,7 @@
 Links
 =====
 
-Group-Office has a very powerful link function. Each item can be linked to 
+GroupOffice has a very powerful link function. Each item can be linked to
 another. The link function gives you the ability to organize your data easily.
 You can for example link:
 

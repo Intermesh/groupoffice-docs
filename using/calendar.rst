@@ -267,7 +267,7 @@ Video meetings
 To plan a video meeting, users can insert a link to the video meeting in the location field
 When configured, there will be a button with a video camera and plus sign next to the field.
 
-Group-Office currently has two modules providing video meeting links:
+GroupOffice currently has two modules providing video meeting links:
 
 - :ref:`jitsimeet`
 - :ref:`msteams`

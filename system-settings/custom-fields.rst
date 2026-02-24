@@ -4,7 +4,7 @@ Custom fields
 =============
 
 Every organization is different and has different data to store. That's why most 
-entities in Group-Office can be extended with custom fields.
+entities in GroupOffice can be extended with custom fields.
 
 Custom fields show in the:
 

@@ -28,7 +28,7 @@ You can do this via the save as menu:
 
 or via right click on email in the message grid.
 
-When you link an e-mail it is copied from the mail server and stored in the Group-Office database. So when
+When you link an e-mail it is copied from the mail server and stored in the GroupOffice database. So when
 you delete mail from the mail server the linked e-mails will be preserved.
 
 .. note:: When linking an email, the copy inherits the permissions of the target item. So by linking the e-amil
@@ -100,7 +100,7 @@ Secretary
 `````````
 If you want a secretary who handles calendar invitations, you may need to share
 the e-mail accounts too. It's important that you share the owner's e-mail
-account instead of adding a duplicate mail account. Group-Office uses the e-mail
+account instead of adding a duplicate mail account. GroupOffice uses the e-mail
 account owner to find the right calendar to store the appointments in.
 
 When you share an account there are three levels:
@@ -120,7 +120,7 @@ When you share an account there are three levels:
 
 Sharing folders
 ---------------
-Group-Office also supports sharing folders via IMAP. If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
+GroupOffice also supports sharing folders via IMAP. If the mailserver supports it you should see a "Share" option in the right click menu of a folder:
 
 
 .. figure:: /_static/using/email/share-folder.png
@@ -129,7 +129,7 @@ Group-Office also supports sharing folders via IMAP. If the mailserver supports 
    Share folder
 
 
-Note that the username should be the IMAP username and not the Group-Office username.
+Note that the username should be the IMAP username and not the GroupOffice username.
 When the folder is shared it doesn't automatically subscribe it for the users. So they have to subscribe to
 the folder before they can use it. You can read about subscribing in the next chapter.
 
@@ -314,7 +314,7 @@ You can also check if a value is not empty using <gotpl></gotpl> tags::
 
    <gotpl if="user:work_phone">Tel: {user:work_phone}</gotpl>
 
-.. note:: Microsoft Word automatically changes double quotes (") into curly quotes. Group-Office needs the regular
+.. note:: Microsoft Word automatically changes double quotes (") into curly quotes. GroupOffice needs the regular
    quotes to function. You can press Ctrl+Z (Undo) immediately after Word performs the AutoFormat that changes them to
    "curly" quotes to have an ordinary double quote.
 
@@ -383,7 +383,7 @@ Spam filter
 
 Most e-mail servers are setup with a spam filter. We use Spamassassin on our 
 hosted services. Spam filters flag messages as spam but you need a mail 
-filtering rule to do something with it. Group-Office creates one by default 
+filtering rule to do something with it. GroupOffice creates one by default
 but if for some reason it isn't there you can create it at:
 
 E-mail -> Administration -> Account -> Filters.
@@ -411,7 +411,7 @@ Click on "Add" and match the settings like in this screenshot:
 Out of office
 ~~~~~~~~~~~~~
 
-Group-Office allows you to configure an out of office message easily. Go to:
+GroupOffice allows you to configure an out of office message easily. Go to:
 
 E-mail -> Administration -> Accounts -> Double click your account -> Out office.
 
@@ -425,7 +425,7 @@ Select a period and configure a message and activate the filter.
 Without sieve support
 `````````````````````
 
-When sieve is not supported. Group-Office will fallback on a simpler filtering 
+When sieve is not supported. GroupOffice will fallback on a simpler filtering
 system. It can only move incoming e-mails to specified folders based on the 
 from, to or subject text.
 
@@ -439,15 +439,15 @@ from, to or subject text.
 Default mail client on your computer
 ------------------------------------
 
-You can setup Group-Office as your default mail client on your macOS, Windows or Linux computer. So when clicking an
-e-mail address in other applications Group-Office will open with the e-mail compose window.
+You can setup GroupOffice as your default mail client on your macOS, Windows or Linux computer. So when clicking an
+e-mail address in other applications GroupOffice will open with the e-mail compose window.
 To do this you need to install the :ref:`assistant`. When it's installed you can select it in your OS:
 
-.. note:: For this to work you will have to edit at least one file so the assisant knows where your Group-Office installation is hosted.
+.. note:: For this to work you will have to edit at least one file so the assisant knows where your GroupOffice installation is hosted.
 
 Windows
 ```````
-Go to Settings -> Apps -> "Default apps" and select "Group-Office" for mail:
+Go to Settings -> Apps -> "Default apps" and select "GroupOffice" for mail:
 
 .. figure:: /_static/using/email/windows-10-default-apps.png
    :width: 100%
@@ -457,7 +457,7 @@ Go to Settings -> Apps -> "Default apps" and select "Group-Office" for mail:
 macOS
 `````
 
-Go to Mail -> Preferences -> General and select "Group-Office Assistant" as default e-mail reader:
+Go to Mail -> Preferences -> General and select "GroupOffice Assistant" as default e-mail reader:
 
 .. figure:: /_static/using/email/macos-default-mail-reader.png
    :width: 100%
@@ -468,7 +468,7 @@ Go to Mail -> Preferences -> General and select "Group-Office Assistant" as defa
 Ubuntu or (other Gnome based Linux OS)
 ``````````````````````````````````````
 
-Go to Settings -> Details -> "Default applications" and select "Group-Office Assistant" for mail:
+Go to Settings -> Details -> "Default applications" and select "GroupOffice Assistant" for mail:
 
 .. figure:: /_static/using/email/ubuntu-default-apps.png
    :width: 100%
@@ -482,7 +482,7 @@ With S/MIME you can sign and encrypt your messages. If the S/MIME module has bee
 
 E-mail -> Settings -> Accounts -> Double click account.
 
-Here you must upload a PCSK12 (``*.p12``) certificate. For security reasons, you must enter your Group-Office password here. Group-Office will verify that the Group-Office password does not match the PCSK12 password file. A PCSK12 file without a password will also not be accepted.
+Here you must upload a PCSK12 (``*.p12``) certificate. For security reasons, you must enter your GroupOffice password here. GroupOffice will verify that the GroupOffice password does not match the PCSK12 password file. A PCSK12 file without a password will also not be accepted.
 
 .. figure:: /_static/using/email/smime-account-settings.jpg
    :width: 100%
@@ -496,9 +496,9 @@ http://kb.mozillazine.org/Getting_an_SMIME_certificate
 
 You can import the certificate into Firefox and create a ``*.p12`` backup file at with the Firefox certificate manager.
 You can find that in the Advanced menu of the Firefox preferences tab. For security reasons, make sure you choose a password
-that is different from your Group-Office account.
+that is different from your GroupOffice account.
 
-.. note:: Somehow Group-Office is unable to verify the certificate if you generate the p12 backup file with Google Chrome. Please use Firefox to obtain your p12 file.
+.. note:: Somehow GroupOffice is unable to verify the certificate if you generate the p12 backup file with Google Chrome. Please use Firefox to obtain your p12 file.
 
 Signing and Encrypting messages
 ```````````````````````````````
@@ -513,12 +513,12 @@ You can obtain public certificates by verifying their signatures when they send 
 
 Verifying and saving public certificates
 ````````````````````````````````````````
-When you receive a signed message, you can verify the signature. When the signature is valid.  Group-Office will automatically
+When you receive a signed message, you can verify the signature. When the signature is valid.  GroupOffice will automatically
 save the public certificate which can be used to send encrypted messages.
 
 Root Certificates
 `````````````````
-For correct verification you might need to set some extra certificates in the Group-Office config file. For debian servers,
+For correct verification you might need to set some extra certificates in the GroupOffice config file. For debian servers,
 the following extra setting should suffice:
 
 .. code-block:: php
@@ -541,7 +541,7 @@ Searching in message bodies
 ---------------------------
 As of Group Office 6.6.103, searching in email bodies has been disabled by default. Full body search is quite a resource
 hog. If you want to search the bodies you should implement Full Text Search indexing on the server.
-The Group-Office mailserver supports FTS and advertises this so it's enabled automatically. If you do wish to enable
+The GroupOffice mailserver supports FTS and advertises this so it's enabled automatically. If you do wish to enable
 email body search for other IMAP servers, please add the following configuration option to your Group Office
 :ref:`configuration file <configuration>`:
 

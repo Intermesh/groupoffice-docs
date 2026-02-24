@@ -4,7 +4,7 @@ Docker
 Core System
 -----------
 
-It's very easy to install Group-Office with docker. Please follow the instructions
+It's very easy to install GroupOffice with docker. Please follow the instructions
 on our docker-groupoffice github repository:
 
 https://github.com/Intermesh/docker-groupoffice

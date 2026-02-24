@@ -1,7 +1,7 @@
 Search
 ======
 
-Group-Office has a powerful search function that will search through all items.
+GroupOffice has a powerful search function that will search through all items.
 
 You can find it at the top bar:
 

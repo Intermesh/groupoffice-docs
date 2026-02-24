@@ -10,26 +10,26 @@ On Mac OS you can synchronize:
 
 .. _assistant-for-macos:
 
-Files - Group-Office Assistant
+Files - GroupOffice Assistant
 ------------------------------
 
-The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
-Linux computer. It will automatically download files opened from Group-Office and monitor
-it for changes. When the file is saved it automatically uploads it back to Group-Office.
+The GroupOffice Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from GroupOffice and monitor
+it for changes. When the file is saved it automatically uploads it back to GroupOffice.
 
-Download the Group-Office Assistant for:
+Download the GroupOffice Assistant for:
 
 - `MacOS (Sillicon) <https://repo.group-office.com/downloads/group-office-assistant-macos-aarch64.dmg>`_.
 - `MacOS (Intel) <https://repo.group-office.com/downloads/group-office-assistant-macos-x64.dmg>`_.
 
 After downloading take the following steps to install:
 
-1. Open the DMG file and drag "Group-Office Assistant" in the "Applications" folder.
+1. Open the DMG file and drag "GroupOffice Assistant" in the "Applications" folder.
 
    .. figure:: /_static/macos-assistant/1-dmg.png
       :width: 400px
 
-2. In Group-Office right click on a file and choose "Open with".
+2. In GroupOffice right click on a file and choose "Open with".
 
 3. Select the "Your desktop application (WebDAV) option to use the assistant.
 
@@ -42,7 +42,7 @@ After downloading take the following steps to install:
 
 WebDAV clients
 ``````````````
-You can use WebDAV to mount Group-Office as a network drive. Unfortunately the MacOS webdav implementation can be rather
+You can use WebDAV to mount GroupOffice as a network drive. Unfortunately the MacOS webdav implementation can be rather
 slow due to a lot of redundant requests.
 We found that the `Mountain Duck WebDAV client <https://mountainduck.io>`_ is much faster. Additionally, it has
 a smart synchronisation feature to work with your files offline. Connect the client to:
@@ -85,7 +85,7 @@ Adding contacts and calendar accounts work identically in MacOS. Just choose
    .. figure:: /_static/macos-caldav/5-account-settings.png
       :width: 400px
 
-6. Now check your Calendar or Contact app for your Group-Office data!
+6. Now check your Calendar or Contact app for your GroupOffice data!
 
 .. note:: Unfortunately the Contacts app on MacOS will only sync the first address book in CardDAV.
 
@@ -100,7 +100,7 @@ Intermesh uses:
 +-----------------------------+-----------------------------------+
 | Username                    | E-mail address                    |
 +-----------------------------+-----------------------------------+
-| Password                    | Group-Office password             |
+| Password                    | GroupOffice password             |
 +-----------------------------+-----------------------------------+
 | Incoming mail server (IMAP) | imap.group-office.com on port 143 |
 +-----------------------------+-----------------------------------+

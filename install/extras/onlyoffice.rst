@@ -8,13 +8,13 @@ OnlyOffice
 
    OnlyOffice
 
-Run your private office with Group-Office and `OnlyOffice <https://www.onlyoffice.com>`_.
+Run your private office with GroupOffice and `OnlyOffice <https://www.onlyoffice.com>`_.
 Designed to make collaboration easy. A complete productivity suite to run your entire business with.
 Edit Text Documents, Spreadsheets and Presentations online in your browser.
 
 You'll need a working OnlyOffice installation first following their guides at https://www.onlyoffice.com.
 
-When you have that setup and running. You need to install the module in Group-Office at
+When you have that setup and running. You need to install the module in GroupOffice at
 :ref:`System Settings -> Modules <modules>`.
 
 .. figure:: /_static/using/files/onlyoffice-module-install.png
@@ -25,7 +25,7 @@ When you have that setup and running. You need to install the module in Group-Of
 
 Check the box and add the appropriate permissions in the dialog that pops up.
 
-Now reload Group-Office and go to System Settings -> OnlyOffice:
+Now reload GroupOffice and go to System Settings -> OnlyOffice:
 
 .. figure:: /_static/using/files/onlyoffice-systemsettings.png
    :alt: OnlyOffice System settings
@@ -39,7 +39,7 @@ Now you can open a document in the files module with OnlyOffice by right clickin
 choose :ref:`'Open with...' <files-open-with>`.
 
 .. note:: If you get a 404 error when editing because /onlyoffice is not found then you probably are missing the alias in your
-   webserver configuration. The Group-Office Debian and Docker packages automatically create this but with the tarball
+   webserver configuration. The GroupOffice Debian and Docker packages automatically create this but with the tarball
    package you have to do this manually.
    :ref:`Example configuration can be found here. <webserver-aliases>`
 

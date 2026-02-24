@@ -1,15 +1,15 @@
-Group-Office manual
+GroupOffice manual
 ===================
 
 .. figure:: _static/using/calendar/calendar-light.png
    :alt: The Group Office calendar
 
 
-Group-Office is an open-source groupware and CRM application. It's our mission to simplify your daily office tasks and
+GroupOffice is an open-source groupware and CRM application. It's our mission to simplify your daily office tasks and
 keep your data private and under your control.
 
 Easy to use modules such as the Calendar, Address Book, Projects and time tracking come by default. But it's also
-possible to customize Group-Office with your own custom modules.
+possible to customize GroupOffice with your own custom modules.
 
 Visit https://www.group-office.com for more information. Source code can be found at https://github.com/Intermesh.
 

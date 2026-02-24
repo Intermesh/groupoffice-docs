@@ -1,16 +1,16 @@
 .. _goui:
 
 
-Group-Office User Interface Framework
+GroupOffice User Interface Framework
 =====================================
 
 Introducing GOUI
 ----------------
 
 Since version 6.7, we have started phasing out ExtJS in favor of our own TypeScript framework.
-We have named it GOUI, which is short for Group-Office User Interface. As of 2023, ExtJS is considered obsolete
+We have named it GOUI, which is short for GroupOffice User Interface. As of 2023, ExtJS is considered obsolete
 and it contains unnecessary compatibility layers for browsers that have been obsoleted for years now. As yet,
-Group-Office will keep supporting ExtJS, but all new development will use the GOUI framework.
+GroupOffice will keep supporting ExtJS, but all new development will use the GOUI framework.
 
 GOUI is written in `TypeScript <https://typescriptlang.org>` and is intended to generate clean Javascript and HTML code.
 In that respect, GOUI is clearly inspired by ExtJS. However, the generated code is more suited to more modern standards
@@ -22,7 +22,7 @@ GOUI Documentation
 
 You can find the full documentation on our `GOUI documentation site <https://goui.io>`_.
 
-Group-Office library for GOUI
+GroupOffice library for GOUI
 -----------------------------
 
 To get ahead of the rewrite of the :ref:`web client tutorial <webclient_module>`, please note that in order to start

@@ -5,7 +5,7 @@ After deprecated modules get deleted from the source, they are no longer uninsta
 If you haven't uninstalled the deleted module before upgrading, there might be tables
 in the database that remain there forever but are no longer used.
 
-Older Group-Office instances that have gone through several version upgrades have lots of old data stored in their 
+Older GroupOffice instances that have gone through several version upgrades have lots of old data stored in their
 databases. As older modules get replaced by newer modules, old database items are being converted to new database 
 items. The database of the old module will not be deleted by default, but as the newer modules use the new tables, 
 the old tables just take up space.

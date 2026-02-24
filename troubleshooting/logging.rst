@@ -3,7 +3,7 @@
 Logging
 =======
 
-Errors on the Group-Office server will be logged trough PHP. Normally you can find errors in the webserver error log.
+Errors on the GroupOffice server will be logged trough PHP. Normally you can find errors in the webserver error log.
 When using apache this is::
 
    /var/log/apache2/error.log
