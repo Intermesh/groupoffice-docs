@@ -29,6 +29,39 @@ The user can be given the following permissions on the module
 | Change resources  | Ability to manage resources and resource groups.        |
 +-------------------+---------------------------------------------------------+
 
+Calendar Types
+--------------
+
+There are two calendar types:
+
+1. **Owned calendar**
+
+   * `owner` field is set.
+   * All users act on behalf of the owner.
+   * Accepting invites or sending invitations is done in the owner’s name (secretary model).
+
+2. **Shared calendar**
+
+   * `owner` field is empty.
+   * Each user acts as themselves.
+   * Accepting invites or sending invitations is done in the current user’s name.
+
+Invites
+-------
+
+Invites are events organized by another user (possibly on a different server).
+
+Constraints:
+
+* Participants cannot reschedule the event.
+* Allowed actions:
+
+  * Move to another calendar.
+  * Delete from calendar.
+* For recurring invites:
+
+  * Move/Delete applies only to the full series.
+  * Individual instances can be declined.
 
 Calendars
 ---------
