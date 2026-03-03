@@ -63,10 +63,11 @@ Constraints:
   * Move/Delete applies only to the full series.
   * Individual instances can be declined.
 
-Calendars
+Personal Calendar
 ---------
-When you launch the calendar for the first time there might be no calendar for you yet. But when you add your first appointment
-it will ask to add a personal calendar for you.
+Every user with access to the calendar module has a personal calendar by default.
+If a user is not allowed to create or modify calendars, and does not have at least one writable calendar,
+a dialog is shown prompting the user to create a new personal calendar.
 
 Subscribing
 -----------
