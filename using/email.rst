@@ -183,15 +183,6 @@ You can't use this feature together with the plain text signature at
 E-mail -> Administration -> Accounts -> Double click account row. Either use 
 the simple plain text signature here or the e-mail templates.
 
-Changing the font
-`````````````````
-
-You can't select a font in the template editor. The font is globally defined in 
-:ref:`config.php <configuration>`. The administrator can change the default font::
-
-    $config['$html_editor_font']="font-size:13px; font-family:Arial, Helvetica, sans-serif;";
-
-
 .. _template-variables:
 
 Template variables
