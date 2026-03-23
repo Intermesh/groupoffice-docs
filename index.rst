@@ -90,6 +90,7 @@ Table of contents
    using/gdpr
    using/msteams
    using/kanban
+   using/forms
 
 .. toctree::
    :maxdepth: 2
