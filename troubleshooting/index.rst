@@ -3,7 +3,7 @@ Troubleshooting
 
 Lost password
 -------------
-If you lost the password for the admin user you can reset it on the command line::
+If you lost the password for the admin user you can reset it on the command line interfacer (CLI)::
 
    sudo -u www-data ./cli.php core/System/setPassword --username=admin
 
