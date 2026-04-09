@@ -3,7 +3,7 @@
 Sharing
 =======
 
-All items in Group-Office are protected with permissions. For example 
+All items in GroupOffice are protected with permissions. For example
 address books, task lists, calendars, Note categories, Billing books and 
 project types have access control. When you setup permissions you can add 
 user groups and users to the access control list. There are different levels of 

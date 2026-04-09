@@ -293,6 +293,6 @@ is good). Finally, the user is displayed with their avatar (if available).
 Conclusion
 ----------
 
-That's it. You have just created a Group-Office module in our lightweight GOUI framework. You have been taught the
+That's it. You have just created a GroupOffice module in our lightweight GOUI framework. You have been taught the
 concepts of Entities and Properties, you learnt how to make certain entities shareable and you have learnt how to create
 a fancy frontend with relatively little code.

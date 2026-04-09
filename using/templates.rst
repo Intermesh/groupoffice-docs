@@ -3,7 +3,7 @@
 Templates
 =========
 
-Group-Office has a flexible template system supporting variables with filters and structural blocks.
+GroupOffice has a flexible template system supporting variables with filters and structural blocks.
 They are used for newsletters, reports, invoice templates etc.
 
 .. _template_syntax:
@@ -83,7 +83,7 @@ By default some variables are already present:
 
  - ``{{now|date:Y-m-d}}`` The current date time object. In this example a date filter is used.
  - ``{{system.title}}`` The title configured at System Settings -> General
- - ``{{system.url}}`` The URL to Group-Office configured at System Settings -> General
+ - ``{{system.url}}`` The URL to GroupOffice configured at System Settings -> General
  - ``{{:pnp:}}`` The current page number
  - ``{{:ptp:}}`` The total number of pages
 

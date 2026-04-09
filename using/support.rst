@@ -19,7 +19,7 @@ The tickets module supports:
 - :ref:`sharing`
 - :ref:`files`
 
-One can install and configure the 'Help' module to enable end users to submit support requests from within Group-Office.
+One can install and configure the 'Help' module to enable end users to submit support requests from within GroupOffice.
 
 Roles
 -----
@@ -37,20 +37,20 @@ There are roughly three ways to enter a ticket:
 2. Create one manually from within the Support module;
 3. Create one manually from within the Help module;
 
-When an end user sends an email to a support mailbox, they are matched to an existing user in Group-Office. If they do
+When an end user sends an email to a support mailbox, they are matched to an existing user in GroupOffice. If they do
 not exist, a new user is created. In order for this to work, currently you must enable user registration in the
 :ref:`authentication` tab in System Settings.
 
 Help module
 ```````````
 
-This is a simple module that enables end users to submit tickets from within Group-Office itself. In this module, the
+This is a simple module that enables end users to submit tickets from within GroupOffice itself. In this module, the
 user can see their own submitted tickets. Entering a new ticket is as easy as clicking the button 'New Request':
 
 .. figure:: /_static/using/support/new-request.png
    :width: 100%
 
-   Submit a support request from within Group-Office
+   Submit a support request from within GroupOffice
 
 
 Usage by ticket agents
@@ -142,7 +142,7 @@ automatically closed.
 Migration of tickets
 ````````````````````
 
-The migration from the :ref:`tickets` module is easy. Log into the command line on the Group-Office server, navigate to the
+The migration from the :ref:`tickets` module is easy. Log into the command line on the GroupOffice server, navigate to the
 source subdirectory (normally ``/usr/share/groupoffice/``) and run the following command:
 
 ``sudo -u www-data php /usr/share/groupoffice/cli.php business/support/Tools/migrate  --userId=1 -c=/etc/groupoffice/config.php``

@@ -29,11 +29,45 @@ The user can be given the following permissions on the module
 | Change resources  | Ability to manage resources and resource groups.        |
 +-------------------+---------------------------------------------------------+
 
+Calendar Types
+--------------
 
-Calendars
+There are two calendar types:
+
+1. **Owned calendar**
+
+   * `owner` field is set.
+   * All users act on behalf of the owner.
+   * Accepting invites or sending invitations is done in the owner’s name (secretary model).
+
+2. **Shared calendar**
+
+   * `owner` field is empty.
+   * Each user acts as themselves.
+   * Accepting invites or sending invitations is done in the current user’s name.
+
+Invites
+-------
+
+Invites are events organized by another user (possibly on a different server).
+
+Constraints:
+
+* Participants cannot reschedule the event.
+* Allowed actions:
+
+  * Move to another calendar.
+  * Delete from calendar.
+* For recurring invites:
+
+  * Move/Delete applies only to the full series.
+  * Individual instances can be declined.
+
+Personal Calendar
 ---------
-When you launch the calendar for the first time there might be no calendar for you yet. But when you add your first appointment
-it will ask to add a personal calendar for you.
+Every user with access to the calendar module has a personal calendar by default.
+If a user is not allowed to create or modify calendars, and does not have at least one writable calendar,
+a dialog is shown prompting the user to create a new personal calendar.
 
 Subscribing
 -----------
@@ -49,7 +83,7 @@ Add remote calendar
 -------------------
 
 In the more options menu shown above you also find the "Add calendar from link" option. That option allows you to add
-a remote public calendar published in vCalendar (*.ics) format.
+a remote public calendar published in vCalendar (\*.ics) format.
 
 .. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
     Nextcloud or iCloud) that synchronizes bi directional.
@@ -59,7 +93,7 @@ a remote public calendar published in vCalendar (*.ics) format.
 Import and export
 -----------------
 
-You can import and export vcalendar (*.ics) files via the more menu:
+You can import and export vcalendar (\*.ics) files via the more menu:
 
 .. figure:: /_static/using/calendar/calendar-import-export.png
    :width: 100%
@@ -267,7 +301,7 @@ Video meetings
 To plan a video meeting, users can insert a link to the video meeting in the location field
 When configured, there will be a button with a video camera and plus sign next to the field.
 
-Group-Office currently has two modules providing video meeting links:
+GroupOffice currently has two modules providing video meeting links:
 
 - :ref:`jitsimeet`
 - :ref:`msteams`

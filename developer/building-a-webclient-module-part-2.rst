@@ -469,4 +469,4 @@ In this file, a number of things happen:
 The End
 -------
 
-This concludes our webclient tutorial. There is one thing left to say: have fun coding your own Group-Office modules!
+This concludes our webclient tutorial. There is one thing left to say: have fun coding your own GroupOffice modules!

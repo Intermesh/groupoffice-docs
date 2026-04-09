@@ -4,7 +4,7 @@
 Workflow
 ========
 
-With this module you can add steps that need approval to almost every item inside Group-Office.
+With this module you can add steps that need approval to almost every item inside GroupOffice.
 
 Simple example usage (homework)
 +++++++++++++++++++++++++++++++
@@ -33,7 +33,7 @@ Adding a Workflow Process
 Create a Workflow Process
 +++++++++++++++++++++++++
 
-1. Go to the "Workflow" tab inside Group-Office.
+1. Go to the "Workflow" tab inside GroupOffice.
 2. Click on the "Administration" button.
 3. The "Workflow process" grid will be showed in a new window. Click on "Add" to start creating a new workflow Process.
 4. Fill in a name for the new workflow process and click on "Apply" to save it. (After you have clicked on "Apply" the other tabs ("Steps", "Permissions") will be enabled.
@@ -43,7 +43,7 @@ Create a Workflow Process
 Add Steps to Workflow Process
 +++++++++++++++++++++++++++++
 
-To add a step in a workflow process you need to go to the "Edit workflow" window. Go to the "Workflow" tab inside Group-Office.
+To add a step in a workflow process you need to go to the "Edit workflow" window. Go to the "Workflow" tab inside GroupOffice.
 
 1. Click on the "Administration" button.
 2. The "Workflow process" grid will be showed in a new window. Double click on an existing workflow process or click on "Add" to start creating a new workflow Process.
@@ -68,7 +68,7 @@ To add a step in a workflow process you need to go to the "Edit workflow" window
 Attach Workflow to an Entity
 ````````````````````````````
 
-Attaching a workflow process to an item inside Group-Office can be done as described in the steps below.
+Attaching a workflow process to an item inside GroupOffice can be done as described in the steps below.
 
 Attach to single item
 +++++++++++++++++++++

@@ -1,7 +1,7 @@
 .. _user-manual:
 
 User manual
-=========
+===========
 
 This part is for the end users.
 
@@ -18,9 +18,11 @@ This part is for the end users.
   filters
   webdav/webdav
 
+**Groupware modules**
+
 .. toctree::
    :maxdepth: 2
-   :caption: Community Modules
+   :caption: Groupware
 
   email
   calendar
@@ -36,9 +38,13 @@ This part is for the end users.
   templates
   bookmarks
 
+
+**Professional modules**
+
+
 .. toctree::
    :maxdepth: 2
-   :caption: Professional package
+   :caption: Professional
 
   business
   tickets

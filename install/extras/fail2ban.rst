@@ -10,7 +10,7 @@ It works by monitoring the apache access log for invalid logins.
 
       - Web auth in groupoffice.conf::
 
-            # Fail2Ban filter for Group-Office authentication failures
+            # Fail2Ban filter for GroupOffice authentication failures
             # logpath must be the webserver error log
 
             [Definition]
@@ -20,7 +20,7 @@ It works by monitoring the apache access log for invalid logins.
 
       - Lost password request groupoffice-lost-password.conf::
 
-            # Fail2Ban filter for Group-Office lost password requests
+            # Fail2Ban filter for GroupOffice lost password requests
             # logpath must be the webserver error log
 
             [Definition]
@@ -55,7 +55,7 @@ For more information about Fail2ban and the configuration of it visit https://ww
 Mailserver
 ----------
 
-If you use the Group-Office mailserver then also enable these filters  in /etc/fail2ban/jail.d/groupoffice-mailserver.conf::
+If you use the GroupOffice mailserver then also enable these filters  in /etc/fail2ban/jail.d/groupoffice-mailserver.conf::
 
         [postfix]
         enabled = true

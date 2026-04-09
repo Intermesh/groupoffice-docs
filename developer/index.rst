@@ -3,7 +3,7 @@
 Developer
 =========
 
-This part is for developers that want to build Group-Office modules or integrate
+This part is for developers that want to build GroupOffice modules or integrate
 other systems.
 
 .. toctree::

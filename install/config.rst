@@ -7,7 +7,7 @@ The configuration file can be found in:
 
 - /etc/groupoffice/config.php
 - /etc/groupoffice/multi_instance/<DOMAINNAME>/config.php
-- The root of the Group-Office installation
+- The root of the GroupOffice installation
 
 Here's a list of config options:
 
@@ -66,7 +66,7 @@ you should create a file called::
 
    /etc/groupoffice/globalconfig.inc.php
 
-This file supports the same properties as the regular file but applies to all Group-Office instances. Individual
+This file supports the same properties as the regular file but applies to all GroupOffice instances. Individual
 configuration options for each instance are saved in the `config.php` files for each instance.
 
 You can also preconfigure module settings that are normally set in the user interface. For example you can set
@@ -87,7 +87,7 @@ included in this file.
 Recommended PHP settings
 ------------------------
 
-For optimal Group-Office perfomance we recommend these settings. This will allow users to upload files up to 1GB:
+For optimal GroupOffice perfomance we recommend these settings. This will allow users to upload files up to 1GB:
 
 .. table:: PHP settings
    :widths: auto
@@ -141,11 +141,11 @@ Configuration properties configurable in the GUI at System settings can be locke
 Branding
 --------
 
-If you'd like to brand Group-Office you can easily do this:
+If you'd like to brand GroupOffice you can easily do this:
 
 Edit the configuration or global configuration file and add::
 
-    $config['product_name'] = 'My Office'; //Will replace the word 'Group-Office' with 'My Office'
+    $config['product_name'] = 'My Office'; //Will replace the word 'GroupOffice' with 'My Office'
     $config['custom_css_url'] = '/branding/style.css'; //Loads a custom CSS stylesheet.
     $config['support_link'] = 'https://docs.example.com/'; //Changes the URL behind "Help" in the main menu. Can also be an e-mail address
 

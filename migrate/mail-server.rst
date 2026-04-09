@@ -166,7 +166,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
 
     while (!is_file($path . 'GO.php')) {
         echo "Could not find GO.php in '$path'\n"
-            . "Enter the path to your Group-Office installation to continue: ";
+            . "Enter the path to your GroupOffice installation to continue: ";
         $path = trim(fgets($handle));
         $conf_path = $path . 'config.php';
     }
@@ -366,7 +366,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
                 $parts = explode("@", $record['email']);
                 $username = $parts[0];
 
-                // Check if the user exists in Group-Office and if it doesn't create it.
+                // Check if the user exists in GroupOffice and if it doesn't create it.
                 $user = User::find()->where(['username' => $username])->single();
                 if (!$user) {
                     $user = new User();

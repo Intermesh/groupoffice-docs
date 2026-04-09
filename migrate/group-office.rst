@@ -1,7 +1,7 @@
-Migrate Group-Office to a new server
+Migrate GroupOffice to a new server
 ====================================
 
-To migrate Group-Office to another server you need to backup all data files and 
+To migrate GroupOffice to another server you need to backup all data files and
 the database.
 
 .. note:: The filesystem paths shown here might be different in your environment.
@@ -18,7 +18,7 @@ Create the backup
 
       $config['file_storage_path']='/var/lib/groupoffice/';   
    
-2. You might want to disable Group-Office so nobody can work in it anymore by adding or changing this value to the :ref:`config.php <configuration>`::
+2. You might want to disable GroupOffice so nobody can work in it anymore by adding or changing this value to the :ref:`config.php <configuration>`::
 
       $config['enabled'] = false;
    
@@ -50,7 +50,7 @@ Create the backup
       
             rsync -av /var/lib/groupoffice user@newserver.com:/tmp
 
-Installing the Group-Office backup on the new server
+Installing the GroupOffice backup on the new server
 ----------------------------------------------------
 
 1. Install a clean :ref:`install` following this manual. You can install a newer version. Pick a version that can upgrade your current version. Please refer to the :ref:`upgrade` page.

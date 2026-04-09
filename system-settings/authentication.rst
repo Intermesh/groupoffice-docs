@@ -19,8 +19,7 @@ On the authentication page you can manage:
 
    The features vary depending on which modules are installed on your system.
 
-Automatic user creation
------------------------
+**Automatic user creation**
 
 By default, users can only be created from within the user creation wizard. However, it is also possible to let the API
 handle user creation. The most common use case is the :ref:`support` module.

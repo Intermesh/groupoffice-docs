@@ -3,7 +3,7 @@
 System requirements
 ===================
 
-Group-Office 6.8 has the following requirements in order to be officially supported:
+GroupOffice 6.8 has the following requirements in order to be officially supported:
 
 .. table:: Software
    :widths: auto
@@ -17,7 +17,7 @@ Group-Office 6.8 has the following requirements in order to be officially suppor
    Programming language	 PHP 8.2+
    ====================  ===========================================================
 
-.. note:: Group-Office will run on Nginx + fpm, but we currently have no documentation on this.
+.. note:: GroupOffice will run on Nginx + fpm, but we currently have no documentation on this.
 
 Required PHP Extensions
 +++++++++++++++++++++++

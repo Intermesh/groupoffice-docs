@@ -61,13 +61,13 @@ After selecting the file a dialog will be opened where you can match the fields:
 
    Import CSV dialog
 
-When the column names match the name of the Group-Office field name or label it will 
+When the column names match the name of the GroupOffice field name or label it will
 be mapped automatically. It also recognized other common names and the Outlook format.
 
 The best approach for importing would be:
 
 1. Setup your custom fields
-2. Create a dummy contact in Group-Office with everything filled in.
+2. Create a dummy contact in GroupOffice with everything filled in.
 3. Export this contact to CSV so you have an example template.
 4. Fill this CSV with data
 5. Import it.
@@ -77,9 +77,9 @@ The best approach for importing would be:
 Updating existing contacts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It's possible to bulk update your Group-Office contacts with a CSV file. After uploading your CSV you'll get a mapping
+It's possible to bulk update your GroupOffice contacts with a CSV file. After uploading your CSV you'll get a mapping
 dialog. In the first combo box you can select: "Update existing items by" where you can select "ID" or "E-mail". When
-selecting the "ID" for example it will update all Group-Office contacts with a matching "ID" in the CSV record.
+selecting the "ID" for example it will update all GroupOffice contacts with a matching "ID" in the CSV record.
 
 Labels
 ``````
@@ -138,7 +138,7 @@ Or::
 
    org:  intermesh,group-office
    
-Will show all employees of the organizations Intermesh and Group-Office
+Will show all employees of the organizations Intermesh and GroupOffice
 
 You can use these fields:
 
@@ -175,7 +175,7 @@ If you want to search for every contact with a name starting with an 's' you can
 Look for duplicates
 -------------------
 
-It often occurs that duplicate contacts are created. Group-Office has a feature to deduplicate contacts.
+It often occurs that duplicate contacts are created. GroupOffice has a feature to deduplicate contacts.
 
 In the more menu choose "Look for duplicates":
 
@@ -209,7 +209,7 @@ In the System Settings dialog, you can set the following parameters:
    organizations this is not desirable. You can disable it and delete the private address books afterwards.
 -  Automatically :ref:`link<links>` email conversations to users in selected address books. Only available if the
    "Save mail as" professional module is installed. Note that this will create a copy of each mail from the IMAP server
-   to the Group-Office storage. You can blacklist or whitelist certain address books from automatically linking emails to the contacts. Please note
+   to the GroupOffice storage. You can blacklist or whitelist certain address books from automatically linking emails to the contacts. Please note
    that this will eat a lot of disk space over time.
 
 User profile

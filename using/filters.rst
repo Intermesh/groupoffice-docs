@@ -54,7 +54,7 @@ There are already some wildcards applied automatically. When filtering on string
 
 Sub groups
 ``````````
-To create complex queries, Group-Office supports sub groups. You can use that to create a query for example:
+To create complex queries, GroupOffice supports sub groups. You can use that to create a query for example:
 
 Select all contacts that have job title "CEO" and work in Germany or the Netherlands. You would have to create a sub group
 for the countries as they are using an "OR" operator.

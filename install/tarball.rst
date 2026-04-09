@@ -67,15 +67,15 @@ Instructions
       RewriteRule "^/\.well-known/openid-configuration"  "/api/oauth.php/.well-known/openid-configuration" [PT]
 
 
-4. If you purchased Group-Office Professional licenses then make sure the 
+4. If you purchased GroupOffice Professional licenses then make sure the
    `SourceGuardian loader <https://www.sourceguardian.com/loaders.html>`_ is installed.
 
 5. Then visit http://yourserver/ and the installer should appear:
 
    .. figure:: /_static/installer.png
-      :alt: The Group-Office installer
+      :alt: The GroupOffice installer
 
-      The Group-Office installer     
+      The GroupOffice installer
 
 6. Follow the instructions on screen.
 

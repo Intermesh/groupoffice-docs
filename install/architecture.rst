@@ -1,7 +1,7 @@
-Group-Office Architecture
+GroupOffice Architecture
 =========================
 
-Group-Office consists of the following services which we all host with Debian Bookworm Linux:
+GroupOffice consists of the following services which we all host with Debian Bookworm Linux:
 
 Web server
 ----------

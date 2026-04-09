@@ -3,10 +3,10 @@
 Installation
 ============
 
-This section is for system administrators that want to install Group-Office
+This section is for system administrators that want to install GroupOffice
 on a self hosted server.
 
-There are various ways to install Group-Office. We recommend to install our
+There are various ways to install GroupOffice. We recommend to install our
 Debian packages on the latest stable Debian Linux OS.
 
 .. toctree::

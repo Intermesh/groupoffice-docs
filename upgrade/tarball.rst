@@ -12,7 +12,7 @@ tarball. But if you really want use it then follow these steps:
 2. Make sure your system meets the :ref:`system-requirements`.
 3. Make sure you're on the latest minor release of your current version (For example 6.2.112 or 6.3.76).
 4. When running 6.2 make sure you've installed the "customfields" and "search" modules as they 
-   will become part of the Group-Office core.
+   will become part of the GroupOffice core.
 5. Make sure to install the latest license key from your group-office.com account in the
    contracts section (https://www.group-office.com/account#account/contracts) if you run
    the professional version. This can be done via the browser GUI in the main menu -> register or via CLI::
@@ -27,7 +27,7 @@ tarball. But if you really want use it then follow these steps:
 8. Put the new files at the right location.
 9. If exists copy your old :ref:`config.php <configuration>` and license file to the new
    files. It is good practice to keep these files one directory higher then the 
-   Group-Office source so you have a complete clean code base.
+   GroupOffice source so you have a complete clean code base.
 10. If you have any :ref:`studio-generated <studio>` modules, copy these into the ``go/modules`` folder. Please note that if you don't, the studio-generated modules will be entirely disabled.
 11. Visit http://yourdomain/install/ and follow instructions.
 12. Check if you have the right cron job in place::
@@ -54,7 +54,7 @@ Click the 'Get license now' button, log in to the Group Office website, find you
 Update script
 `````````````
 
-I've written a simple bash script that downloads the latest PHP 7.1+ version of Group-Office and replaces all code in the
+I've written a simple bash script that downloads the latest PHP 7.1+ version of GroupOffice and replaces all code in the
 given directory.
 
 You can run it like this::
@@ -88,7 +88,7 @@ That will automatically download the latest version. If you're on an older major
 
     if [ ! -f "$TARGET/version.php" ]; then
 
-        echo "$TARGET is not a Group-Office directory!"
+        echo "$TARGET is not a GroupOffice directory!"
         exit 1
     fi
 
@@ -105,7 +105,7 @@ That will automatically download the latest version. If you're on an older major
         VERSION=$2;
     fi
 
-    read -r -p "Are you sure you want to update directory '$TARGET' to Group-Office version '$VERSION'? [y/N]" response;
+    read -r -p "Are you sure you want to update directory '$TARGET' to GroupOffice version '$VERSION'? [y/N]" response;
     if [[ "$response" != "y"  ]]; then
         exit 0
     fi

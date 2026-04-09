@@ -10,7 +10,7 @@ You need to backup the following items:
 
 3. The data folder. You can find the "file_storage_path" in the :ref:`config.php <configuration>` file.
 
-4. If you use the Group-Office mailserver, then also backup the e-mail that's 
+4. If you use the GroupOffice mailserver, then also backup the e-mail that's
    located in ``/var/mail/vhosts``.
 
 
@@ -22,7 +22,7 @@ To recover a backup simply replace the folders you've backed up using the inform
 Oops, I accidentally deleted something...
 `````````````````````````````````````````
 
-Mistakes happen. Sometimes you've accidentally deleted something from Group-Office. You could then restore all missing
+Mistakes happen. Sometimes you've accidentally deleted something from GroupOffice. You could then restore all missing
 items from a backup by merging. Please be aware that everthing that was deleted will be restored. Also the items that
 you deleted intentionally.
 
@@ -49,7 +49,7 @@ Steps:
 
       mysql groupoffice_live < merge-data.sql
 
-4. Now all records should be back in the database. To reset the Group-Office cache and sync states run the upgrade procdure in the browser::
+4. Now all records should be back in the database. To reset the GroupOffice cache and sync states run the upgrade procdure in the browser::
 
     https://groupoffice.example.com/install/upgrade.php
 

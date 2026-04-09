@@ -9,7 +9,7 @@ Install
 -------
 
 1. Install the *imapauthenticator* module at Start menu -> Modules
-2. Reload Group-Office
+2. Reload GroupOffice
 
 Configure
 ---------
@@ -28,4 +28,4 @@ Click on the add button to add a new IMAP server profile:
    :alt: IMAP Server profile
 
 Now you should be able to login with the full e-mail address. You can't change
-passwords with Group-Office using this autentication method.
+passwords with GroupOffice using this autentication method.

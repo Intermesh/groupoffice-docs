@@ -6,7 +6,7 @@ messages. Use the "Send test message" button to test your settingss.
 
 Debug
 -----
-For debugging purposes you can enable that all e-mail from Group-Office will be 
+For debugging purposes you can enable that all e-mail from GroupOffice will be
 sent to the configured e-mail address to avoid spamming of users when testing
 scripts :)
 

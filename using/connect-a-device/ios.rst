@@ -51,7 +51,7 @@ To setup an ActiveSync account take the following steps:
    .. figure:: /_static/ios-eas/6-certificate-warning.PNG
       :width: 400px
 
-8. Enter your :ref:`server-hostname` and your Group-Office username.
+8. Enter your :ref:`server-hostname` and your GroupOffice username.
 
    .. figure:: /_static/ios-eas/7-server-settings.PNG
       :width: 400px
@@ -62,7 +62,7 @@ To setup an ActiveSync account take the following steps:
       :width: 400px
 
 10. Now you must give it some time to sync everything and check your contacts, 
-e-mail and calendar for your Group-Office data!
+e-mail and calendar for your GroupOffice data!
 
 
 Files (WebDAV)

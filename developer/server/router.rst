@@ -1,7 +1,7 @@
 Router
 ======
 
-Group-Office has 3 routers:
+GroupOffice has 3 routers:
 
 1. The JMAP router for routing JMAP requests. See https://jmap.io/spec-core.html
 2. The CLI router for routing Command Line Interface commands

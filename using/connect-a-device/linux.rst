@@ -21,17 +21,20 @@ You can find those by using your browser and go to /carddav/addressbooks/<ADDRES
 
 .. _assistant-for-linux:
 
-Files - Group-Office Assistant
+Files - GroupOffice Assistant
 ------------------------------
 
-The Group-Office Assistant is a small program that you can install on your Windows, MacOS or
-Linux computer. It will automatically download files opened from Group-Office and monitor
-it for changes. When the file is saved it automatically uploads it back to Group-Office.
+The GroupOffice Assistant is a small program that you can install on your Windows, MacOS or
+Linux computer. It will automatically download files opened from GroupOffice and monitor
+it for changes. When the file is saved it automatically uploads it back to GroupOffice.
 
    .. figure:: /_static/linux-assistant/1-groupoffice-assistant.png
 
 
-On Debian based distributions you can install the Group Office Assistant.
+Debian / Ubuntu / Mint
+~~~~~~~~~~~~~~~~~~~~~~
+
+On Debian based distributions you can install the Group Office Assistant via our APT repository. Take the following steps:
 
 1. First add our APT repository::
 
@@ -55,10 +58,22 @@ On Debian based distributions you can install the Group Office Assistant.
 .. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
+Fedora RPM
+~~~~~~~~~~
+
+We also have an RPM package available here:
+
+https://repo.group-office.com/downloads/groupoffice-assistant-1.1.36-1.x86_64.rpm
+
+You can run this in the terminal to first download and then install it::
+
+    wget https://repo.group-office.com/downloads/groupoffice-assistant-1.1.36-1.x86_64.rpm
+    sudo rpm -i groupoffice-assistant-1.1.36-1.x86_64.rpm
+
 
 WebDAV
 ------
-You can use WebDAV to mount Group-Office as a network drive. Linux Desktops have WebDAV built in. GNOME users you can
+You can use WebDAV to mount GroupOffice as a network drive. Linux Desktops have WebDAV built in. GNOME users you can
 launch the file explorer and choose "Connect to server" from the menu. KDE/Plasma users can use the Dolphin file
 manager to connect to WebDAV.
 

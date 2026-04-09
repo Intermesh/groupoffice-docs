@@ -197,7 +197,7 @@ If one of the conditions above is not satisfied, the import script will return a
 Reports
 -------
 
-Group-Office comes with some reports that are useful for most businesses. But reports can also be customized if you have PHP knowledge. The Group-Office reports are available in source code. Intermesh also offers report customization. Contact us for more information about this.
+GroupOffice comes with some reports that are useful for most businesses. But reports can also be customized if you have PHP knowledge. The GroupOffice reports are available in source code. Intermesh also offers report customization. Contact us for more information about this.
 
 The default reports are:
 

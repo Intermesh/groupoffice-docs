@@ -3,13 +3,13 @@
 Getting started
 ===============
 
-So you've installed Group-Office or signed up for a the cloud service. That's great! But what now? These steps should
+So you've installed GroupOffice or signed up for a the cloud service. That's great! But what now? These steps should
 help you get started:
 
 1. **Switch**: Are you coming from another system like Microsoft Office 365 or Google Workspace? Then check out our migration guides for :ref:`switching <switch>`.
 2. **E-mail server**: Do you want to setup e-mail? Then you need an IMAP service. If you don't have one yet you can host your own or get it
-   from our Group-Office hosting service. If you signed up for that you will get instructions to setup the DNS.
-   When using the :ref:`Group-Office mailserver <mailserver>`, also setup the :ref:`Serverclient module <serverclient>` so you will auto create mailboxes for each Group-Office user.
+   from our GroupOffice hosting service. If you signed up for that you will get instructions to setup the DNS.
+   When using the :ref:`GroupOffice mailserver <mailserver>`, also setup the :ref:`Serverclient module <serverclient>` so you will auto create mailboxes for each GroupOffice user.
 
 3. **Modules**: Install the modules you need at **System Settings** -> :ref:`Modules <modules>`. Remove the once you don't need to make the menu clean.
 4. **User groups**: Setup :ref:`user groups <user-groups>`. User groups make it easy for setting up users later. Not everybody needs access to the finance module for example. Make a "Finance" group to administrate that easily.

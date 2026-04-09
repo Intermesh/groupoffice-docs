@@ -25,8 +25,13 @@ Register your AAD application
 
 As with :ref:`Gmail<gmail>`, you need to set up an application first. This happens in the Azure environment and is documented `on this
 page <https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app>`_. Make sure that the app is
-configured as a web application. You need to add the following redirect URI: `https://yourhost/go/modules/community/oauth2client/gauth.php/callback`.
-Of course, 'yourhost' refers to the URL of your Group Office instance.
+configured as a web application. 
+
+You need to add the following **redirect URI**::
+ 
+	https://<YOURDOMAIN>/go/modules/community/oauth2client/gauth.php/callback
+
+Of course, '<YOURDOMAIN>' refers to the domain of your Group Office instance.
 
 After saving, you can find your application in Active Directory > App registrations.
 
@@ -58,11 +63,13 @@ First, open the AAD application in the Azure portal.
 
 	a. Under Manage, click 'API permissions';
 	b. Click 'Add a permission';
-	c. In the form, click the tab 'APIs my organization uses'
-	d. In the search bar, enter 'Office 365 Exchange Online'.
-	e. Click 'Application permissions'
-	f. Check the IMAP.AccessAsApp checkbox and click 'Add permissions'
-	g. Check the SMTP.SendAsApp checkbox and click 'Add permissions'
+	c. Choose "Microsoft Graph"
+	e. Click 'Delegated permissions' and add these:
+	    - IMAP.AccessAsUser.All
+	    - SMTP.Send
+	    - offline_access
+	    - email
+	    - openid
 
 3. Get tenant admin consent. This depends on who is the owner of the tenant. If you are the tenant owner, simply click the button 'Grant admin consent' in the API Permissions list.
 4. Register service principals in Exchange. You need the Exchange power shell for this. My powers end here.

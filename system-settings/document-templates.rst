@@ -8,7 +8,7 @@ Document templates are text or spreadsheet documents with auto data tags. You ca
 
    Document template
 
-You can create document templates for OpenOffice.Org and Microsoft Office 2007 (You can use older versions but then you must install the compatibility pack) and up in Group-Office. 
+You can create document templates for OpenOffice.Org and Microsoft Office 2007 (You can use older versions but then you must install the compatibility pack) and up in GroupOffice.
 
 To create a template use OpenOffice.Org or Microsoft office to create a new document (in .docx format) and upload it at:
 

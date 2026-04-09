@@ -4,7 +4,7 @@ MediaWiki
 =========
 
 You can integrate `MediaWiki <https://www.mediawiki.org>`_ with the :ref:`OpenID Connect protocol <openid>`. This way you can authenticate to MediaWiki with your
-Group-Office account.
+GroupOffice account.
 
 Take these steps to install:
 
@@ -14,7 +14,7 @@ Take these steps to install:
 
 3. Install the required `OpenIDConnect <https://www.mediawiki.org/wiki/Extension:OpenID_Connect>`_ extension
 
-4. Create OAuth client in Group-Office in :ref:`System Settings -> OAuth 2.0 <oauth2>`:
+4. Create OAuth client in GroupOffice in :ref:`System Settings -> OAuth 2.0 <oauth2>`:
 
       - Client ID: mediawiki
       - Check "Is confidential"
@@ -33,7 +33,7 @@ Take these steps to install:
         $wgGroupPermissions['*']['autocreateaccount'] = true;
         $wgGroupPermissions['*']['createaccount'] = true;
 
-        //automatically login when logged in to Group-Office
+        //automatically login when logged in to GroupOffice
         $wgPluggableAuth_EnableAutoLogin = true;
 
         // The above doesn't work when enabling local logins!

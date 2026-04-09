@@ -13,9 +13,9 @@ Preconditions
 -------------
 
 
-- You need to turn off `suhosin.session.encrypt` in the `suhosin.ini` file to let this module work. Otherwise this module cannot read the Group-Office session.
-- Dokuwiki needs to be installed on the same domain as your Group-Office installation.
-- After this install procedure only users of Group-Office can login to Dokuwiki.
+- You need to turn off `suhosin.session.encrypt` in the `suhosin.ini` file to let this module work. Otherwise this module cannot read the GroupOffice session.
+- Dokuwiki needs to be installed on the same domain as your GroupOffice installation.
+- After this install procedure only users of GroupOffice can login to Dokuwiki.
 - If for some reason the configuration params are not applied correctly, then also check the `<dokuwiki_path>/conf/local.php` file.
 
 Installation
@@ -34,7 +34,7 @@ Installation
 	$conf['authtype'] = 'authgroupoffice';
 	$conf['useacl'] = 1;
 
-5. Define the Group-Office config file location and Create 2 new variables in the config file:
+5. Define the GroupOffice config file location and Create 2 new variables in the config file:
 
 .. code-block:: php
 
@@ -53,10 +53,10 @@ Installation
 	// ( example: $conf['manager'] = 'admin,testuser'; )
 	$conf['manager'] = '[manager]';
 
-The modification of the files is now complete. Now log into Group-Office, go to the Dokuwiki tab and click on "Settings".
+The modification of the files is now complete. Now log into GroupOffice, go to the Dokuwiki tab and click on "Settings".
 Set the correct url and title for Dokuwiki and click on "Ok". (example url: http://localhost/dokuwiki)
 
-Now Dokuwiki should be accessible through Group-Office.
+Now Dokuwiki should be accessible through GroupOffice.
 
 .. tip:: You may want to disable the login/logout button from DokuWiki. This can be done by editing the file `main.php` of the DokuWiki template. Remove this line:
 

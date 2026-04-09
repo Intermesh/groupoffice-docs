@@ -17,7 +17,7 @@ You should probablty change at least:
 - syslog_prioritymask LOG_WARNING, otherwise it will generate too big log files.
 - listen_port, if you're running imapproxy on the same host then use "localhost"
   for "server_hostname" and change "listen_port" to something different than where
-  dovecot is actually listening. 1143 for example. Then use 1143 in Group-Office to use
+  dovecot is actually listening. 1143 for example. Then use 1143 in GroupOffice to use
   imapproxy.
 - tls_ca_path /etc/ssl/certs/
 
@@ -228,6 +228,6 @@ You can of course update accounts one by one but you can also use this SQL comma
    
 Managesieve
 -----------
-If you use manage sieve too, you need to tell Group-Office that localhost actually points to an external mailserver via the proxy. Edit config.php and add::
+If you use manage sieve too, you need to tell GroupOffice that localhost actually points to an external mailserver via the proxy. Edit config.php and add::
 
    $config['sieve_rewrite_hosts']='localhost=mail.example.com';

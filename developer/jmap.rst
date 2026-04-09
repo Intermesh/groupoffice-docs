@@ -2,7 +2,7 @@
 JMAP API
 ==========
 
-This part explains how you can use the `JMAP API <https://jmap.io>`_ from 3rd party software. With the API you can control every function in Group-Office. Via the link below you can find various example PHP scripts that use cUrl to make API requests like:
+This part explains how you can use the `JMAP API <https://jmap.io>`_ from 3rd party software. With the API you can control every function in GroupOffice. Via the link below you can find various example PHP scripts that use cUrl to make API requests like:
 
 - Create contacts
 - Send newsletters

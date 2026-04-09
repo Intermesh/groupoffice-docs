@@ -42,7 +42,7 @@ To setup an ActiveSync account take the following steps:
 8. In the next screen you must adjust your server settings. It will prefill the 
    username with the e-mail address and the server name with the domain from 
    your e-mail address. This is most likely **incorrect**.
-   Please adjust to your Group-Office username and enter the :ref:`server-hostname`.
+   Please adjust to your GroupOffice username and enter the :ref:`server-hostname`.
 
    .. figure:: /_static/android-eas/8-server-settings.png
       :width: 400px
@@ -63,4 +63,4 @@ To setup an ActiveSync account take the following steps:
       :width: 400px
 
 12. Now you must give it some time to sync everything. Then check your contacts, 
-    e-mail and calendar for your Group-Office data!
+    e-mail and calendar for your GroupOffice data!
