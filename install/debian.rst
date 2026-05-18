@@ -115,7 +115,7 @@ To configure you must:
 		// An API token for authentication. Create it using the API keys module. Make sure it's owned by a user that can edit all domains listed below.
 		'serverclient_token' => 'YOURAPITOKEN',
 
-		// Comma separated list of mailbox domains
+		// Comma separated list of mailbox domains. Make sure the domains exist in your mailserver too.
 		'serverclient_domains' => 'intermeshdev.nl',
 
 		// The email account properties that will be added for the user
