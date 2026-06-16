@@ -71,3 +71,42 @@ Upgrading from 6.2
 Visit an older version of the manual here:
 
 https://groupoffice.readthedocs.io/en/6.8/
+
+Unattended upgrades
+-------------------
+
+To keep GroupOffice up to date automatically you may want to use the package unattended upgrades.
+
+Here's how to set up unattended-upgrades for groupoffice on Debian/Ubuntu:
+
+1. Install unattended-upgrades::
+
+      apt-get install unattended-upgrades
+
+2. Configure origin patterns, add the line below::
+
+    Unattended-Upgrade::Origins-Pattern {
+
+    	"site=repo.group-office.com,n=twentysixzero"; // add this entry for groupoffice
+
+    }
+3. Enable automatic upgrades
+   Edit or create /etc/apt/apt.conf.d/20auto-upgrades::
+
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+
+   The "1" means daily. Set to "7" for weekly, etc.
+
+4. Test your config without actually installing::
+
+      unattended-upgrade --dry-run --debug
+
+   This shows which packages would be upgraded and why others are excluded.
+
+5. Run it manually once to verify::
+
+      unattended-upgrade -v
+
+
+Now the system will check for GroupOffice updates daily.
