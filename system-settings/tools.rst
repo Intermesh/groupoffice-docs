@@ -56,6 +56,14 @@ Or specify a path::
    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/syncFilesystem --path=projects2
 
 
+Delete folder
+-------------
+
+Be careful! You can delete a folder by path on the CLI with this command::
+
+    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/deleteByPath --path=tmp
+
+
 Update file search index
 ------------------------
 
