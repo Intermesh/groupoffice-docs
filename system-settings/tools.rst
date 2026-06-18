@@ -59,7 +59,7 @@ Or specify a path::
 Delete folder
 -------------
 
-Be careful! You can delete a folder by path on the CLI with this command::
+Be careful! Since version 26.0.36, You can delete a folder by path on the CLI with this command::
 
     sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/deleteByPath --path=tmp
 
