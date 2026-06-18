@@ -83,7 +83,7 @@ Here's how to set up unattended-upgrades for groupoffice on Debian/Ubuntu:
 
       apt-get install unattended-upgrades
 
-2. Configure origin patterns, add the line below::
+2. Configure origin patterns, add the line below (On Debian this section is already present but on Ubuntu you may have to add the new section)::
 
     Unattended-Upgrade::Origins-Pattern {
 
