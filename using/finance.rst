@@ -782,6 +782,18 @@ Then you could print::
 
 
 
+Example paid stamp
+~~~~~~~~~~~~~~~~~~
+
+Create a new content block with type HTML, x = 20 and y=70 and put this code in:
+```
+[if {{outstanding}} <= 0 ]
+<img width="140"  src="/go/modules/business/finance/views/extjs3/themes/default/resources/paid-stamp.png" />
+[/if]
+`````
+
+This will put a red PAID stamp on the PDF when it's paid.
+
 Example statement
 ~~~~~~~~~~~~~~~~~
 
