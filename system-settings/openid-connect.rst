@@ -26,7 +26,7 @@ Get started
 1. Configure the OpenID App registration at the provider so you have an **Authority URL**, **Client ID** and **Client secret***.
    You will need to add a **redirect URL**.
 
-   That is: **https://yourgroupoffice.com/api/page.php/go/community/oidc/auth**
+   That is: **https://yourgroupoffice.com/api/page.php/community/oidc/auth**
 
    You can get that from the OIDC module too at **System Settings** -> **OIDC** -> **Add**
 
