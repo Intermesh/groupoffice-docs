@@ -4,6 +4,14 @@ Upgrading on Debian / Ubuntu
 Core system
 -----------
 
+When upgrading a major version other than the latest version, it is recommended to refer to the documentation of the target version:
+
+- https://groupoffice.readthedocs.io/en/25.0/
+- https://groupoffice.readthedocs.io/en/6.8/
+- https://groupoffice.readthedocs.io/en/6.7/
+- https://groupoffice.readthedocs.io/en/6.6/
+
+
 Running 6.3 or higher
 `````````````````````
 
@@ -24,12 +32,18 @@ upgrade is being installed.
 
 Major release upgrade
 ~~~~~~~~~~~~~~~~~~~~~
-When the second digit increases in the version number we call this a major release. For example when upgrading to 6.4 from 6.3.
+
+Up to version 6.8, when the second digit increases in the version number we call this a major release. For example the
+upgrade to 6.8 from 6.7 is considered a major upgrade.
+
+After 6.8, we switched to a yearly versioning scheme. If the second digit is higher than zero, it should be considered
+a major update as well (e.g. 26.1 versus 26.0). Otherwise, you can release to the following year (25.0 to 26.0, etcetera).
+
 When upgrading to the next major release follow these steps prior to the above:
 
-1. Run the above command first to upgrade to the latest of your current major version. eg. 25.0.1 -> 25.0.2.
+1. Upgrade to the latest release of your current version as described above.
 
-2. Then open your browser to update the database.
+2. By default, the database should upgrade automatically. If not, open your browser to update the database.
 
 3. Make sure to install the latest license key from your group-office.com account in the
    contracts section (https://www.group-office.com/account#account/contracts) if you run
@@ -38,19 +52,9 @@ When upgrading to the next major release follow these steps prior to the above:
       sudo -u www-data php ./cli.php core/System/setLicense --key=<YOURKEY>
 
 4. Major release upgrades can't be skipped so you need to do them step by step.
-   Adjust the repository to the next major release in '/etc/apt/sources.list.d/groupoffice.list':
+   Adjust the repository to the next major release in ``/etc/apt/sources.list.d/groupoffice.list``::
 
-    - For 26.0 change it to:
-
-        deb http://repo.group-office.com/ twentysixzero main
-
-    For older versions switch to the older manuals:
-
-        https://groupoffice.readthedocs.io/en/25.0/
-        https://groupoffice.readthedocs.io/en/6.8/
-        https://groupoffice.readthedocs.io/en/6.7/
-        https://groupoffice.readthedocs.io/en/6.6/
-
+    deb http://repo.group-office.com/ twentysixzero main
 
 Mailserver
 ----------
