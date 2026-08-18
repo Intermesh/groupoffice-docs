@@ -223,6 +223,9 @@ You can use filters to format or manipulate data. They can be used with a pipe s
 
   {{document.date|dateAdd:P1M|date:d-m-Y}}
 
+- timestamp(int, format)::
+
+    {{project.mtime|timestamp:Y-m-d}}
 
 - number(decimals,decimal separator,thousands separator::
 
@@ -238,7 +241,12 @@ You can use filters to format or manipulate data. They can be used with a pipe s
 
 - entity(type, id): Fetch an entity by ID::
 
-        [assign contact = 1 | entity:Contact]
+  [assign contact = 1 | entity:Contact]
+
+- findEntity(id, entityName, key) fetch related entities by entity name and key::
+
+    [assign entries = entity.id|findEntity:TimeEntry:project_id]
+
 
 - links(entityName, properties (comma separated): gets the linked entities::
 
@@ -248,7 +256,10 @@ You can use filters to format or manipulate data. They can be used with a pipe s
 
       [assign formattedAddress = contact.addresses | sort:type:"postal" | first | prop:formatted]
 
-- substr(start, length) Get a substring. For example to obscure a customer IBAN: {{customer.IBAN|substr:0:6}}xxxxxxxx{{customer.IBAN|substr:-3}}
+- substr(start, length) Get a substring. For example to obscure a customer IBAN:
+
+    {{customer.IBAN|substr:0:6}}xxxxxxxx{{customer.IBAN|substr:-3}}
+
 
 - nl2br: Change line breaks to HTML <br> tags
 
@@ -271,11 +282,19 @@ Arrays
 - count
 - first: Grab the first item of the array
 - prop(property): change the array to a sub property of all items.
+- column(array, propertyName): get an array of properties based on the input array:
+
+    [assign entries = entity.id|findEntity:TimeEntry:project_id]{{entries | column:units | sum}}"}}
+
 - implode(glue = ', '): Implode an array of strings::
 
     {{contact.emailAddresses | prop:email | implode}}
 
 - newRow: useful when rendering tables. Check whether a new row should be started using a default modulo of 2.
+- avg(array): average of a numeric array::
 
+    [assign entries = entity.id|findEntity:TimeEntry:project_id]{{entries | column:units | avg}}"}}
 
+- sum(array) / min(array) / max(array): sum, minimum value or maximum value of a numeric array::
 
+    [assign entries = entity.id|findEntity:TimeEntry:project_id]{{entries | column:units | sum}}"}}

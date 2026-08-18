@@ -40,7 +40,7 @@ Create an app
 
 	1. In the first step, enter an App Name (to be displayed to the end user), a support email address (yours). Fill in the rest of your form as per your domain settings.
 	2. In the Scopes Step, be sure to add the scope 'https://mail.google.com'.
-	3. The next step is to add test users if needed. Please note that your default email address already has access.
+	3. The next step is to add test users. You probably need to add your own account for testing.
 	4. Confirm your settings. Currently, your app is in testing mode. Click the button 'publish app' to move to production. This may take some time.
 
 .. note:: Once an app has been published, anybody with a Gmail account can use this app. Furthermore, refresh tokens will expire while your app remains in test mode.

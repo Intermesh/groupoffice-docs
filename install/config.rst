@@ -55,6 +55,8 @@ Here's a list of config options:
    cmd_zip / cmd_unzip           string  default commands for the zip and unzip programs respectively. Please do not change unless both utils are in a custom install location.
    mailing_messages_per_minute   int     limits the number of messages sent through SMTP in the newsletters module
    limit_usersearch              bool    vestigial - sets a limit of users to be returned to non-admin users
+   smtp_account_smime_sign       string  Enable SMIME signing of outgoing support ticket messages
+   smtp_account_smime_password   string  SMIME password when signing outgoing support ticket messages
    ============================  ======  ===========
 
 

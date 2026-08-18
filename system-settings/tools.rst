@@ -56,6 +56,14 @@ Or specify a path::
    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/syncFilesystem --path=projects2
 
 
+Delete folder
+-------------
+
+Be careful! Since version 26.0.36, You can delete a folder by path on the CLI with this command::
+
+    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=files/folder/deleteByPath --path=tmp
+
+
 Update file search index
 ------------------------
 
@@ -84,3 +92,10 @@ or to resynchronize everything::
 
     sudo -u www-data /usr/share/groupoffice/cli.php core/System/resetSyncState
 
+
+Blob usage report
+-----------------
+
+This command prints  blob usage count per table and size on disk::
+
+    sudo -u www-data /usr/share/groupoffice/cli.php core/System/blobReport

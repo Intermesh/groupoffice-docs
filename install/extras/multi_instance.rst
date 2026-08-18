@@ -29,11 +29,23 @@ to enable it:
 
       mkdir /var/lib/groupoffice/multi_instance && chown www-data:www-data /var/lib/groupoffice/multi_instance
 
-4. If you're using the professional version and the studio module is allowed in /etc/groupoffice/globalconfig.inc.php
-   (see default settings below), then a package folder will be created for each instance in
-   /usr/share/groupoffice/go/modules. So you have to make that folder writable for the webserver::
+4. When running PHP FPM, check if systemd allows you to create files in /etc::
 
-      chown www-data:www-data /usr/share/groupoffice/go/modules
+        systemctl cat php8.2-fpm | grep -i "root\|private\|protect\|readonly\|namespace"
+
+    If it shows ProtectSystem=full, then edit the system to allow writing::
+
+        systemctl edit php8.2-fpm
+
+    Add::
+
+        [Service]
+        ReadWritePaths=/etc/groupoffice/multi_instance
+
+    Save, then::
+
+        systemctl daemon-reload
+        systemctl restart php8.2-fpm
 
 5. Login as administrator into the main Group Office instance that will manage the
    other instances and install the "Multi Instance" module from the "Community" package.

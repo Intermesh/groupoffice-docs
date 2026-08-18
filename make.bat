@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=Group-Office
+set SPHINXPROJ=GroupOffice
 
 if "%1" == "" goto help
 

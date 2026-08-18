@@ -247,6 +247,8 @@ Fields of the contact
 - {contact:work_phone}
 - {contact:work_fax}
 - {contact:homepage}
+- {contact:prefixes}
+- {contact:suffixes}
 
 Fields of the contact
 ~~~~~~~~~~~~~~~~~~~~~
