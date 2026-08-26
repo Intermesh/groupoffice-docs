@@ -4,7 +4,7 @@ Support
 =======
 
 The support module enables you and your users to manage support requests. It is intended to replace the :ref:`tickets`
-module. In version 6.7, both modules are supported. This may make it easier for administrators to migrate from
+module. As of version 6.7, both modules are supported. This may make it easier for administrators to migrate from
 the obsolete Tickets module to the more modern Support module.
 
 .. figure:: /_static/using/support/support-module.png
@@ -20,6 +20,7 @@ The tickets module supports:
 - :ref:`files`
 
 One can install and configure the 'Help' module to enable end users to submit support requests from within GroupOffice.
+Its official name is 'Support Client', but for the sake of disambiguation we refer to it as the 'Help' module.
 
 Roles
 -----
@@ -27,6 +28,19 @@ Roles
 1. **End users** are the users that need support and will enter tickets.
 2. **Ticket agents** are the people who need to pick up and solve said tickets.
 3. **Managers** configure the ticket module.
+
+
+Under the hood
+--------------
+
+As of version 26, when an end user sends an email to a support mailbox, they are matched to an existing principal in
+GroupOffice. In this context, a principal is either a user or a contact. If they do not exist, a new **contact** is created.
+
+If you use a version prior to 26, each support ticket is matched to a **user**. Therefore, you must enable user registration
+in the :ref:`authentication` tab in System Settings.
+
+As any user of both the tasks module and support module will be able to tell, support tickets and support lists are
+considered tasks and task lists respectively. The support module is a very specific implementation of the tasks module.
 
 Entering a ticket
 -----------------
@@ -37,9 +51,6 @@ There are roughly three ways to enter a ticket:
 2. Create one manually from within the Support module;
 3. Create one manually from within the Help module;
 
-When an end user sends an email to a support mailbox, they are matched to an existing user in GroupOffice. If they do
-not exist, a new user is created. In order for this to work, currently you must enable user registration in the
-:ref:`authentication` tab in System Settings.
 
 Help module
 ```````````
@@ -63,6 +74,9 @@ Tickets are commonly divided among certain types, depending on the nature of the
 commonly different from a documentation request or an invoicing issue. The administrator can assign permissions by ticket
 type, both on the customer side and on the agent side.
 
+In Group-Office, there is a one-to-one relationship between a task list and a ticket type. In other words, in Group-Office,
+a ticket type and support list are one and the same and will be used interchangeably in this context.
+
 
 Ticket categories
 `````````````````
@@ -76,11 +90,6 @@ In order to know which tickets are still actionable, you can assign ticket statu
 the standard task statuses as `specified <https://datatracker.ietf.org/doc/html/rfc5545>`_ in the iCalendar specification.
 
 
-.. note:: If you compare the support module to the :ref:`Tasks` module, you'll notice heavy similarities. This is by
-	design, as we consider support tickets a special type of tasks.
-
-
-
 Administration
 --------------
 
@@ -89,6 +98,9 @@ Module permissions
 
 When a user has 'Manage' permissions for the Support module, they will be considered a manager. Users and groups with
 use permissions for the module are considered ticket agents.
+
+You need the `mayChangeTasklists` permission to manage support lists and `mapChangeCategories` permission to manage ticket
+categories.
 
 System settings
 ```````````````
@@ -104,14 +116,24 @@ to different users or groups as they wish.
 
 Emails sent to a configured mailbox will be automatically converted to tickets.
 
-Task list management
-````````````````````
+Support list management
+```````````````````````
 
-Task lists can be assigned names, groups, customer permissions and agent permissions. The difference between customer
-permissions and agent permissions is that customer permissions are meant for the users who can enter new tickets, whereas
-the agent permissions are meant for the ticket agents and their permissions for tickets within the list.
+Support lists are configured in the same way as task lists, but with two major differences:
 
-.. note:: Under the hood, tickets are simply saved as tasks. Hence, the classification of task lists as ticket types.
+1. An extra permission type to allow user to enter support requests with the Help module.
+2. Extra notification settings
+
+Notifications
+~~~~~~~~~~~~~
+
+As per version 26.0.43, you can set the following notification options:
+
+1. Upon importing an IMAP message, Notify the customer that a new ticket has been created.
+2. Notify support agents that a new ticket has been made in a certain support list.
+3. Notify a support agent when a ticket has been assigned to them.
+
+All these notifications must be set explicitly.
 
 Expiry options
 ``````````````
