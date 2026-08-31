@@ -3,7 +3,7 @@
 System requirements
 ===================
 
-GroupOffice 6.8 has the following requirements in order to be officially supported:
+GroupOffice 26.0 has the following requirements in order to be officially supported:
 
 .. table:: Software
    :widths: auto
