@@ -87,15 +87,16 @@ Here's how to set up unattended-upgrades for groupoffice on Debian/Ubuntu:
 
       apt-get install unattended-upgrades
 
-2. Configure origin patterns in /etc/apt/apt.conf.d/50unattended-upgrades, add the line below (On Debian this section is already present but on Ubuntu you may have to add the new section)::
+2. Configure origin patterns in /etc/apt/apt.conf.d/50unattended-upgrades, add the line below (On Debian this section is
+   already present but on Ubuntu you may have to add the new section)::
 
-    Unattended-Upgrade::Origins-Pattern {
+      Unattended-Upgrade::Origins-Pattern {
 
-    	"site=repo.group-office.com,n=twentysixzero"; // add this entry for groupoffice
+        "site=repo.group-office.com,n=twentysixzero"; // add this entry for groupoffice
 
-    }
+      }
 
-    ...note: If you use the popular `Sury PHP repository <https://deb.sury.org/>`__, you might want to add **"origin=deb.sury.org"**; as well.
+   .. note:: If you use the popular `Sury PHP repository <https://deb.sury.org/>`__, you might want to add **"origin=deb.sury.org"**; as well.
 
 3. Enable automatic upgrades
    Edit or create /etc/apt/apt.conf.d/20auto-upgrades::
