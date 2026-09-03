@@ -94,6 +94,9 @@ Here's how to set up unattended-upgrades for groupoffice on Debian/Ubuntu:
     	"site=repo.group-office.com,n=twentysixzero"; // add this entry for groupoffice
 
     }
+
+    ...note: If you use the popular `Sury PHP repository <https://deb.sury.org/>`__, you might want to add **"origin=deb.sury.org"**; as well.
+
 3. Enable automatic upgrades
    Edit or create /etc/apt/apt.conf.d/20auto-upgrades::
 
@@ -114,3 +117,4 @@ Here's how to set up unattended-upgrades for groupoffice on Debian/Ubuntu:
 
 
 Now the system will check for GroupOffice updates daily.
+
