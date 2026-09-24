@@ -38,7 +38,7 @@ release = ''
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_copybutton', 'sphinx_multiversion']
+extensions = ['sphinx_copybutton']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -163,16 +163,16 @@ html_context = {
 
 html_js_files = ['analytics.js']
 
-
-# Which refs to build
-smv_branch_whitelist = r'^(latest|25\.0|6\.8|6\.7|6\.6)$'
-smv_tag_whitelist = r'^$'              # no tags
-smv_remote_whitelist = r'^origin$'     # use origin/* refs, needed on the server
-smv_released_pattern = r'^refs/(heads|remotes/origin)/\d+\.\d+$'
-smv_latest_version = 'latest'
-smv_outputdir_format = '{ref.name}'
-
-# sphinx-multiversion doesn't preserve whitelist order in versions.branches,
-# so _templates/versions.html sorts by this list (via html_context) instead.
-# Keep it in sync with smv_branch_whitelist above.
-html_context["smv_branch_order"] = ['latest', '25.0', '6.8', '6.7', '6.6']
+# Version switcher (see _templates/versions.html). Each entry is a docs
+# version built independently with plain sphinx-build into a sibling
+# directory matching its "url". This list should be the same on every
+# branch; set "current_version" below to match whichever branch this
+# conf.py belongs to.
+html_context["versions"] = [
+    {"name": "latest", "url": "/latest/"},
+    {"name": "25.0", "url": "/25.0/"},
+    {"name": "6.8", "url": "/6.8/"},
+    {"name": "6.7", "url": "/6.7/"},
+    {"name": "6.6", "url": "/6.6/"},
+]
+html_context["current_version"] = "latest"
