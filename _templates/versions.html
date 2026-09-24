@@ -7,9 +7,18 @@
   </span>
     <div class="rst-other-versions">
         {%- if versions.branches %}
+        {%- set ordered = [] %}
+        {%- for name in smv_branch_order %}
+            {%- for item in versions.branches if item.name == name %}
+                {%- set _ = ordered.append(item) %}
+            {%- endfor %}
+        {%- endfor %}
+        {%- for item in versions.branches if item.name not in smv_branch_order %}
+            {%- set _ = ordered.append(item) %}
+        {%- endfor %}
         <dl>
             <dt>Versions</dt>
-            {%- for item in versions.branches %}
+            {%- for item in ordered %}
             <dd{% if item == current_version %} class="rtd-current-item"{% endif %}>
             <a href="{{ item.url }}">{{ item.name }}</a>
             </dd>

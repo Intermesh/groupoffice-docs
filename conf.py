@@ -169,11 +169,10 @@ smv_branch_whitelist = r'^(latest|25\.0|6\.8|6\.7|6\.6)$'
 smv_tag_whitelist = r'^$'              # no tags
 smv_remote_whitelist = r'^origin$'     # use origin/* refs, needed on the server
 smv_released_pattern = r'^refs/(heads|remotes/origin)/\d+\.\d+$'
-
-# smv_latest_version keys into the branch metadata by git ref name and must
-# stay 'master'. The output directory (and public URL) for that branch is
-# renamed to "latest" below so it reads like a Read the Docs version.
 smv_latest_version = 'latest'
-
-
 smv_outputdir_format = '{ref.name}'
+
+# sphinx-multiversion doesn't preserve whitelist order in versions.branches,
+# so _templates/versions.html sorts by this list (via html_context) instead.
+# Keep it in sync with smv_branch_whitelist above.
+html_context["smv_branch_order"] = ['latest', '25.0', '6.8', '6.7', '6.6']
