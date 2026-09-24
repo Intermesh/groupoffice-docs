@@ -38,7 +38,7 @@ release = ''
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_copybutton']
+extensions = ['sphinx_copybutton', 'sphinx_multiversion']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -162,3 +162,18 @@ html_context = {
 }
 
 html_js_files = ['analytics.js']
+
+
+# Which refs to build
+smv_branch_whitelist = r'^(latest|25\.0|6\.8|6\.7|6\.6)$'
+smv_tag_whitelist = r'^$'              # no tags
+smv_remote_whitelist = r'^origin$'     # use origin/* refs, needed on the server
+smv_released_pattern = r'^refs/(heads|remotes/origin)/\d+\.\d+$'
+
+# smv_latest_version keys into the branch metadata by git ref name and must
+# stay 'master'. The output directory (and public URL) for that branch is
+# renamed to "latest" below so it reads like a Read the Docs version.
+smv_latest_version = 'latest'
+
+
+smv_outputdir_format = '{ref.name}'

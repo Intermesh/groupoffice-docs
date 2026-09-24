@@ -1,9 +1,16 @@
 FROM sphinxdoc/sphinx
 
+# git is required by sphinx-multiversion to read each version's content
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /docs
 ADD requirements.pip /docs
 RUN pip3 install -r requirements.pip
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 8000
 
-CMD ["sphinx-autobuild", "--host", "0.0.0.0", "--port", "8000", "/docs", "/docs/_build/html", "--ignore", "**/.idea/**", "--ignore", "**/.git/**", "--ignore", "**/docker/**",  "--ignore", "**/*.*~", "--ignore", "conf.py"]
+CMD ["/entrypoint.sh"]
