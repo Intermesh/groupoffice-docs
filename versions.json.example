@@ -1,7 +1,7 @@
 [
-    {"name": "latest", "url": "/latest/"},
-    {"name": "25.0", "url": "/25.0/"},
-    {"name": "6.8", "url": "/6.8/"},
-    {"name": "6.7", "url": "/6.7/"},
-    {"name": "6.6", "url": "/6.6/"}
+    {"name": "latest", "url": "/docs/latest/"},
+    {"name": "25.0", "url": "/docs/25.0/"},
+    {"name": "6.8", "url": "/docs/6.8/"},
+    {"name": "6.7", "url": "/docs/6.7/"},
+    {"name": "6.6", "url": "/docs/6.6/"}
 ]
