@@ -109,10 +109,11 @@ Statuses
 By default some statuses are always present based on the state of the document:
 
 - Invoices
-    - Draft: The invoice is new and doesn't have a number yet
-    - Sent: The invoice has been sent to the customer
-    - Late: The invoice was not paid in time
-    - Paid: The invoice as paid
+    - Draft: The invoice is new and doesn't have a number yet.
+    - Sent: The invoice has been sent to the customer.
+    - Late: The invoice was not paid in time. An expiry date is stored in the document under the hood. This expiry date
+        is based on the invoice date and the customer profile. See System settings -> Business -> Debtor management. When the date is changed, the expiry date is recalculated too.
+    - Paid: The invoice was paid. This happens automatically when the payment amount matched the invoice amount.
 - Quotes and Orders
     - Draft: The quote is new and doesn't have a number yet
     - Sent: The quote has been sent to the customer
