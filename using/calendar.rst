@@ -346,6 +346,10 @@ The calendar default is the default for new events. Users can set this to None (
 Reminders are set per user. Another user with access to the event will not have the reminder set but they can choice to
 set a reminder for themselves.
 
+.. note:: When user A schedules an event on behalf of user B (By creating an event in user B's calendar), reminders will
+   also be created for user B. But only when not using the default. When default is selected it will use user B's
+   default settings.
+
 **Categories**: Users can add 1 or more categories to the event. The category's color will be displayed in the calendar view.
 
 **Free/Busy**: This is set per user. Each user can indicate whether they are shown busy or free in the schedule during this event.
