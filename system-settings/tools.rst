@@ -103,3 +103,9 @@ Blob usage report
 This command prints  blob usage count per table and size on disk::
 
     sudo -u www-data /usr/share/groupoffice/cli.php core/System/blobReport
+
+
+Debugging
+---------
+
+If you want the command to output verbose debugging information, you can pass **--debug** to any command.
