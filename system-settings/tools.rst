@@ -41,6 +41,17 @@ On the command line::
 
    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildSearchCache --reset=1
 
+Update principals
+------------------
+
+All the users, contacts and calendar resources are cached in a principals table. They are used
+for scheduling.
+
+On the command line::
+
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildPrincipals
+
+
 Remove duplicate contacts and events
 ------------------------------------
 
