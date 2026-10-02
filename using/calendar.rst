@@ -240,9 +240,12 @@ Resources
 ---------
 It's possible to create resources in GroupOffice to manage meeting rooms or 
 company cars for example. The resources are organized in groups and can 
-have multiple administrators per group. Administrators must check and approve resource 
+have an administrator per group. Administrators must check and approve resource
 bookings. The resources are part of the calendar module and also work together 
 with custom fields.
+
+.. note:: When scheduling a resource this will be sent to the e-mail of the resource group owner to approve. If you need
+   it to be sent to multiple people, you can create an alias user for it.
 
 Creating groups
 ```````````````
