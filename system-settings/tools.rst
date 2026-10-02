@@ -15,6 +15,10 @@ You can also run this on the command line::
 
    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/checkDatabase
 
+Or if you want to check a specific module::
+
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/checkDatabase --package=community --module=addressbook
+
 Update search index
 -------------------
 
