@@ -211,6 +211,29 @@ There is a trick to create a larger split view, The address bar will show someth
 The number 5 is the amount of days to show starting at 15 June 2026. You can replace this in any view with any number
 Because larger numbers will likely not fit on your screen in a usable manner, this is not part of the user interface.
 
+Custom views
+````````````
+
+When users are allowed in **System settings** -> **Modules** -> **Calendar** to create views. You can also create custom views.
+In these customized views you can select which calendars will be shown and you can define the view type:
+
+- Current, view mode doesn't change
+- Day
+- Workweek
+- Week
+- 2 Weeks
+- 3 Weeks
+- Month
+- Split
+
+You can also share these views. Create one by clicking the more options menu in the calendar list and choose "Compose new view".specific
+
+.. figure:: /_static/using/calendar/compose-new-view.png
+   :width: 400px
+
+   Selecting a time span
+
+
 Settings
 --------
 Calendar settings can be found under 
@@ -397,6 +420,16 @@ When an individual accepts an invite the organizer will receive a reply with the
 
 Replies are immediately processed for internal users. Participation replies from external users are processed
 when the e-mail message is viewed or if automatic email reply processing is enabled in the settings.
+
+
+Booking in resource calendars
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When users create events in resource bookings directly, they will automatically become an organiser for the new event.
+Additionally, the resource will be added as a participant.
+It's just a shorter way to book a resource. The result will be identical to the flow where a user would add a new
+event in it's personal calendar and books the resource by adding it to the participants.
+
 
 Accepting or declining a booking
 --------------------------------
