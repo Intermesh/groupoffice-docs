@@ -380,10 +380,11 @@ set a reminder for themselves.
 
 **Free/Busy**: This is set per user. Each user can indicate whether they are shown busy or free in the schedule during this event.
 
-**Visibiltity**: there are 3 options.
-- Public: users with read access to the calendar can see the content of the event.
-- Private: users up until write own access can not see the content but do see you are busy.
-- Secret: the event is only every shown to the owner of the calendar.
+**Visibility**: there are 3 options:
+
+   - Public: users with read access to the calendar can see the content of the event.
+   - Private: users up until write own access can not see the content but do see you are busy.
+   - Secret: the event is only shown to the owner of the calendar. Other users also don't see free busy information.
 
 Invite people / Booking a resource
 ``````````````````````````````````
