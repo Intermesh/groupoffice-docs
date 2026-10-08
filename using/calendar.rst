@@ -37,13 +37,13 @@ There are two calendar types:
 1. **Owned calendar**
 
    * `owner` field is set.
-   * All users act on behalf of the owner.
+   * All users act on behalf of the owner. For meetings this means that the calendar owner always becomes the organiser.
    * Accepting invites or sending invitations is done in the owner’s name (secretary model).
 
 2. **Shared calendar**
 
    * `owner` field is empty.
-   * Each user acts as themselves.
+   * Each user acts as themselves. The user who creates the event becomes the organiser.
    * Accepting invites or sending invitations is done in the current user’s name.
 
 Invites
@@ -364,7 +364,7 @@ Invite people / Booking a resource
 The invitation field in the event form will show a list of Principals. A principal is an individual or a resource. 
 
 When a principal is added the current user is also added as organizer. Organizers are recognized by the icon in front.
-When searching for participants some individuals are shown in bold. This indecates they are local GroupOffice users 
+When searching for participants some individuals are shown in bold. This indicates they are local GroupOffice users
 instead of external contacts. Local users, for example, can grant others free/busy access to their calendar.
 
 .. figure:: /_static/using/calendar/availability.png

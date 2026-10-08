@@ -157,6 +157,10 @@ This is the default mapping which also contains some examples::
    //					//relative path from group-office file_storage_path
    //					return "ldap_homes/" . $record->uid[0];
    //				}
+
+   				// example for imap and/or smtp password fields
+   //				'imapPassword' => 'imapPassword',
+   //				'smtpPassword' => 'smtpPassword'
    				];
 
 You can override this default by entering this in your :ref:`config.php <configuration>` file.

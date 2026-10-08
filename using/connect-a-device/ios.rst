@@ -65,6 +65,12 @@ To setup an ActiveSync account take the following steps:
 e-mail and calendar for your GroupOffice data!
 
 
+Known issues
+````````````
+
+- When searching, the iOS mail app only starts quering the server when you type at least 3 characters. Meaning you can't search for smaller words in mail that's not on the phone.
+
+
 Files (WebDAV)
 --------------
 
