@@ -57,6 +57,8 @@ Here's a list of config options:
    limit_usersearch              bool    vestigial - sets a limit of users to be returned to non-admin users
    smtp_account_smime_sign       string  Enable SMIME signing of outgoing support ticket messages
    smtp_account_smime_password   string  SMIME password when signing outgoing support ticket messages
+   sseEnabled                    bool    Enable Server Side Events. True by default; set to false to disable
+   sseCheckInterval              int     Override polling interval in seconds for Server Side Event Checks. The default is 1 with APCU enabled or 20 with APCU disabled.
    ============================  ======  ===========
 
 

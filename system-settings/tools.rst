@@ -99,3 +99,14 @@ Blob usage report
 This command prints  blob usage count per table and size on disk::
 
     sudo -u www-data /usr/share/groupoffice/cli.php core/System/blobReport
+
+
+Server Side Events
+------------------
+
+Server Side Events (SSE for short) is a mechanism that notifies the various clients when entities are updated on the server
+side layer. Entity stores are saved in the browser and as far as the client is concerned, it is a single source of truth.
+
+By default, as an administrator, you do not have to do anything to make SSE work. It is on by default and has defaults are
+sane. However, you can set a custom polling interval by setting the `sseCheckInterval` option. Alternatively, you can
+disable SSE entirely by setting the `sseEnabled` option to `false`.
