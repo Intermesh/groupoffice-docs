@@ -57,6 +57,7 @@ Here's a list of config options:
    limit_usersearch              bool    vestigial - sets a limit of users to be returned to non-admin users
    smtp_account_smime_sign       string  Enable SMIME signing of outgoing support ticket messages
    smtp_account_smime_password   string  SMIME password when signing outgoing support ticket messages
+   wopiAllowInternal             bool    Allow Collabora/Office Online (WOPI) service URLs that resolve to private or loopback addresses. Disabled by default. See :ref:`collabora-online-install`.
    ============================  ======  ===========
 
 

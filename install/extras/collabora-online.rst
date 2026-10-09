@@ -36,3 +36,14 @@ choose :ref:`'Open with...' <files-open-with>`.
    webserver configuration. The GroupOffice Debian and Docker packages automatically create this but with the tarball
    package you have to do this manually.
    :ref:`Example configuration can be found here. <webserver-aliases>`
+
+.. note:: For security reasons GroupOffice refuses to add a service whose URL resolves to a loopback, private
+   (for example 10.x.x.x, 192.168.x.x) or link-local address, and it doesn't follow redirects while doing so.
+   If your Collabora Online server runs on an internal network, allow this in :ref:`config.php <configuration>`:
+
+   .. code-block:: php
+
+      $config['wopiAllowInternal'] = true;
+
+   Use a hostname in the service URL instead of an IP address. Only enable this option if you trust everyone who is
+   allowed to manage the Office Online service.
