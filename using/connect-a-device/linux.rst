@@ -12,8 +12,7 @@ Linux
 Thunderbird
 -----------
 
-You can use Thunerbird with the lightning extention to synchronize e-mail, contacts and
-calendars with IMAP, CardDAV and CalDAV.
+You can use the Thunderbird email client to synchronize e-mail, contacts and calendars with IMAP, CardDAV and CalDAV.
 
 Thunderbird doesn't auto detect the CardDAV and CalDAV links automatically. You have to enter the complete URL's.
 
