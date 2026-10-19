@@ -58,6 +58,7 @@ Here's a list of config options:
    smtp_account_smime_sign       string  Enable SMIME signing of outgoing support ticket messages
    smtp_account_smime_password   string  SMIME password when signing outgoing support ticket messages
    wopiAllowInternal             bool    Allow Collabora/Office Online (WOPI) service URLs that resolve to private or loopback addresses. Disabled by default. See :ref:`collabora-online-install`.
+   trustedProxies                array   IP addresses or CIDR ranges of the reverse proxies or load balancers in front of GroupOffice, eg. ['10.0.0.0/8', '172.16.0.0/12']. The client IP address is only taken from the ``X-Forwarded-For`` header for connections from these addresses. Empty by default. See :ref:`http-proxy-client-ip`.
    ============================  ======  ===========
 
 

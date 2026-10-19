@@ -1,3 +1,5 @@
+.. _http-proxy:
+
 HTTP Proxy
 ==========
 
@@ -10,6 +12,68 @@ See for more information:
 
 - nginx: https://linuxize.com/post/nginx-reverse-proxy/
 - Apache: https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers
+
+
+.. _http-proxy-client-ip:
+
+Client IP address
+-----------------
+
+GroupOffice uses the IP address of the client to throttle failed login attempts, for the IP address restrictions of
+user groups and in the audit logs.
+
+By default this is the address of the connection to the server. Headers like ``X-Forwarded-For`` or ``Client-IP`` are
+**ignored**, because a client can set them to anything. An attacker could otherwise use a different fake address for each
+login attempt to get around the throttling, or pretend to be on a trusted network.
+
+When there is a reverse proxy or load balancer in front of GroupOffice, all connections come from that proxy. Then you
+have two options.
+
+**Option 1: configure the trusted proxies in GroupOffice**
+
+Add the IP address or the CIDR range of your proxy to :ref:`config.php <configuration>`:
+
+.. code-block:: php
+
+   $config['trustedProxies'] = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'];
+
+For connections from these addresses GroupOffice reads the client address from the ``X-Forwarded-For`` header. It
+walks through the header from right to left and uses the first address that is not a trusted proxy. Everything before
+that is supplied by the client and is not used. IPv4 and IPv6 are supported.
+
+Your proxy must add the address it received the request from to ``X-Forwarded-For``, like the nginx example below does
+with ``$proxy_add_x_forwarded_for``. Other headers such as ``X-Real-IP`` and ``Forwarded`` are not used.
+
+.. note:: With Docker the proxy often connects from the address of the Docker network gateway. This is usually in
+   the 172.16.0.0/12 range, but check with ``docker network inspect``.
+
+**Option 2: let the web server set the real IP**
+
+The web server that passes requests to PHP can replace the connection address with the one in the header, but only for
+your own proxies. GroupOffice then needs no configuration.
+
+For nginx, using the `realip module <https://nginx.org/en/docs/http/ngx_http_realip_module.html>`_:
+
+.. code-block::
+
+    set_real_ip_from 172.16.0.0/12;
+    real_ip_header X-Forwarded-For;
+    real_ip_recursive on;
+
+For Apache, enable ``mod_remoteip`` (``a2enmod remoteip``) and use:
+
+.. code-block::
+
+    RemoteIPHeader X-Forwarded-For
+    RemoteIPInternalProxy 172.16.0.0/12
+
+.. important:: If you upgrade from a version that trusted the ``X-Forwarded-For`` header from everyone and you use a
+   reverse proxy, then you must configure one of the options above. Otherwise every user appears to come from the IP
+   address of the proxy. Failed logins of one user then count against everybody, and IP address restrictions
+   of groups no longer match.
+
+   Without a proxy in front of the web server (for example nginx or Apache with PHP-FPM that clients connect to
+   directly) nothing needs to be done.
 
 
 504 Gateway Time-out
