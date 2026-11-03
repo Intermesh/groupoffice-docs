@@ -11,7 +11,7 @@ run::
 
 /etc/imapproxy.conf looks like the example below.
 
-You should probablty change at least:
+You should probably change at least:
 
 - server_hostname, to the hostname of your IMAP server.
 - syslog_prioritymask LOG_WARNING, otherwise it will generate too big log files.
@@ -20,6 +20,8 @@ You should probablty change at least:
   dovecot is actually listening. 1143 for example. Then use 1143 in GroupOffice to use
   imapproxy.
 - tls_ca_path /etc/ssl/certs/
+- tls_ca_file /etc/ssl/certs/ca-certificates.crt
+- force_tls yes
 
 .. code::
 
@@ -213,7 +215,7 @@ You should probablty change at least:
    #
    ## Various path options for SSL CA certificates/directories
    #
-   #tls_ca_file /usr/share/ssl/certs/ca-bundle.crt
+   tls_ca_file /etc/ssl/certs/ca-certificates.crt
    tls_ca_path /etc/ssl/certs/
    #tls_cert_file /usr/share/ssl/certs/mycert.crt
    #tls_key_file /usr/share/ssl/certs/mycert.key
