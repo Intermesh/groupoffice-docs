@@ -79,4 +79,4 @@ manager to connect to WebDAV.
 
 Connect the client to::
 
-   ``https://[Server hostname]/webdav```
+   ``https://[Server hostname]/webdav``
