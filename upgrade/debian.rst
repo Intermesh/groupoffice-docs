@@ -6,10 +6,10 @@ Core system
 
 When upgrading a major version other than the latest version, it is recommended to refer to the documentation of the target version:
 
-- https://groupoffice.readthedocs.io/en/25.0/
-- https://groupoffice.readthedocs.io/en/6.8/
-- https://groupoffice.readthedocs.io/en/6.7/
-- https://groupoffice.readthedocs.io/en/6.6/
+- https://www.group-office.com/docs/25.0/
+- https://www.group-office.com/docs/6.8/
+- https://www.group-office.com/docs/6.7/
+- https://www.group-office.com/docs/6.6/
 
 
 Running 6.3 or higher
@@ -74,7 +74,7 @@ Upgrading from 6.2
 
 Visit an older version of the manual here:
 
-https://groupoffice.readthedocs.io/en/6.8/
+https://www.group-office.com/docs/6.8/
 
 Unattended upgrades
 -------------------
