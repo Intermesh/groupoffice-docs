@@ -77,6 +77,6 @@ You can use WebDAV to mount GroupOffice as a network drive. Linux Desktops have 
 launch the file explorer and choose "Connect to server" from the menu. KDE/Plasma users can use the Dolphin file
 manager to connect to WebDAV.
 
-Connect the client to:
+Connect the client to::
 
-https://[Server hostname]/webdav
+   ``https://[Server hostname]/webdav```
