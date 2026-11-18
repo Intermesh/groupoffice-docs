@@ -32,7 +32,7 @@ Working week
 
 In the :ref:`user's preferences <my-account>`, you can now set the standard amount working hours per day for users. This will be used to auto-calculate the number of used leave hours when you edit/create a holiday entry. You can always change the number of used leave hours of a holiday.
 
-Note that the working week is by default for all users in the Holidays module: 8 hours on Monday thru Friday, 0 hours on Saturday and Sunday.
+Note that the working week is by default for all users in the Holidays module: 8 hours on Monday through Friday, 0 hours on Saturday and Sunday.
 
 Leave types
 -----------

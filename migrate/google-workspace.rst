@@ -70,7 +70,7 @@ Migrating calendars goes via export and import of vcalendar (\*.ics) files. `Lea
 <https://support.google.com/calendar/answer/37111?hl=en>`_ and take these steps:
 
 1. Export all required calendars in Google Workpace
-2. Create all required calendars in GroupOffice. All created users in GroupOffice should have a personal calender when they have access to the calendar module.
+2. Create all required calendars in GroupOffice. All created users in GroupOffice should have a personal calendar when they have access to the calendar module.
 3. :ref:`Import all vcalendar files <calendar-import-export>`.
 
 

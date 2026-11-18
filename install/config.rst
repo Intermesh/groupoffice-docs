@@ -91,7 +91,7 @@ included in this file.
 Recommended PHP settings
 ------------------------
 
-For optimal GroupOffice perfomance we recommend these settings. This will allow users to upload files up to 1GB:
+For optimal GroupOffice performance we recommend these settings. This will allow users to upload files up to 1GB:
 
 .. table:: PHP settings
    :widths: auto

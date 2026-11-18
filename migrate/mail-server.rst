@@ -141,7 +141,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
      */
 
     /**
-     * Script askes the following questions:
+     * Script asks the following questions:
      *
      * - Do you want to create to following mailboxes? [y/N]:
      * - Fill mailboxes from another imap host? [y/N]:

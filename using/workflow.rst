@@ -61,7 +61,7 @@ To add a step in a workflow process you need to go to the "Edit workflow" window
     - **Authorized groups**: Here you can add the groups that can authorize this step.
     - **Authorized users**: Here you can add individual users that can authorize this step.
 
-.. note:: If you have checked the "Approve needed by all" checkbox in the "Properties" panel then every user in the Groups ans in the Users tab needs to approve this step.
+.. note:: If you have checked the "Approve needed by all" checkbox in the "Properties" panel then every user in the Groups and in the Users tab needs to approve this step.
 
 
 
@@ -99,7 +99,7 @@ Accept or Decline
 
 If you have permission to administer a step then you can approve or decline items that have that step. Each item
 that has a step that you can administer is displayed in the workflow grid. If you double click on an item in the
-grid (or just double click on the item itself) a popup will come up in wich you can approve or decline the step.
+grid (or just double click on the item itself) a popup will come up in which you can approve or decline the step.
 
 
 After you have clicked on "Approve" or "Decline" a small window will appear on the screen in where you need to add

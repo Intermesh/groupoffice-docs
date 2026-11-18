@@ -74,7 +74,7 @@ To get an ics file from Microsoft Office 365 you need to `publish your calendar 
 Take these steps:
 
 1. Export all required calendars by publishing and downloading them.
-2. Create all required calendars in GroupOffice. All created users in GroupOffice should have a personal calender when they have access to the calendar module.
+2. Create all required calendars in GroupOffice. All created users in GroupOffice should have a personal calendar when they have access to the calendar module.
 3. :ref:`Import all vcalendar files <calendar-import-export>`.
 
 

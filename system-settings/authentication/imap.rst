@@ -14,7 +14,7 @@ Install
 Configure
 ---------
 
-Go to System Settings -> Authentication. There's a new IMAP Autentication section
+Go to System Settings -> Authentication. There's a new IMAP Authentication section
 there.
 
 .. image:: ../../_static/imap/1-imap-authentication.png
@@ -28,4 +28,4 @@ Click on the add button to add a new IMAP server profile:
    :alt: IMAP Server profile
 
 Now you should be able to login with the full e-mail address. You can't change
-passwords with GroupOffice using this autentication method.
+passwords with GroupOffice using this authentication method.

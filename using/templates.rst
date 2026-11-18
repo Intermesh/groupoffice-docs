@@ -26,7 +26,7 @@ Our templating has very rudimentary variable assignment::
 Configuration
 ~~~~~~~~~~~~~
 
-If you work with PDF templates that are not in the main langugage, you can configure a number of formatting settings::
+If you work with PDF templates that are not in the main language, you can configure a number of formatting settings::
 
   [config thousandsSeparator=.]
   [config decimalSeparator=,]
@@ -52,7 +52,7 @@ A typical if-statement looks like this::
     <!-- Do something -->
   [/if]
 
-You can optianally fall back on a default with {{[else]}}::
+You can optionally fall back on a default with {{[else]}}::
 
   [if {{entity.field}} == "<VALUE>"]
     <!-- Do something -->

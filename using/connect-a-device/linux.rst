@@ -12,7 +12,7 @@ Linux
 Thunderbird
 -----------
 
-You can use Thunerbird with the lightning extention to synchronize e-mail, contacts and
+You can use Thunderbird with the lightning extension to synchronize e-mail, contacts and
 calendars with IMAP, CardDAV and CalDAV.
 
 Thunderbird doesn't auto detect the CardDAV and CalDAV links automatically. You have to enter the complete URL's.
@@ -55,7 +55,7 @@ On Debian based distributions you can install the Group Office Assistant via our
 5. Now double click a file in Group Office and it can be edited on your desktop 
    instantly.
 
-.. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
+.. note:: For Chrome users. You might be annoyed by the popup dialog every time you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
 Fedora RPM

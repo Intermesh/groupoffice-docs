@@ -2,7 +2,7 @@ Notifications
 =============
 
 On the notifications page you must configure an SMTP server for outgoing e-mail
-messages. Use the "Send test message" button to test your settingss.
+messages. Use the "Send test message" button to test your settings.
 
 Debug
 -----

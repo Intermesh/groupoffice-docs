@@ -212,7 +212,7 @@ You'll also need to uncomment following line in /etc/dovecot/conf.d/99-groupoffi
 Now connect with:
 
 IMAP host: YOURHOSTNAME
-TLS encrypttion enabled (Make sure you've setup SSL)
+TLS encryption enabled (Make sure you've setup SSL)
 Username: full email address
 
 External SMTP access

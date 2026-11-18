@@ -443,7 +443,7 @@ Find the "accessToken" property and save it. From now on you can do API requests
    
 You must set the access token as a header on each request::
 
-   Auhorization: Bearer 5b7576e5c50ac30f0e53373f0fa614cedbdbe49df7637
+   Authorization: Bearer 5b7576e5c50ac30f0e53373f0fa614cedbdbe49df7637
    Content-Type: application/json
 
 .. figure:: /_static/developer/building-a-module/authenticate.png
@@ -590,7 +590,7 @@ For example:
   }
 
 The timestamp is important. Use YYYYMMDDHHII. All the module upgrades will be
-mixed together and put into chronological order so dependant modules won't break.
+mixed together and put into chronological order so dependent modules won't break.
 
 Custom Fields
 -------------

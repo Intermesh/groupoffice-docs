@@ -94,7 +94,7 @@ Authentication with CGI or FastCGI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 When using PHP through CGI the "Authorization" header might not be passed by default.
 You can enable this header by setting the Authorization as environment variable in
-your VirtualHost section or .htacess file::
+your VirtualHost section or .htaccess file::
 
     SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 

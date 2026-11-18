@@ -60,7 +60,7 @@ The GroupOffice Assistant is a small program that you can install on your Window
 Linux computer. It will automatically download files opened from GroupOffice and monitor
 it for changes. When the file is saved it automatically uploads it back to GroupOffice.
 
-`Click here for a video of the installation proces <https://www.youtube.com/watch?v=6L7ZtvEAZEQ>`_
+`Click here for a video of the installation process <https://www.youtube.com/watch?v=6L7ZtvEAZEQ>`_
 
 `Click here to download GroupOffice Assistant for Windows
 <https://repo.group-office.com/downloads/group-office-assistant-windows.exe>`_.
@@ -78,7 +78,7 @@ After installing it you can use it as follows:
 .. note:: If the Assistant doesn't start you might need to install the Microsoft Visual Studio Runtime library:
    https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
 
-.. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
+.. note:: For Chrome users. You might be annoyed by the popup dialog every time you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
 Automated install

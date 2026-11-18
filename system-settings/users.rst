@@ -73,7 +73,7 @@ a strong password.
 
    Create step 3
 
-Finally, add the user to the right :ref:`user-groups` andf click 'Finish'.
+Finally, add the user to the right :ref:`user-groups` and click 'Finish'.
 
 .. _user-import-export:
 

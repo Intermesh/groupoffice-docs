@@ -151,7 +151,7 @@ Users can share a direct link to a specific day and view in the calendar by copy
 Views
 -----
 The calendar module comes with multiple views. Either merged in one regular view or each calendar
-displayed unerneath each other in separate rows.
+displayed underneath each other in separate rows.
 
 You can select a view in the middle of the top toolbar.
 There are 5 type of views:

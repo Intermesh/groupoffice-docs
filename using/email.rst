@@ -399,7 +399,7 @@ Click on "Add" and match the settings like in this screenshot:
 .. figure:: /_static/using/email/edit-sieve-rule.png
    :width: 100%
 
-   Whilelist filter rule
+   Whitelist filter rule
 
 Out of office
 ~~~~~~~~~~~~~
@@ -436,7 +436,7 @@ You can setup GroupOffice as your default mail client on your macOS, Windows or 
 e-mail address in other applications GroupOffice will open with the e-mail compose window.
 To do this you need to install the :ref:`assistant`. When it's installed you can select it in your OS:
 
-.. note:: For this to work you will have to edit at least one file so the assisant knows where your GroupOffice installation is hosted.
+.. note:: For this to work you will have to edit at least one file so the assistant knows where your GroupOffice installation is hosted.
 
 Windows
 ```````
