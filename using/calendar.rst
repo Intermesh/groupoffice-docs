@@ -72,17 +72,17 @@ a dialog is shown prompting the user to create a new personal calendar.
 Subscribing
 -----------
 
-You can subscribe to shared calendars via the more options menu button next to calendars:
+You can subscribe to shared calendars via the more options menu (⋮) next to calendars:
 
 .. figure:: /_static/using/calendar/subscribe-to-calendar.png
    :width: 50%
 
-You can unsubscribe at any time via the more options menu next to the calendar.
+You can unsubscribe at any time via the more options menu (⋮) next to the calendar.
 
 Add remote calendar
 -------------------
 
-In the more options menu shown above you also find the "Add calendar from link" option. That option allows you to add
+In the more options menu (⋮) shown above you also find the "Add calendar from link" option. That option allows you to add
 a remote public calendar published in vCalendar (\*.ics) format.
 
 .. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
@@ -93,7 +93,7 @@ a remote public calendar published in vCalendar (\*.ics) format.
 Import and export
 -----------------
 
-You can import and export vcalendar (\*.ics) files via the more menu:
+You can import and export vcalendar (\*.ics) files via the more options menu (⋮):
 
 .. figure:: /_static/using/calendar/calendar-import-export.png
    :width: 100%
@@ -226,7 +226,7 @@ In these customized views you can select which calendars will be shown and you c
 - Month
 - Split
 
-You can also share these views. Create one by clicking the more options menu in the calendar list and choose "Compose new view".specific
+You can also share these views. Create one by clicking the more options menu (⋮) in the calendar list and choose "Compose new view".
 
 .. figure:: /_static/using/calendar/compose-new-view.png
    :width: 400px
@@ -305,7 +305,7 @@ Groups are useful to organize resources. You could have the following groups for
 
 To open the resource group management go to:
 
-Calendar -> 3-dots top right -> Resources... -> + button next to Groups
+Calendar -> more options menu (⋮) top right -> Resources... -> + button next to Groups
 
 Enter a name for the group and click “Save”. You can also select the 
 custom field sets you want to use with this type of resource. For meeting rooms 
@@ -327,7 +327,7 @@ Creating resources
 
 After you set up a resource group you can add resources. Go to:
 
-Calendar -> 3-dots top right -> Resources...-> + button next to Resources
+Calendar -> more options menu (⋮) top right -> Resources...-> + button next to Resources
 
 Enter a name and click on "Save".
 

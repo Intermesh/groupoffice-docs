@@ -23,7 +23,7 @@ The address book module supports:
 Sharing an address book
 -----------------------
 
-Via the more menu you in the tree you can edit an address book. Read more about :ref:`sharing here <sharing>`.
+Via the more options menu (⋮) in the tree you can edit an address book. Read more about :ref:`sharing here <sharing>`.
 
 .. _addressbook-import-export:
 
@@ -34,7 +34,7 @@ You can import and export a Comma Separated File (*.csv) or a vcard (*.vcf).
 The export functions will export what's currently selected on screen. So you can first apply searches or filters and then
 choose export.
 
-These functions are accessible via the more menu in the toolbar above the grid:
+These functions are accessible via the more options menu (⋮) in the toolbar above the grid:
 
 .. figure:: /_static/using/address-book/import-export.png
    :alt: Import and export menu options
@@ -177,7 +177,7 @@ Look for duplicates
 
 It often occurs that duplicate contacts are created. GroupOffice has a feature to deduplicate contacts.
 
-In the more menu choose "Look for duplicates":
+In the more options menu (⋮) choose "Look for duplicates":
 
 .. figure:: /_static/using/address-book/look-for-duplicates-menu.png
    :alt: Look for duplicates menu

@@ -236,7 +236,7 @@ If you need to entirely clean up your generated code, there's two steps to be ta
 1. Remove the module from Group Office:
 	1. Log in as administrator;
 	2. Go to System Settings > Modules;
-	3. Find your module and hover over its corresponding table row. A three dot menu appears on the right. Select the 'Delete' option.
+	3. Find your module and hover over its corresponding table row. The more options menu (⋮) appears on the right. Select the 'Delete' option.
 	4. Click the save button on the bottom right;
 2. Physically delete the subdirectory with the generated code.
 

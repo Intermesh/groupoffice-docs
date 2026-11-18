@@ -228,13 +228,13 @@ This will take you to the time registration list view:
 Coming from the project finance it will automatically filter on billable hours only and on the project. You can change
 the filters from the left.
 
-You can export the list to **CSV** or **Microsoft Excel** using the more menu.
+You can export the list to **CSV** or **Microsoft Excel** using the more options menu (⋮).
 
 
 Finance report
 ``````````````
 
-From the main projects view you can access the Finance report from the more menu:
+From the main projects view you can access the Finance report from the more options menu (⋮):
 
 .. figure:: /_static/using/projects3/projects3-more-menu-finance-report.png
 
