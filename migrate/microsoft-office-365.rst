@@ -17,7 +17,7 @@ Calendar              Calendar
 Contacts              Addressbook
 ====================  ============
 
-Make sure you have the required modules installed. To replace the office apps you can install :ref:`Collabora office <collabora-office>`.
+Make sure you have the required modules installed. To replace the office apps you can install :ref:`Collabora office <collabora-online-install>`.
 
 Sign up or install
 ------------------
@@ -33,7 +33,7 @@ Before creating users, :ref:`setup groups and module permissions <user-groups>`.
 Start by creating users manually or :ref:`import them via a csv or file <user-import-export>` in GroupOffice.
 `Here you can find how to export Microsoft Office 365 users <https://learn.microsoft.com/en-us/answers/questions/4910422/how-do-i-create-a-report-of-365-users-with-their-e>`_.
 
-.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <map-authentication>` or or :ref:`LDAP authentication <ldap>`.
+.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <imap-authentication>` or :ref:`LDAP authentication <ldap>`.
 
 
 E-mail

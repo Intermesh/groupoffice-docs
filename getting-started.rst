@@ -13,7 +13,7 @@ help you get started:
 
 3. **Modules**: Install the modules you need at **System Settings** -> :ref:`Modules <modules>`. Remove the once you don't need to make the menu clean.
 4. **User groups**: Setup :ref:`user groups <user-groups>`. User groups make it easy for setting up users later. Not everybody needs access to the finance module for example. Make a "Finance" group to administrate that easily.
-5. **Users**: :ref:`Add or import users <users>`. Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <map-authentication>` or :ref:`LDAP authentication <ldap>`.
+5. **Users**: :ref:`Add or import users <users>`. Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <imap-authentication>` or :ref:`LDAP authentication <ldap>`.
 6. **E-mail accounts**: If e-mail accounts are not created automatically, then you can :ref:`create IMAP accounts <create-imap-accounts>` for the users.
 7. **Contacts**: Learn how to :ref:`create a shared address book <sharing-addressbook>`.
 8. **Files**: Learn how to :ref:`create a shared folder or drive <share-folders>`.

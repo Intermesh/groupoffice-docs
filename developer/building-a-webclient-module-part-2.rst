@@ -5,8 +5,8 @@ Building a webclient module, part 2
 
 In which we build access control into the web client.
 
-In :ref:`the server module tutorial <building-a-server-module>` we built one ``AclOwnerEntity`` model, being Review. The web
-client was created in :ref:`the webclient tutorial <building-a-webclient-module>`, without the review part. This part of
+In :ref:`the server module tutorial <server_module>` we built one ``AclOwnerEntity`` model, being Review. The web
+client was created in :ref:`the webclient tutorial <webclient_module>`, without the review part. This part of
 the webclient tutorial covers the client-side part of working with access control lists.
 
 For the sake of this tutorial, we made it possible for reviews to be shared with your fellow users, or being

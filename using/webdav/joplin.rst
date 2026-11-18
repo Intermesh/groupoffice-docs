@@ -1,3 +1,5 @@
+:orphan:
+
 .. _joplin:
 
 Synchronizing Joplin Note Books

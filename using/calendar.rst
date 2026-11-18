@@ -64,7 +64,7 @@ Constraints:
   * Individual instances can be declined.
 
 Personal Calendar
----------
+-----------------
 Every user with access to the calendar module has a personal calendar by default.
 If a user is not allowed to create or modify calendars, and does not have at least one writable calendar,
 a dialog is shown prompting the user to create a new personal calendar.

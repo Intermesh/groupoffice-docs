@@ -69,12 +69,12 @@ Special characters
 
 **Asterisk ( \* )**
 
-The asterisk indicates that the cron expression matches for all values of the field. E.g., using an asterisk in the 1th field (minute) indicates every minute. * is a non-restricted
+The asterisk indicates that the cron expression matches for all values of the field. E.g., using an asterisk in the 1th field (minute) indicates every minute. \* is a non-restricted
 character.
 
 **Slash ( / )**
 
-Slashes describe increments of ranges. For example 3-59/15 in the 1st field (minutes) indicate the third minute of the hour and every 15 minutes thereafter. The form "*/..." is
+Slashes describe increments of ranges. For example 3-59/15 in the 1st field (minutes) indicate the third minute of the hour and every 15 minutes thereafter. The form "\*/..." is
 equivalent to the form "first-last/...", that is, an increment over the largest possible range of the field.
 
 **Comma ( , )**

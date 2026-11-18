@@ -1,3 +1,5 @@
+.. _projects:
+
 Projects and time tracking
 ==========================
 

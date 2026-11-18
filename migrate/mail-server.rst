@@ -51,7 +51,7 @@ you won't be able to read the mailboxes without it.
 
 Put the mailbox information into a mailboxes.csv file like this.
 
-.. code:: csv
+.. code:: text
 
     michael@group-office.com,S3cRetPassWD,Michael de Hart
     merijn@group-office.com,S3cRetPassWD,Merijn Schering

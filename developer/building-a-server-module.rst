@@ -549,7 +549,7 @@ by overriding the "filter" method:
 
 After defining this you can filter on genre by posting:
 
-.. code:: json
+.. code:: javascript
 
    [
    ["Artist/query", {"filter":{"genres":[1,2,3]}}, "call1"],

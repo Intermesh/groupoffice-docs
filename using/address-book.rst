@@ -1,3 +1,5 @@
+.. _address-book:
+
 Address book
 ============
 

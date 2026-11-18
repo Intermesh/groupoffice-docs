@@ -17,7 +17,7 @@ Calendar           Calendar
 Contacts           Addressbook
 =================  ============
 
-Make sure you have the required modules installed. To replace the google docs editors you can install :ref:`Collabora office <collabora-office>`.
+Make sure you have the required modules installed. To replace the google docs editors you can install :ref:`Collabora office <collabora-online-install>`.
 
 Sign up or install
 ------------------
@@ -33,7 +33,7 @@ Before creating users, :ref:`setup groups and module permissions <user-groups>`.
 Start by creating users manually or :ref:`import them via a csv or file <user-import-export>` in GroupOffice.
 `Here you can find how to export Google Workspace users <https://support.google.com/a/answer/7348070>`_.
 
-.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <map-authentication>` or :ref:`LDAP authentication <ldap>`.
+.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <imap-authentication>` or :ref:`LDAP authentication <ldap>`.
 
 
 Gmail
@@ -80,7 +80,7 @@ Contacts
 Migrating contacts goes via export and import of vCard (\*.vcf) files. `Learn how to export your Google Contacts here.
 <https://support.google.com/contacts/answer/7199294>`_ and take these steps:
 
-1. Export all contacts to vCard (*.vcf) file
+1. Export all contacts to vCard (\*.vcf) file
 2. Create all required addressbooks in GroupOffice.
 3. :ref:`Import all vCard files <addressbook-import-export>`.
 

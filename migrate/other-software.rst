@@ -22,7 +22,7 @@ Before creating users, :ref:`setup groups and module permissions <user-groups>`.
 Start by creating users manually or :ref:`import them via a csv or file <user-import-export>` in GroupOffice.
 Find out how you can export users from your current software.
 
-.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <map-authentication>` or or :ref:`LDAP authentication <ldap>`.
+.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <imap-authentication>` or :ref:`LDAP authentication <ldap>`.
 
 
 E-mail

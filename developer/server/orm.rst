@@ -289,7 +289,7 @@ not suit your use case.
 The bad
 ```````
 
-In the ``Modules.php`` class (see the :ref:`the server module tutorial <building-a-server-module>` for details), you can
+In the ``Modules.php`` class (see the :ref:`the server module tutorial <server_module>` for details), you can
 write an event listener function like below:
 
 .. code:: php
