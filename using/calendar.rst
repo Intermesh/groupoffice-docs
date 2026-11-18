@@ -233,6 +233,26 @@ You can also share these views. Create one by clicking the more options menu in 
 
    Selecting a time span
 
+.. _calendar-printing:
+
+Printing
+````````
+
+Print the calendar from the more options menu (⋮) in the top toolbar -> **Print**. GroupOffice opens a PDF of the
+visible calendars in a new tab. You can print the current view, or choose one of these:
+
+- List: all events of the selected period in a list
+- Day
+- Workweek
+- Week
+- Month
+
+By default the week and workweek are printed like the month view: a cell for each day with its events. To print them
+as a grid with a column for each day and the hours down the side, like the day column view, enable
+**Print week and workweek in a grid with hours** in the :ref:`settings <calendar-settings>`.
+
+
+.. _calendar-settings:
 
 Settings
 --------
@@ -245,6 +265,9 @@ when dragging, moving or resizing an event on this view the timespan will snap t
 1 hour, 30 minute, 15 minutes or 5 minutes.
 
 Users can select a default view to start in when they open the calendar.
+With **Print week and workweek in a grid with hours** the week and workweek are printed as a grid with hours instead
+of a cell per day. See :ref:`calendar-printing`.
+
 They can select a default duration for the month view (where each row is a week)
 In this view events are created with a single click. If a multi-day event is created here
 the default duration value is ignored and GroupOffice will default to full-day instead
