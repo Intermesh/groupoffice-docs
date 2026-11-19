@@ -58,6 +58,24 @@ Other Providers
 Most other providers that support CalDAV and Basic Authentication—such as
 NextCloud or custom servers—will work with a regular username and password.
 
+.. _davclient-internal:
+
+Servers in your own network
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For security reasons GroupOffice refuses DAV accounts on a host that resolves to a loopback (localhost),
+private (for example 10.x.x.x, 192.168.x.x) or link-local address. If your users sync with a CalDAV server in
+your own network or on the GroupOffice server itself, an administrator can allow this in
+:ref:`config.php <configuration>`:
+
+.. code-block:: php
+
+   $config['davclientAllowInternal'] = true;
+
+.. warning:: Users enter the host of a DAV account themselves. With this option enabled, every user who can add a
+   DAV account can make the GroupOffice server send requests to servers in your internal network. Only enable it if
+   you trust these users.
+
 However, some services (like Google Calendar) may not support CalDAV directly
 anymore or may require OAuth or additional setup. Please consult your provider's
 documentation for their current CalDAV access policy.
