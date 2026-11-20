@@ -25,7 +25,7 @@ following fields are common:
 .. figure:: /_static/using/oauth2/system-settings-oauth2-connection.png
    :width: 800px
 
-	An example Google connection, used to connect to Gmail
+   An example Google connection, used to connect to Gmail
 
 Configure an email account
 ``````````````````````````

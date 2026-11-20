@@ -99,7 +99,7 @@ The server client allows you to:
 To configure you must:
 
 1. Install the **Serverclient** and **API Keys** module at **System Settings** -> **Modules**
-2. Create an API key for a user that has write access to all required mail domains. See `API keys <https://groupoffice.readthedocs.io/en/latest/developer/jmap.html#api-key>`_ for more information.
+2. Create an API key for a user that has write access to all required mail domains. See `API keys <https://www.group-office.com/docs/latest/developer/jmap.html#api-key>`_ for more information.
 3. Then edit ``/etc/groupoffice/globalconfig.inc.php`` or create it if it doesn't exist:
 
 .. code:: php
@@ -212,7 +212,7 @@ You'll also need to uncomment following line in /etc/dovecot/conf.d/99-groupoffi
 Now connect with:
 
 IMAP host: YOURHOSTNAME
-TLS encrypttion enabled (Make sure you've setup SSL)
+TLS encryption enabled (Make sure you've setup SSL)
 Username: full email address
 
 External SMTP access

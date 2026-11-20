@@ -92,6 +92,7 @@ Table of contents
    using/msteams
    using/kanban
    using/forms
+   using/mcp
 
 .. toctree::
    :maxdepth: 2

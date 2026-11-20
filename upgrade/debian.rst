@@ -6,10 +6,10 @@ Core system
 
 When upgrading a major version other than the latest version, it is recommended to refer to the documentation of the target version:
 
-- https://groupoffice.readthedocs.io/en/25.0/
-- https://groupoffice.readthedocs.io/en/6.8/
-- https://groupoffice.readthedocs.io/en/6.7/
-- https://groupoffice.readthedocs.io/en/6.6/
+- https://www.group-office.com/docs/25.0/
+- https://www.group-office.com/docs/6.8/
+- https://www.group-office.com/docs/6.7/
+- https://www.group-office.com/docs/6.6/
 
 
 Running 6.3 or higher
@@ -26,9 +26,11 @@ This will install the new software and upgrades the database.
 When GroupOffice open GroupOffice now they will get a message that the service is unavailable at this time because an
 upgrade is being installed.
 
-.. note:: If for any reason you see a maintenance screen when launching GroupOffice. Then launch /install to upgrade the database or run it on the command line::
+.. note::
 
-     sudo -u www-data /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
+   If for any reason you see a maintenance screen when launching GroupOffice. Then launch /install to upgrade the database or run it on the command line::
+
+      sudo -u www-data /usr/share/groupoffice/cli.php core/System/upgrade -c=/etc/groupoffice/config.php
 
 Major release upgrade
 ~~~~~~~~~~~~~~~~~~~~~
@@ -74,7 +76,7 @@ Upgrading from 6.2
 
 Visit an older version of the manual here:
 
-https://groupoffice.readthedocs.io/en/6.8/
+https://www.group-office.com/docs/6.8/
 
 Unattended upgrades
 -------------------

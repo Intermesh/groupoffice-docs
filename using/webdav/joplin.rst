@@ -1,3 +1,5 @@
+:orphan:
+
 .. _joplin:
 
 Synchronizing Joplin Note Books
@@ -22,7 +24,7 @@ Setting up Joplin
 `````````````````
 
 If you haven't already, it is advisable to `set up End-to-End Encryption <https://joplinapp.org/help/apps/sync/e2ee#enabling-e2ee>`_
-first. Having done that, open the Options screen from the main menu. Select the tab labeled 'Synchornization' and set
+first. Having done that, open the Options screen from the main menu. Select the tab labeled 'Synchronization' and set
 the following options:
 
 .. table:: Joplin setup

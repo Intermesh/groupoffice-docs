@@ -23,7 +23,7 @@ Double click "Calendar" to open the edit default permission screen:
 .. figure:: /_static/system-settings/default-permissions-set.png
    :width: 100%
 
-    Edit default permissions
+   Edit default permissions
 
 
 Then click **Add to all** to keep existing permissions but add the missing groups from the defaults. Or click **Reset all**

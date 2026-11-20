@@ -183,7 +183,7 @@ Server module - JMAP framework
 
 In our JMAP :ref:`ORM<orm>`,  events are tied to database objects. As database objects are roughly split into entities
 and properties, you can find the event names in the entity and property classes in the ``go/core/orm`` subdirectory.
-They can easily be found by grepping 'EVENT_' and the names of the entities are pretty consistent: ``EVENT_FOO``is
+They can easily be found by grepping ``EVENT_`` and the names of the entities are pretty consistent: ``EVENT_FOO`` is
 triggered when a `foo` action is performed, whereas ``EVENT_BEFORE_FOO`` is triggered before doing the actual `foo`
 action.
 
@@ -229,6 +229,7 @@ The ``module.js`` file
 If you need client-side overrides, you need to define your custom namespace and register your module:
 
 .. code:: javascript
+
 	Ext.namespace('go.modules.acme.sms');
 
 	go.Modules.register("acme", 'sms', {

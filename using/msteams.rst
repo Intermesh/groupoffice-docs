@@ -97,7 +97,7 @@ Step 5: Configure GroupOffice
    :width: 100%
 
 Step 6: Using Microsoft Teams in Calendar Events
-======================================
+================================================
 
 1. Create a new calendar event in GroupOffice.
 2. When you click the camera button next to the location field it should generate a unique Microsoft Teams link for your event.

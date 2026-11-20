@@ -25,7 +25,7 @@ added:
 	ALTER TABLE `notes_note_custom_fields`
 	  ADD CONSTRAINT `notes_note_custom_fields_ibfk_1` FOREIGN KEY (`id`) REFERENCES `notes_note` (`id`) ON DELETE CASCADE;
 
-Of course, the ``unintall.sql`` file should drop the custom field table too:
+Of course, the ``uninstall.sql`` file should drop the custom field table too:
 
 .. code:: SQL
 

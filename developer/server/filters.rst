@@ -120,7 +120,7 @@ ACL Permission level
 If the entity is derived from an AclEntity then the filter "permissionLevel" is
 also available:
 
-.. code:: json
+.. code:: javascript
 
    {"filter": {"permissionLevel" : GO.permissionLevels.write}}
 

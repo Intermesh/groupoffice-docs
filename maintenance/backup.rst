@@ -23,7 +23,7 @@ Oops, I accidentally deleted something...
 `````````````````````````````````````````
 
 Mistakes happen. Sometimes you've accidentally deleted something from GroupOffice. You could then restore all missing
-items from a backup by merging. Please be aware that everthing that was deleted will be restored. Also the items that
+items from a backup by merging. Please be aware that everything that was deleted will be restored. Also the items that
 you deleted intentionally.
 
 Steps:
@@ -49,7 +49,7 @@ Steps:
 
       mysql groupoffice_live < merge-data.sql
 
-4. Now all records should be back in the database. To reset the GroupOffice cache and sync states run the upgrade procdure in the browser::
+4. Now all records should be back in the database. To reset the GroupOffice cache and sync states run the upgrade procedure in the browser::
 
     https://groupoffice.example.com/install/upgrade.php
 

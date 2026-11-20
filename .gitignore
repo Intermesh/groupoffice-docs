@@ -4,3 +4,8 @@
 _build
 nbproject
 venv
+
+# Version switcher data (see conf.py) -- deliberately untracked so every
+# branch checkout shares the same file on disk instead of maintaining a
+# copy per branch.
+/versions.json

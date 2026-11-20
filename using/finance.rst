@@ -85,7 +85,7 @@ a book installed for all of the supported types:
 - Quotes
 
 It might be that you don't need all of these types. You can remove the ones you don't need. Edit the properties
-of the books you need. By clicking the 3 dots behind the book and choose "Edit".
+of the books you need. Click the more options menu (⋮) behind the book and choose "Edit".
 
 .. figure:: /_static/using/finance/book-general.png
    :alt: Book dialog
@@ -109,10 +109,10 @@ Statuses
 By default some statuses are always present based on the state of the document:
 
 - Invoices
-    - Draft: The invoice is new and doesn't have a number yet
-    - Sent: The invoice has been sent to the customer
-    - Late: The invoice was not paid in time
-    - Paid: The invoice as paid
+    - Draft: The invoice is new and doesn't have a number yet.
+    - Sent: The invoice has been sent to the customer.
+    - Late: The invoice was not paid in time. An expiry date is stored in the document under the hood. This expiry date is based on the invoice date and the customer profile. See System settings -> Business -> Debtor management. When the date is changed, the expiry date is recalculated too.
+    - Paid: The invoice was paid. This happens automatically when the payment amount matched the invoice amount.
 - Quotes and Orders
     - Draft: The quote is new and doesn't have a number yet
     - Sent: The quote has been sent to the customer
@@ -326,7 +326,7 @@ When there are debtors to be notified you are reminded with a badge in the menu:
 
 Reports
 ```````
-You can view a yearly and monthly turnover report from the more menu in the main grid:
+You can view a yearly and monthly turnover report from the more options menu (⋮) in the main grid:
 
 .. figure:: /_static/using/finance/monthly-report.png
    :alt: Monthly report
@@ -376,7 +376,7 @@ You can setup :ref:`templates<templates>` For documents, emails and statements. 
 in :ref:`the document templates section here<templates>`.
 
 Available variables
-````````
+```````````````````
 
 You can use the following variables in these templates:
 
@@ -425,14 +425,14 @@ The invoice, quote, order, po.
 
 
 document.itemGroup
-++++++++++++++++++
+******************
 
 - title
 - showTotals
 - items[]
 
 itemGroup.item
-++++++++++++++
+**************
 
 - quantity
 - description
@@ -786,11 +786,13 @@ Example paid stamp
 ~~~~~~~~~~~~~~~~~~
 
 Create a new content block with type HTML, x = 20 and y=70 and put this code in:
-```
-[if {{outstanding}} <= 0 ]
-<img width="140"  src="/go/modules/business/finance/views/extjs3/themes/default/resources/paid-stamp.png" />
-[/if]
-`````
+
+.. code-block:: none
+
+   [if {{outstanding}} <= 0 ]
+   <img width="140"  src="/go/modules/business/finance/views/extjs3/themes/default/resources/paid-stamp.png" />
+   [/if]
+
 
 This will put a red PAID stamp on the PDF when it's paid.
 

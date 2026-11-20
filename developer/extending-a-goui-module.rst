@@ -82,7 +82,7 @@ Update the ``Album`` model to retrieve reviews (when available):
 .. note:: The ``addScalar`` function is commonly used to define relations between entities.
 
 Also, make sure that the ``Review`` controller class exists. Copy / paste it from one of the other controllers and make
-sure that the ``Rewiew`` model is used as its model.
+sure that the ``Review`` model is used as its model.
 
 In the ``ArtistDetail`` class, add two buttons to the menu at the end of each album row:
 

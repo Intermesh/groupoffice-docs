@@ -39,7 +39,7 @@ and their corresponding modules.
    Custom fields overview window
 
 Click on the pencil icon in the right column to manage custom fields for a certain object. For
-an non-customized object, the resulting window wll look like below:
+a non-customized object, the resulting window will look like below:
 
 .. figure:: /_static/system-settings/custom-fields-add-empty.png
 

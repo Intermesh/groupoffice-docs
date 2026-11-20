@@ -9,7 +9,7 @@ This will make it easier for our users to be GDPR compliant.
 GDPR
 ----
 
-The `GDPR <https://en.wikipedia.org/wiki/General_Data_Protection_Regulation>`_ is a European regulation on information
+The `GDPR <https://en.wikipedia.org/wiki/General_Data_Protection_Regulation>`__ is a European regulation on information
 privacy. Therefore, this module is mostly aimed at our customers within the EU. That being said, if you are in another
 region with privacy regulations, or you care about the privacy of your customers, this module may be helpful as well.
 

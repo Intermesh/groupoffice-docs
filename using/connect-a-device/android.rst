@@ -29,7 +29,7 @@ To setup an ActiveSync account take the following steps:
    .. figure:: /_static/android-eas/5-email-address.png
       :width: 400px
 
-5. Then choose for the "Exhange".
+5. Then choose for the "Exchange".
 
    .. figure:: /_static/android-eas/6-manual-setup.png
       :width: 400px

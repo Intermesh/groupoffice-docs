@@ -4,8 +4,8 @@ Users
 =====
 
 User management is available for administrators and any user who has permissions via System Settings -> Modules -> System permissions. 
-When clicking users you will see a list of all GroupOffice users. Via the "more"
-menu in the record you can:
+When clicking users you will see a list of all GroupOffice users. Via the more options menu (⋮)
+in the record you can:
 
 1. Edit the user
 2. Login as this user
@@ -73,7 +73,7 @@ a strong password.
 
    Create step 3
 
-Finally, add the user to the right :ref:`user-groups` andf click 'Finish'.
+Finally, add the user to the right :ref:`user-groups` and click 'Finish'.
 
 .. _user-import-export:
 
@@ -85,7 +85,7 @@ You can also import users via a CSV or Microsoft Excel file. After uploading you
 .. tip:: You can also use the Export function to get an example file. The columns will map automatically when these
    column names are used.
 
-You can find the import and export option in the more menu at **System settings** -> **Users**
+You can find the import and export option in the more options menu (⋮) at **System settings** -> **Users**
 
 .. figure:: /_static/system-settings/import-export-users.png
    :alt: Import and export users
@@ -100,7 +100,7 @@ After selecting the file you can map the columns:
 Edit a user
 -----------
 
-To edit a user double click or use the more menu. 
+To edit a user double click or use the more options menu (⋮). 
 The edit dialog is identical to the ':ref:`my-account`' page but adds some administrative features:
 
 - Group management

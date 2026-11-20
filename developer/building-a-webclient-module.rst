@@ -330,12 +330,12 @@ Create the file ``ArtistGrid.js``:
 				fields: [
 					'id',
 					'name',
-					'photo', //This is a blob id. A download URL can be retreived with go.Jmap.downloadUrl(record.data.photo)
+					'photo', //This is a blob id. A download URL can be retrieved with go.Jmap.downloadUrl(record.data.photo)
 
 					{name: 'createdAt', type: 'date'},
 					{name: 'modifiedAt', type: 'date'},
 
-					// You can use "relation" as a store data type. This will autmatically
+					// You can use "relation" as a store data type. This will automatically
 					// fetch the related entity by the definition in Module.js.
 					{name: 'creator', type: "relation"},
 					{name: 'modifier', type: "relation"},
@@ -501,7 +501,7 @@ Now change ``MainPanel.js`` to use the grid:
 		onGenreFilterChange : function (sm) {
 
 			var selectedRecords = sm.getSelections(),
-						ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
+						ids = selectedRecords.column('id'); //column is a special GO method that gets all the id's from the records in an array.
 
 			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
@@ -517,7 +517,7 @@ Now change ``MainPanel.js`` to use the grid:
 
 Study this component code and comments again. The changes that are made are:
 
-1. The layout to a responsive layout so the components can be next ot each other.
+1. The layout to a responsive layout so the components can be next to each other.
    A responsive layout is based on Ext.layout.BorderLayout but changes into a 
    Ext.layout.CardLayout when the device width is smaller than a specified 
    trigger point.
@@ -737,7 +737,7 @@ Then update ``MainPanel.js``:
 		onGenreFilterChange : function (sm) {
 
 			var selectedRecords = sm.getSelections(),
-						ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
+						ids = selectedRecords.column('id'); //column is a special GO method that gets all the id's from the records in an array.
 
 			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
@@ -802,7 +802,7 @@ Delete button
 -------------
 
 You can add a delete button to the grid's toolbar in ``MainPanel.js`` to delete
-selected artists. Note that this code will add a "More options" menu button with 3 dots that has the delete button in the menu:
+selected artists. Note that this code will add a more options menu (⋮) button that has the delete button in the menu:
 
 .. code:: javascript
 
@@ -1121,7 +1121,7 @@ Study the code and add it to ``scripts.txt``. Now we're going to update the
 		onGenreFilterChange: function (sm) {
 
 			var selectedRecords = sm.getSelections(),
-							ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
+							ids = selectedRecords.column('id'); //column is a special GO method that gets all the id's from the records in an array.
 
 			this.artistGrid.store.setFilter('genres', {genres: ids});
 			this.artistGrid.store.load();
@@ -1403,7 +1403,7 @@ Once again, we open the ``MainPanel.js`` file. Enter the following code:
         onGenreFilterChange: function (sm) {
 
             var selectedRecords = sm.getSelections(),
-                ids = selectedRecords.column('id'); //column is a special GO method that get's all the id's from the records in an array.
+                ids = selectedRecords.column('id'); //column is a special GO method that gets all the id's from the records in an array.
 
             this.artistGrid.store.setFilter('genres', {genres: ids});
             this.artistGrid.store.load();

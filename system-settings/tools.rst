@@ -15,6 +15,10 @@ You can also run this on the command line::
 
    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/checkDatabase
 
+Or if you want to check a specific module::
+
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/checkDatabase --package=community --module=addressbook
+
 Update search index
 -------------------
 
@@ -36,6 +40,17 @@ The same as above but it first removes all cached entries.
 On the command line::
 
    sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildSearchCache --reset=1
+
+Update principals
+------------------
+
+All the users, contacts and calendar resources are cached in a principals table. They are used
+for scheduling.
+
+On the command line::
+
+   sudo -u www-data /usr/share/groupoffice/groupofficecli.php -r=maintenance/buildPrincipals
+
 
 Remove duplicate contacts and events
 ------------------------------------
@@ -110,3 +125,8 @@ side layer. Entity stores are saved in the browser and as far as the client is c
 By default, as an administrator, you do not have to do anything to make SSE work. It is on by default and has defaults are
 sane. However, you can set a custom polling interval by setting the `sseCheckInterval` option. Alternatively, you can
 disable SSE entirely by setting the `sseEnabled` option to `false`.
+
+Debugging
+---------
+
+If you want the command to output verbose debugging information, you can pass **--debug** to any command.

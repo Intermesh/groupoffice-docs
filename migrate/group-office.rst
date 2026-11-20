@@ -78,7 +78,7 @@ Installing the GroupOffice backup on the new server
 
          chown -R www-data:www-data /var/lib/groupoffice
 
-   b. If you used 'rsync' to transfer the data to /tmp then move it to the right place::
+   b. If you used 'rsync' to transfer the data to /tmp then move it to the right place:
 
       Backup the existing folder (should be empty but to be safe)::
 

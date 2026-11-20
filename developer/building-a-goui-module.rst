@@ -102,7 +102,7 @@ By convention, a GroupOffice module has at least the following files:
 5. ``EntityWindow.ts``: New entities are created or existing entities are edited in separate windows.
 
 Elements of a GUI are named components. Examples of this are comboboxes for entities, but also partial components
-that share their layout, but may be based on different fields or even different entites. These shared components should
+that share their layout, but may be based on different fields or even different entities. These shared components should
 be their own Typescript class. We'll get into this later.
 
 Index.ts

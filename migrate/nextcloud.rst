@@ -17,7 +17,7 @@ Calendar              Calendar
 Contacts              Addressbook
 ====================  ============
 
-Make sure you have the required modules installed. To replace the Nextcloud office you can install :ref:`Collabora office <collabora-office>`.
+Make sure you have the required modules installed. To replace the Nextcloud office you can install :ref:`Collabora office <collabora-online-install>`.
 
 Sign up or install
 ------------------
@@ -33,7 +33,7 @@ Before creating users, :ref:`setup groups and module permissions <user-groups>`.
 Start by creating users manually or :ref:`import them via a csv or file <user-import-export>` in GroupOffice.
 `Here you can find how to export Nextcloud users <https://apps.nextcloud.com/apps/user_migration>`_.
 
-.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <map-authentication>` or or :ref:`LDAP authentication <ldap>`.
+.. note:: Also consider if you want to use an :ref:`SSO solution with OpenID connect<oauth2>`, :ref:`IMAP authentication <imap-authentication>` or :ref:`LDAP authentication <ldap>`.
 
 
 E-mail
@@ -77,7 +77,7 @@ To get an ics file from Nextcloud you need to `publish your calendar <https://do
 Take these steps:
 
 1. Export all required calendars by publishing and downloading them.
-2. Create all required calendars in GroupOffice. All created users in GroupOffice should have a personal calender when they have access to the calendar module.
+2. Create all required calendars in GroupOffice. All created users in GroupOffice should have a personal calendar when they have access to the calendar module.
 3. :ref:`Import all vcalendar files <calendar-import-export>`.
 
 

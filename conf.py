@@ -12,7 +12,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import json
+import os
+import subprocess
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -162,3 +164,31 @@ html_context = {
 }
 
 html_js_files = ['analytics.js']
+
+# Version switcher (see _templates/versions.html). Each entry is a docs
+# version built independently with plain sphinx-build into a sibling
+# directory matching its "url".
+#
+# The list itself lives in versions.json, next to this file but gitignored
+# (see .gitignore), so it's the same physical file on disk no matter which
+# branch is checked out -- one copy to maintain, not one per branch. It
+# won't exist on a fresh checkout (e.g. Read the Docs); the switcher just
+# stays hidden in that case, see _templates/versions.html.
+#
+# "current_version" is derived from the actual git branch, so nothing here
+# needs to be hand-edited per branch either.
+_versions_path = os.path.join(os.path.dirname(__file__), 'versions.json')
+try:
+    with open(_versions_path) as _f:
+        html_context["versions"] = json.load(_f)
+except (OSError, ValueError):
+    html_context["versions"] = []
+
+try:
+    html_context["current_version"] = subprocess.check_output(
+        ['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
+        cwd=os.path.dirname(__file__),
+        stderr=subprocess.DEVNULL,
+    ).decode().strip()
+except (OSError, subprocess.CalledProcessError):
+    html_context["current_version"] = None

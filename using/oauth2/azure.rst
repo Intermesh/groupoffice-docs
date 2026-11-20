@@ -46,7 +46,7 @@ Please note the Application ID and Directory ID fields. You will need both field
 configuration.
 
 Configure your AAD application
-`````````````````````````````
+``````````````````````````````
 
 .. note:: This section is basically a summary of `this article <https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth>`_ . Please refer to this article for more information.
 
@@ -61,15 +61,16 @@ First, open the AAD application in the Azure portal.
 
 2. Add the IMAP permissions to your AAD application:
 
-	a. Under Manage, click 'API permissions';
-	b. Click 'Add a permission';
-	c. Choose "Microsoft Graph"
-	e. Click 'Delegated permissions' and add these:
-	    - IMAP.AccessAsUser.All
-	    - SMTP.Send
-	    - offline_access
-	    - email
-	    - openid
+   a. Under Manage, click 'API permissions';
+   b. Click 'Add a permission';
+   c. Choose "Microsoft Graph"
+   d. Click 'Delegated permissions' and add these:
+
+      - IMAP.AccessAsUser.All
+      - SMTP.Send
+      - offline_access
+      - email
+      - openid
 
 3. Get tenant admin consent. This depends on who is the owner of the tenant. If you are the tenant owner, simply click the button 'Grant admin consent' in the API Permissions list.
 4. Register service principals in Exchange. You need the Exchange power shell for this. My powers end here.

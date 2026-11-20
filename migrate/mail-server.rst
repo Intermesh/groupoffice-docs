@@ -51,7 +51,7 @@ you won't be able to read the mailboxes without it.
 
 Put the mailbox information into a mailboxes.csv file like this.
 
-.. code:: csv
+.. code:: text
 
     michael@group-office.com,S3cRetPassWD,Michael de Hart
     merijn@group-office.com,S3cRetPassWD,Merijn Schering
@@ -141,7 +141,7 @@ When entering ``y`` the script will create Group Office users accounts. The user
      */
 
     /**
-     * Script askes the following questions:
+     * Script asks the following questions:
      *
      * - Do you want to create to following mailboxes? [y/N]:
      * - Fill mailboxes from another imap host? [y/N]:

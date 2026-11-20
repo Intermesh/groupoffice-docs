@@ -62,7 +62,7 @@ Creating an instance
 ````````````````````
 In the "Multi instance" tab you can click the add button. Enter the full hostname of the instance and click "Save".
 After that you can select which modules it's allowed to use.
-Via the more menu in the grid you can login to this instance.
+Via the more options menu (⋮) in the grid you can login to this instance.
 
 Deleting and restoring instances
 ````````````````````````````````

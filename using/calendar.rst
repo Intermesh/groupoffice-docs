@@ -64,7 +64,7 @@ Constraints:
   * Individual instances can be declined.
 
 Personal Calendar
----------
+-----------------
 Every user with access to the calendar module has a personal calendar by default.
 If a user is not allowed to create or modify calendars, and does not have at least one writable calendar,
 a dialog is shown prompting the user to create a new personal calendar.
@@ -72,17 +72,17 @@ a dialog is shown prompting the user to create a new personal calendar.
 Subscribing
 -----------
 
-You can subscribe to shared calendars via the more options menu button next to calendars:
+You can subscribe to shared calendars via the more options menu (⋮) next to calendars:
 
 .. figure:: /_static/using/calendar/subscribe-to-calendar.png
    :width: 50%
 
-You can unsubscribe at any time via the more options menu next to the calendar.
+You can unsubscribe at any time via the more options menu (⋮) next to the calendar.
 
 Add remote calendar
 -------------------
 
-In the more options menu shown above you also find the "Add calendar from link" option. That option allows you to add
+In the more options menu (⋮) shown above you also find the "Add calendar from link" option. That option allows you to add
 a remote public calendar published in vCalendar (\*.ics) format.
 
 .. note:: There's also a :ref:`DAV client module <davclient>` that allows you to add remote caldav calendars (like
@@ -93,7 +93,7 @@ a remote public calendar published in vCalendar (\*.ics) format.
 Import and export
 -----------------
 
-You can import and export vcalendar (\*.ics) files via the more menu:
+You can import and export vcalendar (\*.ics) files via the more options menu (⋮):
 
 .. figure:: /_static/using/calendar/calendar-import-export.png
    :width: 100%
@@ -151,7 +151,7 @@ Users can share a direct link to a specific day and view in the calendar by copy
 Views
 -----
 The calendar module comes with multiple views. Either merged in one regular view or each calendar
-displayed unerneath each other in separate rows.
+displayed underneath each other in separate rows.
 
 You can select a view in the middle of the top toolbar.
 There are 5 type of views:
@@ -211,6 +211,49 @@ There is a trick to create a larger split view, The address bar will show someth
 The number 5 is the amount of days to show starting at 15 June 2026. You can replace this in any view with any number
 Because larger numbers will likely not fit on your screen in a usable manner, this is not part of the user interface.
 
+Custom views
+````````````
+
+When users are allowed in **System settings** -> **Modules** -> **Calendar** to create views. You can also create custom views.
+In these customized views you can select which calendars will be shown and you can define the view type:
+
+- Current, view mode doesn't change
+- Day
+- Workweek
+- Week
+- 2 Weeks
+- 3 Weeks
+- Month
+- Split
+
+You can also share these views. Create one by clicking the more options menu (⋮) in the calendar list and choose "Compose new view".
+
+.. figure:: /_static/using/calendar/compose-new-view.png
+   :width: 400px
+
+   Selecting a time span
+
+.. _calendar-printing:
+
+Printing
+````````
+
+Print the calendar from the more options menu (⋮) in the top toolbar -> **Print**. GroupOffice opens a PDF of the
+visible calendars in a new tab. You can print the current view, or choose one of these:
+
+- List: all events of the selected period in a list
+- Day
+- Workweek
+- Week
+- Month
+
+By default the week and workweek are printed like the month view: a cell for each day with its events. To print them
+as a grid with a column for each day and the hours down the side, like the day column view, enable
+**Print week and workweek in a grid with hours** in the :ref:`settings <calendar-settings>`.
+
+
+.. _calendar-settings:
+
 Settings
 --------
 Calendar settings can be found under 
@@ -222,6 +265,9 @@ when dragging, moving or resizing an event on this view the timespan will snap t
 1 hour, 30 minute, 15 minutes or 5 minutes.
 
 Users can select a default view to start in when they open the calendar.
+With **Print week and workweek in a grid with hours** the week and workweek are printed as a grid with hours instead
+of a cell per day. See :ref:`calendar-printing`.
+
 They can select a default duration for the month view (where each row is a week)
 In this view events are created with a single click. If a multi-day event is created here
 the default duration value is ignored and GroupOffice will default to full-day instead
@@ -240,9 +286,12 @@ Resources
 ---------
 It's possible to create resources in GroupOffice to manage meeting rooms or 
 company cars for example. The resources are organized in groups and can 
-have multiple administrators per group. Administrators must check and approve resource 
+have an administrator per group. Administrators must check and approve resource
 bookings. The resources are part of the calendar module and also work together 
 with custom fields.
+
+.. note:: When scheduling a resource this will be sent to the e-mail of the resource group owner to approve. If you need
+   it to be sent to multiple people, you can create an alias user for it.
 
 Creating groups
 ```````````````
@@ -256,7 +305,7 @@ Groups are useful to organize resources. You could have the following groups for
 
 To open the resource group management go to:
 
-Calendar -> 3-dots top right -> Resources... -> + button next to Groups
+Calendar -> more options menu (⋮) top right -> Resources... -> + button next to Groups
 
 Enter a name for the group and click “Save”. You can also select the 
 custom field sets you want to use with this type of resource. For meeting rooms 
@@ -278,7 +327,7 @@ Creating resources
 
 After you set up a resource group you can add resources. Go to:
 
-Calendar -> 3-dots top right -> Resources...-> + button next to Resources
+Calendar -> more options menu (⋮) top right -> Resources...-> + button next to Resources
 
 Enter a name and click on "Save".
 
@@ -346,14 +395,19 @@ The calendar default is the default for new events. Users can set this to None (
 Reminders are set per user. Another user with access to the event will not have the reminder set but they can choice to
 set a reminder for themselves.
 
+.. note:: When user A schedules an event on behalf of user B (By creating an event in user B's calendar), reminders will
+   also be created for user B. But only when not using the default. When default is selected it will use user B's
+   default settings.
+
 **Categories**: Users can add 1 or more categories to the event. The category's color will be displayed in the calendar view.
 
 **Free/Busy**: This is set per user. Each user can indicate whether they are shown busy or free in the schedule during this event.
 
-**Visibiltity**: there are 3 options.
-- Public: users with read access to the calendar can see the content of the event.
-- Private: users up until write own access can not see the content but do see you are busy.
-- Secret: the event is only every shown to the owner of the calendar.
+**Visibility**: there are 3 options:
+
+   - Public: users with read access to the calendar can see the content of the event.
+   - Private: users up until write own access can not see the content but do see you are busy.
+   - Secret: the event is only shown to the owner of the calendar. Other users also don't see free busy information.
 
 Invite people / Booking a resource
 ``````````````````````````````````
@@ -390,6 +444,16 @@ When an individual accepts an invite the organizer will receive a reply with the
 
 Replies are immediately processed for internal users. Participation replies from external users are processed
 when the e-mail message is viewed or if automatic email reply processing is enabled in the settings.
+
+
+Booking in resource calendars
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When users create events in resource bookings directly, they will automatically become an organiser for the new event.
+Additionally, the resource will be added as a participant.
+It's just a shorter way to book a resource. The result will be identical to the flow where a user would add a new
+event in it's personal calendar and books the resource by adding it to the participants.
+
 
 Accepting or declining a booking
 --------------------------------

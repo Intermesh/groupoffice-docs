@@ -3,7 +3,7 @@ Document templates
 
 In :ref:`my-account` -> Document templates, you can upload documents to be used as templates. Supported are:
 
-Micosoft Office
+Microsoft Office
 
 - Microsoft Word (docx)
 - Microsoft Excel (xlsx)

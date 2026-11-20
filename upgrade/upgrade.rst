@@ -55,4 +55,3 @@ When ready with the above continue by choosing your installation method:
    Docker <docker>
    Tarball <tarball>
    Incremental on Debian <incremental-upgrades-on-debian>
-   

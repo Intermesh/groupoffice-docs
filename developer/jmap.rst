@@ -20,7 +20,7 @@ Then visit System settings -> API Keys and add a token.
 .. figure:: /_static/developer/jmap/apikeys.png
    :width: 100%
 
-Obtain the token via the more menu and choose "View token".
+Obtain the token via the more options menu (⋮) and choose "View token".
 
 API Methods
 -----------

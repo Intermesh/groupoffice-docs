@@ -88,7 +88,7 @@ After these changes you must run install/upgrade.php to rebuild the cache.
 
 Now the User entity has this new property:
 
-.. code:: json
+.. code:: javascript
 
 	{
 		id: 1,

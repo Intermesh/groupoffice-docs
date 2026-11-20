@@ -89,7 +89,7 @@ Depending on the file type and access to email, a user can share their files in 
 
 1. **Copy direct link**: ill copy a direct link to the file to the clipboard. In order to use a direct link as copied to
 the clipboard, one should be logged into GroupOffice and have access to the file's parent folder. Otherwise, they will
-be redicerted to the front page.
+be redirected to the front page.
 
 2. **Create download link**: will generate a token and create a link for that. You can copy/paste that link from the
 file panel. The recipient of that link does not need to be logged in, as they access the file through the generated
@@ -148,7 +148,7 @@ Microsoft Office Online
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: /_static/using/files/microsoft-office-online.png
-   :alt: Mirosoft Office Online
+   :alt: Microsoft Office Online
 
 By becoming a Microsoft partner, we can offer Microsoft Office Online to everyone.
 You need an Office 365 for business subscription.

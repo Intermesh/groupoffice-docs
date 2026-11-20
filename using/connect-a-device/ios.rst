@@ -45,7 +45,7 @@ To setup an ActiveSync account take the following steps:
 
 7. iOS now attempts to discover settings on the domain of your e-mail address. 
    In this example "intermesh.nl". It is likely to fail because this is not the 
-   correct ActiveSync server address. It give a certficate error. Just ignore it 
+   correct ActiveSync server address. It gives a certificate error. Just ignore it 
    by clicking "Continue".
 
    .. figure:: /_static/ios-eas/6-certificate-warning.PNG
@@ -68,7 +68,7 @@ e-mail and calendar for your GroupOffice data!
 Known issues
 ````````````
 
-- When searching, the iOS mail app only starts quering the server when you type at least 3 characters. Meaning you can't search for smaller words in mail that's not on the phone.
+- When searching, the iOS mail app only starts querying the server when you type at least 3 characters. Meaning you can't search for smaller words in mail that's not on the phone.
 
 
 Files (WebDAV)

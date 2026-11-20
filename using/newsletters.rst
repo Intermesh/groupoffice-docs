@@ -32,7 +32,7 @@ contacts.
 You can add contacts one by one but you can also add entire search results using
 filters. You can also include entire lists into a new distribution list by selecting them from their respective tabs.
 
-.. note:: Individual newsletters inherit their permissions from the parent distribution list. In practice this means that users can only manage newsletters for distirbution lists that users have actual permissions to.
+.. note:: Individual newsletters inherit their permissions from the parent distribution list. In practice this means that users can only manage newsletters for distribution lists that users have actual permissions to.
 
 Compose
 -------
@@ -105,7 +105,7 @@ Upload message
    :alt: Upload message
    :width: 100%
 
-Upload a pre-created email message by pressing the "Upload message" button in the Newletter composer.
+Upload a pre-created email message by pressing the "Upload message" button in the Newsletter composer.
 The file needs to be a .ZIP with the following content:
 
 - /index.html
@@ -116,5 +116,5 @@ The file needs to be a .ZIP with the following content:
 All the images references in `index.html` need to be inside the `images/` folder.
 If images are not in this folder they can not be extracted and included in the email.
 
-Once the message is uploaded the Compsoser dialog will switch to read-only mode.
+Once the message is uploaded the Composer dialog will switch to read-only mode.
 

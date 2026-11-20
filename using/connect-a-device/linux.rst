@@ -54,7 +54,7 @@ On Debian based distributions you can install the Group Office Assistant via our
 5. Now double click a file in Group Office and it can be edited on your desktop 
    instantly.
 
-.. note:: For Chrome users. You might be annoyed by the popup dialog everytime you open a file. Here's a solution for
+.. note:: For Chrome users. You might be annoyed by the popup dialog every time you open a file. Here's a solution for
    that: https://superuser.com/questions/1481851/disable-chrome-to-ask-for-confirmation-to-open-external-application-everytime
 
 Fedora RPM
@@ -76,6 +76,6 @@ You can use WebDAV to mount GroupOffice as a network drive. Linux Desktops have 
 launch the file explorer and choose "Connect to server" from the menu. KDE/Plasma users can use the Dolphin file
 manager to connect to WebDAV.
 
-Connect the client to:
+Connect the client to::
 
-https://[Server hostname]/webdav
+   https://[Server hostname]/webdav

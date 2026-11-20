@@ -47,14 +47,14 @@ Login to Rocket.Chat as administrator and:
       .. figure:: /_static/system-settings/rocketchat/callback-url.png
          :width: 80%
 
-          Rocket Chat callback URL
+         Rocket Chat callback URL
 
       The input should look like this:
 
       .. figure:: /_static/system-settings/rocketchat/rocket-chat-oauth-client.png
          :width: 80%
 
-          Rocket Chat oauth client
+         Rocket Chat oauth client
 
 
 
@@ -63,7 +63,7 @@ Login to Rocket.Chat as administrator and:
    .. figure:: /_static/system-settings/rocketchat/login-with-group-office.png
       :width: 100%
 
-       Rocket Chat login with GroupOffice button
+      Rocket Chat login with GroupOffice button
 
 
 .. note:: If you get an error double check these settings:

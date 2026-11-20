@@ -31,7 +31,7 @@ Change the permissions::
     chmod 0710 /etc/fetchmailrc
     chown root:root /etc/fetchmailrc
 
-Now start the deamon::
+Now start the daemon::
 
     /etc/init.d/fetchmail start
 
