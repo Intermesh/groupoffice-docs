@@ -60,6 +60,8 @@ Here's a list of config options:
    wopiAllowInternal             bool    Allow Collabora/Office Online (WOPI) service URLs that resolve to private or loopback addresses. Disabled by default. See :ref:`collabora-online-install`.
    davclientAllowInternal        bool    Allow DAV client accounts on servers that resolve to private or loopback addresses, such as a server in your own network or on localhost. Disabled by default. See :ref:`davclient-internal`.
    trustedProxies                array   IP addresses or CIDR ranges of the reverse proxies or load balancers in front of GroupOffice, eg. ['10.0.0.0/8', '172.16.0.0/12']. The client IP address is only taken from the ``X-Forwarded-For`` header for connections from these addresses. Empty by default. See :ref:`http-proxy-client-ip`.
+   sseEnabled                    bool    Enable Server Side Events. True by default; set to false to disable
+   sseCheckInterval              int     Override polling interval in seconds for Server Side Event Checks. The default is 1 with APCU enabled or 20 with APCU disabled.
    ============================  ======  ===========
 
 

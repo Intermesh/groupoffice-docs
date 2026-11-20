@@ -29,6 +29,7 @@ Table of contents
 
    install/install
    upgrade/upgrade
+   upgrade/incremental-upgrades-on-debian
    maintenance/backup
    maintenance/cleanup
    migrate/index

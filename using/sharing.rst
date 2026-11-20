@@ -19,7 +19,8 @@ permission:
 +-------------------+---------------------------------------------------------+
 | Write             | Full write access                                       |
 +-------------------+---------------------------------------------------------+
-| Delete            | Delete is allowed                                       |
+| Delete            | If an item has child items, the user can delete the     |
+|                   | child items. Otherwise, the item itself can be deleted. |
 +-------------------+---------------------------------------------------------+
 | Manage            | The user can do everything and can also change the      |
 |                   | permissions.                                            |
@@ -44,6 +45,15 @@ menu in the address book for example:
 .. note:: If you can't find users to share with it's probably due to them being invisible. Read more about that in the
    :ref:`user-visibility` section.
 
+Delete permissions
+------------------
+
+Delete permissions work slightly different than other standard permissions: if an entity has child entities, a user
+needs manage permissions to delete that entity. In our API, we refer to such an entity as an `AclOwnerEntity`. An entity
+that is part of an AclOwnerEntity is called an `AclItemEntity`. If a user wants to delete an AclItemEntity, delete
+permissions are sufficient.
+
+A real world example: a user with delete permission for a notebook can delete individual notes, but not the notebook.
 
 Global address book
 -------------------

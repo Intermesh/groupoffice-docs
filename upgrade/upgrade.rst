@@ -10,6 +10,8 @@ You can upgrade any version from GroupOffice, but please make sure to do this in
 - 6.2 can upgrade to 6.3, 6.3 can upgrade to 6.4, and so on up to 6.8. Every major release needs to be upgraded to the next from 6.2 and higher.
 - 6.8 can upgrade to 25.0
 
+If you need to upgrade from a very old version, which would be any version before 6.8, please read :ref:`our full incremental upgrade guide<incremental-upgrades-on-debian>`.
+
 **Prerequisites**
 
 Make sure your system meets the :ref:`system-requirements`. In between certain versions it may be possible or even
@@ -52,3 +54,4 @@ When ready with the above continue by choosing your installation method:
    Debian / Ubuntu <debian>
    Docker <docker>
    Tarball <tarball>
+   Incremental on Debian <incremental-upgrades-on-debian>
