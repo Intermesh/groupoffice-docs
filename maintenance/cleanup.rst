@@ -1,5 +1,7 @@
+.. _cleanup_database:
+
 Cleanup database
--------------------------------
+-----------------
 
 After deprecated modules get deleted from the source, they are no longer uninstallable.
 If you haven't uninstalled the deleted module before upgrading, there might be tables
@@ -12,6 +14,9 @@ the old tables just take up space.
 
 For this reason we keep a list of ``DROP TABLE`` statements. These can be executed on 
 the database after a successful upgrade to remove the old tables.
+
+The list below is not exhaustive. A fully up to date version can be found in your GroupOffice installation directory, in
+``script/cleanup.sql``. Simply open this script in your MySQL client and run the queries as needed.
 
 .. warning:: Do this at your own risk!
 	We strongly recommend that you create a backup of the database before using any of these
@@ -145,7 +150,7 @@ There is a new billing module but the old one can still be used or uninstalled
 This release was focussed to support latest PHP version. There were no database tables obsoleted.
 
 
-25.1 or higher
+25.0 or higher
 ~~~~~~~~~~~~~~~~~~~~~
 
 The Calendar module was replaced with a new version.
